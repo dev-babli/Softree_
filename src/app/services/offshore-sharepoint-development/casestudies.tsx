@@ -1,21 +1,23 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import { useRouter } from "next/navigation";
-import { FileText, AlertTriangle, Lightbulb } from "lucide-react";
+import React from "react";
+import { Gallery4, Gallery4Props } from "@/components/blocks/gallery4";
+import { FlowButton } from "@/components/ui/flow-button";
+import AnimatedGradient from "@/components/ui/animated-gradient";
+import { typography } from "@/lib/typography";
 
-import "swiper/css";
-
-const caseStudies = [
+export const caseStudies = [
   {
     title: "LabTrack Pro Pathology Reports",
     category: "SharePoint",
-    summary: "A SharePoint Online pathology reporting platform ensuring regulatory standards compliance and secure, automated PDF diagnostics dispatch.",
-    challenge: "Medical lab reporting suffered from manual processing lag and compliance risks due to decentralized diagnostic record storage.",
-    solution: "Built a custom SPFx dashboard integrated with Power Automate and secure SharePoint document library indexing.",
-    impact: "Reduced report generation time by 80% and achieved 100% HIPAA compliance audits.",
+    summary:
+      "A SharePoint Online pathology reporting platform ensuring regulatory standards compliance and secure, automated PDF diagnostics dispatch.",
+    challenge:
+      "Medical lab reporting suffered from manual processing lag and compliance risks due to decentralized diagnostic record storage.",
+    solution:
+      "Built a custom SPFx dashboard integrated with Power Automate and secure SharePoint document library indexing.",
+    impact:
+      "Reduced report generation time by 80% and achieved 100% HIPAA compliance audits.",
     tech: ["SharePoint Online", "SPFx", "Power Automate", "Office 365 Groups"],
     image: "/images/case-study/sharepoint/labtrack-pro.webp",
     href: "https://www.softreetechnology.com/case-studies/labtrack-pro-pathology-report-management",
@@ -23,10 +25,14 @@ const caseStudies = [
   {
     title: "SharePoint Asset Tracker",
     category: "SharePoint",
-    summary: "100% asset traceability platform built for enterprise retail inventory control and checkout tracking.",
-    challenge: "Retail stock counts and store floor IT gear checkouts were untracked, causing inventory losses and accounting conflicts.",
-    solution: "Developed a real-time barcode-scanning responsive SPFx interface and integrated Power Automate stock level alerts.",
-    impact: "Eliminated retail inventory leakages, saving thousands in annual hardware replacement costs.",
+    summary:
+      "100% asset traceability platform built for enterprise retail inventory control and checkout tracking.",
+    challenge:
+      "Retail stock counts and store floor IT gear checkouts were untracked, causing inventory losses and accounting conflicts.",
+    solution:
+      "Developed a real-time barcode-scanning responsive SPFx interface and integrated Power Automate stock level alerts.",
+    impact:
+      "Eliminated retail inventory leakages, saving thousands in annual hardware replacement costs.",
     tech: ["SharePoint Online", "SPFx", "Power Automate", "Barcode Scanner"],
     image: "/images/case-study/sharepoint/contact.webp",
     href: "https://www.softreetechnology.com/case-studies/sharepoint-asset-tracker-app",
@@ -34,10 +40,14 @@ const caseStudies = [
   {
     title: "SharePoint Site Pages to PDF",
     category: "SharePoint",
-    summary: "Automated high-fidelity PDF generation from SharePoint Site Pages for regulatory compliance and document archival.",
-    challenge: "Standard browser print actions generated misaligned headers, broken page layouts, and missed crucial metadata.",
-    solution: "Designed a custom SPFx solution to render pixel-perfect PDF documents preserving typography, branding, and layouts.",
-    impact: "Reduced manual layout adjustments by 95% and automated PDF compilation workflows for auditing.",
+    summary:
+      "Automated high-fidelity PDF generation from SharePoint Site Pages for regulatory compliance and document archival.",
+    challenge:
+      "Standard browser print actions generated misaligned headers, broken page layouts, and missed crucial metadata.",
+    solution:
+      "Designed a custom SPFx solution to render pixel-perfect PDF documents preserving typography, branding, and layouts.",
+    impact:
+      "Reduced manual layout adjustments by 95% and automated PDF compilation workflows for auditing.",
     tech: ["SPFx", "PDF Engine", "SharePoint API", "TypeScript"],
     image: "/images/case-study/sharepoint/pdf.webp",
     href: "https://www.softreetechnology.com/case-studies/sharepoint-site-pages-to-pdf",
@@ -45,10 +55,14 @@ const caseStudies = [
   {
     title: "SharePoint & SPFx Automation Testing",
     category: "SharePoint",
-    summary: "Automated validation framework for SPFx components to secure continuous delivery pipelines.",
-    challenge: "Manual QA checks on dynamic custom web parts delayed code releases and risked visual regression on live portals.",
-    solution: "Designed a comprehensive unit, integration, and UI testing framework using Jest and Playwright.",
-    impact: "Accelerated release cycles by 70% and captured 99% of regression bugs before staging deployment.",
+    summary:
+      "Automated validation framework for SPFx components to secure continuous delivery pipelines.",
+    challenge:
+      "Manual QA checks on dynamic custom web parts delayed code releases and risked visual regression on live portals.",
+    solution:
+      "Designed a comprehensive unit, integration, and UI testing framework using Jest and Playwright.",
+    impact:
+      "Accelerated release cycles by 70% and captured 99% of regression bugs before staging deployment.",
     tech: ["SPFx", "Jest", "Playwright", "CI/CD Pipeline"],
     image: "/images/case-study/sharepoint/sp.webp",
     href: "https://www.softreetechnology.com/case-studies/sharepoint-spfx-automation-testing-quality-assurance",
@@ -56,239 +70,309 @@ const caseStudies = [
   {
     title: "CareSync 360 Multilingual Patient Portal",
     category: "SharePoint",
-    summary: "Built a secure multilingual appointment management and customer support system inside SharePoint Online.",
-    challenge: "Managing patient scheduling across different language barriers created high administrative burden and scheduling errors.",
-    solution: "Created a multilingual patient portal inside SharePoint using React SPFx web parts and Azure Cognitive Services.",
-    impact: "Handled over 50k monthly patient requests, improving patient onboarding speed by 60%.",
+    summary:
+      "Built a secure multilingual appointment management and customer support system inside SharePoint Online.",
+    challenge:
+      "Managing patient scheduling across different language barriers created high administrative burden and scheduling errors.",
+    solution:
+      "Created a multilingual patient portal inside SharePoint using React SPFx web parts and Azure Cognitive Services.",
+    impact:
+      "Handled over 50k monthly patient requests, improving patient onboarding speed by 60%.",
     tech: ["SharePoint Online", "SPFx", "React", "Azure AI Translation"],
     image: "/images/case-study/sharepoint/claim.webp",
     href: "https://www.softreetechnology.com/case-studies/multilingual-patient-appointment-portal",
   },
 ];
 
-export default function SharePointCaseStudies() {
-  const swiperRef = useRef<any>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const router = useRouter();
+const caseStudyData: Gallery4Props = {
+  title: (
+    <div className="flex flex-col items-start">
+      <div
+        className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 ${typography.caption.default} text-[#FF6B00] uppercase mb-4 w-fit`}
+      >
+        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
+        SHAREPOINT DEVELOPMENT SUCCESS STORIES
+      </div>
+      <span
+        className={`${typography.heading.h2} text-slate-900 leading-tight text-left`}
+      >
+        SharePoint Development Success Stories for{" "}
+        <span className="text-orange-600">Better Business Collaboration</span>
+      </span>
+    </div>
+  ) as any,
 
-  return (
-    <section className="relative py-16">
-      <div className="w-[86%] max-w-7xl mx-auto space-y-8">
-        <div className="text-center">
-          {/* Badge */}
-          <span className="inline-block mb-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 text-xs font-semibold tracking-[0.18em] uppercase">
-            SharePoint Case Studies
-          </span>
+  description:
+    "Explore how SharePoint development solutions can help businesses streamline document management, improve team collaboration, automate workflows, and connect Microsoft 365 with existing business applications.",
 
-          {/* Title */}
-          <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
-            SharePoint in Action:
-            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent font-semibold"> Modern Workplace Solutions</span>
-          </h2>
-
-          {/* Description */}
-          <p className="mt-3 max-w-3xl mx-auto text-base text-gray-600 leading-relaxed">
-            Discover how Softree builds intelligent SharePoint intranets,
-            portals, and SPFx solutions that streamline collaboration, automate
-            workflows, and enhance productivity across Microsoft 365
-            environments.
-          </p>
-        </div>
-
-        <div
-          className="
-            w-full
-            h-auto min-h-[680px] md:h-[70vh] md:max-h-[680px]
-            bg-gradient-to-r from-[#fafafa] via-orange-50/30 to-[#fafafa]
-            rounded-[32px]
-            border border-slate-200
-            shadow-xl
-            overflow-hidden
-          "
-        >
-          <Swiper
-            modules={[Autoplay]}
-            slidesPerView={1}
-            loop
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            speed={900}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="h-full w-full overflow-hidden"
+  items: [
+    {
+      id: "labtrack-pro-pathology-reports",
+      title: caseStudies[0].title,
+      label: "SharePoint Online · SPFx",
+      description: (
+        <div className="space-y-3 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
+          <p
+            className={`text-white/90 ${typography.body.sm} leading-relaxed mb-3 border-b border-white/10 pb-3`}
           >
-            {caseStudies.map((item, index) => (
-              <SwiperSlide key={index} className="h-full w-full">
-                {/* FULL WIDTH CARD */}
-                <div className="relative w-full h-full overflow-hidden rounded-[32px]">
-                  {/* Border */}
-                  <div className="pointer-events-none absolute inset-0 rounded-[32px] ring-1 ring-white/15" />
-
-                  {/* CARD BODY */}
-                  <div
-                    className="
-                      w-full
-                      h-full
-                      bg-gradient-to-r from-black via-[#4c1c02] to-black
-                      p-10
-                      flex flex-col justify-center
-                    "
-                  >
-                    {/* Header */}
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl font-semibold text-white">
-                        {item.title} — Case Study
-                      </h3>
-
-                      <p className="mt-2 text-sm text-slate-300 flex items-center justify-center gap-2">
-                        📍 Client Country
-                        <span className="font-medium text-white">
-                          United States 🇺🇸
-                        </span>
-                      </p>
-                    </div>
-
-                    {/* Content */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-                      {/* Image */}
-                      <div className="flex justify-center w-full min-w-0 max-w-sm mx-auto lg:max-w-none">
-                        <div className="w-full aspect-video overflow-hidden rounded-xl shadow-md ring-1 ring-white/10 shrink-0 bg-black/40">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Text */}
-                      <div className="space-y-5 min-w-0 w-full">
-                        {/* SUMMARY */}
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2">
-                            <FileText className="w-4 h-4 text-orange-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
-                              Summary
-                            </h4>
-                          </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            {item.summary}
-                          </p>
-                        </div>
-
-                        {/* PROBLEM */}
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2">
-                            <AlertTriangle className="w-4 h-4 text-rose-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-rose-400 uppercase">
-                              Problem
-                            </h4>
-                          </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            {item.challenge}
-                          </p>
-                        </div>
-
-                        {/* SOLUTION */}
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2">
-                            <Lightbulb className="w-4 h-4 text-amber-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-amber-400 uppercase">
-                              Solution
-                            </h4>
-                          </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            {item.solution}
-                          </p>
-                        </div>
-
-                        {/* IMPACT BOX */}
-                        <div
-                          className="
-                            relative
-                            rounded-xl
-                            px-5 py-4
-                            flex flex-col gap-3
-                            sm:flex-row sm:items-center sm:justify-between
-                            bg-gradient-to-r from-orange-600 via-orange-700 to-amber-600
-                            text-white
-                            shadow-lg
-                            overflow-hidden
-                          "
-                        >
-                          <div className="relative z-10 space-y-0.5 flex-1 min-w-0 pr-3">
-                            <p className="text-xs uppercase tracking-wider text-white/70 truncate">
-                              Impact
-                            </p>
-                            <p className="text-sm font-semibold leading-snug break-words">
-                              {item.impact}
-                            </p>
-                          </div>
-
-                          <a
-                            href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="
-                              relative z-10
-                              inline-flex items-center justify-center
-                              px-4 py-2
-                              text-xs font-semibold uppercase tracking-wide
-                              rounded-full
-                              bg-white text-orange-700
-                              hover:scale-105
-                              transition-all duration-300
-                              whitespace-nowrap
-                              flex-shrink-0
-                            "
-                          >
-                            View Case Study →
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-
-        {/* ================= PAGINATION (clean spacing) ================= */}
-        <div className="flex justify-center">
-          <div className="flex flex-col items-center gap-2 px-6 py-3 rounded-full bg-white border border-gray-200 shadow-md">
-            <div className="flex items-center gap-5">
-              {caseStudies.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => swiperRef.current?.slideToLoop(i)}
-                  className={`text-xs font-medium tracking-widest transition
-                             ${
-                               activeIndex === i
-                                 ? "text-orange-600 scale-125"
-                                 : "text-gray-400 hover:text-gray-700"
-                             }
-                           `}
+            {caseStudies[0].summary}
+          </p>
+          <div className="flex flex-col gap-2.5">
+            {[
+              { value: "80%", label: "Reduced Report Time" },
+              { value: "100%", label: "HIPAA Compliance" },
+            ].map((result, idx) => (
+              <div key={idx} className="flex items-center gap-2.5 text-xs">
+                <span className="text-[#FF6B2C] font-mono font-bold tracking-tight shrink-0 min-w-[55px]">
+                  {result.value}
+                </span>
+                <span
+                  className={`text-white/80 ${typography.caption.meta} uppercase tracking-wider`}
                 >
-                  {String(i + 1).padStart(2, "0")}
-                </button>
-              ))}
-            </div>
-
-            <div className="w-36 h-[3px] bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-orange-600 to-amber-500 transition-all duration-500"
-                style={{
-                  width: `${((activeIndex + 1) / caseStudies.length) * 100}%`,
-                }}
-              />
-            </div>
+                  {result.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
+      ),
+      href: "/case-studies/labtrack-pro-pathology-report-management",
+      bgComponent: (
+        <AnimatedGradient
+          config={{
+            preset: "custom",
+            color1: "#050505",
+            color2: "#FF6B00",
+            color3: "#1a0b04",
+            rotation: -50,
+            proportion: 1,
+            scale: 0.01,
+            speed: 30,
+            distortion: 0,
+            swirl: 50,
+            swirlIterations: 16,
+            softness: 47,
+            offset: -299,
+            shape: "Checks",
+            shapeSize: 45,
+          }}
+        />
+      ),
+    },
+    {
+      id: "sharepoint-asset-tracker",
+      title: caseStudies[1].title,
+      label: "SPFx · Power Automate",
+      description: (
+        <div className="space-y-3 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
+          <p
+            className={`text-white/90 ${typography.body.sm} leading-relaxed mb-3 border-b border-white/10 pb-3`}
+          >
+            {caseStudies[1].summary}
+          </p>
+          <div className="flex flex-col gap-2.5">
+            {[
+              { value: "100%", label: "Asset Traceability" },
+              { value: "Zero", label: "Inventory Leakages" },
+            ].map((result, idx) => (
+              <div key={idx} className="flex items-center gap-2.5 text-xs">
+                <span className="text-[#FF6B2C] font-mono font-bold tracking-tight shrink-0 min-w-[55px]">
+                  {result.value}
+                </span>
+                <span
+                  className={`text-white/80 ${typography.caption.meta} uppercase tracking-wider`}
+                >
+                  {result.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+      href: "/case-studies/sharepoint-asset-tracker-app",
+      bgComponent: <AnimatedGradient config={{ preset: "Lava" }} />,
+    },
+    {
+      id: "sharepoint-site-pages-to-pdf",
+      title: caseStudies[2].title,
+      label: "SPFx · PDF Engine",
+      description: (
+        <div className="space-y-3 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
+          <p
+            className={`text-white/90 ${typography.body.sm} leading-relaxed mb-3 border-b border-white/10 pb-3`}
+          >
+            {caseStudies[2].summary}
+          </p>
+          <div className="flex flex-col gap-2.5">
+            {[
+              { value: "95%", label: "Reduced Manual Effort" },
+              { value: "100%", label: "Pixel-Perfect Archival" },
+            ].map((result, idx) => (
+              <div key={idx} className="flex items-center gap-2.5 text-xs">
+                <span className="text-[#FF6B2C] font-mono font-bold tracking-tight shrink-0 min-w-[55px]">
+                  {result.value}
+                </span>
+                <span
+                  className={`text-white/80 ${typography.caption.meta} uppercase tracking-wider`}
+                >
+                  {result.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+      href: "/case-studies/sharepoint-site-pages-to-pdf",
+      bgComponent: (
+        <AnimatedGradient
+          config={{
+            preset: "custom",
+            color1: "#FF7300",
+            color2: "#000000",
+            color3: "#000000",
+            rotation: 0,
+            proportion: 63,
+            scale: 0.75,
+            speed: 30,
+            distortion: 5,
+            swirl: 61,
+            swirlIterations: 5,
+            softness: 100,
+            offset: -168,
+            shape: "Checks",
+            shapeSize: 28,
+          }}
+        />
+      ),
+    },
+    {
+      id: "sharepoint-spfx-automation-testing",
+      title: caseStudies[3].title,
+      label: "SPFx · Jest · Playwright",
+      description: (
+        <div className="space-y-3 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
+          <p
+            className={`text-white/90 ${typography.body.sm} leading-relaxed mb-3 border-b border-white/10 pb-3`}
+          >
+            {caseStudies[3].summary}
+          </p>
+          <div className="flex flex-col gap-2.5">
+            {[
+              { value: "70%", label: "Faster Release Cycles" },
+              { value: "99%", label: "Regression Bugs Caught" },
+            ].map((result, idx) => (
+              <div key={idx} className="flex items-center gap-2.5 text-xs">
+                <span className="text-[#FF6B2C] font-mono font-bold tracking-tight shrink-0 min-w-[55px]">
+                  {result.value}
+                </span>
+                <span
+                  className={`text-white/80 ${typography.caption.meta} uppercase tracking-wider`}
+                >
+                  {result.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+      href: "/case-studies/sharepoint-spfx-automation-testing-quality-assurance",
+      bgComponent: (
+        <AnimatedGradient
+          config={{
+            preset: "custom",
+            color1: "#050505",
+            color2: "#FF4500",
+            color3: "#050505",
+            rotation: 0,
+            proportion: 33,
+            scale: 0.48,
+            speed: 39,
+            distortion: 4,
+            swirl: 65,
+            swirlIterations: 5,
+            softness: 100,
+            offset: -235,
+            shape: "Edge",
+            shapeSize: 48,
+          }}
+        />
+      ),
+    },
+    {
+      id: "caresync-360-multilingual-patient-portal",
+      title: caseStudies[4].title,
+      label: "SPFx · Azure AI Translation",
+      description: (
+        <div className="space-y-3 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
+          <p
+            className={`text-white/90 ${typography.body.sm} leading-relaxed mb-3 border-b border-white/10 pb-3`}
+          >
+            {caseStudies[4].summary}
+          </p>
+          <div className="flex flex-col gap-2.5">
+            {[
+              { value: "50k+", label: "Monthly Patient Requests" },
+              { value: "60%", label: "Faster Onboarding" },
+            ].map((result, idx) => (
+              <div key={idx} className="flex items-center gap-2.5 text-xs">
+                <span className="text-[#FF6B2C] font-mono font-bold tracking-tight shrink-0 min-w-[55px]">
+                  {result.value}
+                </span>
+                <span
+                  className={`text-white/80 ${typography.caption.meta} uppercase tracking-wider`}
+                >
+                  {result.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+      href: "/case-studies/multilingual-patient-appointment-portal",
+      bgComponent: (
+        <AnimatedGradient
+          config={{
+            preset: "custom",
+            color1: "#111111",
+            color2: "#EA3C12",
+            color3: "#0a0f1d",
+            rotation: 45,
+            proportion: 50,
+            scale: 0.5,
+            speed: 25,
+            distortion: 3,
+            swirl: 40,
+            swirlIterations: 4,
+            softness: 80,
+            offset: -100,
+            shape: "Checks",
+            shapeSize: 35,
+          }}
+        />
+      ),
+    },
+  ],
+};
+
+export function SharePointCaseStudies() {
+  return (
+    <div className="relative flex flex-col items-center -mt-4 md:-mt-8 -mb-8 md:-mb-12">
+      <div className="w-full">
+        <Gallery4
+          {...caseStudyData}
+          action={
+            <FlowButton
+              href="/case-studies"
+              text="Explore SharePoint Case Studies"
+              variant="orange-filled"
+              className="py-3 px-6 text-xs sm:text-sm font-bold shadow-md"
+            />
+          }
+        />
       </div>
-    </section>
+    </div>
   );
 }
+
+export { SharePointCaseStudies as PowerAppsCaseStudies };
+export default SharePointCaseStudies;

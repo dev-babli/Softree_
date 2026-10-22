@@ -1,156 +1,351 @@
 "use client";
 
+import React, { useMemo, useState } from "react";
+import type { LucideIcon } from "lucide-react";
 import {
-  FaCode,
-  FaDatabase,
-  FaCloud,
-  FaCogs,
-  FaLayerGroup,
-} from "react-icons/fa";
+  Code,
+  Terminal,
+  Layers,
+  Database,
+  Wrench,
+  Server,
+  Cpu,
+} from "lucide-react";
 
-import {
-  MdDataObject,
-  MdDeveloperMode,
-  MdStorage,
-  MdAutoAwesome,
-} from "react-icons/md";
-
-import { SiJavascript, SiHtml5, SiCss, SiReact } from "react-icons/si";
-
-const techStacks = [
+export const sharepointTechCategories = [
   {
-    title: "Languages",
-    accent: "from-white/35 via-white/15 to-transparent",
+    label: "LANGUAGES",
+    icon: Code,
     items: [
-      { name: "TypeScript", icon: SiJavascript },
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "C#", icon: FaCode },
-      { name: "HTML", icon: SiHtml5 },
-      { name: "CSS / SCSS", icon: SiCss },
+      { name: "TypeScript" },
+      { name: "JavaScript" },
+      { name: "C#" },
+      { name: "HTML" },
+      { name: "CSS / SCSS" },
     ],
   },
   {
-    title: "Tools",
-    accent: "from-white/30 via-white/12 to-transparent",
+    label: "TOOLS",
+    icon: Wrench,
     items: [
-      { name: "SharePoint Framework (SPFx)", icon: FaCode },
-      { name: "Visual Studio Code", icon: MdDeveloperMode },
-      { name: "PnP PowerShell", icon: FaCogs },
-      { name: "PowerShell", icon: MdDeveloperMode },
-      { name: "Node.js & Gulp", icon: FaCogs },
+      { name: "SharePoint Framework (SPFx)" },
+      { name: "Visual Studio Code" },
+      { name: "PnP PowerShell" },
+      { name: "PowerShell" },
+      { name: "Node.js & Gulp" },
     ],
   },
   {
-    title: "Frameworks & APIs",
-    accent: "from-white/20 via-white/8 to-transparent",
+    label: "FRAMEWORKS & APIS",
+    icon: Layers,
     items: [
-      { name: "React.js", icon: SiReact },
-      { name: "SharePoint REST API", icon: MdDataObject },
-      { name: "Microsoft Graph API", icon: MdDataObject },
-      { name: ".NET Framework", icon: FaCode },
-      { name: "PnP JS", icon: FaLayerGroup },
+      { name: "React.js" },
+      { name: "SharePoint REST API" },
+      { name: "Microsoft Graph API" },
+      { name: ".NET Framework" },
+      { name: "PnP JS" },
     ],
   },
   {
-    title: "Data & Storage",
-    accent: "from-white/20 via-white/8 to-transparent",
+    label: "DATA & STORAGE",
+    icon: Database,
     items: [
-      { name: "SharePoint Lists", icon: MdStorage },
-      { name: "Document Libraries", icon: MdStorage },
-      { name: "Microsoft Dataverse", icon: FaDatabase },
-      { name: "SQL Server / Azure SQL", icon: FaDatabase },
-      { name: "Microsoft 365", icon: FaCloud },
+      { name: "SharePoint Lists" },
+      { name: "Document Libraries" },
+      { name: "Microsoft Dataverse" },
+      { name: "SQL Server / Azure SQL" },
+      { name: "Microsoft 365" },
     ],
   },
 ];
 
-export default function TechStack() {
+/* -------------------------------------------------------------------------- */
+/*  Logo map                                                                  */
+/* -------------------------------------------------------------------------- */
+const techToImgUrl: Record<string, string> = {
+  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+  "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+  "C#": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+  "HTML": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+  "CSS / SCSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg",
+  "SharePoint Framework (SPFx)": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg",
+  "Visual Studio Code": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
+  "PnP PowerShell": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg",
+  "PowerShell": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg",
+  "Node.js & Gulp": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+  "React.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  "SharePoint REST API": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg",
+  "Microsoft Graph API": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+  ".NET Framework": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg",
+  "PnP JS": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg",
+  "SharePoint Lists": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg",
+  "Document Libraries": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg",
+  "Microsoft Dataverse": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+  "SQL Server / Azure SQL": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+  "Microsoft 365": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+};
+
+type Tech = {
+  name: string;
+  category: string;
+  categoryIcon?: LucideIcon | React.ComponentType<{ className?: string; strokeWidth?: number | string }>;
+  imgUrl: string | null;
+};
+
+/* -------------------------------------------------------------------------- */
+/*  Single tech tile                                                          */
+/* -------------------------------------------------------------------------- */
+function TechTile({ tech }: { tech: Tech }) {
+  const [failed, setFailed] = useState(false);
+  const Icon = tech.categoryIcon;
+  const showImg = Boolean(tech.imgUrl && !failed);
+
   return (
-    <section className="relative overflow-hidden py-16">
-      {/* Background glow */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(249,115,22,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(245,158,11,0.12),transparent_40%)]" />
-
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-4xl mx-auto mb-4 px-4">
-          {/* Eyebrow */}
-          <span
-            className="
-      inline-flex items-center gap-2
-      text-sm font-semibold tracking-widest uppercase
-      text-orange-600
-    "
-          >
-            <MdAutoAwesome className="text-orange-600" />
-            SharePoint Technology Stack
+    <div className="tech-tile group flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white/80 py-2.5 pl-2.5 pr-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#FF5812]/60 hover:bg-white hover:shadow-[0_10px_30px_-10px_rgba(255,88,18,0.35)]">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-zinc-50 ring-1 ring-inset ring-zinc-200 transition-colors duration-300 group-hover:bg-orange-50 group-hover:ring-[#FF5812]/30">
+        {showImg ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={tech.imgUrl || ""}
+            alt={`${tech.name} logo`}
+            loading="lazy"
+            onError={() => setFailed(true)}
+            className="h-6 w-6 object-contain opacity-70 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+          />
+        ) : Icon ? (
+          <Icon className="h-5 w-5 text-[#FF5812]" strokeWidth={1.5} />
+        ) : (
+          <span className="text-sm font-semibold text-[#FF5812]">
+            {tech.name.charAt(0)}
           </span>
+        )}
+      </span>
 
-          {/* Heading */}
-          <h2 className="mt-6 text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-gray-900">
-            Built on a Modern, <br />
-            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-              Scalable SharePoint Ecosystem
+      <span className="flex flex-col leading-tight">
+        <span className="whitespace-nowrap text-sm font-semibold text-zinc-900">
+          {tech.name}
+        </span>
+        <span className="whitespace-nowrap text-xs text-zinc-500">
+          {tech.category}
+        </span>
+      </span>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Marquee row                                                               */
+/* -------------------------------------------------------------------------- */
+function MarqueeRow({
+  items,
+  reverse = false,
+  duration,
+}: {
+  items: Tech[];
+  reverse?: boolean;
+  duration: number;
+}) {
+  // Make sure the strip is long enough to loop seamlessly on wide screens
+  const strip = useMemo<Tech[]>(() => {
+    if (items.length === 0) return [];
+    const reps = Math.max(1, Math.ceil(14 / items.length));
+    return Array.from({ length: reps }).flatMap(() => items);
+  }, [items]);
+
+  return (
+    <div className="marquee-mask group/row relative overflow-hidden py-1.5">
+      <div
+        className="marquee-track flex w-max gap-3"
+        style={{
+          animationDuration: `${duration}s`,
+          animationDirection: (reverse ? "reverse" : "normal") as React.CSSProperties["animationDirection"],
+        }}
+      >
+        {/* Two copies → translateX(-50%) loops with no jump */}
+        {[0, 1].map((copy) => (
+          <div
+            key={copy}
+            className="flex shrink-0 gap-3"
+            aria-hidden={copy === 1}
+          >
+            {strip.map((tech, i) => (
+              <TechTile key={`${copy}-${tech.name}-${i}`} tech={tech} />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Section                                                                   */
+/* -------------------------------------------------------------------------- */
+export default function TechStack() {
+  const [active, setActive] = useState<string>("All");
+
+  const categories = useMemo(
+    () =>
+      sharepointTechCategories.map((c) => ({
+        label: c.label,
+        icon: c.icon,
+        items: c.items,
+      })),
+    []
+  );
+
+  const allTechs = useMemo<Tech[]>(
+    () =>
+      categories.flatMap((cat) =>
+        cat.items.map((item) => ({
+          name: item.name,
+          category: cat.label,
+          categoryIcon: cat.icon,
+          imgUrl: techToImgUrl[item.name] || null,
+        }))
+      ),
+    [categories]
+  );
+
+  const visible = useMemo<Tech[]>(
+    () =>
+      active === "All" ? allTechs : allTechs.filter((t) => t.category === active),
+    [active, allTechs]
+  );
+
+  // Split into two rows; the second row runs the other way
+  const rowA = useMemo<Tech[]>(() => visible.filter((_, i) => i % 2 === 0), [visible]);
+  const rowB = useMemo<Tech[]>(() => visible.filter((_, i) => i % 2 === 1), [visible]);
+  const rows = [rowA, rowB.length ? rowB : rowA];
+
+  const tabs = useMemo<string[]>(
+    () => ["All", ...categories.map((c) => c.label)],
+    [categories]
+  );
+
+  return (
+    <section className="relative scroll-mt-24 overflow-hidden bg-white py-12 text-slate-900 md:py-20">
+      {/* Backdrop: soft glow + dotted grid fading out toward the edges */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-1/3 h-[480px] w-[860px] -translate-x-1/2 rounded-full bg-orange-500/[0.06] blur-[140px]" />
+        <div
+          className="absolute inset-0 opacity-60"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, #e4e4e7 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%)",
+          }}
+        />
+      </div>
+
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
+        {/* ============================ HEADER ============================ */}
+        <div className="mb-10 grid grid-cols-1 items-end gap-x-24 gap-y-6 lg:grid-cols-2">
+          <div>
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1 text-xs font-medium text-[#FF5812]">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF5812] opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+              </span>
+              SHAREPOINT DEVELOPMENT TECHNOLOGY STACK
             </span>
-          </h2>
 
-          {/* Description */}
-          <p className="mt-6 text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto">
-            Our SharePoint technology stack enables secure portal development,
-            custom SPFx solutions, workflow automation, and seamless Microsoft
-            365 integration. We build scalable intranets, document management
-            systems, and enterprise-grade business applications.
-          </p>
+            <h2 className="typo-heading-2 text-slate-900 lg:pr-12">
+              SharePoint Development Technologies for{" "}
+              <span className="bg-gradient-to-r from-[#FF5812] to-amber-500 bg-clip-text text-transparent">
+                Enterprise Solutions
+              </span>
+            </h2>
+          </div>
+
+          <div className="lg:justify-self-end">
+            <p className="typo-description w-full text-slate-500 lg:max-w-xl">
+              We use modern Microsoft technologies to build custom SharePoint portals, document management solutions, workflow integrations, and secure enterprise collaboration experiences.
+            </p>
+            <p className="mt-4 text-sm text-zinc-500">
+              <span className="font-semibold text-zinc-900">20+</span>{" "}
+              technologies across{" "}
+              <span className="font-semibold text-zinc-900">4</span>{" "}
+              layers of the stack
+            </p>
+          </div>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
-          {techStacks.map((stack, idx) => (
-            <div
-              key={idx}
-              className="relative group rounded-[28px] p-[1px] bg-gradient-to-r from-black via-[#4c1c02] to-black hover:from-orange-500/40 transition-all duration-500"
-            >
-              <div className="h-full rounded-[28px] bg-gradient-to-r from-black via-[#4c1c02] to-black p-7">
-                {/* Card title */}
-                <div className="mb-8">
-                  <span
-                    className={`
-                      inline-flex items-center
-                      px-5 py-2
-                      rounded-full
-                      text-sm font-semibold text-white
-                      bg-gradient-to-r ${stack.accent}
-                      shadow-[0_0_20px_rgba(255,255,255,0.15)]
-                    `}
-                  >
-                    {stack.title}
-                  </span>
-                </div>
+        {/* ========================= CATEGORY FILTER ====================== */}
+        <div
+          role="tablist"
+          aria-label="Filter technologies by category"
+          className="-mx-1 mb-8 flex gap-2 overflow-x-auto px-1 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {tabs.map((tab) => {
+            const isActive = tab === active;
+            return (
+              <button
+                key={tab}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActive(tab)}
+                className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812] focus-visible:ring-offset-2 ${
+                  isActive
+                    ? "border-[#FF5812] bg-[#FF5812] text-white shadow-[0_8px_20px_-8px_rgba(255,88,18,0.7)]"
+                    : "border-zinc-200 bg-white text-zinc-600 hover:border-[#FF5812]/50 hover:text-[#FF5812]"
+                }`}
+              >
+                {tab}
+              </button>
+            );
+          })}
+        </div>
 
-                {/* Items */}
-                <ul className="space-y-5">
-                  {stack.items.map((item, i) => {
-                    const Icon = item.icon;
-                    return (
-                      <li
-                        key={i}
-                        className="flex items-center gap-4 group/item"
-                      >
-                        <div
-                          className={`flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${stack.accent} text-white shadow-lg`}
-                        >
-                          <Icon size={20} />
-                        </div>
-                        <span className="text-gray-300 font-medium group-hover/item:text-white transition-colors">
-                          {item.name}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
+        {/* ======================== DUAL MARQUEE ========================== */}
+        <div key={active} className="marquee-fade-in flex flex-col gap-2.5 overflow-hidden">
+          {rows.map((row, i) => (
+            <MarqueeRow
+              key={i}
+              items={row}
+              reverse={i === 1}
+              duration={Math.max(30, row.length * 4.5)}
+            />
           ))}
         </div>
       </div>
+
+      <style>{`
+        .marquee-track {
+          animation-name: marquee-scroll;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+        /* Pause the row the person is pointing at */
+        .group\\/row:hover .marquee-track,
+        .group\\/row:focus-within .marquee-track {
+          animation-play-state: paused;
+        }
+        .marquee-mask {
+          -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+                  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+        .marquee-fade-in {
+          animation: marquee-in 0.45s ease-out both;
+        }
+        @keyframes marquee-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        @keyframes marquee-in {
+          from { opacity: 0; transform: translateY(6px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track { animation: none; }
+          .marquee-mask { overflow-x: auto; }
+          .marquee-fade-in { animation: none; }
+        }
+      `}</style>
     </section>
   );
 }

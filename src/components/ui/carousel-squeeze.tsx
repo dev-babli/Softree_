@@ -259,7 +259,7 @@ export function SqueezeCarousel({
 
                                 {/* ACTIVE CARD: PROFESSIONAL IN-CARD LAYOUT */}
                                 {isActive ? (
-                                    <div className="absolute inset-0 z-10 flex flex-col justify-between p-6 sm:p-8 lg:p-10 overflow-y-auto">
+                                    <div className="absolute inset-0 z-10 flex flex-col justify-between p-4 sm:p-6 lg:p-10 overflow-y-auto">
                                         {/* Rich directional gradient for optimal text readability */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/35 pointer-events-none -z-10" />
 

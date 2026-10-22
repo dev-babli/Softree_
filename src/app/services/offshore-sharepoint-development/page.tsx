@@ -7,51 +7,81 @@ import Footer from "@/components/sections/footer";
 import PowerAppsCaseStudies from "./casestudies";
 import TimelinePage from "./timeline";
 import SharePointHero from "./hero";
+import SharePointHero2 from "./components/SharePointHero2";
+import SharepointSqueezeCarouselDemo from "./components/SharepointSqueezeCarouselDemo";
+import SharePointAIReadinessBanner from "./components/SharePointAIReadinessBanner";
+import SharePointServices from "./components/SharePointServices";
+
+import SharePointStickyScroll from "./components/SharePointStickyScroll";
 import HireSharePointPricing from "./pricing-cards";
 import WhyChooseUs from "./why-chose";
+import SharePointHowWeWork from "./components/SharePointHowWeWork";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
 
+
 const sharePointFAQs = [
   {
     id: 1,
     serial: "question 01",
-    question: "What SharePoint services do you offer?",
+    question: "What are offshore SharePoint development services?",
     answer:
-      "We provide comprehensive SharePoint development: custom intranets, document management systems, workflow automation, SharePoint Online migration, custom web parts, Power Apps integration, and enterprise portal solutions.",
+      "Offshore SharePoint development services help businesses extend their engineering capacity with remote specialists. Softree Technology develops custom SharePoint portals, intranets, document management solutions, workflow automation, and Microsoft 365 integrations tailored to business requirements.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How long does a SharePoint migration typically take?",
+    question: "What SharePoint solutions can Softree Technology develop?",
     answer:
-      "SharePoint migrations typically take 4-12 weeks depending on data volume, complexity, and custom requirements. We perform detailed assessment before migration and provide phased rollout with minimal business disruption.",
+      "We develop custom SharePoint intranets, enterprise portals, SharePoint Framework (SPFx) web parts, document management systems, collaboration platforms, and automated business workflows designed to improve productivity and information access.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Do you support both SharePoint On-Premises and Online?",
+    question: "Do you provide SharePoint Online development services?",
     answer:
-      "Yes, we work with both SharePoint On-Premises and SharePoint Online. We can help migrate from On-Premises to Online, maintain hybrid environments, or develop solutions for either platform based on your needs.",
+      "Yes. We build and customize SharePoint Online solutions, including modern intranet sites, custom web parts, document libraries, permission structures, and Microsoft 365 integrations to support secure enterprise collaboration.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "Can you integrate SharePoint with other Microsoft 365 tools?",
+    question: "Can you integrate SharePoint with Microsoft 365 and Power Platform?",
     answer:
-      "Absolutely. We integrate SharePoint with Power Apps, Power Automate, Teams, Power BI, and other Microsoft 365 services to create seamless collaboration and automation solutions for your organization.",
+      "Yes. We integrate SharePoint with Microsoft Teams, Power Apps, Power Automate, Microsoft Graph API, and other business applications to connect data, automate repetitive tasks, and streamline collaboration across your organization.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "What post-migration support do you provide?",
+    question: "Can you automate business processes using SharePoint?",
     answer:
-      "We offer comprehensive post-migration support including user training, system monitoring, performance optimization, security updates, and ongoing maintenance to ensure your SharePoint environment runs smoothly.",
+      "Yes. We build SharePoint workflow automation solutions using Power Automate and related Microsoft technologies to streamline document approvals, notifications, task assignments, and other repetitive business processes.",
   },
-]
+  {
+    id: 6,
+    serial: "question 06",
+    question: "Do you support SharePoint migration and modernization?",
+    answer:
+      "We can help assess existing SharePoint environments, plan migration to SharePoint Online, move content and document libraries, review permissions, and validate functionality. The migration approach depends on your current platform, customizations, data volume, and business requirements.",
+  },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "How do you secure SharePoint applications and documents?",
+    answer:
+      "We consider access permissions, role-based authorization, Microsoft Entra ID integration, secure API access, and governance requirements when designing SharePoint solutions. Security controls are aligned with your organization's policies and compliance needs.",
+  },
+  {
+    id: 8,
+    serial: "question 08",
+    question: "Why choose Softree Technology for offshore SharePoint development?",
+    answer:
+      "Softree Technology helps businesses extend their development capacity with offshore engineering support for SharePoint customization, Microsoft 365 integration, workflow automation, and enterprise collaboration solutions. Our approach focuses on business requirements, maintainable implementations, and integration with your existing systems.",
+  },
+];
+
 
 export const metadata: Metadata = applyPageOg("/services/offshore-sharepoint-development", {
   title: {
@@ -99,30 +129,52 @@ const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#141414]">
+    <main className="relative min-h-screen bg-white">
       <NavigationClient />
 
       {/* HERO (can stay full-width or internally centered) */}
-      <SharePointHero />
+      {/* <SharePointHero /> */}
+      <SharePointHero2 />
+
+      {/* Trusted By Marquee */}
+      <TrustedBrandsMarquee />
+
+      {/* SharePoint AI Readiness Banner */}
+      {/* <SharePointAIReadinessBanner /> */}
+
+
+      {/* Who We Help & Where We Operate */}
+      <SharePointServices />
+
+      {/* What We Build - Sticky Scroll */}
+      <SharePointStickyScroll />
+
+      {/* Success Stories */}
+      <PowerAppsCaseStudies />
+
+      {/* Technology Stack */}
+      <TechStack />
+      <SharepointSqueezeCarouselDemo />
+      <SharePointHowWeWork />
+
+      {/* Why choose us */}
+      <WhyChooseUs />
 
       {/* MAIN CONTENT – FIXED WIDTH */}
-      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+      {/* <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={FIXED_WIDTH}>
-          <TrustedBrandsMarquee />
-          <PowerAppsCaseStudies />
           <SharePointMigration />
           <SharePointMigrationProcess />
           <AIDrivenSharePointMigration />
-          <WhyChooseUs />
-          <TechStack />
+
           <HireSharePointPricing />
           <TimelinePage />
         </div>
-      </section>
+      </section> */}
 
-      <LightContactSection />
+
       <LightFAQExact faqs={sharePointFAQs} />
-
+      <LightContactSection />
       <Footer />
     </main>
   );

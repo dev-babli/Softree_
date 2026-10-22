@@ -1,5 +1,13 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import SharePointHero from "./hero";
+import SpfxHero from "./SpfxHero";
+import SpfxAIReadinessBanner from "./components/SpfxAIReadinessBanner";
+import SpfxServices from "./components/SpfxServices";
+import SpfxStickyScroll from "./components/SpfxStickyScroll";
+import SpfxTechnologyStack from "./components/SpfxTechnologyStack";
+import SpfxHowWeWork from "./components/SpfxHowWeWork";
+import SpfxSharepointSqueezeCarouselDemo from "./components/spfxSharepointSqueezeCarouselDemo";
+import WhyChooseUs from "./components/WhyChooseUs";
 import Footer from "@/components/sections/footer";
 import SpfxBenefits from "./spfx-benefits";
 import SpfxTabs from "./spfx-tab";
@@ -11,43 +19,66 @@ import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
 
+
 const spfxFAQs = [
   {
     id: 1,
     serial: "question 01",
-    question: "What SPFX development services do you offer?",
+    question: "What are offshore SPFx development services?",
     answer:
-      "We build custom SharePoint Framework web parts, extensions, and modern intranet solutions using React, TypeScript, and Microsoft 365 best practices. We create responsive, performant, and secure SPFX solutions.",
+      "Offshore SPFx development services help businesses build and customize SharePoint solutions with support from remote development teams. Softree Technology supports custom SharePoint Framework web parts, extensions, SharePoint Online customization, and Microsoft 365 integrations based on project requirements.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How long does it take to develop an SPFX web part?",
+    question: "What SPFx development services does Softree Technology offer?",
     answer:
-      "Simple web parts take 2-4 weeks. Complex SPFX solutions with multiple web parts, integrations, and custom features take 6-10 weeks. We provide detailed timelines based on requirements.",
+      "Our SPFx development services can include custom SharePoint web part development, SharePoint Framework extensions, modern UI components, SharePoint Online customization, Microsoft 365 integration, and enhancements to existing SPFx solutions, depending on project scope.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Do you support both SharePoint Online and On-Premises?",
+    question: "Do you develop custom SPFx web parts for SharePoint Online?",
     answer:
-      "We primarily develop for SharePoint Online (Microsoft 365), which is the modern platform for SPFX. For On-Premises environments, we can help with migration strategies to SharePoint Online.",
+      "Yes, custom SPFx web parts can extend SharePoint Online with reusable components and functionality tailored to business needs. These may include custom interfaces, interactive elements, and components that connect to supported SharePoint data and Microsoft 365 services.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "Can SPFX solutions integrate with Microsoft Graph and other M365 services?",
+    question: "Can SPFx solutions integrate with Microsoft Graph and Microsoft 365?",
     answer:
-      "Yes, we integrate SPFX solutions with Microsoft Graph API, Power Automate, Power BI, Teams, and other Microsoft 365 services to create comprehensive enterprise solutions.",
+      "SPFx solutions can integrate with Microsoft Graph and supported Microsoft 365 services to connect SharePoint experiences with relevant business data and applications. The available integrations depend on project requirements, API capabilities, permissions, and tenant configuration.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "What testing and deployment support do you provide?",
+    question: "Can you customize SharePoint Online using SPFx?",
     answer:
-      "We provide comprehensive testing, deployment to SharePoint App Catalog, version management, and documentation. We ensure smooth deployment across development, staging, and production environments.",
+      "Yes, the SharePoint Framework supports customization of modern SharePoint experiences through web parts and extensions. These can help tailor page functionality, navigation, user interfaces, and business-specific interactions while working within SharePoint Online's supported development model.",
   },
-]
+  {
+    id: 6,
+    serial: "question 06",
+    question: "Do you provide offshore SPFx developers for ongoing projects?",
+    answer:
+      "Offshore SPFx development support can help businesses, consulting firms, and technology partners extend their engineering capacity for new development and ongoing enhancements. Team structure, engagement model, and project responsibilities can be defined according to your requirements.",
+  },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "How long does SPFx web part development take?",
+    answer:
+      "SPFx development timelines depend on functionality, design complexity, integrations, testing requirements, and deployment needs. A straightforward web part generally requires less effort than a solution involving multiple components or Microsoft 365 integrations. A more accurate estimate can be provided after reviewing the project scope.",
+  },
+  {
+    id: 8,
+    serial: "question 08",
+    question: "How are SPFx solutions tested and deployed to SharePoint Online?",
+    answer:
+      "SPFx solutions should be tested for functionality, responsiveness, compatibility, and integration behavior before deployment. Deployment typically involves packaging the solution, configuring the SharePoint App Catalog where required, validating permissions, and checking the solution in the target environment.",
+  },
+];
+
 
 export const metadata: Metadata = applyPageOg("/services/offshore-spfx-development", {
   title: {
@@ -99,21 +130,30 @@ export default function Page() {
   return (
     <main className="relative min-h-screen bg-black">
       <NavigationClient />
-      <SharePointHero />
+      {/* <SharePointHero /> */}
+      <SpfxHero />
 
       {/* CORE WHITE LAYOUT CANVAS */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <TrustedBrandsMarquee />
-        <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
+        {/* <SpfxAIReadinessBanner /> */}
+        <SpfxServices />
+        <SpfxStickyScroll />
+        <SharePointCaseStudies />
+        <SpfxTechnologyStack />
+        <SpfxSharepointSqueezeCarouselDemo />
+        <SpfxHowWeWork />
+        <WhyChooseUs />
+        {/* <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
           <SpfxTabs />
-          <SharePointCaseStudies />
+
           <SpfxBenefits />
           <SoftreeExpertiseTimeline />
-        </div>
+        </div> */}
       </section>
-
-      <LightContactSection />
       <LightFAQExact faqs={spfxFAQs} />
+      <LightContactSection />
+
 
       <Footer />
     </main>
