@@ -59,49 +59,59 @@ const powerPlatformFAQs = [
   {
     id: 1,
     serial: "question 01",
-    question: "What Microsoft Power Platform development services do you offer?",
+    question: "What Microsoft Power Platform development services does Softree offer?",
     answer:
-      "Softree provides Microsoft Power Platform development services across Power Apps, Power Automate, Dataverse, Power BI, Power Pages, and Copilot Studio. Our services include business application development, workflow automation, data solutions, integrations, consulting, implementation, modernization, and ongoing development support.",
+      "Softree provides Microsoft Power Platform development services covering Power Apps, Power Automate, Power BI, Power Pages, Microsoft Dataverse, and Copilot Studio. Our team helps businesses build custom applications, automate workflows, develop data-driven reporting solutions, integrate enterprise systems, and modernize existing business processes. We also provide offshore and white-label engineering support for technology partners that need additional development capacity.",
   },
-
   {
     id: 2,
     serial: "question 02",
-    question: "Does Softree provide offshore Power Platform development?",
+    question: "Does Softree provide offshore Microsoft Power Platform development?",
     answer:
-      "Yes. Softree provides offshore Microsoft Power Platform development through experienced developers and dedicated engineering teams. We support Power Apps, Power Automate, Dataverse, Power BI, Power Pages, integrations, and ongoing Power Platform development based on project requirements.",
+      "Yes. Softree provides offshore Microsoft Power Platform development to help businesses and technology partners extend their engineering capacity. Our team can support Power Apps development, Power Automate workflows, Dataverse integration, Power BI reporting, and related implementation requirements. Depending on the project, clients can work with dedicated developers or engage our team for defined development tasks and ongoing support.",
   },
-
   {
     id: 3,
     serial: "question 03",
-    question: "Does Softree provide white-label Power Platform development?",
+    question: "Does Softree offer white-label Power Platform development services?",
     answer:
-      "Yes. Softree provides white-label Power Platform development support for agencies, consulting firms, and technology partners that need additional engineering capacity while maintaining their own client-facing relationship.",
+      "Yes. Softree can provide white-label Power Platform development support for consulting firms, digital agencies, Microsoft partners, and system integrators. Partners can use our engineering capabilities to deliver Power Apps, Power Automate, Power BI, and other Power Platform solutions under their own brand, subject to agreed engagement and delivery arrangements. This allows partners to expand their service capacity while maintaining ownership of their client relationships.",
   },
-
   {
     id: 4,
     serial: "question 04",
-    question: "Can you integrate Microsoft Power Platform with existing business systems?",
+    question: "Can Softree integrate Microsoft Power Platform with existing business systems?",
     answer:
-      "Yes. Softree can integrate Power Platform solutions with Microsoft 365, SharePoint, Microsoft Teams, Dynamics 365, Azure, SQL Server, APIs, custom connectors, and other supported business systems to connect data and business processes.",
+      "Yes. Softree can help integrate Microsoft Power Platform solutions with existing business applications, databases, APIs, SharePoint, and other supported systems. For example, Power Automate can connect business workflows, Power Apps can provide an interface for operational data, and Dataverse can support structured business records. We assess integration requirements, available connectors, authentication, and data flows to determine an appropriate implementation approach.",
   },
-
   {
     id: 5,
     serial: "question 05",
-    question: "How do you handle Power Platform security and governance?",
+    question: "How does Softree handle Power Platform security and governance?",
     answer:
-      "We approach Power Platform security and governance through appropriate access controls, environment strategy, security roles, data protection policies, monitoring, deployment practices, and application lifecycle management based on the solution requirements.",
+      "Softree can incorporate security and governance requirements into Power Platform solution design and implementation. Depending on the environment, this may include role-based access controls, environment planning, data loss prevention (DLP) policies, permissions, audit logging, and integration security. We consider the client's existing Microsoft environment and governance requirements to help build solutions that are controlled, maintainable, and appropriate for their business processes.",
   },
   {
     id: 6,
     serial: "question 06",
-    question: "Do you provide Power Platform consulting and implementation services?",
+    question: "Does Softree provide Power Platform consulting and implementation services?",
     answer:
-      "Yes. Softree provides Power Platform consulting and implementation support from discovery and solution planning through development, integration, deployment, and ongoing optimization. We help businesses select the right Power Platform components and build solutions aligned with their workflows and requirements.",
-  }
+      "Yes. Softree can support Microsoft Power Platform projects from requirements discovery and solution architecture through development, integration, testing, and deployment. Our team helps assess business workflows, identify suitable Power Platform components, and define an implementation approach aligned with project goals. We can also support existing solutions that need enhancements, integrations, troubleshooting, or modernization.",
+  },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "Can I hire dedicated Microsoft Power Platform developers from Softree?",
+    answer:
+      "Softree can support clients that need additional Power Platform engineering capacity through dedicated developer and flexible engagement models, subject to project requirements and availability. Developers may work on Power Apps, Power Automate, Power BI, Dataverse, integrations, and ongoing application improvements. Before an engagement begins, we can align on required skills, responsibilities, communication, delivery expectations, and the engagement structure that best fits your team.",
+  },
+  {
+    id: 8,
+    serial: "question 08",
+    question: "How much does Microsoft Power Platform development cost?",
+    answer:
+      "Microsoft Power Platform development costs depend on the solution's complexity, required integrations, data architecture, licensing, security requirements, and delivery timeline. A small Power Apps application may require a different investment from a connected solution involving Power Automate, Dataverse, enterprise integrations, and reporting. Softree can assess your requirements and discuss an appropriate engagement model, such as hourly consulting, dedicated developers, or fixed-scope project delivery, to establish a suitable estimate.",
+  },
 ];
 export const metadata: Metadata = applyPageOg("/services/offshore-power-platform-development", {
   title: "Microsoft Power Platform Development Services | Softree",

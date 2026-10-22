@@ -104,7 +104,7 @@ export default function PowerAppsTechnologies() {
           </h2>
 
           <p className="text-lg md:text-[1.1rem] leading-relaxed text-gray-600 max-w-3xl mx-auto mt-3">
-            We build scalable Microsoft Power Platform solutions across apps, automation, data, integrations, security, and governance.
+            Explore the technologies behind our Microsoft Power Platform development services, including Power Apps, Power Automate, Dataverse, enterprise integrations, and security governance. We build connected business applications and automation solutions tailored to your workflows.
           </p>
         </div>
 
@@ -116,11 +116,10 @@ export default function PowerAppsTechnologies() {
                 key={tab}
                 aria-label={`Show ${tab} technologies`}
                 onClick={() => setActiveTab(tab)}
-                className={`relative pb-3 text-sm font-medium transition ${
-                  activeTab === tab
+                className={`relative pb-3 text-sm font-medium transition ${activeTab === tab
                     ? "text-orange-600"
                     : "text-gray-800 hover:text-gray-700"
-                }`}
+                  }`}
               >
                 {tab}
 

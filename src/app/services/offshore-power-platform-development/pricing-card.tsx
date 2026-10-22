@@ -25,7 +25,7 @@ export default function HirePowerAppsPricing() {
             for Business-Driven Digital Solutions
           </h2>
           <p className="text-lg md:text-[1.1rem] leading-relaxed text-gray-600 max-w-3xl mx-auto">
-            Scale your Microsoft Power Platform development capacity with experienced offshore developers and dedicated engineering teams. Softree provides flexible development support across Power Apps, Power Automate, Power BI, Power Pages, Dataverse, integrations, and ongoing Power Platform development.
+            Scale your Microsoft Power Platform development with experienced offshore developers and dedicated engineering teams. Softree delivers Power Apps development, Power Automate workflows, Power BI solutions, Power Pages portals, and Dataverse integration through flexible engagement models tailored to your project needs.
           </p>
         </div>
 
@@ -72,26 +72,26 @@ export default function HirePowerAppsPricing() {
               {
                 title: "Hourly Consultation",
                 features: [
-                  "Pay only for the Power Platform development or consulting hours you need",
-                  "Ideal for audits, troubleshooting, enhancements, and technical guidance",
-                  "Transparent time tracking and clear progress reporting",
+                  "Pay for the Power Platform development or consulting hours you need.",
+                  "Get support for troubleshooting, enhancements, integrations, and technical guidance.",
+                  "Track working hours and project progress transparently.",
                 ],
               },
               {
                 title: "Dedicated Power Platform Developer",
                 highlight: true,
                 features: [
-                  "Full-time Power Platform developer dedicated to your team",
-                  "Fixed monthly pricing with predictable delivery",
-                  "Best for continuous automation & app modernization",
+                  "Add a dedicated Power Platform developer to your existing engineering team.",
+                  "Choose a monthly engagement with agreed responsibilities and delivery priorities.",
+                  "Extend your capacity for ongoing app development, workflow automation, and platform improvements.",
                 ],
               },
               {
-                title: "Fixed-Scope Power Platform Solution",
+                title: "Fixed-Scope Power Platform Development",
                 features: [
-                  "Defined scope, timeline, and deliverables",
-                  "Upfront pricing with no hidden costs",
-                  "Ideal for internal apps, workflows, and MVPs",
+                  "Define project scope, milestones, timelines, and deliverables upfront.",
+                  "Agree on project pricing and delivery expectations before development begins.",
+                  "Ideal for defined Power Apps, Power Automate, integration, and business application projects.",
                 ],
               },
             ].map((plan, i) => (

@@ -95,9 +95,9 @@ const FabricMigrationHeroAlternative = () => {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.3 }}
-          className="w-full relative z-20 pb-0 px-4 sm:px-6 mt-auto max-w-7xl mx-auto [&>div]:!mt-0 [&>div]:!gap-3 sm:[&>div]:!gap-4"
+          className="w-full relative z-20 pb-4 sm:pb-6 px-4 sm:px-6 mt-auto max-w-7xl mx-auto"
         >
-          <TrustStrip theme="dark" />
+          <TrustStrip theme="dark" className="!mt-0 !gap-5" />
         </motion.div>
 
         {/* Subtle Bottom Glow Accent Line */}

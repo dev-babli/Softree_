@@ -72,8 +72,8 @@ export const EnterpriseRAGHero: React.FC = () => {
         </div>
 
         {/* RIGHT COLUMN: 3D UI (Bleeds to the right edge) */}
-        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center relative mt-8 lg:mt-4 lg:-translate-x-16">
-          <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px] relative pointer-events-none transform lg:scale-[0.85] lg:origin-top">
+        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center relative mt-4 lg:mt-0 lg:-translate-x-16">
+          <div className="w-full h-[400px] sm:h-[480px] lg:h-[520px] relative pointer-events-none transform lg:scale-[0.85] lg:origin-top">
             <div className="pointer-events-auto absolute inset-0 overflow-hidden">
               {isMounted &&
                 React.createElement('spline-viewer', {
@@ -89,8 +89,8 @@ export const EnterpriseRAGHero: React.FC = () => {
       </div>
 
       {/* TrustStrip at the bottom */}
-      <div className="w-full pb-12 relative z-10 -mt-8 lg:-mt-16">
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+      <div className="w-full pb-10 relative z-10 -mt-6 lg:-mt-10">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 [&>div]:!mt-0">
           <TrustStrip theme="dark" />
         </div>
       </div>

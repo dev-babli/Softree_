@@ -267,9 +267,9 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.8 }}
-        className="w-full z-20 shrink-0 mt-4 sm:mt-6 pb-8"
+        className="w-full z-20 shrink-0 mt-1 sm:mt-2 pb-8"
       >
-        <TrustStrip theme="dark" />
+        <TrustStrip theme="dark" className="!mt-0" />
       </motion.div>
     </div>
   );

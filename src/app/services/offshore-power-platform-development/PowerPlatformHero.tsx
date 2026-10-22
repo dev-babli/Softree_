@@ -112,7 +112,7 @@ export default function PowerPlatformHero() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF6B2C]" />
           </span>
           <span className={`${typography.caption.default} font-bold text-[#FF6B2C] uppercase tracking-wider`}>
-            Microsoft Power Platform
+            Microsoft Power Platform Services
           </span>
         </div>
 
@@ -122,7 +122,7 @@ export default function PowerPlatformHero() {
             Offshore Power Platform
           </span>
           <span className="block font-extrabold text-[#FF6B2C] drop-shadow-[0_0_35px_rgba(255,107,44,0.5)] mt-1 sm:mt-2">
-            Engineering &amp; Development Partner
+            Engineering &amp; Development Services
           </span>
         </h1>
 

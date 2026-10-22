@@ -48,8 +48,8 @@ export default function TableauMigrationHero2() {
       </div>
 
       {/* Trust Strip */}
-      <div className="relative z-20 mt-auto pt-6 sm:pt-8 pb-6 sm:pb-8 px-4 max-w-7xl mx-auto w-full">
-        <TrustStrip theme="dark" />
+      <div className="relative z-20 mt-auto pt-2 sm:pt-3 pb-6 sm:pb-8 px-4 max-w-7xl mx-auto w-full">
+        <TrustStrip theme="dark" className="!mt-0" />
       </div>
     </div>
   );

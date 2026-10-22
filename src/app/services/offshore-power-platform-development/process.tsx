@@ -10,33 +10,33 @@ import {
 
 const processSteps = [
   {
-    title: "Discovery & Analysis",
+    title: "Discovery & Business Analysis",
     description:
-      "We begin by understanding your business objectives, workflows, existing systems, and automation opportunities to define clear requirements and the right Power Platform approach.",
+      "We assess your business requirements, existing systems, workflows, and automation opportunities to identify the right Microsoft Power Platform solutions for your needs.",
     icon: FaSearch,
   },
   {
-    title: "Solution Design",
+    title: "Power Platform Solution Architecture",
     description:
-      "Our team designs the Power Platform solution architecture, data model, integrations, security approach, and user journeys aligned with your business goals.",
+      "We design the application architecture, data models, integrations, security controls, and user experiences for your Power Apps, Power Automate, Dataverse, and related solutions.",
     icon: FaDraftingCompass,
   },
   {
-    title: "Power Platform Development",
+    title: "Custom Power Platform Development",
     description:
-      "We develop Power Apps, Power Automate workflows, Dataverse solutions, Power BI components, Power Pages experiences, and related Power Platform solutions based on your requirements.",
+      "We develop Power Apps, automate business workflows with Power Automate, configure Dataverse, build Power BI reporting solutions, and implement Power Pages experiences based on your requirements.",
     icon: FaCode,
   },
   {
-    title: "Testing & Validation",
+    title: "Power Platform Testing & Validation",
     description:
-      "We validate applications, workflows, integrations, permissions, and business processes to ensure reliability, security, compatibility, and solution quality before deployment.",
+      "We test applications, automated workflows, integrations, permissions, and business logic to validate functionality, security, compatibility, and reliability before deployment.",
     icon: FaCheckCircle,
   },
   {
-    title: "Deployment, Support & Optimization",
+    title: "Deployment & Ongoing Power Platform Support",
     description:
-      "We manage deployment and provide ongoing support, enhancements, optimization, and maintenance to help your Power Platform solutions evolve with changing business needs.",
+      "We support solution deployment, troubleshooting, enhancements, and ongoing optimization to help your Microsoft Power Platform applications evolve as business requirements change.",
     icon: FaHandsHelping,
   },
 ];

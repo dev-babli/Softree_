@@ -35,7 +35,7 @@ export const HERO_DATA = {
     suffix: '',
   },
   paragraph:
-    'Softree helps businesses design and develop AI agents that understand business context, use enterprise data and tools, and take action across real-world workflows. Extend your capabilities with an offshore AI engineering team built to develop, integrate, and scale AI agents around your business needs.',
+    'Softree helps businesses design and develop AI agents that understand business context, use enterprise data and tools, and take action across real-world workflows. ',
   ctaButtons: {
     primary: {
       text: 'Talk to an Expert',

@@ -14,7 +14,7 @@ export default function AgenticAITestingVideoHero() {
   return (
     <section className="relative w-full min-h-[95svh] md:min-h-screen flex flex-col justify-between overflow-hidden bg-zinc-950 font-sans">
       {/* Hero Content - 3 Column Layout with Grand Scale */}
-      <div className="relative z-20 flex flex-1 w-full items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 pt-24 pb-8 lg:pt-28 lg:pb-6">
+      <div className="relative z-20 flex flex-1 w-full items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 pt-24 pb-2 lg:pt-28 lg:pb-2">
         <div
           className={`w-full max-w-[1680px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-12 items-stretch transition-all duration-1000 ease-out transform ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
@@ -68,8 +68,8 @@ export default function AgenticAITestingVideoHero() {
       </div>
 
       {/* Trust Strip anchored to bottom */}
-      <div className="relative w-full z-20 pb-6 sm:pb-8 mt-auto">
-        <TrustStrip theme="dark" />
+      <div className="relative w-full z-20 pt-0 pb-6 sm:pb-8 mt-auto">
+        <TrustStrip theme="dark" className="!mt-0" />
       </div>
     </section>
   );

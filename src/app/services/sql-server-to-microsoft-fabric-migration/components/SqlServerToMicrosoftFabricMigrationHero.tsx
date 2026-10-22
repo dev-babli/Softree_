@@ -709,8 +709,8 @@ export default function SqlServerToMicrosoftFabricMigrationHero() {
 
       </div>
 
-      <div className="relative z-20 mt-auto pt-0 pb-10 sm:pb-12 px-4">
-        <TrustStrip theme="dark" />
+      <div className="relative z-20 mt-auto pt-2 pb-10 sm:pb-12 px-4">
+        <TrustStrip theme="dark" className="!mt-0" />
       </div>
     </section>
   )

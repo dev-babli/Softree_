@@ -250,15 +250,14 @@ export default function PowerAppsServices() {
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-            Complete Microsoft{" "}
+            End-to-End Microsoft{" "}
             <span className="bg-gradient-to-r from-[#FF5500] via-[#E63900] to-[#B31D00] bg-clip-text text-transparent">
-              Power Platform Capabilities
+              Power Platform Solutions
             </span>
           </h2>
 
           <p className="mt-4 text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            From tailored Canvas and Model-Driven apps to high-throughput Power Automate flows,
-            Dataverse architectures, and autonomous Copilot Studio agents.
+            Explore custom Power Apps, Power Automate workflows, Power BI dashboards, Power Pages portals, Dataverse solutions, and Copilot Studio agents built to connect business processes and support digital transformation.
           </p>
         </div>
 
@@ -272,10 +271,9 @@ export default function PowerAppsServices() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`
                   px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300
-                  ${
-                    isSelected
-                      ? "bg-gradient-to-r from-[#FF5500] to-[#C92A00] text-white shadow-md shadow-orange-500/20 scale-105"
-                      : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-orange-200 hover:bg-orange-50/50"
+                  ${isSelected
+                    ? "bg-gradient-to-r from-[#FF5500] to-[#C92A00] text-white shadow-md shadow-orange-500/20 scale-105"
+                    : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-orange-200 hover:bg-orange-50/50"
                   }
                 `}
               >
@@ -292,9 +290,8 @@ export default function PowerAppsServices() {
             return (
               <div
                 key={`${item.title}-${index}`}
-                className={`sticky rounded-[32px] p-6 sm:p-8 md:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7),0_0_40px_rgba(76,28,2,0.45)] border border-white/15 bg-gradient-to-r from-black via-[#4c1c02] to-black text-white transition-all duration-300 ${
-                  isLast ? "mb-0" : "mb-8 md:mb-12"
-                }`}
+                className={`sticky rounded-[32px] p-6 sm:p-8 md:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7),0_0_40px_rgba(76,28,2,0.45)] border border-white/15 bg-gradient-to-r from-black via-[#4c1c02] to-black text-white transition-all duration-300 ${isLast ? "mb-0" : "mb-8 md:mb-12"
+                  }`}
                 style={{
                   top: `${95 + (index % 8) * 16}px`,
                   zIndex: index + 10,

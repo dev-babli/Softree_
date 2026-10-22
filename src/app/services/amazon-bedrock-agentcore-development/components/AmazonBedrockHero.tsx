@@ -22,7 +22,7 @@ import {
 export default function AmazonBedrockHero() {
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-[#020306] text-white pt-20 pb-12 sm:pt-20 sm:pb-14 md:pt-24 md:pb-16 lg:pt-24 lg:pb-16">
+      <section className="relative w-full overflow-hidden bg-[#020306] text-white pt-20 pb-4 sm:pt-20 sm:pb-6 md:pt-24 md:pb-6 lg:pt-24 lg:pb-8">
         {/* ── AMBIENT GLOW BACKDROPS ── */}
         <div
           className="pointer-events-none absolute -top-40 left-1/4 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(255,107,44,0.12)_0%,transparent_70%)] blur-3xl"
@@ -101,15 +101,16 @@ export default function AmazonBedrockHero() {
             </div>
 
           </div>
+
+          {/* ══════════════════════════════════════════════
+              TRUST STRIP (Anchored inside hero, seamless dark background)
+             ══════════════════════════════════════════════ */}
+          <div className="relative z-20 w-full pt-2 sm:pt-4 pb-8 sm:pb-12">
+            <TrustStrip theme="dark" className="!mt-0" />
+          </div>
+
         </div>
       </section>
-
-      {/* Trust Strip anchored below hero */}
-      <div className="relative z-20 w-full bg-[#05050a] pb-12 pt-4 border-t border-white/10">
-        <div className="px-3 sm:px-5 lg:px-[1cm] max-w-[1800px] mx-auto">
-          <TrustStrip theme="dark" />
-        </div>
-      </div>
     </>
   );
 }

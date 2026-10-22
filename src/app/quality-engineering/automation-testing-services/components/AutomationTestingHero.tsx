@@ -108,8 +108,8 @@ export default function AutomationTestingHero() {
             </div>
 
             {/* Trust Strip */}
-            <div className="relative w-full z-20 pt-0 mt-0 pb-8 sm:pb-12">
-                <TrustStrip theme="dark" />
+            <div className="relative w-full z-20 pt-0 mt-0 pb-6 sm:pb-10">
+                <TrustStrip theme="dark" className="!mt-0" />
             </div>
         </div>
     );

@@ -19,7 +19,7 @@ export default function HealthcareTestingHero() {
       />
 
       {/* Overlay Content */}
-      <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] flex-1 flex flex-col items-center justify-center text-center pb-12 sm:pb-16">
+      <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] flex-1 flex flex-col items-center justify-center text-center pb-4 sm:pb-6">
 
         {/* Badge */}
         <motion.div
@@ -69,8 +69,8 @@ export default function HealthcareTestingHero() {
 
       </div>
       {/* Trust Strip anchored to bottom */}
-      <div className="relative w-full z-20 pb-4 sm:pb-6 mt-2">
-        <TrustStrip theme="dark" />
+      <div className="relative w-full z-20 pb-4 sm:pb-6 mt-0">
+        <TrustStrip theme="dark" className="!mt-0" />
       </div>
     </section>
   );

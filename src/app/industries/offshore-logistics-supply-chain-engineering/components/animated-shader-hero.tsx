@@ -397,7 +397,7 @@ const Hero: React.FC<HeroProps> = ({
       />
       
       {/* Hero Content Overlay */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-white pt-28 pb-12 md:pt-36 md:pb-16 px-4 flex-grow">
+      <div className="relative z-10 flex flex-col items-center justify-center text-white pt-28 pb-4 md:pt-36 md:pb-6 px-4 flex-grow">
         {/* Trust Badge */}
         {trustBadge && (
           <div className="mb-3 md:mb-4 animate-fade-in-down">
@@ -441,8 +441,8 @@ const Hero: React.FC<HeroProps> = ({
       </div>
       
       {/* Trust Strip anchored to bottom */}
-      <div className="relative w-full z-20 pb-8 sm:pb-10 px-4 shrink-0">
-        <TrustStrip theme="dark" />
+      <div className="relative w-full z-20 pb-6 sm:pb-8 px-4 shrink-0">
+        <TrustStrip theme="dark" className="!mt-0" />
       </div>
     </div>
   );

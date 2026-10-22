@@ -386,8 +386,9 @@ export default function StackedSlider() {
   return (
     <>
       {/* Section Header: Microsoft Power Platform Engineering */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 md:pt-20 pb-8 sm:pb-12 flex flex-col items-center text-center bg-white">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4 shadow-sm">
+      <div className="w-full bg-white">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 md:pt-20 pb-8 sm:pb-12 flex flex-col items-center text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4 shadow-sm">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] animate-pulse"></div>
           MICROSOFT POWER PLATFORM ENGINEERING
         </div>
@@ -400,6 +401,7 @@ export default function StackedSlider() {
         <p className="text-base sm:text-lg md:text-[1.1rem] leading-relaxed text-slate-600 max-w-3xl mx-auto">
           Explore how Softree engineers end-to-end Microsoft Power Platform solutions across Power Apps, Power Automate, Power BI, Power Pages, Dataverse, and Copilot Studio to resolve critical enterprise bottlenecks and drive high-ROI business outcomes.
         </p>
+        </div>
       </div>
 
       <section
