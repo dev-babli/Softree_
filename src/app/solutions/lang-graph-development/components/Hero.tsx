@@ -89,15 +89,15 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 mx-auto flex w-full max-w-[85rem] flex-col px-4 pb-8 pt-28 sm:px-6 sm:pb-10 sm:pt-32 lg:px-8 lg:pb-12 lg:pt-36">
         {/* Editorial content */}
-        <div className="max-w-2xl">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full bg-[#FF5812] px-3.5 py-1.5"
+            className="mb-3.5 inline-flex items-center gap-2 rounded-full bg-[#FF5812] px-4 py-2 sm:mb-4"
           >
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-white sm:text-[11px]">
+            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-white sm:text-xs">
               {label}
             </span>
           </motion.div>
@@ -106,7 +106,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05 }}
-            className="text-balance text-[clamp(2rem,5vw,3.75rem)] font-extrabold leading-[1.08] tracking-[-0.03em] text-white"
+            className="text-balance text-[clamp(2.25rem,5.5vw,4.15rem)] font-extrabold leading-[1.08] tracking-[-0.03em] text-white"
           >
             {heading.prefix}{" "}
             <span className="text-[#FF5812]">{heading.highlight}</span>
@@ -117,7 +117,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.12 }}
-            className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/85 sm:text-base lg:text-[17px]"
+            className="mt-3.5 max-w-3xl text-[16px] leading-relaxed text-white/85 sm:mt-4 sm:text-[17px] lg:text-[18px]"
           >
             {paragraph}
           </motion.p>
@@ -126,7 +126,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-8"
+            className="mt-6 sm:mt-8"
           >
             <Link
               href={ctaButtons.primary.href}

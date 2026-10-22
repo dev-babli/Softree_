@@ -10,7 +10,7 @@ export const Hero: React.FC = () => {
   const { label, heading, paragraph } = HERO_DATA;
 
   return (
-    <section className="relative flex min-h-[auto] w-full flex-col overflow-hidden bg-[#060403] font-sans text-white pt-24 pb-4 sm:pt-28 sm:pb-6 lg:min-h-[85svh] lg:pt-32 lg:pb-6">
+    <section className="relative flex min-h-[auto] w-full flex-col overflow-hidden bg-[#060403] font-sans text-white pt-20 pb-4 sm:pt-24 sm:pb-6 lg:min-h-[80svh] lg:pt-24 lg:pb-6">
       {/* WebGL Plasma Grid Shader Background in Orange Shade (Smooth Untwisted Waves) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <ShaderBackground
@@ -35,76 +35,66 @@ export const Hero: React.FC = () => {
       <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col px-6 sm:px-8 lg:px-12">
         
         {/* Main Content Centered */}
-        <div className="flex flex-1 flex-col justify-center gap-6 sm:gap-8 pt-4 pb-12 lg:pt-8 lg:pb-16">
+        <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center text-center pt-1 pb-8 sm:pt-2 sm:pb-10 lg:pt-3 lg:pb-12">
           {/* Top Badge with Live Beacon Animation */}
           <motion.div
             initial={{ opacity: 0, y: 14, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ scale: 1.03 }}
-            className="inline-flex items-center gap-2.5 self-start rounded-full bg-[#FF5812] px-3.5 py-1.5 shadow-[0_4px_24px_-4px_rgba(255,88,18,0.55)] cursor-default"
+            className="inline-flex items-center gap-2.5 rounded-full bg-[#FF5812] px-4 py-2 shadow-[0_4px_24px_-4px_rgba(255,88,18,0.55)] cursor-default"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
             </span>
-            <span className="typo-caption font-bold text-white tracking-wide">
+            <span className="typo-caption text-[11px] sm:text-xs font-bold text-white tracking-wider">
               {label}
             </span>
           </motion.div>
 
-          {/* Two-Column Editorial Layout: Title Left, Description Right — perfectly aligned from top */}
-          <div className="grid grid-cols-1 items-start gap-x-12 gap-y-6 lg:grid-cols-12 xl:gap-x-20">
-            {/* Left Column - 3-Line Heading with Staggered Kinetic Line Reveal */}
-            <div className="flex flex-col lg:col-span-7 xl:col-span-7">
-              <h1 className="typo-heading-2 text-white leading-tight font-extrabold">
-                {/* Line 1 */}
-                <motion.span
-                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
-                >
-                  LangChain Development Services
-                </motion.span>
+          {/* Centered Heading */}
+          <h1 className="typo-heading-1 text-white leading-tight font-extrabold mt-3.5 sm:mt-4">
+            <motion.span
+              initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="inline"
+            >
+              LangChain Development Services{" "}
+            </motion.span>
 
-                {/* Line 2 */}
-                <motion.span
-                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
-                >
-                  from an{" "}
-                  <span className="text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)]">
-                    Offshore
-                  </span>
-                </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+              className="inline"
+            >
+              from an{" "}
+              <span className="text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)]">
+                Offshore
+              </span>{" "}
+            </motion.span>
 
-                {/* Line 3 */}
-                <motion.span
-                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.6, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                  className="block text-[#FF5812] drop-shadow-[0_0_30px_rgba(255,88,18,0.5)]"
-                >
-                  AI Engineering Team
-                </motion.span>
-              </h1>
-            </div>
+            <motion.span
+              initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.6, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              className="inline text-[#FF5812] drop-shadow-[0_0_30px_rgba(255,88,18,0.5)]"
+            >
+              AI Engineering Team
+            </motion.span>
+          </h1>
 
-            {/* Right Column - Description starting at same height */}
-            <div className="flex flex-col justify-start lg:col-span-5 xl:col-span-5 lg:pt-1.5">
-              <motion.p
-                initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.65, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-                className="typo-description-sm text-zinc-300 leading-relaxed max-w-xl"
-              >
-                {paragraph}
-              </motion.p>
-            </div>
-          </div>
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.65, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+            className="typo-description text-zinc-300 leading-relaxed max-w-3xl mt-3.5 sm:mt-4"
+          >
+            {paragraph}
+          </motion.p>
         </div>
 
         {/* Trust Strip */}

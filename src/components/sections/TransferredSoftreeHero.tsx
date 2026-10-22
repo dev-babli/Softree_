@@ -575,7 +575,7 @@ export function TransferredSoftreeHero() {
           <div
             className="left-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-1 lg:order-none pointer-events-auto lg:invisible lg:opacity-0"
             style={{
-              background: "#040814",
+              background: "#070d18",
               border: "1.5px solid rgba(255,255,255,0.2)",
               borderTopColor: "rgba(255,255,255,0.4)",
               boxShadow:
@@ -584,13 +584,13 @@ export function TransferredSoftreeHero() {
             }}
           >
             {/* Card inner — Upper Visual (58%) & Background */}
-            <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#040814] flex flex-col justify-between">
+            <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#070d18] flex flex-col justify-between">
               {/* Upper 58% dedicated to the 3D Glowing Particle Torus Knot */}
               <div className="relative w-full h-[58%] overflow-hidden">
                 <MicrosoftParticleTorusVisual />
               </div>
               {/* Lower subtle dark gradient background behind content */}
-              <div className="w-full h-[42%] bg-gradient-to-t from-[#040814] via-[#040814]/90 to-transparent" />
+              <div className="w-full h-[42%] bg-gradient-to-t from-[#070d18] via-[#070d18]/90 to-transparent" />
             </div>
 
             {/* Card UI — Positioned in the lower 42% area matching Center and Right Cards */}
@@ -672,7 +672,7 @@ export function TransferredSoftreeHero() {
           <div
             className="right-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-3 lg:order-none pointer-events-auto lg:invisible lg:opacity-0"
             style={{
-              background: "#060403",
+              background: "#070d18",
               border: "1.5px solid rgba(255,255,255,0.2)",
               borderTopColor: "rgba(255,255,255,0.4)",
               boxShadow:
@@ -681,13 +681,13 @@ export function TransferredSoftreeHero() {
             }}
           >
             {/* Card inner — Upper Visual (58%) & Background */}
-            <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#060403] flex flex-col justify-between">
+            <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#070d18] flex flex-col justify-between">
               {/* Upper 58% dedicated to the adapted Hero visual */}
               <div className="relative w-full h-[58%] overflow-hidden">
                 <ModernEngineeringHeroCardVisual />
               </div>
               {/* Lower subtle dark gradient background behind content */}
-              <div className="w-full h-[42%] bg-gradient-to-t from-[#060403] via-[#060403]/90 to-transparent" />
+              <div className="w-full h-[42%] bg-gradient-to-t from-[#070d18] via-[#070d18]/90 to-transparent" />
             </div>
 
             {/* Card UI — Positioned in the lower 42% area matching Center Card */}

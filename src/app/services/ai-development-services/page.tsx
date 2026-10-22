@@ -19,6 +19,7 @@ const WhySoftreeCurtainSlider = dynamic(() => import('./components/WhySoftreeCur
 const LightFAQExact = dynamic(() => import('./components/LightFAQExact'), { ssr: true });
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
 const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScroll/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll), { ssr: true });
+const AiDevelopmentSuccessStories = dynamic(() => import('./components/AiDevelopmentSuccessStories'), { ssr: true });
 const MicrosoftAiShowcase = dynamic(() => import('./components/MicrosoftAiShowcase'), { ssr: true });
 const OffshoreEngineeringSection = dynamic(() => import('./components/OffshoreEngineeringSection'), { ssr: true });
 const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infinite-slider'), { ssr: true });
@@ -255,6 +256,7 @@ export default function AiDevelopmentServicesPage() {
       </div>
 
       <ReverseStickyScroll />
+      <AiDevelopmentSuccessStories />
       {/* Interactive Photo Stack Section - Offshore AI Engineering */}
       {/* <OffshoreEngineeringSection /> */}
       {/* <CoreCapabilities /> */}

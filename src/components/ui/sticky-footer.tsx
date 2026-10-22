@@ -33,7 +33,15 @@ const footerColumns: FooterColumn[] = [
       { title: "Contact", href: "/contact" },
       { title: "Careers", href: "/careers" },
       { title: "Who Do We Serve", href: "/who-do-we-serve" },
+    ],
+  },
+  {
+    label: "Services",
+    links: [
       { title: "AI Development Services", href: "/services/ai-development-services" },
+      { title: "Power Platform Development", href: "/services/offshore-power-platform-development" },
+      { title: "Power BI Development", href: "/services/power-bi-development-services" },
+      { title: "Microsoft Fabric Development", href: "/services/microsoft-fabric-development-services" },
     ],
   },
   {
@@ -81,7 +89,7 @@ function SocialPillRow() {
             >
               <Icon className="h-[18px] w-[18px]" />
             </div>
-            <span className="inline-flex items-center typo-body-sm font-medium text-black transition-colors group-hover:text-black/70">
+            <span className="inline-flex items-center text-[15px] md:text-[16px] font-medium text-black transition-colors group-hover:text-black/70">
               {pill.label}
               <Arrow />
             </span>
@@ -95,11 +103,11 @@ function SocialPillRow() {
 /* Tiny external-link arrow */
 function Arrow() {
   return (
-    <svg 
-      width="9" 
-      height="9" 
-      viewBox="0 0 10 10" 
-      fill="none" 
+    <svg
+      width="9"
+      height="9"
+      viewBox="0 0 10 10"
+      fill="none"
       className="ml-1 inline-block text-[#FF5812] transition-all duration-300 group-hover:scale-125 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] group-hover:drop-shadow-[0_0_8px_rgba(255,88,18,0.8)]"
     >
       <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -113,7 +121,8 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
       className={cn("w-full bg-black", className)}
       {...props}
     >
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .sticky-footer-container {
           --dark-left: max(220px, 43svh);
           --dark-right: max(180px, 35svh);
@@ -156,8 +165,8 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
         />
 
         {/* Layer 3 — Purple zone: wordmark + metadata stacked at bottom-left, logo at bottom-right */}
-        <div 
-          className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-stretch justify-end pb-6 md:pb-8 px-8 md:px-12 lg:px-16" 
+        <div
+          className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-stretch justify-end pb-6 md:pb-8 px-8 md:px-12 lg:px-16"
           style={{ height: "var(--dark-left)" }}
         >
           {/* Giant white SOFTREE. wordmark */}
@@ -184,7 +193,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
         </div>
 
         {/* Layer 4 — All content */}
-        <div 
+        <div
           className="relative z-30 flex min-h-[100svh] flex-col px-5 pt-7 sm:px-8 md:px-12 md:pt-8 lg:px-16"
           style={{ paddingBottom: "calc(var(--dark-left) + 32px)" }}
         >
@@ -205,20 +214,20 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
               />
             </Link>
             <div className="flex flex-wrap items-center gap-2.5">
-              <FlowButton 
-                href="/contact" 
-                text="Get in Touch" 
-                variant="orange-filled" 
+              <FlowButton
+                href="/contact"
+                text="Get in Touch"
+                variant="orange-filled"
               />
             </div>
           </div>
 
-          {/* 3-COLUMN NAV */}
-          <div className="mt-8 grid flex-1 grid-cols-1 gap-x-12 gap-y-6 sm:grid-cols-2 md:mt-10 lg:grid-cols-3">
+          {/* 4-COLUMN NAV */}
+          <div className="mt-8 grid flex-1 grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 md:mt-10 lg:grid-cols-[1.1fr_1.65fr_1.1fr_1.1fr] xl:gap-x-12">
             {footerColumns.map((col) => (
               <div key={col.label} className="flex flex-col">
-                <div className={cn("mb-4 flex flex-col items-start", col.label === "Connect" && "ml-[56px]")}>
-                  <p className="typo-caption text-[#FF5812] uppercase font-bold tracking-wider border-b-[2px] border-[#FF5812] pb-1.5">
+                <div className="mb-4 flex flex-col items-start">
+                  <p className="text-[13px] md:text-[14px] text-[#FF5812] uppercase font-bold tracking-[0.14em] border-b-[2px] border-[#FF5812] pb-1.5 leading-none">
                     {col.label}
                   </p>
                 </div>
@@ -229,7 +238,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className="group inline-flex py-1.5 items-center rounded-lg typo-body-sm font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+                        className="group inline-flex py-1.5 items-center rounded-lg text-[15px] md:text-[16px] font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50 lg:whitespace-nowrap"
                       >
                         {link.title}
                         {link.external && <Arrow />}

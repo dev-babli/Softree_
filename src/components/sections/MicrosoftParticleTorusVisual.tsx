@@ -43,7 +43,7 @@ export function MicrosoftParticleTorusVisual({ className = "" }: { className?: s
     renderer.domElement.style.height = "100%";
     container.appendChild(renderer.domElement);
 
-    // Exact Canvas Radial Glow Texture from AzureOpenAIHero2
+    // Canvas Radial Glow Texture matching center globe's orange-red gradient
     const createGlowTexture = () => {
       const canvas = document.createElement("canvas");
       canvas.width = 64;
@@ -52,10 +52,10 @@ export function MicrosoftParticleTorusVisual({ className = "" }: { className?: s
       if (!ctx) return null;
       const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
       gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
-      gradient.addColorStop(0.18, "rgba(255, 220, 130, 0.98)");
-      gradient.addColorStop(0.38, "rgba(255, 135, 25, 0.85)");
-      gradient.addColorStop(0.65, "rgba(255, 80, 0, 0.35)");
-      gradient.addColorStop(0.88, "rgba(210, 45, 0, 0.08)");
+      gradient.addColorStop(0.18, "rgba(255, 184, 46, 0.98)");
+      gradient.addColorStop(0.38, "rgba(255, 112, 8, 0.9)");
+      gradient.addColorStop(0.65, "rgba(240, 36, 6, 0.45)");
+      gradient.addColorStop(0.88, "rgba(180, 15, 4, 0.12)");
       gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, 64, 64);
@@ -76,6 +76,11 @@ export function MicrosoftParticleTorusVisual({ className = "" }: { className?: s
     const geometry = new THREE.BufferGeometry();
     const torusKnot = new THREE.TorusKnotGeometry(1.20, 0.38, isMobile ? 150 : 260, isMobile ? 32 : 48);
 
+    // Color definitions matching the middle card globe: deep crimson red, luminous bright orange, radiant warm amber
+    const deepRed = new THREE.Color(0.92, 0.08, 0.02);
+    const brightOrange = new THREE.Color(1.0, 0.44, 0.03);
+    const warmAmber = new THREE.Color(1.0, 0.72, 0.18);
+
     for (let i = 0; i < particleCount; i++) {
       const vertexIndex = i % torusKnot.attributes.position.count;
       const x = torusKnot.attributes.position.getX(vertexIndex);
@@ -91,16 +96,17 @@ export function MicrosoftParticleTorusVisual({ className = "" }: { className?: s
       velocities[i * 3 + 1] = 0;
       velocities[i * 3 + 2] = 0;
 
-      // Exact golden-amber-orange gradient HSL distribution
-      const color = new THREE.Color();
-      const rand = Math.random();
-      if (rand < 0.22) {
-        color.setHSL(0.11, 0.96, 0.88); // Brilliant incandescent highlight
-      } else if (rand < 0.68) {
-        color.setHSL(0.068 + Math.random() * 0.025, 0.98, 0.64); // Radiant warm amber
-      } else {
-        color.setHSL(0.048 + Math.random() * 0.02, 0.96, 0.56); // Deep molten orange
+      // Vertical & radial color gradient across torus knot matching globe shader
+      const gradY = THREE.MathUtils.clamp((y / 1.5) * 0.5 + 0.5, 0.0, 1.0);
+      const rim = THREE.MathUtils.clamp(Math.sqrt(x * x + y * y) / 1.5, 0.0, 1.0);
+      const blend = THREE.MathUtils.clamp(gradY * 0.7 + rim * 0.4, 0.0, 1.0);
+
+      const color = new THREE.Color().lerpColors(deepRed, brightOrange, blend);
+      // Highlighting peaks with radiant warm amber
+      if (Math.random() < 0.28) {
+        color.lerp(warmAmber, 0.55);
       }
+
       colors[i * 3] = color.r;
       colors[i * 3 + 1] = color.g;
       colors[i * 3 + 2] = color.b;
@@ -143,14 +149,16 @@ export function MicrosoftParticleTorusVisual({ className = "" }: { className?: s
       ambientBasePositions[i * 3 + 1] = y;
       ambientBasePositions[i * 3 + 2] = z;
       const falloff = Math.max(0.15, 1 - Math.max(0, (r - 1.45) / 0.45));
-      if (Math.random() > 0.3) {
+      if (Math.random() > 0.4) {
+        // Luminous warm orange-red
         ambientColors[i * 3] = 1.0 * falloff;
-        ambientColors[i * 3 + 1] = (0.48 + Math.random() * 0.25) * falloff;
-        ambientColors[i * 3 + 2] = 0.06 * falloff;
+        ambientColors[i * 3 + 1] = (0.28 + Math.random() * 0.24) * falloff;
+        ambientColors[i * 3 + 2] = 0.03 * falloff;
       } else {
-        ambientColors[i * 3] = 0.98 * falloff;
-        ambientColors[i * 3 + 1] = 0.92 * falloff;
-        ambientColors[i * 3 + 2] = 0.82 * falloff;
+        // Radiant golden-amber
+        ambientColors[i * 3] = 1.0 * falloff;
+        ambientColors[i * 3 + 1] = 0.65 * falloff;
+        ambientColors[i * 3 + 2] = 0.15 * falloff;
       }
       ambientSpeeds[i] = 0.25 + Math.random() * 0.5;
       ambientPhases[i] = Math.random() * Math.PI * 2;
@@ -175,8 +183,8 @@ export function MicrosoftParticleTorusVisual({ className = "" }: { className?: s
     const waveGroup = new THREE.Group();
     waveGroup.add(points);
     waveGroup.add(ambientPoints);
-    // Shift particle torus knot downwards to eliminate gap above content on mobile
-    waveGroup.position.y = isMobile ? -0.26 : -0.20;
+    // Position torus knot comfortably centered with balanced margin
+    waveGroup.position.y = isMobile ? -0.16 : -0.10;
     scene.add(waveGroup);
 
     const updateSize = (w: number, h: number) => {
@@ -185,9 +193,9 @@ export function MicrosoftParticleTorusVisual({ className = "" }: { className?: s
       camera.aspect = currentAspect;
       const halfFovRad = (camera.fov * Math.PI) / 360;
       const tanHalfFov = Math.tan(halfFovRad);
-      // Framing calibrated to showcase torus knot slightly lower with rich scale
-      const safeRadius = isMobile ? 1.95 : 2.05;
-      camera.position.z = Math.max(safeRadius / tanHalfFov, safeRadius / (tanHalfFov * currentAspect), 4.0);
+      // Slightly compressed framing (~12% smaller) to give comfortable breathing room
+      const safeRadius = isMobile ? 2.20 : 2.32;
+      camera.position.z = Math.max(safeRadius / tanHalfFov, safeRadius / (tanHalfFov * currentAspect), 4.3);
       camera.position.x = 0;
       camera.position.y = 0;
       camera.updateProjectionMatrix();

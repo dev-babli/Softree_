@@ -124,14 +124,6 @@ export const ReverseStickyScroll = () => {
         },
         {
           num: "04",
-          title: "AI Workflow Automation",
-          titleSplit: "AI Workflow<br />Automation",
-          desc: "Connect AI agents with business applications and workflows to automate repetitive and decision-driven processes, reduce manual effort, and improve operational efficiency.",
-          bg: "#FF6B00", text: "#ffffff",
-          link: "/solutions/ai-workflow-automation"
-        },
-        {
-          num: "05",
           title: "AI Copilots",
           titleSplit: "AI<br />Copilots",
           desc: "Develop context-aware AI copilots that assist employees and customers with real-time guidance, knowledge access, decision support, and task execution across business applications.",
@@ -139,7 +131,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/ai-copilot-development"
         },
         {
-          num: "06",
+          num: "05",
           title: "Generative AI",
           titleSplit: "Generative AI Solutions",
           desc: "Build production-ready generative AI applications that create content, assist users, support knowledge work, and add intelligent capabilities to business applications.",
@@ -147,7 +139,7 @@ export const ReverseStickyScroll = () => {
           link: "/services/generative-ai"
         },
         {
-          num: "07",
+          num: "06",
           title: "Azure OpenAI",
           titleSplit: "Azure OpenAI Solutions",
           desc: "Build secure Azure OpenAI solutions for enterprise applications, RAG, AI assistants, and governed AI experiences across the Microsoft ecosystem.",
