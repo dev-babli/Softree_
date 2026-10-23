@@ -22,11 +22,18 @@ function revalidatePublishedPaths(doc: WebsitePublishDoc, documentId: string): v
   // Clear tag-based caches for defineLive/sanityFetch
   revalidateTag("sanity", "max")
   revalidateTag("sanity:fetch-sync-tags", "max")
+  revalidateTag("post", "max")
+  revalidateTag("caseStudy", "max")
   if (doc?._type) {
+    revalidateTag(doc._type, "max")
     revalidateTag(`sanity:${doc._type}`, "max")
   }
+  revalidateTag(`post:${slug}`, "max")
+  revalidateTag(`caseStudy:${slug}`, "max")
+  revalidateTag(`sanity:${slug}`, "max")
 
   const cleanId = documentId.replace(/^drafts\./, "")
+  revalidateTag(cleanId, "max")
   revalidateTag(`sanity:${cleanId}`, "max")
   revalidateTag(`sanity:drafts.${cleanId}`, "max")
 

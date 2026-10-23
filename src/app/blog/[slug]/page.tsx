@@ -230,6 +230,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function generateStaticParams() {
   try {
     const slugs = await cmsClient.fetch<string[]>(allPostSlugsQuery)
@@ -239,8 +242,6 @@ export async function generateStaticParams() {
     return []
   }
 }
-
-// Caching is now handled by Next.js ISR (generateStaticParams + revalidateTag webhooks)
 
 function estimateReadTime(post: { body?: unknown; composerSections?: unknown[] }): string {
   const composerText = JSON.stringify(post.composerSections || '')

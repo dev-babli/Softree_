@@ -115,11 +115,20 @@ export async function POST(request: NextRequest) {
     // Clear tag-based caches for defineLive/sanityFetch
     revalidateTag("sanity", "max");
     revalidateTag("sanity:fetch-sync-tags", "max");
+    revalidateTag("post", "max");
+    revalidateTag("caseStudy", "max");
     if (_type) {
+      revalidateTag(_type, "max");
       revalidateTag(`sanity:${_type}`, "max");
+    }
+    if (slug?.current) {
+      revalidateTag(`post:${slug.current}`, "max");
+      revalidateTag(`caseStudy:${slug.current}`, "max");
+      revalidateTag(`sanity:${slug.current}`, "max");
     }
     if (_id) {
       const cleanId = _id.replace(/^drafts\./, "");
+      revalidateTag(cleanId, "max");
       revalidateTag(`sanity:${cleanId}`, "max");
       revalidateTag(`sanity:drafts.${cleanId}`, "max");
     }
