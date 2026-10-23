@@ -1,19 +1,11 @@
 import NavigationClient from "@/components/sections/navigation-client";
-import SharePointMigration from "./sp-migrarion";
 import TechStack from "./tech-stack";
-import SharePointMigrationProcess from "./sp-process";
-import AIDrivenSharePointMigration from "./ai-sp";
 import Footer from "@/components/sections/footer";
 import PowerAppsCaseStudies from "./casestudies";
-import TimelinePage from "./timeline";
-import SharePointHero from "./hero";
 import SharePointHero2 from "./components/SharePointHero2";
 import SharepointSqueezeCarouselDemo from "./components/SharepointSqueezeCarouselDemo";
-import SharePointAIReadinessBanner from "./components/SharePointAIReadinessBanner";
 import SharePointServices from "./components/SharePointServices";
-
 import SharePointStickyScroll from "./components/SharePointStickyScroll";
-import HireSharePointPricing from "./pricing-cards";
 import WhyChooseUs from "./why-chose";
 import SharePointHowWeWork from "./components/SharePointHowWeWork";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
@@ -125,23 +117,16 @@ export const metadata: Metadata = applyPageOg("/services/offshore-sharepoint-dev
       "https://www.softreetechnology.com/services/offshore-sharepoint-development",
   },
 }, "Softree Technology");
-const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
-
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-white">
       <NavigationClient />
 
-      {/* HERO (can stay full-width or internally centered) */}
-      {/* <SharePointHero /> */}
+      {/* Hero */}
       <SharePointHero2 />
 
       {/* Trusted By Marquee */}
       <TrustedBrandsMarquee />
-
-      {/* SharePoint AI Readiness Banner */}
-      {/* <SharePointAIReadinessBanner /> */}
-
 
       {/* Who We Help & Where We Operate */}
       <SharePointServices />
@@ -159,19 +144,6 @@ export default function Home() {
 
       {/* Why choose us */}
       <WhyChooseUs />
-
-      {/* MAIN CONTENT – FIXED WIDTH */}
-      {/* <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-        <div className={FIXED_WIDTH}>
-          <SharePointMigration />
-          <SharePointMigrationProcess />
-          <AIDrivenSharePointMigration />
-
-          <HireSharePointPricing />
-          <TimelinePage />
-        </div>
-      </section> */}
-
 
       <LightFAQExact faqs={sharePointFAQs} />
       <LightContactSection />

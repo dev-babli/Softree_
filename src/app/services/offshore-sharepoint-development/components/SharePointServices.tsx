@@ -20,40 +20,41 @@ export const SharePointServices = ({
   const items = [
     {
       title: "Businesses & IT Teams",
-      desc: "Improve workplace collaboration with custom SharePoint development, intranet solutions, document management, and workflow automation tailored to your business requirements.",
+      desc: "Improve collaboration and productivity with custom SharePoint development, SharePoint intranet portals, document management, workflow automation, and Microsoft 365 integration tailored to your business needs.",
       icon: Building,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "SharePoint & Intranet Teams",
-      desc: "Extend your SharePoint environment with custom web parts, site customization, content management, and Microsoft 365 integration to support everyday business operations.",
+      desc: "Enhance your SharePoint environment with custom SharePoint web parts, SPFx development, site customization, content management, and Microsoft 365 integration for efficient digital workplace operations.",
       icon: Layout,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "Consulting Firms",
-      desc: "Expand your service delivery capacity with offshore SharePoint developers who support solution customization, intranet development, workflow automation, and application integration for your clients.",
+      desc: "Scale your client projects with experienced SharePoint developers supporting SharePoint customization, intranet development, SPFx solutions, workflow automation, document management, and Microsoft 365 application integration.",
       icon: Code,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "System Integrators",
-      desc: "Add SharePoint engineering support to modernization projects involving Microsoft 365, business applications, document management, and connected workflows.",
+      desc: "Extend your project capabilities with SharePoint development expertise for Microsoft 365 modernization, SharePoint intranet development, document management, business application integration, and automated workflows.",
       icon: Blocks,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "Microsoft & Technology Partners",
-      desc: "Strengthen your Microsoft technology offerings with offshore SharePoint development expertise, custom extensions, Power Platform integration, and collaborative business solutions.",
+      desc: "Strengthen Microsoft 365 projects with SharePoint development expertise, custom SPFx web parts, SharePoint customization, Power Platform integration, workflow automation, and connected business applications.",
       icon: Building2,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
   ];
+
 
   return (
     <section className={`bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24 ${className || ""}`}>
@@ -71,8 +72,10 @@ export const SharePointServices = ({
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-4 items-start">
                 <h2 className="typo-heading-2 text-slate-900 pr-4">
-                  Offshore SharePoint Development for <br className="hidden lg:block" />
-                  <span className="text-[#FF6B2C]">Businesses & Technology Partners</span>
+                  Offshore SharePoint Development for{" "}
+                  <span className="text-[#FF6B2C]">
+                    Businesses & Technology Partners.
+                  </span>
                 </h2>
 
                 <p className="typo-description text-slate-500 w-full pt-1.5">

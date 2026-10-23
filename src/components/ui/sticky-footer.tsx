@@ -241,7 +241,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                         className="group inline-flex py-1.5 items-center rounded-lg text-[15px] md:text-[16px] font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50 lg:whitespace-nowrap"
                       >
                         {link.title}
-                        {link.external && <Arrow />}
+                        <Arrow />
                       </Link>
                     </li>
                   ))}

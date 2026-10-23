@@ -6,7 +6,7 @@ import { typography } from "@/lib/typography";
 
 export function SpfxHero() {
   return (
-    <div className="relative w-full flex min-h-[92vh] lg:min-h-screen flex-col items-center justify-between overflow-hidden bg-black text-[calc(var(--size)*0.022)] text-white pt-20 sm:pt-24 lg:pt-28 pb-0 [--factor:min(1000px,100vh)] [--size:min(var(--factor),100vw)]">
+    <div className="relative w-full flex flex-col items-center justify-start overflow-hidden bg-black text-[calc(var(--size)*0.022)] text-white pt-24 sm:pt-28 lg:pt-32 pb-6 sm:pb-8 [--factor:min(1000px,100vh)] [--size:min(var(--factor),100vw)]">
       {/* Background Ambient Glow Container */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden z-0">
         <div className="bg absolute h-full w-full max-w-[46em]">
@@ -16,32 +16,39 @@ export function SpfxHero() {
         </div>
       </div>
 
-      {/* Main Content Area */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center my-auto pt-4 sm:pt-6">
-        {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-500/35 bg-orange-500/10 mb-5 sm:mb-6 backdrop-blur-md shadow-sm">
-          <div className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse shadow-[0_0_10px_rgba(255,107,44,0.9)]" />
-          <span className={`${typography.caption.default} text-[#FF6B2C] font-semibold tracking-wider uppercase`}>
-            SHAREPOINT FRAMEWORK (SPFX) DEVELOPMENT
-          </span>
+      {/* Main Content Area: Compact Left-Right Layout */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          {/* Left Column: Eyebrow + Heading */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-500/35 bg-orange-500/10 mb-3 sm:mb-4 backdrop-blur-md shadow-sm">
+              <div className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse shadow-[0_0_10px_rgba(255,107,44,0.9)]" />
+              <span className={`${typography.caption.default} text-[#FF6B2C] font-semibold tracking-wider uppercase`}>
+                SHAREPOINT FRAMEWORK (SPFX) DEVELOPMENT
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h1 className={`${typography.heading.h1} text-left font-bold tracking-tight text-white leading-[1.14]`}>
+              Build Modern SharePoint{" "}
+              <span className="text-[#FF5812] bg-gradient-to-r from-[#FF5812] via-[#FF7A30] to-[#FFA048] bg-clip-text text-transparent inline-block">
+                Experiences with SPFx
+              </span>
+            </h1>
+          </div>
+
+          {/* Right Column: Description */}
+          <div className="lg:col-span-5 flex flex-col items-start text-left">
+            <p className={`${typography.description.default} text-left text-zinc-300 leading-relaxed font-normal text-base sm:text-lg`}>
+              Our dedicated SPFx development team builds customized SharePoint solutions using React, TypeScript, Fluent UI, and Microsoft 365. We create modern web parts, extensions, applications, and integrations that improve SharePoint functionality, user experience, and business workflows.
+            </p>
+          </div>
         </div>
-
-        {/* Heading */}
-        <h1 className={`${typography.heading.h1} text-center font-bold tracking-tight text-white max-w-5xl leading-[1.14]`}>
-          Build Modern SharePoint <br className="hidden sm:inline" />
-          <span className="text-[#FF5812] bg-gradient-to-r from-[#FF5812] via-[#FF7A30] to-[#FFA048] bg-clip-text text-transparent inline-block">
-            Experiences with SPFx
-          </span>
-        </h1>
-
-        {/* Description */}
-        <p className={`${typography.description.default} mt-6 sm:mt-8 max-w-2xl sm:max-w-3xl text-center text-zinc-300 leading-relaxed font-normal`}>
-          Our dedicated SPFx development team builds customized SharePoint solutions using React, TypeScript, Fluent UI, and Microsoft 365. We create modern web parts, extensions, applications, and integrations that improve SharePoint functionality, user experience, and business workflows.
-        </p>
       </div>
 
-      {/* Trust Strip */}
-      <div className="relative z-20 mt-auto pt-6 sm:pt-8 pb-2 px-4 max-w-7xl mx-auto w-full">
+      {/* Trust Strip - Placed directly below the content */}
+      <div className="relative z-20 mt-8 sm:mt-10 lg:mt-12 px-4 max-w-7xl mx-auto w-full">
         <TrustStrip theme="dark" className="!mt-0 !mb-0" />
       </div>
 

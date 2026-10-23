@@ -1,7 +1,5 @@
 import NavigationClient from "@/components/sections/navigation-client";
-import SharePointHero from "./hero";
 import SpfxHero from "./SpfxHero";
-import SpfxAIReadinessBanner from "./components/SpfxAIReadinessBanner";
 import SpfxServices from "./components/SpfxServices";
 import SpfxStickyScroll from "./components/SpfxStickyScroll";
 import SpfxTechnologyStack from "./components/SpfxTechnologyStack";
@@ -9,9 +7,6 @@ import SpfxHowWeWork from "./components/SpfxHowWeWork";
 import SpfxSharepointSqueezeCarouselDemo from "./components/spfxSharepointSqueezeCarouselDemo";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Footer from "@/components/sections/footer";
-import SpfxBenefits from "./spfx-benefits";
-import SpfxTabs from "./spfx-tab";
-import SoftreeExpertiseTimeline from "./spfx.expertise";
 import SharePointCaseStudies from "./casestudies";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
@@ -123,20 +118,15 @@ export const metadata: Metadata = applyPageOg("/services/offshore-spfx-developme
   },
 }, "Softree Technology");
 
-const SECTION_WRAPPER = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
-const SECTION_GAP = "space-y-24 py-24";
-
 export default function Page() {
   return (
     <main className="relative min-h-screen bg-black">
       <NavigationClient />
-      {/* <SharePointHero /> */}
       <SpfxHero />
 
       {/* CORE WHITE LAYOUT CANVAS */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <TrustedBrandsMarquee />
-        {/* <SpfxAIReadinessBanner /> */}
         <SpfxServices />
         <SpfxStickyScroll />
         <SharePointCaseStudies />
@@ -144,16 +134,9 @@ export default function Page() {
         <SpfxSharepointSqueezeCarouselDemo />
         <SpfxHowWeWork />
         <WhyChooseUs />
-        {/* <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
-          <SpfxTabs />
-
-          <SpfxBenefits />
-          <SoftreeExpertiseTimeline />
-        </div> */}
       </section>
       <LightFAQExact faqs={spfxFAQs} />
       <LightContactSection />
-
 
       <Footer />
     </main>
