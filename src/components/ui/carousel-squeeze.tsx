@@ -250,10 +250,10 @@ export function SqueezeCarousel({
                                     />
                                 ) : (
                                     <div
-                                        className="absolute inset-0 w-full h-full -z-20 bg-[#050505]"
+                                        className="absolute inset-0 w-full h-full z-0 overflow-hidden"
                                         style={typeof slide.background === "string" ? { background: slide.background } : undefined}
                                     >
-                                        {(typeof slide.background !== "string" && (isActive || isHovered)) ? slide.background : null}
+                                        {typeof slide.background !== "string" ? slide.background : null}
                                     </div>
                                 )}
 
@@ -349,20 +349,22 @@ export function SqueezeCarousel({
                                         </div>
                                     </div>
                                 ) : (
-                                    /* COLLAPSED CARD VIEW - Clean, Organized & NOT Clumsy */
-                                    <div className="absolute inset-0 bg-slate-950/65 group-hover:bg-slate-950/45 transition-colors duration-300 flex flex-row lg:flex-col justify-between items-center py-0 px-4 lg:py-6 lg:px-2">
+                                    /* COLLAPSED CARD VIEW - Transparent Glass with Wavy Gradient Visible */
+                                    <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/55 via-black/20 to-black/35 group-hover:from-black/35 group-hover:via-black/10 group-hover:to-black/20 transition-colors duration-300 flex flex-row lg:flex-col justify-between items-center py-0 px-4 lg:py-6 lg:px-2 pointer-events-none">
                                         {/* Number Badge */}
-                                        <span className="typo-caption-meta font-bold text-white/90 bg-black/50 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20 shadow-sm shrink-0 group-hover:border-[#FF6B2C]/50 transition-colors">
+                                        <span className="typo-caption-meta font-bold text-white/95 bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20 shadow-sm shrink-0 group-hover:border-[#FF6B2C]/50 transition-colors">
                                             0{idx + 1}
                                         </span>
 
-                                        {/* Label */}
-                                        <div className="flex-1 flex items-center justify-start lg:justify-center overflow-hidden my-0 mx-3 lg:my-6 lg:mx-0">
-                                            <span
-                                                className="text-white/95 group-hover:text-white text-sm sm:text-base lg:text-[16px] xl:text-[17px] font-bold tracking-wide whitespace-nowrap select-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] transition-colors lg:[writing-mode:vertical-rl] lg:rotate-180"
-                                            >
-                                                {(slide.shortTitle ?? slide.title).replace(/\.$/, "")}
-                                            </span>
+                                        {/* Light Black Label Pill for Crystal Clear Text */}
+                                        <div className="flex-1 flex items-center justify-start lg:justify-center overflow-hidden my-0 mx-2 lg:my-4 lg:mx-0">
+                                            <div className="px-2 py-2 sm:px-2.5 sm:py-3 lg:px-2 lg:py-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 shadow-md flex items-center justify-center">
+                                                <span
+                                                    className="text-white text-xs sm:text-sm lg:text-[14.5px] font-bold tracking-wide whitespace-nowrap select-none drop-shadow-sm transition-colors lg:[writing-mode:vertical-rl] lg:rotate-180"
+                                                >
+                                                    {(slide.shortTitle ?? slide.title).replace(/\.$/, "")}
+                                                </span>
+                                            </div>
                                         </div>
 
                                         {/* Indicator Dot */}
