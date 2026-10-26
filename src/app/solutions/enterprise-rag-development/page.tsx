@@ -1,5 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import type { Metadata } from "next";
+import Head from "next/head";
 import { EnterpriseRAGHero } from './components/EnterpriseRAGHero';
 import AIReadinessBanner from './components/AIReadinessBanner';
 import { RAGServices } from './components/RAGServices';
@@ -67,6 +68,8 @@ export const metadata: Metadata = applyPageOg("/solutions/enterprise-rag-develop
 export default function EnterpriseRAGDevelopmentPage() {
   return (
     <main className="min-h-screen w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0A1A] antialiased">
+      <link rel="preload" href="/scene.splinecode" as="fetch" crossOrigin="anonymous" />
+      <link rel="modulepreload" href="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -107,29 +110,6 @@ export default function EnterpriseRAGDevelopmentPage() {
                   "item": "https://www.softreetechnology.com/solutions/enterprise-rag-development"
                 }
               ]
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "VideoObject",
-              "name": "Enterprise RAG Development Services & Intelligent Knowledge Retrieval",
-              "description":
-                "Discover how Softree Technology builds and deploys production-ready Enterprise RAG architectures, connecting enterprise data, vector databases, hybrid retrieval, and secure LLM integration.",
-              "thumbnailUrl": [
-                "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
-                "https://www.softreetechnology.com/og-image.png"
-              ],
-              "uploadDate": "2025-01-15T08:00:00+00:00",
-              "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/RAG-video.mp4",
-              "embedUrl": "https://www.softreetechnology.com/solutions/enterprise-rag-development",
-              "duration": "PT30S",
-              "publisher": {
-                "@type": "Organization",
-                "name": "Softree Technology",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://www.softreetechnology.com/logo/logo.png"
-                }
-              }
             }
           ])
         }}

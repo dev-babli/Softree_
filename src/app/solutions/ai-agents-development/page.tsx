@@ -10,12 +10,9 @@ import WhyChooseWithTestimonials from './components/why';
 import TrustedBrandsMarquee from '@/app/services/offshore-power-platform-development/trust';
 import AIAgentsAIReadinessBanner from './components/AIAgentsAIReadinessBanner';
 import { AIAgentsServices } from './components/AIAgentsServices';
-import AIAgentsWhoDoWeServeSection from './components/AIAgentsWhoDoWeServeSection';
 import { AIAgentsStickyScroll } from './components/AIAgentsStickyScroll';
 import AIAgentsSuccessStories from './components/AIAgentsSuccessStories';
 import AIAgentsTechnologyStack from './components/AIAgentsTechnologyStack';
-import AIAgentsOffshoreEngineeringSection from './components/AIAgentsOffshoreEngineeringSection';
-import { AIAgentsHowAIWorks } from './components/AIAgentsHowAIWorks';
 import { applyPageOg } from '@/lib/site-metadata';
 
 export const metadata: Metadata = applyPageOg('/solutions/ai-agents-development', {
@@ -65,6 +62,8 @@ export const metadata: Metadata = applyPageOg('/solutions/ai-agents-development'
 export default function AIAgentsDevelopmentPage() {
   return (
     <main className="min-h-screen w-full bg-fixed bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0F3C] antialiased">
+      <link rel="preload" href="/scene.splinecode" as="fetch" crossOrigin="anonymous" />
+      <link rel="modulepreload" href="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -136,12 +135,9 @@ export default function AIAgentsDevelopmentPage() {
       <TrustedBrandsMarquee />
       <AIAgentsAIReadinessBanner />
       <AIAgentsServices />
-      {/* <AIAgentsWhoDoWeServeSection className="bg-white" /> */}
       <AIAgentsStickyScroll />
       <AIAgentsSuccessStories />
       <AIAgentsTechnologyStack />
-      {/* <AIAgentsOffshoreEngineeringSection /> */}
-      {/* <AIAgentsHowAIWorks /> */}
       <WhyChooseWithTestimonials />
       <AIAgentsFAQ />
       <LightContactSection />
@@ -149,3 +145,4 @@ export default function AIAgentsDevelopmentPage() {
     </main>
   );
 }
+

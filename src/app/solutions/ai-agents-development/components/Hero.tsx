@@ -1,17 +1,28 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Script from 'next/script';
 import { HERO_DATA } from '../data/heroData';
 import TrustStrip from '@/components/sections/TrustStrip';
 
 export const Hero: React.FC = () => {
   const { label, paragraph } = HERO_DATA;
   const [isMounted, setIsMounted] = useState(false);
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+
+    if (typeof window !== 'undefined') {
+      const existingScript = document.querySelector('script[src*="spline-viewer"]');
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js';
+        script.type = 'module';
+        script.async = true;
+        document.head.appendChild(script);
+      }
+    }
   }, []);
 
   const containerVariants = {
@@ -26,11 +37,6 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative w-full bg-[#050909] overflow-hidden flex flex-col pt-24 lg:pt-32">
-      <Script
-        src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"
-        type="module"
-        strategy="afterInteractive"
-      />
       <div className="w-full flex flex-col lg:flex-row items-start">
 
         {/* LEFT COLUMN: Content */}
@@ -74,11 +80,24 @@ export const Hero: React.FC = () => {
         {/* RIGHT COLUMN: 3D UI (Bleeds to the right edge) */}
         <div className="w-full lg:w-1/2 flex flex-col items-start justify-center relative mt-4 lg:mt-0 lg:-translate-x-16">
           <div className="w-full h-[360px] sm:h-[440px] lg:h-[500px] relative pointer-events-none transform lg:scale-[0.85] lg:origin-top">
+            
+            {/* Instant glowing aesthetic placeholder so there's zero empty delay */}
+            <div
+              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 pointer-events-none ${
+                isSplineLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+              }`}
+            >
+              <div className="w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#FF6B00]/20 via-[#FF6B00]/10 to-transparent blur-3xl animate-pulse" />
+              <div className="w-[180px] h-[180px] rounded-full border border-[#FF6B00]/20 animate-spin [animation-duration:8s] opacity-40" />
+            </div>
+
             <div className="pointer-events-auto absolute inset-0 overflow-hidden">
               {isMounted &&
                 React.createElement('spline-viewer', {
-                  url: 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode',
+                  url: '/scene.splinecode',
+                  'loading-anim-type': 'none',
                   style: { width: '100%', height: '100%' },
+                  onLoad: () => setIsSplineLoaded(true),
                 })}
               {/* Overlay to cover the Spline watermark and block clicks/hovers */}
               <div className="absolute bottom-2 right-2 w-[150px] h-[50px] bg-[#050909] z-[100] pointer-events-auto rounded-md" />

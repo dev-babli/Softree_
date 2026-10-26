@@ -1,4 +1,4 @@
-import { applyPageOg } from "@/lib/site-metadata";
+﻿import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -71,6 +71,8 @@ export const metadata: Metadata = applyPageOg("/services/multi-agent-systems-dev
 export default function MultiAgentSystemsPage() {
   return (
     <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0F3C] antialiased">
+      <link rel="preload" href="/scene.splinecode" as="fetch" crossOrigin="anonymous" />
+      <link rel="modulepreload" href="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js" />
       {/* Structured SEO Schema Data */}
       <script
         type="application/ld+json"
@@ -155,3 +157,4 @@ export default function MultiAgentSystemsPage() {
     </main>
   );
 }
+
