@@ -174,18 +174,20 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
     })
 
     tl.from(titleRef.current, {
-      y: 60,
+      y: 30,
       opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
+      duration: 0.6,
+      ease: "power2.out",
+      force3D: true,
     })
 
     tl.from(faqsRef.current, {
-      y: 80,
+      y: 40,
       opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-    }, "-=0.4")
+      duration: 0.6,
+      ease: "power2.out",
+      force3D: true,
+    }, "-=0.3")
   }, { scope: sectionRef })
 
   const handleClick = (index: number) => {
@@ -204,7 +206,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
     return (
       <div
         key={faq.id}
-        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${
+        className={`group/card relative overflow-hidden rounded-2xl border transition-[box-shadow,border-color] duration-300 w-full ${
           isActive
             ? "bg-white shadow-xl"
             : "bg-white/90 shadow-sm hover:shadow-md"
@@ -356,7 +358,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
       />
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
-        <div ref={titleRef} className="mb-8 md:mb-10">
+        <div ref={titleRef} className="mb-8 md:mb-10 transform-gpu will-change-transform">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
             <HelpCircle className="h-4 w-4 text-[#1852FF]" />
             <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
@@ -375,7 +377,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
          *  • Desktop (≥lg)         : original horizontal slot accordion. */}
         <div
           ref={faqsRef}
-          className="flex flex-col gap-3 lg:grid lg:grid-cols-2 lg:gap-3 lg:items-start"
+          className="flex flex-col gap-3 lg:grid lg:grid-cols-2 lg:gap-3 lg:items-start transform-gpu will-change-transform"
         >
           {/* Left Column (even indices) */}
           <div className="contents lg:flex lg:flex-col lg:gap-3">

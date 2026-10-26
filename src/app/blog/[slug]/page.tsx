@@ -19,7 +19,6 @@ import { collectFaqItems } from '@/cms/lib/studio/aeoCompleteness'
 import { ogImages, pageOgImage, SITE_URL, twitterImages } from '@/lib/site-metadata'
 import LightFAQExact from '@/components/homepage-light/LightFAQExact'
 import LightContactSection from '@/components/homepage-light/LightContactSection'
-import { BlogConsultationCard } from '@/components/blog/BlogConsultationCard'
 
 function toPlainText(value: unknown): string {
   if (!value) return ''
@@ -264,9 +263,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   if (!post || !post.title) notFound()
 
   const authorName = toPlainText(post.author?.name) || 'Softree Team'
-  const authorBio =
-    toPlainText(post.author?.bio) ||
-    'Practical guides, implementation playbooks, and architectural insights on modern enterprise engineering, cloud platforms, and scalable digital delivery.'
   const publishedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString('en-US', {
         month: 'long',
@@ -362,7 +358,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   } : null
 
   return (
-    <div className="min-h-screen bg-[#f6f7fb]">
+    <div className="min-h-screen bg-white">
       <NavigationServer />
 
       {/* Article JSON-LD */}
@@ -392,7 +388,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
       <main>
         <section className="border-b border-zinc-200 bg-white">
-          <div className="mx-auto max-w-[1240px] px-4 pb-10 pt-32 md:px-8">
+          <div className="mx-auto max-w-[1440px] px-4 pb-10 pt-32 md:px-8 lg:px-12">
             <Link
               href="/blog"
               className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-950"
@@ -408,27 +404,68 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               <span>{categoryName}</span>
             </div>
 
-            <h1 className="mt-5 max-w-4xl text-3xl font-black leading-tight tracking-[-0.03em] text-zinc-950 md:text-5xl">
+            <h1 className="mt-5 max-w-5xl text-3xl font-black leading-tight tracking-[-0.03em] text-zinc-950 md:text-5xl lg:text-[3.25rem]">
               {post.title}
             </h1>
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-zinc-600">{excerpt}</p>
+            <p className="mt-5 max-w-4xl text-lg leading-relaxed text-zinc-600 md:text-xl">{excerpt}</p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-5 border-t border-zinc-200 pt-5 text-sm text-zinc-600">
-              <span className="font-semibold text-zinc-800">{toPlainText(post.author?.name) || 'Softree Team'}</span>
-              <span className="inline-flex items-center gap-2">
-                <CalendarDays className="h-4 w-4" />
-                Published: {publishedDate}
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <Clock3 className="h-4 w-4" />
-                {readTime}
-              </span>
+            <div className="mt-7 flex flex-wrap items-center justify-between gap-5 border-t border-zinc-200 pt-5 text-sm text-zinc-600">
+              <div className="flex flex-wrap items-center gap-5">
+                <span className="font-semibold text-zinc-800">{toPlainText(post.author?.name) || 'Softree Team'}</span>
+                <span className="inline-flex items-center gap-2">
+                  <CalendarDays className="h-4 w-4" />
+                  Published: {publishedDate}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Clock3 className="h-4 w-4" />
+                  {readTime}
+                </span>
+              </div>
+
+              {/* Share links */}
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-400 mr-1">Share:</span>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on LinkedIn"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#ff461e] hover:bg-[#ff461e] hover:text-white hover:scale-105 shadow-sm"
+                >
+                  <Linkedin className="h-3.5 w-3.5" />
+                </a>
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on Twitter"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#ff461e] hover:bg-[#ff461e] hover:text-white hover:scale-105 shadow-sm"
+                >
+                  <Twitter className="h-3.5 w-3.5" />
+                </a>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on Facebook"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#ff461e] hover:bg-[#ff461e] hover:text-white hover:scale-105 shadow-sm"
+                >
+                  <Facebook className="h-3.5 w-3.5" />
+                </a>
+                <a
+                  href={pageUrl}
+                  aria-label="Copy Link"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#ff461e] hover:bg-[#ff461e] hover:text-white hover:scale-105 shadow-sm"
+                >
+                  <Link2 className="h-3.5 w-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-[1240px] gap-8 px-4 py-10 md:grid-cols-[1fr_320px] md:px-8 md:py-14">
-          <article className="rounded-2xl border border-zinc-200 bg-white p-6 md:p-8">
+        <section className="mx-auto max-w-[1440px] px-4 py-8 md:px-8 lg:px-12 md:py-12">
+          <article className="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-8 md:p-12 lg:p-14 shadow-sm">
             {post.mainImage?.asset?.url ? (() => {
               const dims = getSanityDimensions(post.mainImage.asset.url)
               return (
@@ -440,7 +477,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     height={dims.height}
                     priority
                     className="h-auto w-full rounded-xl object-contain"
-                    sizes="(max-width: 900px) 100vw, 860px"
+                    sizes="(max-width: 1440px) 100vw, 1360px"
                   />
                 </div>
               )
@@ -450,108 +487,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               {post.body ? <PortableText value={post.body} components={portableTextComponents} /> : null}
             </div>
           </article>
-
-          <aside className="space-y-5 md:sticky md:top-28 md:h-fit">
-            <BlogConsultationCard
-              category={categoryName}
-              buttonHref="/contact"
-            />
-
-            <div className="rounded-3xl border border-zinc-200/90 bg-white p-5 sm:p-6 shadow-sm">
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-500">Share this Article</p>
-              <div className="mt-3.5 flex items-center gap-2">
-                <a
-                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Share on LinkedIn"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#0f5cc0] hover:bg-[#0f5cc0] hover:text-white"
-                >
-                  <Linkedin className="h-4 w-4" />
-                </a>
-                <a
-                  href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Share on Twitter"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#0f5cc0] hover:bg-[#0f5cc0] hover:text-white"
-                >
-                  <Twitter className="h-4 w-4" />
-                </a>
-                <a
-                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Share on Facebook"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#0f5cc0] hover:bg-[#0f5cc0] hover:text-white"
-                >
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a
-                  href={pageUrl}
-                  aria-label="Copy Link"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#0f5cc0] hover:bg-[#0f5cc0] hover:text-white"
-                >
-                  <Link2 className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-zinc-200/90 bg-white p-5 sm:p-6 shadow-sm">
-              <div className="flex items-center gap-2 mb-3.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#0f5cc0]" />
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-500">About the Author</p>
-              </div>
-
-              <div className="flex items-center gap-3.5">
-                {post.author?.image?.asset?.url ? (
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-zinc-200 ring-2 ring-[#edf3ff]">
-                    <Image
-                      src={post.author.image.asset.url}
-                      alt={post.author?.image?.alt || authorName}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0f5cc0] to-[#083b7e] font-black text-sm text-white shadow-sm ring-4 ring-[#edf3ff]">
-                    {authorName
-                      .split(' ')
-                      .map((w) => w[0])
-                      .slice(0, 2)
-                      .join('')
-                      .toUpperCase() || 'ST'}
-                  </div>
-                )}
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <h4 className="text-base font-bold text-zinc-950">{authorName}</h4>
-                    <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-blue-50 text-[10px] text-[#0f5cc0]" title="Verified Softree Contributor">
-                      ✓
-                    </span>
-                  </div>
-                  <p className="text-[11px] font-medium text-[#0f5cc0]">
-                    Engineering & Solutions Advisory
-                  </p>
-                </div>
-              </div>
-
-              <p className="mt-3.5 text-xs leading-relaxed text-zinc-600 border-t border-zinc-100 pt-3">
-                {authorBio}
-              </p>
-
-              <div className="mt-3 flex items-center justify-between border-t border-zinc-50 pt-2 text-[11px] text-zinc-500">
-                <span>Practice Lead</span>
-                <span className="font-semibold text-zinc-700">Softree Technology</span>
-              </div>
-            </div>
-          </aside>
         </section>
 
         <LightFAQExact faqs={mappedFaqs} />
 
-        <section className="border-t border-zinc-200 bg-[#f8f9fc] py-14 md:py-20">
-          <div className="mx-auto max-w-[1240px] px-4 md:px-8">
+        <section className="border-t border-zinc-200 bg-white py-14 md:py-20">
+          <div className="mx-auto max-w-[1440px] px-4 md:px-8 lg:px-12">
             <div className="mb-8 flex items-center justify-between gap-4">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0f5cc0]">

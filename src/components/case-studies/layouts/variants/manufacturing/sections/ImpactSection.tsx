@@ -1,6 +1,5 @@
 "use client"
 
-import NumberFlow from "@number-flow/react"
 import type { CaseStudyLayoutData } from "../../../types"
 import {
   PageContainer,
@@ -12,13 +11,6 @@ import {
   SectionTitle,
 } from "../shared"
 
-function parseMetricValue(value?: string | null): { num: number; prefix: string; suffix: string } {
-  const safe = (value ?? "").trim()
-  const match = safe.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/)
-  if (!match) return { num: 0, prefix: "", suffix: safe }
-  return { num: parseFloat(match[2]), prefix: match[1], suffix: match[3] }
-}
-
 function MetricCard({
   metric,
   featured = false,
@@ -26,15 +18,12 @@ function MetricCard({
   metric: { label: string; value: string; description?: string }
   featured?: boolean
 }) {
-  const { num, prefix, suffix } = parseMetricValue(metric.value)
-  const hasNumber = num > 0
-
   return (
     <div
       className={`flex h-full flex-col justify-end rounded-2xl border border-[rgba(15,23,42,0.08)] p-7 transition-transform duration-300 hover:-translate-y-0.5 md:p-8 ${
         featured
           ? "bg-[#141414] text-white lg:col-span-2 lg:row-span-2 lg:min-h-[280px]"
-          : "bg-white/80 backdrop-blur-sm"
+          : "bg-white shadow-sm"
       }`}
     >
       <p
@@ -44,15 +33,7 @@ function MetricCard({
             : "text-[clamp(1.85rem,3.5vw,2.5rem)] text-[var(--softree-accent,#FF7A2F)]"
         }`}
       >
-        {hasNumber ? (
-          <>
-            {prefix}
-            <NumberFlow value={num} />
-            {suffix}
-          </>
-        ) : (
-          metric.value
-        )}
+        {metric.value}
       </p>
       <p
         className={`mt-3 text-sm leading-relaxed ${

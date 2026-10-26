@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BlogSmoothScroller from "@/components/blog/BlogSmoothScroller";
 import {
   BLOG_OG_IMAGE,
   ogImages,
@@ -51,5 +52,9 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <BlogSmoothScroller>
+      {children}
+    </BlogSmoothScroller>
+  );
 }

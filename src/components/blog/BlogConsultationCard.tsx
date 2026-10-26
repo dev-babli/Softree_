@@ -28,6 +28,8 @@ export interface BlogConsultationCardProps {
   variant?: "sidebar" | "banner" | "inline" | "compact"
   /** Optional extra CSS classes */
   className?: string
+  /** Optional extra content (e.g. share buttons) embedded cleanly inside the card */
+  children?: React.ReactNode
 }
 
 /**
@@ -75,6 +77,7 @@ export function BlogConsultationCard({
   category,
   variant = "sidebar",
   className = "",
+  children,
 }: BlogConsultationCardProps) {
   const displayTitle = title || getCategoryHeadline(category)
 
@@ -99,8 +102,8 @@ export function BlogConsultationCard({
         aria-label="Softree Consultation Callout"
       >
         {/* Soft background ambient glow */}
-        <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br from-[#ff6b4a]/15 to-transparent blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-gradient-to-tr from-[#ffa07a]/15 to-transparent blur-3xl" />
+        <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(255,107,74,0.14)_0%,transparent_70%)]" />
+        <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(255,160,122,0.14)_0%,transparent_70%)]" />
 
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-[1.2fr_0.8fr] lg:grid-cols-[1.3fr_0.7fr]">
           <div className="space-y-4 sm:space-y-5">
@@ -155,6 +158,13 @@ export function BlogConsultationCard({
             </div>
           </div>
         </div>
+
+        {/* Embedded Footer / Actions (e.g. Share this Article) */}
+        {children ? (
+          <div className="relative z-10 mt-6 pt-5 border-t border-[#ffdcd4]/80">
+            {children}
+          </div>
+        ) : null}
       </aside>
     )
   }
@@ -204,7 +214,7 @@ export function BlogConsultationCard({
       aria-label="Softree Consultation Widget"
     >
       {/* Top subtle ambient glow */}
-      <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-gradient-to-br from-[#ff6b4a]/20 to-transparent blur-2xl" />
+      <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(255,107,74,0.18)_0%,transparent_70%)]" />
 
       <div className="relative z-10 space-y-4">
         {/* Top Kicker */}
@@ -253,6 +263,13 @@ export function BlogConsultationCard({
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-40 pointer-events-none" />
           </div>
         </div>
+
+        {/* Embedded Footer / Actions (e.g. Share this Article) */}
+        {children ? (
+          <div className="pt-4 border-t border-[#ffdcd4]/80">
+            {children}
+          </div>
+        ) : null}
       </div>
     </div>
   )
