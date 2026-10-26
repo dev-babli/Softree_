@@ -58,7 +58,7 @@ export default function AiReadinessBanner() {
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-[#FF6B2C]/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Left Content Side */}
-          <div className="relative z-10 flex-[1.25] p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-start">
+          <div className="relative z-10 flex-[1.25] p-8 sm:p-12 lg:p-14 flex flex-col justify-center items-start">
 
             {/* AI CONSULTING & ENGINEERING Eyebrow Pill */}
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/70 px-4 py-1.5 rounded-full border border-white/60 mb-5 inline-block">
@@ -68,30 +68,30 @@ export default function AiReadinessBanner() {
             </div>
 
             {/* Headline */}
-            <h2 className="typo-heading-2 text-slate-900 mb-4 max-w-xl">
+            <h2 className="typo-heading-2 text-slate-900 mb-3.5 max-w-xl">
               Your AI Strategy. <br />
               <span className="text-[#FF6B2C]">Our Offshore AI Engineering Team.</span>
             </h2>
 
             {/* Description Paragraph */}
-            <p className="typo-description text-slate-600 max-w-xl mb-8">
+            <p className="text-[15px] sm:text-base leading-relaxed text-slate-600 max-w-xl mb-6">
               Turn business challenges into practical AI solutions with Softree Technology. Our offshore AI consulting and engineering team helps you plan and implement AI agents, RAG solutions, workflow automation, and cloud-based AI applications.
             </p>
 
             {/* 4 Feature Items List */}
-            <div className="flex flex-col gap-5 w-full max-w-xl">
+            <div className="flex flex-col gap-4 sm:gap-4.5 w-full max-w-xl">
               {FEATURES.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-full border border-orange-200/80 bg-orange-50/80 flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:border-[#FF6B2C]/40 group-hover:bg-orange-100/60 transition-colors duration-200">
-                      <Icon className="w-5 h-5 text-[#FF6B2C]" />
+                  <div key={idx} className="flex items-start gap-3.5 sm:gap-4 group">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-orange-200/80 bg-orange-50/80 flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:border-[#FF6B2C]/40 group-hover:bg-orange-100/60 transition-colors duration-200">
+                      <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#FF6B2C]" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="typo-heading-4 text-slate-900 mb-1">
+                      <h3 className="text-[15px] sm:text-[15.5px] font-semibold text-slate-900 mb-0.5 leading-snug">
                         {item.title}
                       </h3>
-                      <p className="typo-body-sm text-slate-500">
+                      <p className="text-[13px] sm:text-[13.5px] leading-relaxed text-slate-500">
                         {item.description}
                       </p>
                     </div>
@@ -101,7 +101,7 @@ export default function AiReadinessBanner() {
             </div>
 
             {/* CTA Button */}
-            <div className="inline-block mt-9">
+            <div className="inline-block mt-7 sm:mt-8">
               <FlowButton
                 href="/contact"
                 text="BUILD YOUR AI TEAM"
@@ -122,7 +122,7 @@ export default function AiReadinessBanner() {
             <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp" />
             <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
             <meta itemProp="duration" content="PT30S" />
-            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/aiconsulting.mp4" />
             <meta itemProp="embedUrl" content="https://www.softreetechnology.com/services/ai-consulting-services" />
 
             <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
@@ -135,7 +135,7 @@ export default function AiReadinessBanner() {
             {/* Video element with complete indexing, poster, and accessibility attributes */}
             <video
               itemProp="video"
-              src="/ai-development-service-video/ai-2.mp4"
+              src="/ai-development-service-video/aiconsulting.mp4"
               poster="/ai-development-service-video/ai-agent-video-poster.webp"
               aria-label="Enterprise AI Consulting Services & Strategic Implementation Overview"
               autoPlay
@@ -146,7 +146,7 @@ export default function AiReadinessBanner() {
               controls={false}
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
-              <source src="/ai-development-service-video/ai-2.mp4" type="video/mp4" />
+              <source src="/ai-development-service-video/aiconsulting.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             {/* Subtle shade vignette overlay */}
