@@ -10,7 +10,7 @@ import {
 } from "framer-motion"
 import { useRef, type ReactNode } from "react"
 
-/** Softree editorial ease — confident, not bouncy */
+/** Softree editorial ease — confident, smooth, not bouncy */
 export const REVEAL_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 export type RevealVariant = "up" | "down" | "left" | "right" | "scale" | "blur" | "fade"
@@ -27,23 +27,24 @@ type RevealProps = {
   amount?: number | "some" | "all"
 } & Omit<MotionProps, "children">
 
+// Hardware-accelerated compositor-only properties (no costly Gaussian blur filter passes during scroll)
 function hiddenState(variant: RevealVariant, distance: number) {
   switch (variant) {
     case "down":
-      return { opacity: 0, y: -distance, x: 0, scale: 1, filter: "blur(0px)" }
+      return { opacity: 0, y: -distance, x: 0, scale: 1 }
     case "left":
-      return { opacity: 0, x: distance, y: 0, scale: 1, filter: "blur(0px)" }
+      return { opacity: 0, x: distance, y: 0, scale: 1 }
     case "right":
-      return { opacity: 0, x: -distance, y: 0, scale: 1, filter: "blur(0px)" }
+      return { opacity: 0, x: -distance, y: 0, scale: 1 }
     case "scale":
-      return { opacity: 0, scale: 0.92, y: distance * 0.35, x: 0, filter: "blur(0px)" }
+      return { opacity: 0, scale: 0.95, y: distance * 0.35, x: 0 }
     case "blur":
-      return { opacity: 0, y: distance * 0.65, x: 0, scale: 1, filter: "blur(14px)" }
+      return { opacity: 0, y: distance * 0.45, x: 0, scale: 1 }
     case "fade":
-      return { opacity: 0, y: 0, x: 0, scale: 1, filter: "blur(0px)" }
+      return { opacity: 0, y: 0, x: 0, scale: 1 }
     case "up":
     default:
-      return { opacity: 0, y: distance, x: 0, scale: 1, filter: "blur(0px)" }
+      return { opacity: 0, y: distance, x: 0, scale: 1 }
   }
 }
 
@@ -52,10 +53,9 @@ const visibleState = {
   y: 0,
   x: 0,
   scale: 1,
-  filter: "blur(0px)",
 }
 
-/** Scroll-triggered reveal — use in page sections below the fold */
+/** Scroll-triggered reveal — GPU compositor accelerated, 0 filter stalls */
 export function Reveal({
   children,
   className = "",
@@ -65,10 +65,11 @@ export function Reveal({
   variant = "up",
   once = true,
   amount = "some",
+  style,
   ...rest
 }: RevealProps) {
   const reduce = useReducedMotion()
-  const distance = distanceProp ?? y ?? 28
+  const distance = distanceProp ?? y ?? 24
 
   if (reduce) {
     return <div className={className}>{children}</div>
@@ -79,8 +80,9 @@ export function Reveal({
       className={className}
       initial={hiddenState(variant, distance)}
       whileInView={visibleState}
-      viewport={{ once, amount, margin: "0px 0px -8% 0px" }}
-      transition={{ duration: 0.68, ease: REVEAL_EASE, delay }}
+      viewport={{ once, amount, margin: "0px 0px -40px 0px" }}
+      transition={{ duration: 0.52, ease: REVEAL_EASE, delay }}
+      style={{ willChange: "transform, opacity", ...style }}
       {...rest}
     >
       {children}
@@ -94,7 +96,7 @@ export function HeroReveal({
   className = "",
   delay = 0,
   variant = "up",
-  distance = 32,
+  distance = 28,
 }: {
   children: ReactNode
   className?: string
@@ -113,7 +115,8 @@ export function HeroReveal({
       className={className}
       initial={hiddenState(variant, distance)}
       animate={visibleState}
-      transition={{ duration: 0.75, ease: REVEAL_EASE, delay }}
+      transition={{ duration: 0.65, ease: REVEAL_EASE, delay }}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
@@ -124,29 +127,29 @@ export const staggerContainerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.09,
-      delayChildren: 0.05,
+      staggerChildren: 0.08,
+      delayChildren: 0.03,
     },
   },
 }
 
 export const staggerItemVariants: Variants = {
-  hidden: { opacity: 0, y: 32, scale: 0.97 },
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.62, ease: REVEAL_EASE },
+    transition: { duration: 0.5, ease: REVEAL_EASE },
   },
 }
 
 export const staggerItemScaleVariants: Variants = {
-  hidden: { opacity: 0, y: 24, scale: 0.94 },
+  hidden: { opacity: 0, y: 20, scale: 0.96 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 110, damping: 22, mass: 0.85 },
+    transition: { duration: 0.48, ease: REVEAL_EASE },
   },
 }
 
@@ -154,7 +157,7 @@ export const staggerItemScaleVariants: Variants = {
 export function RevealStagger({
   children,
   className = "",
-  stagger = 0.09,
+  stagger = 0.08,
   variant = "default",
 }: {
   children: ReactNode
@@ -170,7 +173,7 @@ export function RevealStagger({
 
   const container: Variants = {
     hidden: {},
-    visible: { transition: { staggerChildren: stagger, delayChildren: 0.04 } },
+    visible: { transition: { staggerChildren: stagger, delayChildren: 0.03 } },
   }
 
   return (
@@ -179,7 +182,7 @@ export function RevealStagger({
       variants={container}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.12, margin: "0px 0px -6% 0px" }}
+      viewport={{ once: true, amount: 0.1, margin: "0px 0px -40px 0px" }}
     >
       {children}
     </motion.div>
@@ -205,6 +208,7 @@ export function RevealItem({
     <motion.div
       className={className}
       variants={variant === "scale" ? staggerItemScaleVariants : staggerItemVariants}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
@@ -215,7 +219,7 @@ export function RevealItem({
 export function ParallaxLayer({
   children,
   className = "",
-  strength = 36,
+  strength = 24,
 }: {
   children: ReactNode
   className?: string
@@ -234,13 +238,13 @@ export function ParallaxLayer({
   }
 
   return (
-    <div ref={ref} className={className}>
-      <motion.div style={{ y }}>{children}</motion.div>
+    <div ref={ref} className={className} style={{ willChange: "transform" }}>
+      <motion.div style={{ y, willChange: "transform" }}>{children}</motion.div>
     </div>
   )
 }
 
-/** Section header: label blur-in, then title scale-up */
+/** Section header: clean GPU-accelerated reveals */
 export function SectionHeaderReveal({
   label,
   title,
@@ -255,15 +259,15 @@ export function SectionHeaderReveal({
   return (
     <div className={className}>
       {label ? (
-        <Reveal variant="blur" distance={20} delay={0}>
+        <Reveal variant="up" distance={16} delay={0}>
           {label}
         </Reveal>
       ) : null}
-      <Reveal variant="scale" distance={24} delay={label ? 0.06 : 0}>
+      <Reveal variant="up" distance={20} delay={label ? 0.04 : 0}>
         {title}
       </Reveal>
       {description ? (
-        <Reveal variant="up" distance={20} delay={0.12} className="mt-4 max-w-2xl">
+        <Reveal variant="up" distance={20} delay={0.08} className="mt-4 max-w-2xl">
           {description}
         </Reveal>
       ) : null}

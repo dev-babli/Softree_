@@ -1,6 +1,5 @@
 "use client"
 
-import NumberFlow from "@number-flow/react"
 import Image from "next/image"
 import { AlertCircle, Check, Clock, Layers } from "lucide-react"
 import LightContactSection from "@/components/homepage-light/LightContactSection"
@@ -117,7 +116,7 @@ function ComposerNarrativeBlock({
             </ParallaxLayer>
           </div>
         ) : (
-          <Reveal variant="blur" delay={0.08} className="mt-8 max-w-3xl">
+          <Reveal variant="up" delay={0.06} className="mt-8 max-w-3xl">
             <NarrativeProse value={(block.content || block.body) as never} />
           </Reveal>
         )}
@@ -281,12 +280,6 @@ function ComposerBeforeAfterBlock({
   )
 }
 
-function parseMetricValue(value: string): { num: number; prefix: string; suffix: string } {
-  const match = value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/)
-  if (!match) return { num: 0, prefix: "", suffix: value }
-  return { num: parseFloat(match[2]), prefix: match[1], suffix: match[3] }
-}
-
 function ComposerHeroMetricsStripBlock({ block }: { block: CsHeroMetricsStrip }) {
   const metrics = block.metrics || []
   if (!metrics.length) return null
@@ -320,40 +313,28 @@ function ComposerHeroMetricsStripBlock({ block }: { block: CsHeroMetricsStrip })
         <RevealStagger
           className={`grid gap-4 sm:grid-cols-2 ${METRICS_GRID_COLS[Math.min(metrics.length, 4)] || METRICS_GRID_COLS[4]} ${block.heading || block.label ? "mt-8" : ""}`}
         >
-          {metrics.map((metric) => {
-            const { num, prefix, suffix } = parseMetricValue(metric.value)
-            const hasNumber = num > 0
-            return (
-              <RevealItem key={metric._key || metric.label} variant="scale">
-                <div
-                  className={
-                    isBand
-                      ? "rounded-2xl border border-white/15 bg-white/10 px-5 py-6 backdrop-blur-sm"
-                      : "rounded-2xl border border-[rgba(15,23,42,0.08)] bg-white px-5 py-6"
-                  }
+          {metrics.map((metric) => (
+            <RevealItem key={metric._key || metric.label} variant="scale">
+              <div
+                className={
+                  isBand
+                    ? "rounded-2xl border border-white/20 bg-white/10 px-5 py-6 shadow-sm"
+                    : "rounded-2xl border border-[rgba(15,23,42,0.08)] bg-white px-5 py-6 shadow-sm"
+                }
+              >
+                <p
+                  className={`text-[clamp(1.75rem,3vw,2.35rem)] font-bold leading-none tracking-[-0.03em] ${
+                    isBand ? "text-white" : "text-[var(--softree-accent,#FF7A2F)]"
+                  }`}
                 >
-                  <p
-                    className={`text-[clamp(1.75rem,3vw,2.35rem)] font-bold leading-none tracking-[-0.03em] ${
-                      isBand ? "text-white" : "text-[var(--softree-accent,#FF7A2F)]"
-                    }`}
-                  >
-                    {hasNumber ? (
-                      <>
-                        {prefix}
-                        <NumberFlow value={num} />
-                        {suffix}
-                      </>
-                    ) : (
-                      metric.value
-                    )}
-                  </p>
-                  <p className={`mt-2 text-sm ${isBand ? "text-white/80" : "text-[var(--cs-text-muted,#64748b)]"}`}>
-                    {metric.label}
-                  </p>
-                </div>
-              </RevealItem>
-            )
-          })}
+                  {metric.value}
+                </p>
+                <p className={`mt-2 text-sm ${isBand ? "text-white/80" : "text-[var(--cs-text-muted,#64748b)]"}`}>
+                  {metric.label}
+                </p>
+              </div>
+            </RevealItem>
+          ))}
         </RevealStagger>
       </PageContainer>
     </section>
@@ -554,11 +535,7 @@ function ComposerBlock({
         answer: f.answer,
       }))
       if (!faqItems.length) return null
-      return (
-        <Reveal variant="up">
-          <LightFAQExact faqs={faqItems} />
-        </Reveal>
-      )
+      return <LightFAQExact faqs={faqItems} />
     }
 
     case "csRelatedSection":
@@ -568,11 +545,7 @@ function ComposerBlock({
       return <RelatedSection related={data.related} />
 
     case "csContactSection":
-      return (
-        <Reveal variant="scale">
-          <LightContactSection />
-        </Reveal>
-      )
+      return <LightContactSection />
 
     case "csReactBitsSection": {
       const fx = section as CsReactBitsSection

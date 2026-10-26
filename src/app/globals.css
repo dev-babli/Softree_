@@ -56,8 +56,33 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     overflow-x: clip;
+  }
+
+  /* Lenis smooth momentum scrolling support */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  html.lenis,
+  html.lenis body,
+  html.lenis.lenis-smooth,
+  html[data-scroll-behavior="smooth"].lenis {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: clip;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
   }
 
   body {
