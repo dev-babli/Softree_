@@ -207,13 +207,13 @@ export const WovenLightHero = () => {
               className="leading-[1.12] tracking-tight flex flex-col items-start text-left select-none w-full"
             >
               <span className="text-white text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-                Your Offshore
+                Offshore
               </span>
               <span className="text-[#FF6B00] text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_0_35px_rgba(255,107,0,0.45)] mt-1 sm:mt-1.5">
-                Agentic AI
+                AI Development
               </span>
               <span className="text-white text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] mt-1 sm:mt-1.5">
-                Engineering Partner
+                Services & Partner
               </span>
             </motion.h1>
           </div>
