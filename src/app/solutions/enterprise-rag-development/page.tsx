@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import type { Metadata } from "next";
 import Head from "next/head";
 import { EnterpriseRAGHero } from './components/EnterpriseRAGHero';
@@ -28,18 +28,24 @@ export const metadata: Metadata = applyPageOg("/solutions/enterprise-rag-develop
     "Build secure, production-ready RAG solutions with Softree’s offshore engineering team. Connect enterprise data, vector search, LLMs, and knowledge sources.",
 
   keywords: [
+    // Primary Keyword
+    "RAG Development Services",
+
+    // Secondary Keywords
+    "RAG Solutions",
+    "RAG Services",
     "Enterprise RAG Development Services",
     "Enterprise RAG Development",
-    "RAG Development Services",
-    "RAG Application Development",
-    "Enterprise RAG Solutions",
     "RAG Development Company",
     "Custom RAG Development",
+    "RAG Application Development",
+    "Enterprise RAG Solutions",
     "RAG Architecture",
+    "RAG Consulting Services",
     "Enterprise Knowledge Retrieval",
+    "RAG LLM Integration",
     "Vector Search",
     "Hybrid Search",
-    "RAG LLM Integration",
     "RAG Security",
     "RAG Evaluation",
     "Azure RAG Development",

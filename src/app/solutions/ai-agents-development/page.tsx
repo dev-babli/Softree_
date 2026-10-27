@@ -22,15 +22,19 @@ export const metadata: Metadata = applyPageOg('/solutions/ai-agents-development'
   description:
     'Build custom AI agents for enterprise workflows with Softree Technology. Explore LLM integration, RAG, business application connectivity, and AI engineering services.',
   keywords: [
+    // Primary Keyword
     'AI Agent Development Services',
+
+    // Secondary Keywords
     'AI Agent Development',
+    'AI Agent Development Company',
     'Custom AI Agent Development',
     'Enterprise AI Agents',
-    'Agentic AI Development',
-    'AI Agent Architecture',
+    'Agentic AI Development Services',
+    'Enterprise AI Agent Development',
+    'AI Workflow Automation Services',
     'Autonomous AI Agents',
     'Offshore AI Agent Development',
-    'AI Agent Development Company',
     'Dedicated AI Agent Developers',
     'Tool Calling AI Agents',
     'Multi-Step AI Workflows',

@@ -1,4 +1,4 @@
-﻿import { applyPageOg } from "@/lib/site-metadata";
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -20,26 +20,27 @@ import MultiAgentFAQ from "./components/MultiAgentFAQ";
 
 export const metadata: Metadata = applyPageOg("/services/multi-agent-systems-development", {
   title: {
-    absolute: "Multi-Agent Systems Development | Softree",
+    absolute: "Multi-Agent AI System Development Services | Softree Technology",
   },
   description:
-    "Design, orchestrate, and deploy collaborative multi-agent AI systems. Specialized agent swarms that coordinate and execute complex workflows at enterprise scale.",
+    "Build custom multi-agent AI systems with Softree Technology. We design agent orchestration, collaborative AI workflows, and secure enterprise integrations",
   keywords: [
+    // Primary keyword
+    "Multi-Agent AI System Development",
+
+    // Secondary commercial keywords
+    "Multi-Agent AI Systems",
+    "Multi-Agent Development Services",
+    "Multi-Agent System Development",
+    "Multi-Agent Development Company",
     "Multi-Agent Systems Development",
-    "Multi-Agent AI Development Services",
-    "Multi-Agent System Architecture",
     "Agent Orchestration Services",
+    "Enterprise Multi-Agent Workflows",
+    "Collaborative AI Agents",
+    "Custom Multi-Agent AI Systems",
     "LangGraph Multi-Agent Development",
     "CrewAI Multi-Agent Systems",
-    "AutoGen Development Company",
-    "Collaborative AI Agents",
-    "Autonomous Agent Swarms",
-    "Enterprise Multi-Agent Workflows",
-    "Dedicated Multi-Agent Developers",
-    "Offshore AI Engineering Teams",
-    "White-Label Multi-Agent AI Development",
-    "Tool Calling and Agent Handoffs",
-    "Shared Memory AI Systems",
+    "AutoGen Development",
     "Multi-Agent RAG Integration",
     "Azure AI Multi-Agent Solutions",
     "Semantic Kernel Agent Orchestration",

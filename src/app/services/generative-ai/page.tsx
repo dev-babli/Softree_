@@ -67,29 +67,40 @@ export const metadata: Metadata = applyPageOg(
   "/services/generative-ai",
   {
     title: {
-      absolute: "Generative AI Development Services | Softree",
+      absolute: "Generative AI Development Services | Softree Technology",
     },
     description:
       "Build production-ready Generative AI solutions with Softree’s offshore engineering team, including LLM applications, enterprise RAG, and AI agent automation.",
     keywords: [
+      // Primary Keyword
+      "Generative AI Services",
+
+      // Secondary Keywords
       "Generative AI Development Services",
+      "Generative AI Development",
+      "Generative AI Company",
+      "Generative AI Consulting",
+      "Enterprise Generative AI",
       "Custom Generative AI Solutions",
       "Offshore Generative AI Engineering",
+      "Custom Generative AI Development",
       "LLM Application Development",
+      "Custom LLM Development",
       "Enterprise RAG Development",
       "Retrieval-Augmented Generation Services",
       "AI Copilot Development",
-      "White-Label Generative AI Development",
-      "Custom LLM Consulting",
-      "LangChain Development Company",
-      "LlamaIndex Enterprise Solutions",
-      "Azure OpenAI Development Partner",
-      "Amazon Bedrock Integration Services",
+      "AI Agent Development",
+      "Generative AI Integration Services",
       "Enterprise AI Workflow Automation",
+      "White-Label Generative AI Development",
       "AI Knowledge Assistant Development",
       "Document Intelligence Solutions",
-      "Dedicated Generative AI Developers",
+      "Azure OpenAI Development Partner",
+      "Amazon Bedrock Integration Services",
       "AI Governance and Security Services",
+      "LangChain Development Company",
+      "LlamaIndex Enterprise Solutions",
+      "Dedicated Generative AI Developers",
     ],
     alternates: {
       canonical: "https://www.softreetechnology.com/services/generative-ai",
