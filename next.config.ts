@@ -139,6 +139,11 @@ const nextConfig: any = {
       },
       ...redirects,
       {
+        source: "/industries/ai-for-it-services-solutions",
+        destination: "/industries/ai-for-it-services",
+        permanent: true,
+      },
+      {
         source: "/book-meeting",
         destination: "/contact",
         permanent: true,
@@ -306,6 +311,16 @@ const nextConfig: any = {
       {
         source: "/blog/best-mobile-app-development-services",
         destination: "/services/offshore-mobile-app-development",
+        permanent: true,
+      },
+      {
+        source: "/blog/ai-testing-services",
+        destination: "/quality-engineering/agentic-ai-testing-services",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/electronic-medical-records-emr-workflow-automation-ai-copilot",
+        destination: "/case-studies/electronic-medical-records-workflow-automation",
         permanent: true,
       },
       {

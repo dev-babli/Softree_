@@ -1,335 +1,404 @@
-"use client";
+"use client"
 
-import React, { useEffect, useRef, useState } from 'react';
-import { useTheme } from 'next-themes';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Shield, Users, Cpu, Sparkles, Calendar } from 'lucide-react';
+import * as React from "react"
+import { cn } from "@/lib/utils"
+import TrustStrip from "@/components/sections/TrustStrip"
+import { typography } from "@/lib/typography"
 
-const trustItems = [
-    { icon: Shield, title: 'WHITE-LABEL', subtitle: 'Trusted agency partner.' },
-    { icon: Users, title: 'OFFSHORE TEAMS', subtitle: 'Scale on demand.' },
-    { icon: Cpu, title: 'MICROSOFT AI', subtitle: 'Azure & OpenAI partners.' },
-    { icon: Sparkles, title: 'ENTERPRISE AI', subtitle: 'Secure, production-grade.' },
-    { icon: Calendar, title: 'SINCE 2013', subtitle: '13+ years of excellence.' },
-];
-
-class Particle {
-    x: number;
-    y: number;
-    vx: number;
-    vy: number;
-    life: number;
-    maxLife: number;
-    size: number;
-    color: string;
-
-    constructor(x: number, y: number, color: string) {
-        this.x = x;
-        this.y = y;
-        this.vx = (Math.random() - 0.5) * 2;
-        this.vy = (Math.random() - 0.5) * 2;
-        this.maxLife = 80 + Math.random() * 60;
-        this.life = this.maxLife;
-        this.size = 1 + Math.random() * 2;
-        this.color = color;
-    }
-
-    update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.life -= 1;
-        this.vx *= 0.98;
-        this.vy *= 0.98;
-    }
-
-    draw(ctx: CanvasRenderingContext2D) {
-        if (this.life <= 0) return;
-        ctx.globalAlpha = this.life / this.maxLife;
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.shadowBlur = 0;
-        ctx.globalAlpha = 1.0;
-    }
+export interface MoireFieldProps extends React.ComponentProps<"div"> {
+  /** Period of one ruling in CSS pixels. The whole geometry scales with it, so this is the size knob. */
+  pitch?: number
+  /** Fraction of each period that is ink, 0–1. Thin ink and wide gaps read as engraving. */
+  duty?: number
+  /** How much wider the moving ruling's period is, in percent. This alone produces fringes at zero offset. */
+  detune?: number
+  /** Opacity of the whole field, 0–1. Fringe contrast scales with it linearly — see the note on ink below. */
+  intensity?: number
+  /** Draw the rulings in the theme's primary color instead of the foreground. */
+  accent?: boolean
+  /** Explicit ink color (any CSS color). Overrides `accent`; leave unset to follow the theme. */
+  color?: string
+  /** Let the pointer pull the moving source. When false the field only drifts. */
+  interactive?: boolean
+  /** How far the pointer can pull the source, as a fraction of the box. Capped so fringes stay in frame. */
+  reach?: number
+  /** Easing toward the target per 60Hz frame, 0–1. Lower feels heavier. */
+  follow?: number
+  /** Amplitude of the idle drift, 0–1. `0` parks the source and lets the loop stop entirely. */
+  drift?: number
+  /** Horizontal position of the anchored ruling, 0–1 of the box. */
+  originX?: number
+  /** Vertical position of the anchored ruling, 0–1 of the box. */
+  originY?: number
+  /** Radial edge mask, 0–1, so the field dissolves into the page instead of ending at a hard edge. */
+  fade?: number
 }
 
-export default function Hero() {
-    const canvasRef = useRef<HTMLCanvasElement | null>(null);
-    const { resolvedTheme } = useTheme();
-    // Default to dark mode to prevent hydration flashes on first load if theme isn't resolved yet
-    const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+/**
+ * Resting separation of the two sources, in multiples of `pitch`. Separation ÷ period *is* the fringe
+ * count, so tying it to the pitch keeps the same number of fringes on a phone and on a 27-inch display;
+ * a separation expressed as a fraction of the box collapses into plain concentric rings when the section
+ * is narrow.
+ */
+const REST_X = 5.9
+const REST_Y = -3.8
+/** Idle drift amplitude, also in multiples of `pitch`, at `drift: 1`. */
+const DRIFT_AMP = 5.5
+/** Extra detune (percent) at the peak of a tap impulse, and how long that impulse takes to settle. */
+const SWELL = 4.5
+const SWELL_MS = 620
+/** Drift periods. Deliberately coprime so the path never visibly repeats. */
+const DRIFT_X_MS = 24_000
+const DRIFT_Y_MS = 31_000
+/** How far the moving layer overhangs the box, and the travel that overhang can absorb. */
+const OVERHANG = 0.46
+const MAX_TRAVEL = 0.44
 
-    useEffect(() => {
-        // Only update if resolvedTheme is defined (handles hydration)
-        if (resolvedTheme) {
-            setIsDarkMode(resolvedTheme === 'dark');
+const clamp = (v: number, lo: number, hi: number) => (v < lo ? lo : v > hi ? hi : v)
+
+/** Layout runs in the browser only; useLayoutEffect avoids one frame at the previous geometry. */
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? React.useEffect : React.useLayoutEffect
+
+/**
+ * One grating as a CSS gradient. The ink band sits in the middle of each period, so a ring ruling has
+ * no solid disc at its centre, and a sub-pixel ramp on both edges keeps fine pitches from aliasing into
+ * a shimmer at large radii — the fringes have to come from the interference, not from the rasteriser.
+ */
+function grating(pitch: number, duty: number, cx: number, cy: number) {
+  const p = Math.max(2, pitch)
+  const ink = clamp(p * clamp(duty, 0.02, 0.9), 0.5, p - 0.5)
+  const aa = Math.min(0.6, ink / 3)
+  const a = (p - ink) / 2
+  const b = a + ink
+  const stops =
+    `transparent 0px, transparent ${Math.max(0, a - aa).toFixed(2)}px, ` +
+    `currentColor ${(a + aa).toFixed(2)}px, currentColor ${(b - aa).toFixed(2)}px, ` +
+    `transparent ${(b + aa).toFixed(2)}px, transparent ${p.toFixed(2)}px`
+  return `repeating-radial-gradient(circle at ${(cx * 100).toFixed(2)}% ${(cy * 100).toFixed(2)}%, ${stops})`
+}
+
+/**
+ * Two identical rulings of concentric rings, one anchored to the section and one pulled around by the
+ * pointer. Their interference draws moiré fringes across the whole field.
+ */
+export function MoireField({
+  pitch = 18,
+  duty = 0.18,
+  detune = 3.6,
+  intensity = 0.42,
+  accent = false,
+  color,
+  interactive = true,
+  reach = 0.3,
+  follow = 0.12,
+  drift = 0.55,
+  originX = 0.5,
+  originY = 0.46,
+  fade = 0.45,
+  className,
+  style,
+  ref,
+  children,
+  onPointerMove,
+  onPointerDown,
+  onPointerLeave,
+  ...rest
+}: MoireFieldProps) {
+  const rootRef = React.useRef<HTMLDivElement | null>(null)
+  const moverRef = React.useRef<HTMLDivElement | null>(null)
+  const wakeRef = React.useRef<(() => void) | null>(null)
+  const reduceRef = React.useRef(false)
+  const boxRef = React.useRef({ w: 0, h: 0 })
+
+  const restX = pitch * REST_X
+  const restY = pitch * REST_Y
+  const frame = React.useRef({ x: restX, y: restY, tx: restX, ty: restY, impulse: 0, tapAt: 0, tracking: false })
+
+  const paint = React.useCallback(
+    (x: number, y: number, extraDetune: number) =>
+      `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(${(1 + (detune + extraDetune) / 100).toFixed(5)})`,
+    [detune]
+  )
+
+  const live = React.useRef({ paint, follow, drift, reach, pitch, restX, restY })
+  live.current = { paint, follow, drift, reach: clamp(reach, 0, MAX_TRAVEL), pitch, restX, restY }
+
+  const restTransform = paint(restX, restY, 0)
+
+  useIsomorphicLayoutEffect(() => {
+    const f = frame.current
+    if (f.tracking) return
+    f.x = f.tx = restX
+    f.y = f.ty = restY
+  }, [restX, restY])
+
+  useIsomorphicLayoutEffect(() => {
+    const f = frame.current
+    if (moverRef.current) moverRef.current.style.transform = paint(f.x, f.y, f.impulse * SWELL)
+  }, [paint, restX, restY])
+
+  React.useEffect(() => {
+    const root = rootRef.current
+    const mover = moverRef.current
+    if (!root || !mover) return
+
+    const reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    reduceRef.current = reduceQuery.matches
+    let raf = 0
+    let last = 0
+    let onScreen = true
+
+    const stop = () => {
+      if (raf) cancelAnimationFrame(raf)
+      raf = 0
+      mover.style.willChange = ""
+    }
+
+    const tick = (now: number) => {
+      raf = 0
+      const f = frame.current
+      const o = live.current
+      const dt = last ? clamp(now - last, 0, 64) : 16.7
+      last = now
+
+      if (!f.tracking) {
+        const a = o.drift * DRIFT_AMP * o.pitch
+        f.tx = o.restX + a * Math.sin((now / DRIFT_X_MS) * Math.PI * 2)
+        f.ty = o.restY + a * 0.7 * Math.sin((now / DRIFT_Y_MS) * Math.PI * 2)
+      }
+
+      const b = boxRef.current
+      if (b.w && b.h) {
+        const lx = b.w * MAX_TRAVEL
+        const ly = b.h * MAX_TRAVEL
+        f.tx = clamp(f.tx, -lx, lx)
+        f.ty = clamp(f.ty, -ly, ly)
+      }
+
+      if (f.tapAt) {
+        const u = clamp((now - f.tapAt) / SWELL_MS, 0, 1)
+        f.impulse = (1 - u) ** 3
+        if (u >= 1) {
+          f.tapAt = 0
+          f.impulse = 0
         }
-    }, [resolvedTheme]);
+      }
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
+      const k = clamp(1 - (1 - clamp(o.follow + f.impulse * 0.35, 0.01, 0.9)) ** (dt / 16.7), 0, 1)
+      f.x += (f.tx - f.x) * k
+      f.y += (f.ty - f.y) * k
+      mover.style.transform = o.paint(f.x, f.y, f.impulse * SWELL)
 
-        const ctx = canvas.getContext('2d', { alpha: false });
-        if (!ctx) return;
+      const settled = Math.abs(f.tx - f.x) < 0.05 && Math.abs(f.ty - f.y) < 0.05
+      if (settled && !f.impulse && o.drift === 0 && !f.tracking) {
+        mover.style.willChange = ""
+        return
+      }
+      raf = requestAnimationFrame(tick)
+    }
 
-        let animationFrameId: number;
-        let width = 0;
-        let height = 0;
+    const wake = () => {
+      if (raf || reduceRef.current || !onScreen || document.hidden) return
+      last = 0
+      mover.style.willChange = "transform"
+      raf = requestAnimationFrame(tick)
+    }
+    wakeRef.current = wake
 
-        const mouse = { x: 0, y: 0, targetX: 0, targetY: 0, active: false };
-        const particles: Particle[] = [];
-        const clickRipple = { x: 0, y: 0, radius: 0, maxRadius: 400, speed: 14 };
+    const ro = new ResizeObserver(([entry]) => {
+      const size = entry?.contentRect
+      if (!size?.width || !size.height) return
+      boxRef.current = { w: size.width, h: size.height }
+      const f = frame.current
+      const lx = size.width * MAX_TRAVEL
+      const ly = size.height * MAX_TRAVEL
+      f.x = clamp(f.x, -lx, lx)
+      f.y = clamp(f.y, -ly, ly)
+      mover.style.transform = live.current.paint(f.x, f.y, f.impulse * SWELL)
+      wake()
+    })
+    ro.observe(root)
 
-        const handleResize = () => {
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width * dpr;
-            canvas.height = height * dpr;
-            canvas.style.width = `${width}px`;
-            canvas.style.height = `${height}px`;
-            ctx.scale(dpr, dpr);
-        };
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry?.isIntersecting ?? true
+        if (onScreen) wake()
+        else stop()
+      },
+      { rootMargin: "96px" }
+    )
+    io.observe(root)
 
-        const handlePointerMove = (e: MouseEvent | TouchEvent) => {
-            const clientX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
-            const clientY = 'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
-            mouse.targetX = clientX - width / 2;
-            mouse.targetY = clientY - height / 2;
-            mouse.active = true;
-        };
+    const onVisibility = () => (document.hidden ? stop() : wake())
+    const onReduceChange = () => {
+      reduceRef.current = reduceQuery.matches
+      if (!reduceQuery.matches) return wake()
+      stop()
+      const f = frame.current
+      const o = live.current
+      f.x = f.tx = o.restX
+      f.y = f.ty = o.restY
+      f.impulse = 0
+      f.tapAt = 0
+      f.tracking = false
+      mover.style.transform = o.paint(o.restX, o.restY, 0)
+    }
 
-        const handlePointerLeave = () => {
-            mouse.targetX = 0;
-            mouse.targetY = 0;
-            mouse.active = false;
-        };
+    document.addEventListener("visibilitychange", onVisibility)
+    reduceQuery.addEventListener("change", onReduceChange)
+    wake()
 
-        const handlePointerDown = (e: MouseEvent | TouchEvent) => {
-            const clientX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
-            const clientY = 'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
+    return () => {
+      stop()
+      ro.disconnect()
+      io.disconnect()
+      document.removeEventListener("visibilitychange", onVisibility)
+      reduceQuery.removeEventListener("change", onReduceChange)
+      wakeRef.current = null
+    }
+  }, [])
 
-            clickRipple.x = clientX;
-            clickRipple.y = clientY;
-            clickRipple.radius = 0;
+  React.useEffect(() => {
+    if (drift > 0) wakeRef.current?.()
+  }, [drift])
 
-            // Golden/Orange glow for particles to match 3rd attachment
-            const pColor = isDarkMode ? 'rgba(255, 176, 32, 0.9)' : 'rgba(255, 88, 18, 0.9)';
-            for (let i = 0; i < 35; i++) {
-                particles.push(new Particle(clickRipple.x, clickRipple.y, pColor));
-            }
-        };
+  const aim = (event: React.PointerEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    if (!rect.width || !rect.height) return
+    const f = frame.current
+    const r = live.current.reach
+    f.tx = clamp(event.clientX - rect.left - originX * rect.width, -rect.width * r, rect.width * r)
+    f.ty = clamp(event.clientY - rect.top - originY * rect.height, -rect.height * r, rect.height * r)
+    f.tracking = true
+    wakeRef.current?.()
+  }
 
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('mousemove', handlePointerMove);
-        window.addEventListener('touchmove', handlePointerMove, { passive: true });
-        window.addEventListener('mouseleave', handlePointerLeave);
-        window.addEventListener('mousedown', handlePointerDown);
-        window.addEventListener('touchstart', handlePointerDown, { passive: true });
+  const armed = () => interactive && !reduceRef.current
+  const mask = `radial-gradient(ellipse at ${(originX * 100).toFixed(1)}% ${(originY * 100).toFixed(1)}%, black ${((1 - fade) * 100).toFixed(1)}%, transparent 100%)`
 
-        let lastTime = performance.now();
-        let time = 0;
+  return (
+    <div
+      ref={(node) => {
+        rootRef.current = node
+        if (typeof ref === "function") ref(node)
+        else if (ref) ref.current = node
+      }}
+      data-slot="moire-field"
+      className={cn("relative overflow-hidden", className)}
+      style={style}
+      onPointerMove={(event) => {
+        if (armed() && event.pointerType !== "touch") aim(event)
+        onPointerMove?.(event)
+      }}
+      onPointerDown={(event) => {
+        if (armed()) {
+          aim(event)
+          frame.current.tapAt = performance.now()
+          wakeRef.current?.()
+        }
+        onPointerDown?.(event)
+      }}
+      onPointerLeave={(event) => {
+        if (armed()) {
+          frame.current.tracking = false
+          wakeRef.current?.()
+        }
+        onPointerLeave?.(event)
+      }}
+      {...rest}
+    >
+      <div
+        aria-hidden="true"
+        data-slot="moire-rulings"
+        className={cn("pointer-events-none absolute inset-0", accent ? "text-primary" : "text-foreground")}
+        style={{ color, opacity: intensity, maskImage: mask, WebkitMaskImage: mask }}
+      >
+        <div className="absolute inset-0" style={{ backgroundImage: grating(pitch, duty, originX, originY) }} />
+        <div
+          ref={moverRef}
+          className="absolute"
+          style={{
+            inset: `${(-OVERHANG * 100).toFixed(0)}%`,
+            backgroundImage: grating(pitch, duty, 0.5, 0.5),
+            transform: restTransform,
+          }}
+        />
+      </div>
+      {children}
+    </div>
+  )
+}
 
-        const noise = (x: number, t: number, o: number) =>
-            (Math.sin(x * 0.0012 + t * 0.25 + o) + Math.cos(x * 0.0028 - t * 0.4 + o * 2)) / 2;
 
-        const render = (now: number) => {
-            const dt = Math.min((now - lastTime) / 1000, 0.1);
-            lastTime = now;
-            time += dt * 0.85;
+export default function Hero() {
+  return (
+    <MoireField
+      pitch={18}
+      duty={0.18}
+      detune={3.6}
+      intensity={0.45}
+      drift={0.55}
+      fade={0.45}
+      color="#FF5812"
+      className="bg-[#050909] text-white flex w-full flex-col items-center pt-24 sm:pt-28 lg:pt-32 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8 select-none relative"
+    >
+      {/* CSS Entry Animations */}
+      <style>{`
+        @keyframes moire-demo-rise {
+          from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+          to   { opacity: 1; transform: none;             filter: blur(0); }
+        }
+        [data-moire-demo] > * { animation: moire-demo-rise .58s cubic-bezier(.22,1,.36,1) both; }
+        [data-moire-demo] > :nth-child(1) { animation-delay: 50ms; }
+        [data-moire-demo] > :nth-child(2) { animation-delay: 130ms; }
+        [data-moire-demo] > :nth-child(3) { animation-delay: 210ms; }
+        @media (prefers-reduced-motion: reduce) {
+          [data-moire-demo] > * { animation: none; }
+        }
+      `}</style>
 
-            // Interpolate mouse position
-            const lerpFactor = 1 - Math.exp(-9 * dt);
-            mouse.x += (mouse.targetX - mouse.x) * lerpFactor;
-            mouse.y += (mouse.targetY - mouse.y) * lerpFactor;
+      {/* Radial soft glow backdrop to keep text ultra crisp over moiré fringes */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1]"
+        style={{
+          background:
+            "radial-gradient(ellipse 65% 50% at 50% 42%, #050909 0%, rgba(5, 9, 9, 0.85) 45%, rgba(5, 9, 9, 0.4) 75%, transparent 100%)",
+        }}
+      />
 
-            const bgColor = isDarkMode ? '#030712' : '#ffffff';
+      {/* Main Content Section */}
+      <section
+        data-moire-demo
+        className="relative z-10 flex w-full max-w-5xl flex-col items-center text-center pt-2 sm:pt-4 pb-1 sm:pb-2"
+      >
+        {/* Eyebrow Tag with Typography Caption */}
+        <div className="mb-4 sm:mb-5 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 backdrop-blur-md shadow-[0_0_15px_rgba(255,88,18,0.15)]">
+          <span aria-hidden="true" className="w-2 h-2 rounded-full bg-[#FF5812] shadow-[0_0_8px_#FF5812] animate-pulse" />
+          <span className={`${typography.caption.meta} text-[#FF6B2C] font-semibold tracking-wider uppercase`}>
+            AI FOR IT OPERATIONS
+          </span>
+        </div>
 
-            ctx.fillStyle = bgColor;
-            ctx.fillRect(0, 0, width, height);
+        {/* Headline with Brand Orange Gradient & Typography H1 */}
+        <h1 className={`${typography.heading.h1} text-white max-w-4xl tracking-tight leading-[1.15] text-balance`}>
+          AI for IT Services with Offshore Expertise for{" "}
+          <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-[#FF5812] via-[#FF7A3D] to-[#FFA756] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(255,88,18,0.3)]">
+            Intelligent IT Operations and Automation
+          </span>
+        </h1>
 
-            // Render and update active particles
-            for (let i = particles.length - 1; i >= 0; i--) {
-                const p = particles[i];
-                p.update();
-                p.draw(ctx);
-                if (p.life <= 0) particles.splice(i, 1);
-            }
+        {/* Subline with Typography Body */}
+        <p className={`${typography.body.lg} mt-4 sm:mt-5 max-w-3xl text-slate-300 leading-relaxed font-normal text-pretty`}>
+          Leverage AI for IT services with offshore expertise to automate IT operations, streamline service management, accelerate incident resolution, and empower teams with intelligent AI agents and copilots.
+        </p>
+      </section>
 
-            if (clickRipple.radius < clickRipple.maxRadius) {
-                clickRipple.radius += clickRipple.speed;
-            }
-
-            const layers = [
-                { ribbonCount: 16, step: 4, offsetMod: 0, freqScale: 0.0035, ampScale: 55, speedScale: 1.1, primary: true },
-                { ribbonCount: 10, step: 6, offsetMod: 1.2, freqScale: 0.0075, ampScale: 30, speedScale: 0.7, primary: false },
-            ];
-
-            layers.forEach((layer) => {
-                ctx.globalCompositeOperation = layer.primary ? 'source-over' : 'multiply';
-
-                const gradient = ctx.createLinearGradient(0, 0, width, 0);
-                if (!isDarkMode) {
-                    // Light Mode: Soft orange to deep amber gradient on white
-                    gradient.addColorStop(0, `rgba(255, 140, 0, ${layer.primary ? 0.15 : 0.03})`);
-                    gradient.addColorStop(0.5, `rgba(255, 88, 18, ${layer.primary ? 0.75 : 0.3})`);
-                    gradient.addColorStop(1, `rgba(220, 38, 38, ${layer.primary ? 0.15 : 0.03})`);
-                } else {
-                    // Dark Mode: Vibrant gold to fiery orange gradient on black
-                    gradient.addColorStop(0, `rgba(255, 200, 0, ${layer.primary ? 0.1 : 0.02})`);
-                    gradient.addColorStop(0.5, `rgba(255, 88, 18, ${layer.primary ? 0.8 : 0.35})`);
-                    gradient.addColorStop(1, `rgba(255, 50, 0, ${layer.primary ? 0.1 : 0.02})`);
-                }
-
-                for (let r = 0; r < layer.ribbonCount; r++) {
-                    const ribbonProgress = r / layer.ribbonCount;
-                    const yOffset = height * 0.22 + r * (height * 0.032) + layer.offsetMod * 35;
-                    const baseAlpha = (1 - ribbonProgress * 0.75) * (isDarkMode ? 0.8 : 0.65);
-
-                    const rippleDistort =
-                        clickRipple.radius < clickRipple.maxRadius
-                            ? Math.sin((time * 2 + ribbonProgress * Math.PI) * 2) *
-                            ((clickRipple.maxRadius / Math.max(clickRipple.radius, 1)) * 2.5)
-                            : 0;
-
-                    ctx.beginPath();
-
-                    for (let x = 0; x <= width + layer.step; x += layer.step) {
-                        const edgeEnvelope = Math.sin((x / width) * Math.PI);
-
-                        const nFreq = 1 + noise(x, time, ribbonProgress) * 0.18;
-                        const nAmp = 1 + noise(x * 2, -time, ribbonProgress * 0.5) * 0.15;
-
-                        const wave1 =
-                            Math.sin(x * (layer.freqScale * nFreq) + time * layer.speedScale + r * 0.18) *
-                            (layer.ampScale * edgeEnvelope * nAmp);
-                        const wave2 = Math.cos(x * 0.008 - time * 0.7 + r * 0.1) * (20 * edgeEnvelope);
-                        const wave3 = Math.sin(x * 0.018 + time * 1.4) * (8 * edgeEnvelope);
-
-                        const cursorXWorld = width / 2 + mouse.x;
-                        const distToMouseX = Math.abs(x - cursorXWorld);
-                        const mouseRadius = layer.primary ? 380 : 220;
-                        const mouseFactor = Math.exp(-Math.pow(distToMouseX / mouseRadius, 2));
-                        const mouseDisplacement =
-                            Math.sin(x * 0.015 + time * 2.6) *
-                            (mouseFactor * (layer.primary ? 50 : 25) * edgeEnvelope);
-
-                        const rippleFactor = Math.exp(
-                            -Math.pow(Math.abs(distToMouseX - clickRipple.radius) / (25 + rippleDistort), 2)
-                        );
-                        const rippleDisplacement = rippleFactor * rippleDistort * (1.8 - ribbonProgress);
-
-                        const y =
-                            yOffset +
-                            wave1 +
-                            wave2 +
-                            wave3 +
-                            mouseDisplacement +
-                            rippleDisplacement +
-                            mouse.y * (ribbonProgress * 0.1);
-
-                        if (x === 0) ctx.moveTo(x, y);
-                        else ctx.lineTo(x, y);
-
-                        // Small accent node markings
-                        if (layer.primary && x % 48 === 0) {
-                            ctx.fillStyle = !isDarkMode ? 'rgba(255, 88, 18, 0.35)' : 'rgba(255, 200, 0, 0.4)';
-                            ctx.shadowBlur = 6;
-                            ctx.shadowColor = ctx.fillStyle;
-                            ctx.fillRect(x - 1, y - 1, 3, 3);
-                            ctx.shadowBlur = 0;
-                        }
-                    }
-
-                    ctx.globalAlpha = baseAlpha;
-                    ctx.strokeStyle = gradient;
-                    ctx.lineWidth = (layer.primary ? 1.4 : 0.8) + (1 - ribbonProgress) * 0.5;
-                    ctx.stroke();
-                }
-            });
-
-            ctx.globalAlpha = 1.0;
-            ctx.globalCompositeOperation = 'source-over';
-
-            animationFrameId = requestAnimationFrame(render);
-        };
-
-        animationFrameId = requestAnimationFrame(render);
-
-        return () => {
-            cancelAnimationFrame(animationFrameId);
-            window.removeEventListener('resize', handleResize);
-            window.removeEventListener('mousemove', handlePointerMove);
-            window.removeEventListener('touchmove', handlePointerMove);
-            window.removeEventListener('mouseleave', handlePointerLeave);
-            window.removeEventListener('mousedown', handlePointerDown);
-            window.removeEventListener('touchstart', handlePointerDown);
-        };
-    }, [isDarkMode]);
-
-    return (
-        <section
-            className={`relative w-full min-h-[85vh] lg:min-h-screen overflow-hidden select-none flex items-center justify-center ${isDarkMode ? 'bg-gray-950' : 'bg-white'
-                }`}
-        >
-            <canvas ref={canvasRef} className="absolute inset-0 block cursor-default z-0" />
-
-            {/* Hero Overlay */}
-            <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-center text-center pointer-events-none mt-24 md:mt-20 pb-32">
-                <span className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] backdrop-blur-sm pointer-events-auto flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] shadow-[0_0_6px_#FF5812]" />
-                    AI For IT DEVELOPMENT SERVICES
-                </span>
-
-                <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
-                    Modernize IT With an <br className="hidden sm:block" />
-                    <span className="text-[#FF5812] drop-shadow-sm">
-                        Offshore AI Engineering Team
-                    </span>
-                </h1>
-
-                <div className={`flex flex-col gap-4 text-sm sm:text-base md:text-lg max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed ${isDarkMode ? 'text-slate-200' : 'text-slate-600'}`}>
-                    <p>
-                        Accelerate IT transformation with dedicated AI engineers building intelligent automation, AI agents, enterprise copilots, RAG applications, and data-driven solutions across your technology ecosystem.
-                    </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pointer-events-auto">
-                    <Button asChild size="lg" className="h-12 px-8 text-base font-semibold shadow-lg shadow-orange-500/20 bg-[#FF5812] hover:bg-[#E0480C] text-white border-none">
-                        <Link href="/contact">
-                            Talk to Our Experts
-                        </Link>
-                    </Button>
-                </div>
-            </div>
-
-            {/* Bottom Trust Bar */}
-            <div className={`absolute bottom-0 left-0 w-full z-20 py-5 border-t ${isDarkMode ? 'bg-black/40 backdrop-blur-md border-white/5' : 'bg-white/60 backdrop-blur-md border-slate-200'}`}>
-                <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
-                        {trustItems.map((item, index) => {
-                            const Icon = item.icon;
-                            return (
-                                <div key={index} className="flex items-center gap-3 sm:gap-4">
-                                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full border border-[#FF5812]">
-                                        <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF5812]" />
-                                    </div>
-                                    <div className="flex flex-col text-left">
-                                        <span className={`text-[11px] sm:text-[13px] font-bold tracking-wide uppercase ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{item.title}</span>
-                                        <span className={`text-[10px] sm:text-[11px] mt-0.5 ${isDarkMode ? 'text-[#A1A1AA]' : 'text-slate-500'}`}>{item.subtitle}</span>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+      {/* TrustStrip at Bottom with tight vertical gap */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto pt-1 sm:pt-2">
+        <TrustStrip theme="dark" className="!mt-1 sm:!mt-2 !gap-3 sm:!gap-4" />
+      </div>
+    </MoireField>
+  )
 }

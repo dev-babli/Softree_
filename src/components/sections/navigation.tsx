@@ -271,6 +271,19 @@ const menu: MenuItem[] = [
           },
         ],
       },
+      {
+        title: "AI for IT Services",
+        icon: Landmark,
+        description: "AI-powered IT service desk automation, proactive AIOps, incident triage, and enterprise infrastructure intelligence.",
+        links: [
+          {
+            label: "AI for IT Services & Solutions",
+            url: "/industries/ai-for-it-services",
+            icon: Landmark,
+            description: "Autonomous IT service desk, AIOps monitoring & Tier-1 ticket deflection",
+          },
+        ],
+      },
     ],
   },
 

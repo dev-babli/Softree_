@@ -26,6 +26,27 @@ export const metadata: Metadata = applyPageOg("/services/azure-data-factory-to-m
   },
   description:
     "Migrate Azure Data Factory pipelines and SSIS packages to Microsoft Fabric Data Factory. Expert assessment, OneLake architecture, and pipeline modernization.",
+  keywords: [
+    // Primary keyword
+    "ADF to Fabric Migration",
+
+    // Secondary keywords
+    "Azure Data Factory Migration",
+    "Azure Data Factory Migration Services",
+    "Data Factory to Fabric Migration",
+    "Azure Data Factory to Fabric Migration",
+    "Microsoft Fabric Migration Services",
+    "Azure Data Factory Modernization",
+    "ADF Pipeline Migration",
+    "Azure Data Factory to Microsoft Fabric Migration",
+    "SSIS to Fabric Migration",
+    "Microsoft Fabric Data Migration",
+    "Data Pipeline Migration Services",
+    "Azure ETL Migration Services",
+    "Fabric Data Factory Migration",
+    "Azure Data Platform Migration",
+    "Azure Data Factory Consulting",
+  ],
   alternates: {
     canonical: "https://www.softreetechnology.com/services/azure-data-factory-to-microsoft-fabric-migration",
   },

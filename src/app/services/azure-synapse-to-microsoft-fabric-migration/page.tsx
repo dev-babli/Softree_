@@ -22,13 +22,25 @@ export const metadata: Metadata = {
   description:
     "Migrate Azure Synapse dedicated SQL pools and Spark pipelines to Microsoft Fabric Lakehouse. Expert offshore data engineers ensuring seamless modernization.",
   keywords: [
-    "Azure Synapse to Microsoft Fabric migration",
-    "Microsoft Fabric migration services",
-    "Azure Synapse modernization",
-    "data platform migration",
-    "Fabric analytics environment",
-    "Synapse Spark migration",
-    "Synapse SQL migration"
+    // Primary Keyword
+    "Azure Synapse to Fabric Migration",
+
+    // Secondary Keywords
+    "Azure Synapse Migration",
+    "Azure Synapse Migration Services",
+    "Microsoft Fabric Migration Services",
+    "Synapse Analytics Migration",
+    "Azure Synapse Fabric Migration",
+    "Synapse Analytics to Fabric Migration",
+    "Azure Synapse to Microsoft Fabric Migration",
+    "Synapse SQL Migration",
+    "Synapse Spark Migration",
+    "Azure Synapse Modernization",
+    "Synapse Data Warehouse Migration",
+    "Azure Data Platform Migration",
+    "Microsoft Fabric Migration Solutions",
+    "Azure Synapse Consulting Services",
+    "Enterprise Fabric Migration",
   ],
   alternates: {
     canonical: "https://www.softreetechnology.com/services/azure-synapse-to-microsoft-fabric-migration",

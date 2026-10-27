@@ -285,7 +285,7 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
       },
       {
         label: "AI for IT Services",
-        url: "/industries/ai-for-it-services-solutions",
+        url: "/industries/ai-for-it-services",
         icon: Landmark,
         description: "IT service management and enterprise solutions",
       },
