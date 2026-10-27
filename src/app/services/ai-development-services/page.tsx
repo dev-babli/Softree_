@@ -174,30 +174,6 @@ const breadcrumbSchema = {
   ]
 };
 
-const videoSchema = {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Agentic AI Development Services & Offshore Engineering Overview",
-  "description":
-    "Discover how Softree Technology builds and scales custom Agentic AI solutions, autonomous AI agents, enterprise RAG architectures, and intelligent workflows with dedicated offshore engineering teams.",
-  "thumbnailUrl": [
-    "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
-    "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
-  ],
-  "uploadDate": "2025-01-15T08:00:00+00:00",
-  "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4",
-  "embedUrl": "https://www.softreetechnology.com/services/ai-development-services",
-  "duration": "PT30S",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Softree Technology",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.softreetechnology.com/logo/logo.png"
-    }
-  }
-};
-
 export default function AiDevelopmentServicesPage() {
   return (
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
@@ -208,10 +184,6 @@ export default function AiDevelopmentServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
       />
       <NavigationClient />
       <WovenLightHero />

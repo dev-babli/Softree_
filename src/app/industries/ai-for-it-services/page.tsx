@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
 import Hero from './components/Hero/Hero';
 import NavigationClient from '@/components/sections/navigation-client';
+import AIITServicesWhoWeHelp from "./components/AIITServicesWhoWeHelp";
+import AIITCapabilitiesStickyScroll from "./components/AIITCapabilitiesStickyScroll";
+import AIITTechnologyStack from "./components/AIITTechnologyStack";
 import WhyChoose from "./components/WhyChoose/WhyChoose";
 import CaseStudy from "./components/CaseStudy/CaseStudy";
 import Industry from "./components/Industry/Industry";
@@ -29,12 +32,15 @@ export default function AiItDevelopmentServicesPage() {
   return (
     <main className="flex min-h-screen flex-col w-full overflow-hidden">
       <NavigationClient />
-      <Hero />
-      <CaseStudy />
-      <WhyChoose />
-      <Industry />
-      <AIEngineering />
-      <AIDevelopmentServices />
+      {/* <Hero /> */}
+      <AIITServicesWhoWeHelp />
+      <AIITCapabilitiesStickyScroll />
+      <AIITTechnologyStack />
+      {/* <CaseStudy /> */}
+      {/* <WhyChoose /> */}
+      {/* <Industry /> */}
+      {/* <AIEngineering /> */}
+      {/* <AIDevelopmentServices /> */}
     </main>
   );
 }

@@ -141,7 +141,7 @@ const nextConfig: any = {
       {
         source: "/book-meeting",
         destination: "/contact",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/wp-content/uploads/:path*",
