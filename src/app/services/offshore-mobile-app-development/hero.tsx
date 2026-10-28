@@ -1,599 +1,80 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, CSSProperties } from "react";
-import Link from "next/link";
-interface Testimonial {
-  text: string;
-  name: string;
-  role: string;
-  location: string;
-  company: string;
-}
+import React from "react";
+import { ImageStreamHero, type StreamImage } from "@/components/ui/image-stream-hero";
+import TrustStrip from "@/components/sections/TrustStrip";
+import { typography } from "@/lib/typography";
 
-interface ArrowRightProps {
-  stroke?: string;
-}
-
-interface TestimonialSlideProps {
-  testimonial: Testimonial;
-}
-
-const testimonials: Testimonial[] = [
+const MOBILE_APP_IMAGES: StreamImage[] = [
   {
-    text: "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
-    name: "Darrell Trimble",
-    role: "CEO",
-    location: "California",
-    company: "SP Marketplace",
+    src: "https://images.pexels.com/photos/36768423/pexels-photo-36768423.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    alt: "Smartphone displaying a modern mobile app interface",
   },
   {
-    text: "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
-    name: "Natasha Adams",
-    role: "Partner",
-    location: "Virginia",
-    company: "Wicked Point LLC",
+    src: "https://images.pexels.com/photos/5253002/pexels-photo-5253002.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    alt: "Smartphone screen showing mobile application icons",
   },
   {
-    text: "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
-    name: "Arkady Fedorovtsjev",
-    role: "IT Specialist",
-    location: "Nederlands",
-    company: "ECG International",
+    src: "https://images.pexels.com/photos/16052344/pexels-photo-16052344/free-photo-of-photo-of-a-hand-holding-a-phone-with-a-delivery-app-on-screen.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    alt: "Mobile phone displaying a delivery app interface",
   },
   {
-    text: "A trusted technology solutions provider with strong expertise in security, compliance, and enterprise delivery.",
-    name: "Asif Mohamed",
-    role: "Director",
-    location: "UAE",
-    company: "Adiva Information Technology LLC",
+    src: "https://images.unsplash.com/photo-1712002641088-9d2d7c7e4d4b?auto=format&fit=crop&w=1260&q=80",
+    alt: "Smartphone displaying a modern mobile application interface",
+  },
+  {
+    src: "https://images.pexels.com/photos/6804422/pexels-photo-6804422.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    alt: "Smartphone displaying a photo gallery application",
   },
 ];
 
-const INTERVAL = 4000;
-const PROGRESS_STEP = 50;
-
-function initials(name: string): string {
-  return name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
-
-function PinIcon() {
+export default function MobileAppHero() {
   return (
-    <svg
-      width="11"
-      height="11"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
+    <ImageStreamHero
+      images={MOBILE_APP_IMAGES}
+      cards={9}
+      speed={18}
+      axis={56}
+      className="relative min-h-[700px] sm:min-h-[760px] md:min-h-[840px] lg:min-h-[900px] w-full bg-black text-white flex flex-col justify-between overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10"
     >
-      <path
-        d="M8 1C5.24 1 3 3.24 3 6c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5zm0 6.75a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5z"
-        fill="#f97316"
-      />
-    </svg>
-  );
-}
+      {/* Soft gradient restricted to text area so corridor images remain 100% crisp and clear */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[38%] bg-gradient-to-b from-black via-black/85 to-transparent z-[1]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 sm:h-36 bg-gradient-to-t from-black via-black/80 to-transparent z-[1]" />
 
-function ArrowRight({ stroke = "#071b4d" }: ArrowRightProps) {
-  return (
-    <svg
-      width="15"
-      height="15"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M3 8h10M9 4l4 4-4 4"
-        stroke={stroke}
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ChevronLeft() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M10 4L6 8l4 4"
-        stroke="white"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ChevronRight() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M6 4l4 4-4 4"
-        stroke="white"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function TestimonialSlide({ testimonial }: TestimonialSlideProps) {
-  return (
-    <div style={styles.slide}>
-      <div style={styles.slideTopLine} />
-      <span style={styles.quoteMark}>&ldquo;</span>
-
-      <p style={styles.quoteText}>{testimonial.text}</p>
-
-      <div style={styles.authorRow}>
-        <div style={styles.avatar}>{initials(testimonial.name)}</div>
-
-        <div>
-          <div style={styles.authorName}>{testimonial.name}</div>
-
-          {/* ✅ UPDATED */}
-          <div style={styles.authorRole}>
-            {testimonial.role} • {testimonial.company}
-          </div>
-
-          <div style={styles.authorLoc}>
-            <PinIcon />
-            {testimonial.location}
-          </div>
+      {/* Top Text Block - positioned higher up clear of the images */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center justify-center w-full">
+        {/* Eyebrow badge */}
+        <div className="mb-2.5 sm:mb-3 inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 sm:px-3.5 sm:py-1.5 shadow-[0_0_20px_rgba(255,107,44,0.15)] backdrop-blur-md">
+          <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF6B2C] opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#FF6B2C]" />
+          </span>
+          <span className="text-[10px] sm:text-xs font-bold text-[#FF6B2C] uppercase font-mono tracking-wider">
+            OFFSHORE MOBILE APP DEVELOPMENT
+          </span>
         </div>
+
+        {/* Headline - tailored font-size to prevent collision with corridor */}
+        <h1 className="text-balance text-white leading-[1.18] sm:leading-[1.12] text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight max-w-3xl">
+          Scale Your Mobile App with An{" "}
+          <span className="bg-gradient-to-r from-orange-500 via-[#FF6B2C] to-amber-400 bg-clip-text text-transparent">
+            Experienced Offshore Development Team
+          </span>
+        </h1>
+
+        {/* Subtext */}
+        <p className="mt-2.5 sm:mt-3 max-w-xl text-balance text-zinc-300 text-xs sm:text-sm md:text-base leading-relaxed font-normal px-2">
+          Build and scale custom iOS, Android, and cross-platform apps with our dedicated offshore engineering team using Flutter and React Native.
+        </p>
       </div>
-    </div>
+
+      {/* Bottom TrustStrip Block - positioned comfortably lower */}
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 w-full mt-8 sm:mt-12 md:mt-16">
+        <TrustStrip theme="dark" className="!mt-0" />
+      </div>
+    </ImageStreamHero>
   );
 }
 
-export default function HeroPowerApps() {
-  const [idx, setIdx] = useState<number>(0);
-  const [elapsed, setElapsed] = useState<number>(0);
 
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const goTo = useCallback((i: number): void => {
-    setIdx(i);
-    setElapsed(0);
-  }, []);
-
-  useEffect(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    if (progressRef.current) clearInterval(progressRef.current);
-
-    progressRef.current = setInterval(() => {
-      setElapsed((e) => e + PROGRESS_STEP);
-    }, PROGRESS_STEP);
-
-    timerRef.current = setInterval(() => {
-      setIdx((prev) => (prev + 1) % testimonials.length);
-      setElapsed(0);
-    }, INTERVAL);
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-      if (progressRef.current) clearInterval(progressRef.current);
-    };
-  }, [idx]);
-
-  const handlePrev = (): void =>
-    goTo((idx - 1 + testimonials.length) % testimonials.length);
-  const handleNext = (): void => goTo((idx + 1) % testimonials.length);
-
-  const progressWidth: number = Math.min((elapsed / INTERVAL) * 100, 100);
-
-  return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap');
-        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(249,115,22,0.45) !important; filter: brightness(1.1); }
-        .cta-btn:hover .cta-arrow { transform: translateX(3px); }
-        .cta-arrow { transition: transform 0.2s; }
-        .nav-btn:hover { background: rgba(249,115,22,0.2) !important; border-color: rgba(249,115,22,0.4) !important; transform: scale(1.08); }
-        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
-        .eyebrow-dot { animation: pulse 2s ease-in-out infinite; }
-      `}</style>
-
-      <section style={styles.hero} role="banner">
-        <div style={styles.noise} />
-        <div style={styles.gridLines} />
-        <div style={styles.orb1} />
-        <div style={styles.orb2} />
-
-        <div style={styles.inner}>
-          {/* LEFT */}
-          <div style={styles.left}>
-            <div style={styles.eyebrow}>
-              <div className="eyebrow-dot" style={styles.eyebrowDot} />
-              Mobile App development
-            </div>
-
-            <h1 style={styles.headline}>
-              Enterprise Mobile App
-              <br />
-              <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">Development Services</span>
-            </h1>
-
-            <p style={styles.subtext}>
-              Build scalable iOS, Android, and cross-platform mobile
-              applications designed to streamline business operations, improve
-              user engagement, and accelerate digital transformation.
-            </p>
-            <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
-              Talk to our Expert
-              <span className="cta-arrow">
-                <ArrowRight stroke="#ffffff" />
-              </span>
-            </Link>
-
-            <div style={styles.stats}>
-              <div>
-                <div style={styles.statNum}>150+</div>
-                <div style={styles.statLbl}>Enterprise clients</div>
-              </div>
-              <div>
-                <div style={styles.statNum}>98%</div>
-                <div style={styles.statLbl}>Satisfaction rate</div>
-              </div>
-              <div>
-                <div style={styles.statNum}>12yr</div>
-                <div style={styles.statLbl}>Platform expertise</div>
-              </div>
-            </div>
-          </div>
-
-          <div style={styles.right}>
-            <div style={styles.sliderViewport}>
-              {testimonials.map((t, i) => (
-                <div
-                  key={i}
-                  style={{
-                    position: "absolute",
-                    width: "100%",
-                    opacity: i === idx ? 1 : 0,
-                    transition: "opacity 0.6s ease-in-out",
-                  }}
-                >
-                  <TestimonialSlide testimonial={t} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <svg
-          style={styles.wave}
-          viewBox="0 0 1440 90"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M0,50 C320,90 700,10 1080,55 C1260,75 1380,50 1440,40 L1440,90 L0,90 Z"
-            fill="#FAFAFA"
-          />
-        </svg>
-      </section>
-    </>
-  );
-}
-
-const styles: Record<string, CSSProperties> = {
-  hero: {
-    position: "relative",
-    overflow: "hidden",
-    background: "#071b4d",
-    color: "white",
-    fontFamily: "'DM Sans', sans-serif",
-    minHeight: "580px",
-  },
-  noise: {
-    position: "absolute",
-    inset: 0,
-    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E")`,
-    opacity: 0.5,
-    pointerEvents: "none",
-    zIndex: 0,
-  },
-  orb1: {
-    position: "absolute",
-    top: "-100px",
-    left: "-120px",
-    width: "480px",
-    height: "480px",
-    background:
-      "radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%)",
-    pointerEvents: "none",
-    zIndex: 0,
-  },
-  orb2: {
-    position: "absolute",
-    bottom: "-60px",
-    right: "-80px",
-    width: "420px",
-    height: "420px",
-    background:
-      "radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%)",
-    pointerEvents: "none",
-    zIndex: 0,
-  },
-  gridLines: {
-    position: "absolute",
-    inset: 0,
-    backgroundImage:
-      "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-    backgroundSize: "60px 60px",
-    pointerEvents: "none",
-    zIndex: 0,
-  },
-  inner: {
-    position: "relative",
-    zIndex: 1,
-    maxWidth: "1100px",
-    margin: "0 auto",
-    padding: "72px 48px 100px",
-    display: "flex",
-    alignItems: "center",
-    gap: 0,
-  },
-  left: {
-    flex: 1,
-    paddingRight: "56px",
-    borderRight: "1px solid rgba(255,255,255,0.08)",
-  },
-  right: {
-    flex: 1,
-    paddingLeft: "56px",
-    display: "flex",
-    flexDirection: "column",
-  },
-  eyebrow: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "8px",
-    background: "rgba(249,115,22,0.12)",
-    border: "1px solid rgba(249,115,22,0.25)",
-    color: "#f97316",
-    fontSize: "12px",
-    fontWeight: 500,
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
-    padding: "5px 12px",
-    borderRadius: "100px",
-    marginTop: "22px",
-    marginBottom: "22px",
-  },
-  eyebrowDot: {
-    width: "6px",
-    height: "6px",
-    borderRadius: "50%",
-    background: "#f97316",
-  },
-  headline: {
-    fontFamily: "'Syne', sans-serif",
-    fontSize: "clamp(18px, 3vw, 42px)",
-    fontWeight: 700,
-    lineHeight: 1.05,
-    letterSpacing: "-0.02em",
-    marginBottom: "4px",
-    color: "#f0f6ff",
-    wordBreak: "keep-all",
-  },
-
-  headlineGradient: {
-    background: "linear-gradient(135deg, #38bdf8 0%, #818cf8 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-  },
-  subtext: {
-    color: "rgba(200,220,255,0.65)",
-    fontSize: "15px",
-    lineHeight: 1.7,
-    marginBottom: "28px",
-  },
-  ctaBtn: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "10px",
-    background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
-    color: "#ffffff",
-    fontFamily: "'DM Sans', sans-serif",
-    fontSize: "15px",
-    fontWeight: 600,
-    padding: "13px 24px",
-    borderRadius: "12px",
-    border: "none",
-    cursor: "pointer",
-    textDecoration: "none",
-    transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
-    boxShadow: "0 8px 32px rgba(249,115,22,0.3)",
-  },
-  stats: {
-    display: "flex",
-    gap: "28px",
-    marginTop: "10px",
-    paddingTop: "12px",
-    borderTop: "1px solid rgba(255,255,255,0.08)",
-  },
-  statNum: {
-    fontFamily: "'Syne', sans-serif",
-    fontSize: "22px",
-    fontWeight: 700,
-    color: "#f0f6ff",
-  },
-  statLbl: {
-    fontSize: "12px",
-    color: "rgba(200,220,255,0.5)",
-    marginTop: "2px",
-  },
-  sliderViewport: {
-    position: "relative",
-    overflow: "hidden",
-    width: "130%",
-    borderRadius: "20px",
-    minHeight: "305px", // ⭐ IMPORTANT (adjust as needed)
-  },
-
-  sliderTrack: {
-    display: "flex",
-    transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-  },
-  slide: {
-    minWidth: "100%",
-    background: "rgba(255,255,255,0.07)",
-    border: "1px solid rgba(255,255,255,0.12)",
-    borderRadius: "20px",
-    padding: "32px 28px",
-    position: "relative",
-    overflow: "hidden",
-  },
-  slideTopLine: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    height: "1px",
-    background:
-      "linear-gradient(90deg, transparent, rgba(249,115,22,0.5), transparent)",
-  },
-  quoteMark: {
-    fontFamily: "'Syne', sans-serif",
-    fontSize: "56px",
-    lineHeight: 0.8,
-    color: "rgba(249,115,22,0.25)",
-    display: "block",
-  },
-  quoteText: {
-    fontSize: "16px",
-    lineHeight: 1.65,
-    color: "rgba(240,246,255,0.88)",
-    marginBottom: "10px",
-  },
-  authorRow: {
-    display: "flex",
-    alignItems: "center",
-    gap: "12px",
-  },
-  avatar: {
-    width: "42px",
-    height: "42px",
-    borderRadius: "50%",
-    background:
-      "linear-gradient(135deg, rgba(249,115,22,0.25), rgba(234,88,12,0.25))",
-    border: "1px solid rgba(249,115,22,0.3)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontFamily: "'Syne', sans-serif",
-    fontSize: "13px",
-    fontWeight: 600,
-    color: "#f97316",
-    flexShrink: 0,
-  },
-  authorName: {
-    fontSize: "14px",
-    fontWeight: 500,
-    color: "#f0f6ff",
-  },
-  authorRole: {
-    fontSize: "12px",
-    color: "rgba(200,220,255,0.5)",
-    marginTop: "1px",
-  },
-  authorLoc: {
-    display: "flex",
-    alignItems: "center",
-    gap: "4px",
-    fontSize: "11px",
-    color: "#f97316",
-    marginTop: "4px",
-  },
-  progressBar: {
-    width: "100%",
-    height: "2px",
-    background: "rgba(255,255,255,0.08)",
-    borderRadius: "2px",
-    marginTop: "16px",
-    overflow: "hidden",
-  },
-  progressFill: {
-    height: "100%",
-    background: "#f97316",
-    borderRadius: "2px",
-    transition: "width 0.1s linear",
-  },
-  controls: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: "20px",
-  },
-  dots: {
-    display: "flex",
-    gap: "7px",
-    alignItems: "center",
-  },
-  dot: {
-    width: "7px",
-    height: "7px",
-    borderRadius: "50%",
-    background: "rgba(255,255,255,0.2)",
-    cursor: "pointer",
-    transition: "background 0.3s, transform 0.3s, width 0.3s",
-    border: "none",
-    padding: 0,
-  },
-  dotActive: {
-    background: "#f97316",
-    width: "22px",
-    borderRadius: "4px",
-  },
-  navBtns: {
-    display: "flex",
-    gap: "8px",
-  },
-  navBtn: {
-    width: "36px",
-    height: "36px",
-    borderRadius: "50%",
-    background: "rgba(255,255,255,0.08)",
-    border: "1px solid rgba(255,255,255,0.12)",
-    color: "white",
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    transition: "background 0.2s, transform 0.2s",
-  },
-  wave: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    width: "100%",
-    pointerEvents: "none",
-    zIndex: 1,
-  },
-};

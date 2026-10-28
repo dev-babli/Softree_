@@ -18,16 +18,25 @@ export const metadata: Metadata = applyPageOg("/services/legacy-application-mode
   },
   description: "Modernize legacy enterprise applications with Softree. Upgrade outdated systems to scalable cloud-native architectures, microservices, and modern web platforms.",
   keywords: [
-    "Legacy system modernization services",
-    "Application modernization services",
-    "Legacy application migration",
-    "SharePoint modernization",
-    "WinForms to React migration",
-    "Power Platform migration",
-    "Offshore enterprise modernization",
-    "Workflow automation",
-    "Cloud migration",
-    "Outdated software migration"
+    // Primary Keyword
+    "Legacy Application Modernization Services",
+
+    // Secondary Keywords
+    "Application Modernization Services",
+    "Legacy Modernization Services",
+    "Legacy Software Modernization Services",
+    "Legacy System Modernization Services",
+    "Legacy Application Modernization",
+    "Application Modernization",
+    "Legacy Software Modernization",
+    "Legacy Application Migration",
+    "Legacy Application Migration Services",
+    "Software Modernization Services",
+    "Legacy Systems Migration",
+    "Cloud Application Modernization",
+    "Enterprise Application Modernization",
+    "SharePoint Modernization",
+    "Legacy Software Migration",
   ],
   alternates: {
     canonical: "https://www.softreetechnology.com/services/legacy-application-modernization",

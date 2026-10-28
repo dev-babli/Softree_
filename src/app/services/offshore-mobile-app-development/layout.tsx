@@ -6,17 +6,21 @@ export const metadata: Metadata = applyPageOg("/services/offshore-mobile-app-dev
     absolute: "Offshore Mobile App Development Services | Softree",
   },
   description:
-    "Custom mobile app development services. Build native iOS, Android, React Native, and Flutter applications with Softree’s dedicated offshore engineering pods.",
+    "Scale your business with offshore mobile app development services from Softree. Build custom iOS, Android, Flutter, and React Native applications.",
   keywords: [
-    "mobile app development services",
-    "offshore mobile app development",
-    "custom mobile app development",
-    "React Native development",
-    "Flutter app development",
-    "iOS app development",
-    "Android app development",
-    "cross-platform mobile app development",
-    "hire offshore mobile developers",
+    "Mobile App Development Services",
+    "Offshore Mobile App Development",
+    "iOS App Development",
+    "Android App Development",
+    "Cross-Platform Mobile App Development",
+    "Flutter App Development",
+    "React Native Development",
+    "White-Label Mobile App Development",
+    "Offshore Mobile App Developers",
+    "hire offshore mobile app development team",
+    "mobile application development company",
+    "custom enterprise mobile app development",
+    "offshore software engineering partner",
   ],
   alternates: {
     canonical: "https://www.softreetechnology.com/services/offshore-mobile-app-development",
@@ -24,7 +28,7 @@ export const metadata: Metadata = applyPageOg("/services/offshore-mobile-app-dev
   openGraph: {
     title: "Offshore Mobile App Development Services | Softree",
     description:
-      "Custom mobile app development services. Build native iOS, Android, React Native, and Flutter applications with Softree’s dedicated offshore engineering pods.",
+      "Scale your business with offshore mobile app development services from Softree. Build custom iOS, Android, Flutter, and React Native applications.",
     url: "https://www.softreetechnology.com/services/offshore-mobile-app-development",
     siteName: "Softree Technology",
     type: "website",
@@ -33,7 +37,7 @@ export const metadata: Metadata = applyPageOg("/services/offshore-mobile-app-dev
     card: "summary_large_image",
     title: "Offshore Mobile App Development Services | Softree",
     description:
-      "Custom mobile app development services. Build native iOS, Android, React Native, and Flutter applications with Softree’s dedicated offshore engineering pods.",
+      "Scale your business with offshore mobile app development services from Softree. Build custom iOS, Android, Flutter, and React Native applications.",
   },
 });
 
