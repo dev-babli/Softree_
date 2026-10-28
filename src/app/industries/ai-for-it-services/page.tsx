@@ -12,6 +12,7 @@ import AiforitLightFAQExact from "./components/aiforitLightFAQExact";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer";
 
+
 const PAGE_URL = "https://www.softreetechnology.com/industries/ai-for-it-services";
 
 export const metadata: Metadata = applyPageOg("/industries/ai-for-it-services", {
@@ -100,9 +101,10 @@ export default function AiItDevelopmentServicesPage() {
       <NavigationClient />
       <Hero />
       <TrustedBrandsMarquee />
-      <AiforitSpfxSharepointSqueezeCarouselDemo />
+
       <AIITServicesWhoWeHelp />
       <AIITCapabilitiesStickyScroll />
+      <AiforitSpfxSharepointSqueezeCarouselDemo />
       <AIITTechnologyStack />
       <AiforitWhyChooseWithTestimonials />
       <AiforitLightFAQExact />

@@ -340,7 +340,7 @@ export default function Hero() {
       drift={0.55}
       fade={0.45}
       color="#FF5812"
-      className="bg-[#050909] text-white flex w-full flex-col items-center pt-24 sm:pt-28 lg:pt-32 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8 select-none relative"
+      className="bg-[#050909] text-white flex w-full flex-col items-center justify-between min-h-[82vh] sm:min-h-[86vh] lg:min-h-[90vh] pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8 select-none relative"
     >
       {/* CSS Entry Animations */}
       <style>{`
@@ -363,41 +363,107 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(ellipse 65% 50% at 50% 42%, #050909 0%, rgba(5, 9, 9, 0.85) 45%, rgba(5, 9, 9, 0.4) 75%, transparent 100%)",
+            "radial-gradient(ellipse 70% 55% at 50% 46%, #050909 0%, rgba(5, 9, 9, 0.85) 48%, rgba(5, 9, 9, 0.4) 78%, transparent 100%)",
         }}
       />
 
-      {/* Main Content Section */}
-      <section
-        data-moire-demo
-        className="relative z-10 flex w-full max-w-5xl flex-col items-center text-center pt-2 sm:pt-4 pb-1 sm:pb-2"
-      >
-        {/* Eyebrow Tag with Typography Caption */}
-        <div className="mb-4 sm:mb-5 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 backdrop-blur-md shadow-[0_0_15px_rgba(255,88,18,0.15)]">
-          <span aria-hidden="true" className="w-2 h-2 rounded-full bg-[#FF5812] shadow-[0_0_8px_#FF5812] animate-pulse" />
-          <span className={`${typography.caption.meta} text-[#FF6B2C] font-semibold tracking-wider uppercase`}>
-            AI FOR IT OPERATIONS
-          </span>
-        </div>
+   <section
+  data-moire-demo
+  className="relative z-10 flex w-full max-w-5xl flex-col items-center text-center my-auto py-6 sm:py-8 lg:py-10"
+>
+  {/* Eyebrow Tag */}
+  <div className="mb-4 sm:mb-5 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 backdrop-blur-md shadow-[0_0_15px_rgba(255,88,18,0.15)]">
+    <span
+      aria-hidden="true"
+      className="w-2 h-2 rounded-full bg-[#FF5812] shadow-[0_0_8px_#FF5812] animate-pulse"
+    />
 
-        {/* Headline with Brand Orange Gradient & Typography H1 */}
-        <h1 className={`${typography.heading.h1} text-white max-w-4xl tracking-tight leading-[1.15] text-balance`}>
-          AI for IT Services with Offshore Expertise for{" "}
-          <br className="hidden sm:inline" />
-          <span className="bg-gradient-to-r from-[#FF5812] via-[#FF7A3D] to-[#FFA756] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(255,88,18,0.3)]">
-            Intelligent IT Operations and Automation
-          </span>
-        </h1>
+    <span
+      className={`${typography.caption.meta} text-[#FF6B2C] font-semibold tracking-wider uppercase`}
+    >
+      AI FOR IT OPERATIONS
+    </span>
+  </div>
 
-        {/* Subline with Typography Body */}
-        <p className={`${typography.body.lg} mt-4 sm:mt-5 max-w-3xl text-slate-300 leading-relaxed font-normal text-pretty`}>
-          Leverage AI for IT services with offshore expertise to automate IT operations, streamline service management, accelerate incident resolution, and empower teams with intelligent AI agents and copilots.
-        </p>
-      </section>
+  {/* Hero Heading */}
+  <h1 className="text-white max-w-5xl tracking-tight leading-[1.12] text-balance">
+    {/* First line — larger */}
+    <span className="block text-5xl sm:text-6xl lg:text-[64px] font-bold">
+      AI for IT Services with
+    </span>
 
-      {/* TrustStrip at Bottom with tight vertical gap */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto pt-1 sm:pt-2">
-        <TrustStrip theme="dark" className="!mt-1 sm:!mt-2 !gap-3 sm:!gap-4" />
+    {/* Remaining lines — slightly smaller */}
+    <span className="block text-4xl sm:text-5xl lg:text-[52px] font-bold">
+      Offshore Expertise for{" "}
+      <span className="bg-gradient-to-r from-[#FF5812] via-[#FF7A3D] to-[#FFA756] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(255,88,18,0.3)]">
+        Intelligent IT
+      </span>
+    </span>
+
+    <span className="block text-4xl sm:text-5xl lg:text-[52px] font-bold">
+      Operations and Automation
+    </span>
+  </h1>
+
+  {/* IT Services We Support */}
+<ul className="mt-6 flex max-w-4xl flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+  {[
+    "IT Service Management",
+    "Service Desk",
+    "Incident Management",
+    "Infrastructure Operations",
+    "Application Support",
+    "IT Automation",
+  ].map((service) => (
+    <li
+      key={service}
+      className="
+        group
+        inline-flex items-center gap-2
+        rounded-full
+        border border-white/10
+        bg-white/[0.04]
+        px-3.5 py-2
+        text-xs sm:text-sm
+        font-medium
+        text-slate-300
+        backdrop-blur-md
+        shadow-[0_4px_20px_rgba(0,0,0,0.15)]
+        transition-all duration-300
+        hover:border-[#FF5812]/40
+        hover:bg-[#FF5812]/10
+        hover:text-white
+      "
+    >
+      <span
+        className="
+          h-1.5 w-1.5
+          rounded-full
+          bg-[#FF5812]
+          shadow-[0_0_7px_rgba(255,88,18,0.8)]
+          transition-transform duration-300
+          group-hover:scale-125
+        "
+      />
+
+      {service}
+    </li>
+  ))}
+</ul>
+
+  {/* Subline */}
+  <p
+    className={`${typography.body.lg} mt-5 sm:mt-6 max-w-3xl text-slate-300 leading-relaxed font-normal text-pretty`}
+  >
+    Leverage AI for IT services with offshore expertise to automate IT
+    operations, streamline service management, accelerate incident resolution,
+    and empower teams with intelligent AI agents and copilots.
+  </p>
+</section>
+
+      {/* TrustStrip at Bottom with comfortable breathing room */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto pt-6 sm:pt-8">
+        <TrustStrip theme="dark" className="!mt-0 !gap-4 sm:!gap-5" />
       </div>
     </MoireField>
   )

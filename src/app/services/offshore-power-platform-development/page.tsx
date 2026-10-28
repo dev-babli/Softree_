@@ -18,43 +18,6 @@ const LightFAQExact = dynamic(() => import("@/components/homepage-light/LightFAQ
 import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
 
-// const powerPlatformFAQs = [
-//   {
-//     id: 1,
-//     serial: "question 01",
-//     question: "What Microsoft Power Platform services do you offer?",
-//     answer:
-//       "We specialize in Power Apps (canvas and model-driven), Power Automate workflows, Power BI dashboards, Power Pages, and Dataverse integration. We build end-to-end solutions connecting the entire Power Platform ecosystem.",
-//   },
-//   {
-//     id: 2,
-//     serial: "question 02",
-//     question: "How long does it take to develop a Power Apps solution?",
-//     answer:
-//       "Simple Power Apps MVPs take 4-6 weeks. Complex enterprise solutions with multiple apps and automations take 8-12 weeks. We provide a detailed scope and timeline before starting development.",
-//   },
-//   {
-//     id: 3,
-//     serial: "question 03",
-//     question: "Can you integrate Power Platform with existing systems?",
-//     answer:
-//       "Yes, we integrate Power Platform with Dynamics 365, SharePoint, SQL Server, Office 365, external APIs, and legacy systems. We ensure seamless data flow and business process automation across your entire technology stack.",
-//   },
-//   {
-//     id: 4,
-//     serial: "question 04",
-//     question: "Do you provide training for Power Platform solutions?",
-//     answer:
-//       "We provide comprehensive user training, admin documentation, and handoff sessions. Your team learns to manage and extend the solutions we build. We also offer ongoing support packages for maintenance and enhancements.",
-//   },
-//   {
-//     id: 5,
-//     serial: "question 05",
-//     question: "How do you handle Power Platform security and governance?",
-//     answer:
-//       "We implement Microsoft best practices for security: data loss prevention (DLP), environment strategies, role-based access control, and compliance with your organization's governance policies. We follow Microsoft Gold Partner security standards.",
-//   },
-// ]
 const powerPlatformFAQs = [
   {
     id: 1,
