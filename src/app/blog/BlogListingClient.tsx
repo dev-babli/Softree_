@@ -98,7 +98,7 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
       />
 
       <section className="border-b border-[#d8dce8] bg-white">
-        <div className="mx-auto max-w-[1240px] px-4 pb-12 pt-10 md:px-8 md:pb-16">
+        <div className="mx-auto max-w-[1440px] px-4 pb-12 pt-10 md:px-8 md:pb-16">
           <div className="mt-5 flex flex-wrap gap-2">
             {categories.map((item) => {
               const isSelected =
@@ -176,6 +176,7 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                   src={featured.mainImage?.asset?.url || "/og-image.png"}
                   alt={featured.mainImage?.alt || featured.title}
                   fill
+                  unoptimized
                   sizes="(max-width: 900px) 100vw, 600px"
                   className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                 />
@@ -185,7 +186,7 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1240px] px-4 py-12 md:px-8 md:py-16">
+      <section className="mx-auto max-w-[1600px] px-4 py-12 md:px-8 md:py-16">
         <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
           <h2 className="text-[clamp(1.5rem,3vw,2.1rem)] font-black tracking-[-0.02em]">
             {selectedCategory === "All" ? "Explore Our Latest Articles" : `All ${selectedCategory} articles`}
@@ -217,6 +218,7 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                     src={post.mainImage?.asset?.url || "/og-image.png"}
                     alt={post.mainImage?.alt || post.title}
                     fill
+                    unoptimized
                     sizes="(max-width: 1024px) 50vw, 400px"
                     className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
