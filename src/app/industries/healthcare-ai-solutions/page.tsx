@@ -28,6 +28,36 @@ export const metadata: Metadata = applyPageOg("/industries/healthcare-ai-solutio
   alternates: {
     canonical: "https://www.softreetechnology.com/industries/healthcare-ai-solutions",
   },
+  keywords: [
+    // Primary Keyword
+    "AI in Healthcare",
+
+    // Secondary Keywords
+    "Artificial Intelligence in Healthcare",
+    "Healthcare AI Solutions",
+    "AI Healthcare Solutions",
+    "AI Solutions for Healthcare",
+    "Healthcare Artificial Intelligence",
+    "Medical AI",
+    "AI in Medicine",
+    "AI Medical Diagnosis",
+    "Medical Artificial Intelligence",
+    "AI and Healthcare",
+    "Clinical Decision Support AI",
+    "AI Clinical Decision Support",
+    "Healthcare Software Development Company",
+    "Healthcare AI Development Services",
+    "Healthcare AI Development Company",
+    "Healthcare Software Development",
+    "Custom Healthcare Software Development",
+    "Healthcare Data Analytics",
+    "AI Patient Engagement",
+    "AI Integration Services for Healthcare",
+    "AI-Powered Healthcare Solutions",
+    "Healthcare AI Jobs",
+    "Medical AI Companies",
+    "Healthcare AI Companies",
+  ],
   openGraph: {
     title: "Healthcare AI Solutions & Engineering | Softree Technology",
     description:

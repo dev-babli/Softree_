@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { typography } from "@/lib/typography";
 
 const industries = [
   {
@@ -195,39 +196,17 @@ export default function IndustriesWeSupport() {
               opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(12px)",
               transition: "opacity .6s ease, transform .6s ease",
             }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#ff5812" }}>
+              <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-[#ff5812]`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                 <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ff5812", display: "inline-block", animation: "pulse-dot 2s ease-in-out infinite" }} />
                 Section 05
               </span>
               <div style={{ flex: 1, height: "1px", background: "linear-gradient(to right, #ff5812, #eaeaea)" }} />
-              <span style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#000000", fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>
-                Sectors Supported
-              </span>
+              <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-black`}>Sectors Supported</span>
             </div>
 
-            <h2 style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-              fontWeight: 700,
-              color: "#000000",
-              lineHeight: 1.1,
-              margin: "0 0 24px",
-              letterSpacing: "-0.02em",
-              opacity: visible ? 1 : 0,
-              transform: visible ? "none" : "translateY(20px)",
-              transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s",
-            }}>
-              Industries We Support Through Transition
-            </h2>
+            <h2 className={`${typography.heading.h2} font-bold text-black leading-[1.1] mb-6`} style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(20px)", transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s" }}>Industries We Support Through Transition</h2>
 
-            <p style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: "15px", fontWeight: 400, color: "#555555",
-              lineHeight: 1.75, maxWidth: "500px", margin: 0,
-              opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(16px)",
-              transition: "opacity .7s ease .25s, transform .7s ease .25s",
-            }}>
-              We apply proven migration blueprints across highly regulated and complex sectors, ensuring complete operational continuity and compliance.
-            </p>
+            <p className={`${typography.description.default} font-normal text-[#555] leading-relaxed max-w-[500px] m-0`} style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(16px)", transition: "opacity .7s ease .25s, transform .7s ease .25s" }}>We apply proven migration blueprints across highly regulated and complex sectors, ensuring complete operational continuity and compliance.</p>
           </div>
 
           {/* ── DIVIDER STRIP ── */}
@@ -311,38 +290,9 @@ export default function IndustriesWeSupport() {
 
                   {/* Name and Tags */}
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                    <h3
-                      style={{
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontSize: "clamp(15px, 1.8vw, 19px)",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        lineHeight: 1.15,
-                        color: "#000000",
-                        margin: "0 0 10px",
-                        whiteSpace: "pre-line",
-                        letterSpacing: "-0.01em",
-                        overflowWrap: "break-word",
-                        wordBreak: "break-word",
-                      }}
-                    >
-                      {ind.name}
-                    </h3>
+                    <h3 className={`${typography.heading.h3} font-bold uppercase leading-tight text-black mb-2.5 whitespace-pre-line m-0`}>{ind.name}</h3>
 
-                    <p
-                      style={{
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontSize: "11px",
-                        fontWeight: 500,
-                        color: isActive ? "#ff5812" : "#64748b",
-                        letterSpacing: "0.02em",
-                        transition: "color 0.3s ease",
-                        margin: 0,
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {ind.tag}
-                    </p>
+                    <p className={`${typography.caption.meta} font-medium leading-normal m-0`} style={{ color: isActive ? "#ff5812" : "#64748b" }}>{ind.tag}</p>
                   </div>
 
                   {/* Bottom Accent line */}
@@ -377,30 +327,8 @@ export default function IndustriesWeSupport() {
             }}
           >
             <div>
-              <p
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "20px",
-                  fontWeight: 700,
-                  color: "#000000",
-                  margin: "0 0 6px",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                Deep Domain Capability
-              </p>
-              <p
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "13px",
-                  fontWeight: 500,
-                  color: "#555555",
-                  margin: 0,
-                  lineHeight: 1.6,
-                }}
-              >
-                Our solutions are tailor-configured for the security mandates, database loads, and performance metrics unique to each sector.
-              </p>
+              <p className={`${typography.heading.h3} font-bold text-black mb-1.5 m-0`}>Deep Domain Capability</p>
+              <p className={`${typography.body.sm} font-medium text-[#555] m-0 leading-relaxed`}>Our solutions are tailor-configured for the security mandates, database loads, and performance metrics unique to each sector.</p>
             </div>
 
             <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>

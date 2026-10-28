@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { typography } from "@/lib/typography";
 
 const highlights = [
     {
@@ -107,7 +108,7 @@ export default function HeroSection() {
             ref={containerRef}
             onMouseMove={handleMouseMove}
             style={{
-                fontFamily: "'Georgia', 'Times New Roman', serif",
+
                 background: "#fff",
                 minHeight: "80vh",
                 position: "relative",
@@ -194,7 +195,7 @@ export default function HeroSection() {
                 }}
             />
 
-         
+
 
             {/* ── MAIN CONTENT ── */}
             <div
@@ -235,18 +236,7 @@ export default function HeroSection() {
                             }}
                         >
                             <div style={{ width: 6, height: 6, background: "#FF6A00", transform: "rotate(45deg)" }} />
-                            <span
-                                style={{
-                                    fontFamily: "'Courier New', monospace",
-                                    fontSize: "0.65rem",
-                                    letterSpacing: "0.35em",
-                                    color: "#FF6A00",
-                                    fontWeight: 700,
-                                    textTransform: "uppercase",
-                                }}
-                            >
-                                Enterprise Modernization
-                            </span>
+                            <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-[#FF6A00]`}>Enterprise Modernization</span>
                         </div>
 
                         {/* Main Headline */}
@@ -257,72 +247,12 @@ export default function HeroSection() {
                                 transition: "opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s",
                             }}
                         >
-                            <h1
-                                style={{
-                                    fontSize: "clamp(1.8rem, 4.4vw, 3.6rem)",
-                                    fontWeight: 900,
-                                    letterSpacing: "-0.03em",
-                                    color: "#111",
-                                    lineHeight: 0.92,
-                                    textTransform: "uppercase",
-                                    margin: 0,
-                                }}
-                            >
-                                Legacy
-                            </h1>
-                            <h1
-                                style={{
-                                    fontSize: "clamp(1.8rem, 4.4vw, 3.6rem)",
-                                    fontWeight: 900,
-                                    letterSpacing: "-0.03em",
-                                    color: "#111",
-                                    lineHeight: 0.92,
-                                    textTransform: "uppercase",
-                                    margin: 0,
-                                }}
-                            >
-                                System
-                            </h1>
-                            <h1
-                                style={{
-                                    fontSize: "clamp(1.8rem, 4.4vw, 3.6rem)",
-                                    fontWeight: 900,
-                                    letterSpacing: "-0.03em",
-                                    color: "#111",
-                                    lineHeight: 0.92,
-                                    textTransform: "uppercase",
-                                    margin: 0,
-                                }}
-                            >
-                                Migration
-                            </h1>
+                            <h1 className={`${typography.title} font-black uppercase text-[#111] leading-[0.92] m-0`}>Legacy</h1>
+                            <h1 className={`${typography.title} font-black uppercase text-[#111] leading-[0.92] m-0`}>System</h1>
+                            <h1 className={`${typography.title} font-black uppercase text-[#111] leading-[0.92] m-0`}>Migration</h1>
                             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", gap: "0.4rem" }}>
-                                <h1
-                                    style={{
-                                        fontSize: "clamp(1.8rem, 4.4vw, 3.6rem)",
-                                        fontWeight: 900,
-                                        letterSpacing: "-0.03em",
-                                        color: "#FF6A00",
-                                        lineHeight: 0.92,
-                                        textTransform: "uppercase",
-                                        margin: 0,
-                                    }}
-                                >
-                                    &
-                                </h1>
-                                <h1
-                                    style={{
-                                        fontSize: "clamp(1.8rem, 4.4vw, 3.6rem)",
-                                        fontWeight: 900,
-                                        letterSpacing: "-0.03em",
-                                        color: "#111",
-                                        lineHeight: 0.92,
-                                        textTransform: "uppercase",
-                                        margin: 0,
-                                    }}
-                                >
-                                    Modernization
-                                </h1>
+                                <h1 className={`${typography.title} font-black uppercase text-[#FF6A00] leading-[0.92] m-0`}>&</h1>
+                                <h1 className={`${typography.title} font-black uppercase text-[#111] leading-[0.92] m-0`}>Modernization</h1>
                             </div>
                         </div>
 
@@ -340,112 +270,13 @@ export default function HeroSection() {
                         </div>
 
                         {/* Subheading */}
-                        <p
-                            style={{
-                                fontSize: "clamp(0.95rem, 1.6vw, 1.15rem)",
-                                color: "#555",
-                                lineHeight: 1.75,
-                                maxWidth: "540px",
-                                margin: "0 0 clamp(1.2rem, 3vw, 2rem)",
-                                opacity: visible ? 1 : 0,
-                                transform: visible ? "none" : "translateY(12px)",
-                                transition: "opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s",
-                            }}
-                        >
+                        <p className={`${typography.description.default} text-[#555] leading-relaxed max-w-[540px]`} style={{ margin: "0 0 clamp(1.2rem, 3vw, 2rem)", opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(12px)", transition: "opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s" }}>
                             Transform outdated applications, workflows, and enterprise
                             platforms into scalable, cloud-ready, AI-enabled digital solutions.
                         </p>
 
-                        {/* CTA Buttons */}
-                        <div
-                            style={{
-                                display: "flex",
-                                gap: "1rem",
-                                flexWrap: "wrap",
-                                alignItems: "center",
-                                opacity: visible ? 1 : 0,
-                                transform: visible ? "none" : "translateY(16px)",
-                                transition: "opacity 0.8s ease 0.65s, transform 0.8s ease 0.65s",
-                            }}
-                        >
-                            {/* Primary */}
-                            <Link href="/contact" style={{ textDecoration: "none" }}>
-                                <button
-                                    onMouseEnter={() => setBtn1Hover(true)}
-                                    onMouseLeave={() => setBtn1Hover(false)}
-                                    style={{
-                                        padding: "0.9rem 2rem",
-                                        background: btn1Hover ? "#fff" : "#FF6A00",
-                                        color: btn1Hover ? "#FF6A00" : "#fff",
-                                        border: "2px solid #FF6A00",
-                                        fontFamily: "'Courier New', monospace",
-                                        fontSize: "0.72rem",
-                                        fontWeight: 700,
-                                        letterSpacing: "0.18em",
-                                        textTransform: "uppercase",
-                                        cursor: "pointer",
-                                        transition: "all 0.22s ease",
-                                        boxShadow: btn1Hover ? "5px 5px 0px #FF6A00" : "none",
-                                        transform: btn1Hover ? "translate(-3px,-3px)" : "none",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "0.6rem",
-                                    }}
-                                >
-                                    <svg viewBox="0 0 20 20" fill="none" style={{ width: 15, height: 15 }}>
-                                        <rect x="2" y="4" width="16" height="13" rx="1" stroke="currentColor" strokeWidth="1.5" />
-                                        <path d="M2 8h16" stroke="currentColor" strokeWidth="1.5" />
-                                        <circle cx="6.5" cy="12.5" r="1" fill="currentColor" />
-                                    </svg>
-                                    Book a Discovery Call
-                                </button>
-                            </Link>
 
-                            {/* Secondary */}
-                            <Link href="/contact" style={{ textDecoration: "none" }}>
-                                <button
-                                    onMouseEnter={() => setBtn2Hover(true)}
-                                    onMouseLeave={() => setBtn2Hover(false)}
-                                    style={{
-                                        position: "relative",
-                                        overflow: "hidden",
-                                        padding: "0.9rem 2rem",
-                                        background: "transparent",
-                                        color: btn2Hover ? "#fff" : "#111",
-                                        border: "2px solid #111",
-                                        fontFamily: "'Courier New', monospace",
-                                        fontSize: "0.72rem",
-                                        fontWeight: 700,
-                                        letterSpacing: "0.18em",
-                                        textTransform: "uppercase",
-                                        cursor: "pointer",
-                                        transition: "color 0.25s ease, box-shadow 0.22s ease, transform 0.22s ease",
-                                        boxShadow: btn2Hover ? "5px 5px 0px #111" : "none",
-                                        transform: btn2Hover ? "translate(-3px,-3px)" : "none",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "0.6rem",
-                                    }}
-                                >
-                                    <div
-                                        style={{
-                                            position: "absolute",
-                                            inset: 0,
-                                            background: "#111",
-                                            transformOrigin: "left",
-                                            transform: btn2Hover ? "scaleX(1)" : "scaleX(0)",
-                                            transition: "transform 0.3s cubic-bezier(0.4,0,0.2,1)",
-                                            zIndex: 0,
-                                        }}
-                                    />
-                                    <svg viewBox="0 0 20 20" fill="none" style={{ width: 15, height: 15, position: "relative", zIndex: 1 }}>
-                                        <path d="M10 2a8 8 0 100 16A8 8 0 0010 2z" stroke="currentColor" strokeWidth="1.5" />
-                                        <path d="M8 7l5 3-5 3V7z" fill="currentColor" />
-                                    </svg>
-                                    <span style={{ position: "relative", zIndex: 1 }}>Get Modernization Assessment</span>
-                                </button>
-                            </Link>
-                        </div>
+
                     </div>
 
                     {/* RIGHT — Highlights panel */}
@@ -475,18 +306,7 @@ export default function HeroSection() {
                             }}
                         >
                             <div style={{ width: 6, height: 6, background: "#FF6A00", transform: "rotate(45deg)" }} />
-                            <span
-                                style={{
-                                    fontFamily: "'Courier New', monospace",
-                                    fontSize: "0.6rem",
-                                    letterSpacing: "0.3em",
-                                    color: "rgba(255,255,255,0.7)",
-                                    textTransform: "uppercase",
-                                    fontWeight: 700,
-                                }}
-                            >
-                                Core Capabilities
-                            </span>
+                            <span className={`${typography.caption.meta} uppercase tracking-wider text-white/70 font-bold`}>Core Capabilities</span>
                         </div>
 
                         {highlights.map((h, i) => (
@@ -525,19 +345,7 @@ export default function HeroSection() {
                                     <span style={{ color: activeHighlight === i ? "#fff" : "#FF6A00", transition: "color 0.2s ease", flexShrink: 0 }}>
                                         {h.icon}
                                     </span>
-                                    <span
-                                        style={{
-                                            fontFamily: "'Courier New', monospace",
-                                            fontSize: "0.72rem",
-                                            letterSpacing: "0.06em",
-                                            fontWeight: 700,
-                                            color: activeHighlight === i ? "#fff" : "#111",
-                                            textTransform: "uppercase",
-                                            transition: "color 0.2s ease",
-                                        }}
-                                    >
-                                        {h.label}
-                                    </span>
+                                    <span className={`${typography.caption.meta} font-bold uppercase tracking-wider transition-colors duration-200`} style={{ color: activeHighlight === i ? "#fff" : "#111" }}>{h.label}</span>
                                     <div style={{ flex: 1 }} />
                                     <svg
                                         viewBox="0 0 16 16"
@@ -583,18 +391,7 @@ export default function HeroSection() {
                     }}
                 >
                     <div style={{ width: 5, height: 5, background: "#FF6A00", transform: "rotate(45deg)", flexShrink: 0 }} />
-                    <span
-                        style={{
-                            fontFamily: "'Courier New', monospace",
-                            fontSize: "0.6rem",
-                            letterSpacing: "0.3em",
-                            color: "#999",
-                            textTransform: "uppercase",
-                            fontWeight: 700,
-                        }}
-                    >
-                        Trusted Technologies
-                    </span>
+                    <span className={`${typography.caption.default} uppercase tracking-widest text-[#999] font-bold`}>Trusted Technologies</span>
                     <div style={{ flex: 1, height: 1, background: "#f0f0f0" }} />
                 </div>
 
@@ -662,19 +459,7 @@ export default function HeroSection() {
                                         flexShrink: 0,
                                     }}
                                 />
-                                <span
-                                    style={{
-                                        fontFamily: "'Courier New', monospace",
-                                        fontSize: "0.7rem",
-                                        fontWeight: 700,
-                                        letterSpacing: "0.08em",
-                                        color: "#333",
-                                        textTransform: "uppercase",
-                                        whiteSpace: "nowrap",
-                                    }}
-                                >
-                                    {tech}
-                                </span>
+                                <span className={`${typography.caption.meta} font-bold uppercase text-[#333] whitespace-nowrap`}>{tech}</span>
                             </div>
                         ))}
                     </div>

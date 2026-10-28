@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { typography } from "@/lib/typography";
 
 const points = [
   {
@@ -170,19 +171,7 @@ export default function WhyChooseSoftree() {
               transition: "opacity 0.6s ease, transform 0.6s ease",
             }}
           >
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "11px",
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "#ff5812",
-              }}
-            >
+            <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-[#ff5812]`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
               <span
                 style={{
                   width: "6px",
@@ -196,18 +185,7 @@ export default function WhyChooseSoftree() {
               Section 07
             </span>
             <div style={{ flex: 1, height: "1px", background: "linear-gradient(to right, #ff5812, #eaeaea)" }} />
-            <span
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "#000000",
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 700,
-              }}
-            >
-              Why Softree
-            </span>
+            <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-black`}>Why Softree</span>
           </div>
 
           {/* Two-column layout: heading left, content right */}
@@ -224,35 +202,11 @@ export default function WhyChooseSoftree() {
                 transition: "opacity 0.8s ease 0.1s",
               }}
             >
-              <h2
-  style={{
-    fontFamily: "'DM Sans', sans-serif",
-    fontSize: "clamp(2.2rem, 4vw, 3.2rem)",
-    fontWeight: 700,
-    margin: "0 0 24px",
-    letterSpacing: "-0.02em",
-    lineHeight: 1.1,
-    color: "#000000",
-    whiteSpace: "normal",
-  }}
->
-  Why Choose Softree
-</h2>
+              <h2 className={`${typography.heading.h2} font-bold text-black leading-[1.1] mb-6 whitespace-normal`}>Why Choose Softree</h2>
 
 
                 {/* Sub-label */}
-                <p
-                  style={{
-                    fontFamily: "'DM Sans', sans-serif",
-                    fontSize: "13px",
-                    lineHeight: 1.6,
-                    color: "#64748b",
-                    margin: 0,
-                    maxWidth: "260px",
-                  }}
-                >
-                  Organizations choose Softree to secure operational outcomes and high-assurance delivery.
-                </p>
+                <p className={`${typography.description.default} font-normal text-[#64748b] leading-relaxed max-w-[260px] m-0`}>Organizations choose Softree to secure operational outcomes and high-assurance delivery.</p>
 
                 {/* Counter badge */}
                 <div
@@ -352,31 +306,8 @@ export default function WhyChooseSoftree() {
 
                     {/* Text */}
                     <div style={{ flex: 1 }}>
-                      <h3
-                        style={{
-                          fontFamily: "'DM Sans', sans-serif",
-                          fontSize: "clamp(15px, 2.2vw, 19px)",
-                          fontWeight: 700,
-                          color: "#000000",
-                          whiteSpace: "pre-line",
-                          margin: "0 0 8px 0",
-                          lineHeight: 1.25,
-                        }}
-                      >
-                        {point.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontFamily: "'DM Sans', sans-serif",
-                          fontSize: "13px",
-                          color: "#475569",
-                          lineHeight: 1.6,
-                          margin: 0,
-                          maxWidth: "480px",
-                        }}
-                      >
-                        {point.description}
-                      </p>
+                      <h3 className={`${typography.heading.h3} font-bold text-black mb-2 leading-snug whitespace-pre-line m-0`}>{point.title}</h3>
+                      <p className={`${typography.body.sm} font-normal text-[#475569] leading-relaxed max-w-[480px] m-0`}>{point.description}</p>
                     </div>
 
                     {/* Arrow indicator */}

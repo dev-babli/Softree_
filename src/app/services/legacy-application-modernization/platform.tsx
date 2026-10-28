@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { typography } from "@/lib/typography";
 
 /* ─────────────────────────────────────────────
    Data
@@ -409,9 +410,7 @@ function ColHeader({ label, accent, sub, visible, delay = "0ms" }: {
     }}>
       <div style={{ height:"2px", background:`linear-gradient(to right,${accent},transparent)`, marginBottom:"14px" }} />
       <div style={{ display:"flex", alignItems:"baseline", gap:"10px" }}>
-        <h3 style={{ fontFamily:"'DM Sans', sans-serif", fontSize:"12.5px", fontWeight:700, color:accent, margin:0, letterSpacing:"0.14em", textTransform:"uppercase" }}>
-          {label}
-        </h3>
+        <h3 className={`${typography.heading.h4} font-bold uppercase tracking-wider m-0`} style={{ color: accent }}>{label}</h3>
         <span style={{ fontFamily:"'DM Sans', sans-serif", fontSize:"11px", color:"#94a3b8", letterSpacing:"0.07em" }}>
           {sub}
         </span>
@@ -505,39 +504,17 @@ export default function ExpertiseSection() {
               opacity:heroVisible?1:0,transform:heroVisible?"none":"translateY(12px)",
               transition:"opacity .6s ease,transform .6s ease",
             }}>
-              <span style={{ display:"inline-flex",alignItems:"center",gap:"6px",fontFamily:"'DM Sans', sans-serif",fontSize:"11px",fontWeight:700,letterSpacing:"0.2em",textTransform:"uppercase",color:"#ff5812" }}>
+              <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-[#ff5812]`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                 <span style={{ width:"6px",height:"6px",borderRadius:"50%",background:"#ff5812",display:"inline-block",animation:"pulse-dot 2s ease-in-out infinite" }}/>
                 Section 04
               </span>
               <div style={{ flex:1,height:"1px",background:"linear-gradient(to right,#ff5812,#eaeaea)" }}/>
-              <span style={{ fontSize:"11px",letterSpacing:"0.2em",textTransform:"uppercase",color:"#000000",fontFamily:"'DM Sans', sans-serif",fontWeight:700 }}>
-                Modernization Expertise
-              </span>
+              <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-black`}>Modernization Expertise</span>
             </div>
 
-            <h2 style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-              fontWeight: 700,
-              color: "#000000",
-              lineHeight: 1.1,
-              margin: "0 0 24px",
-              letterSpacing: "-0.02em",
-              opacity: heroVisible ? 1 : 0,
-              transform: heroVisible ? "none" : "translateY(20px)",
-              transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s",
-            }}>
-              Platforms & Technologies We Modernize
-            </h2>
+            <h2 className={`${typography.heading.h2} font-bold text-black leading-[1.1] mb-6`} style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(20px)", transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s" }}>Platforms & Technologies We Modernize</h2>
 
-            <p style={{
-              fontFamily:"'DM Sans', sans-serif",fontSize:"15px",fontWeight:400,color:"#555555",
-              lineHeight:1.75,maxWidth:"500px",margin:0,
-              opacity:heroVisible?1:0,transform:heroVisible?"none":"translateY(16px)",
-              transition:"opacity .7s ease .25s,transform .7s ease .25s",
-            }}>
-              We take organizations from entrenched enterprise stacks to the modern platforms that power tomorrow's operations.
-            </p>
+            <p className={`${typography.description.default} font-normal text-[#555] leading-relaxed max-w-[500px] m-0`} style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(16px)", transition: "opacity .7s ease .25s,transform .7s ease .25s" }}>We take organizations from entrenched enterprise stacks to the modern platforms that power tomorrow's operations.</p>
           </div>
 
           {/* ── LEGEND ── */}
