@@ -19,8 +19,8 @@ const MOBILE_APP_IMAGES: StreamImage[] = [
     alt: "Mobile phone displaying a delivery app interface",
   },
   {
-    src: "https://images.unsplash.com/photo-1712002641088-9d2d7c7e4d4b?auto=format&fit=crop&w=1260&q=80",
-    alt: "Smartphone displaying a modern mobile application interface",
+    src: "https://images.pexels.com/photos/30479287/pexels-photo-30479287/free-photo-of-smartphone-displaying-ai-chat-interface.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    alt: "Smartphone displaying an AI chat interface",
   },
   {
     src: "https://images.pexels.com/photos/6804422/pexels-photo-6804422.jpeg?auto=compress&dpr=1&h=750&w=1260",
