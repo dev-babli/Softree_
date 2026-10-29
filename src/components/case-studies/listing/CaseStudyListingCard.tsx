@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight, TrendingUp } from 'lucide-react'
+import { TrendingUp } from 'lucide-react'
 import { SpotlightCard } from '@/components/qc/shared/SpotlightCard'
 import type { CaseStudyListingItem } from '@/app/case-studies/types'
 import { FlowButton } from '@/components/ui/flow-button'
@@ -73,23 +73,7 @@ export default function CaseStudyListingCard({ study, accentColor = '#FF5812' }:
             </div>
           )}
 
-          {/* Vignette Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-75" />
-
-          {/* Category Tag Overlay */}
-          <div className="absolute left-4 top-4">
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-md shadow-sm transition-transform duration-300 group-hover:scale-[1.02]">
-              {study.category}
-            </span>
-          </div>
-
-          {/* Action Badge Overlay */}
-          <div className="absolute bottom-4 right-4">
-            <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur-md transition-all duration-300 group-hover:bg-white group-hover:text-[#181818] group-hover:border-white">
-              <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
-              Case study
-            </span>
-          </div>
+          
         </div>
 
         {/* Content Body */}

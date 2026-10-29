@@ -5,7 +5,6 @@ import NavigationServer from "@/components/sections/navigation-server"
 import Footer from "@/components/sections/footer"
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection"
 import LightFAQExact from "@/components/homepage-light/LightFAQExact"
-import CaseStudyHero from "./CaseStudyHero"
 import CaseStudyGridNew from "./CaseStudyGrid"
 import { getCaseStudyItemsByCategory, getCaseStudyCategoryCounts } from "./categoryCards"
 import {
@@ -38,18 +37,8 @@ export default async function CaseStudyCategoryView({ category }: Props) {
   )
 
   return (
-    <div className="min-h-screen pt-[100px]">
+    <div className="min-h-screen pt-[72px] lg:pt-[84px]">
       <NavigationServer />
-      <CaseStudyHero
-        title={config.title}
-        titleItalic={config.titleItalic}
-        eyebrow={config.eyebrow}
-        description={config.description}
-        accentColor={config.accentColor}
-        heroStat={config.heroStat}
-        heroStatLabel={config.heroStatLabel}
-        projectCount={config.projectCount}
-      />
       <CaseStudyGridNew
         items={items}
         sectionTitle={config.sectionTitle}
@@ -65,7 +54,7 @@ export default async function CaseStudyCategoryView({ category }: Props) {
           <div className="rounded-[18px] border border-[#e6e1f2] bg-white px-8 py-10 text-center">
             <p className="text-[15px] text-[#4c5366]">
               Stories are classified automatically from layout and use case. Check the{" "}
-              <Link href="/case-studies" className="font-semibold text-[#1852ff] hover:underline">
+              <Link href="/case-studies" className="font-semibold text-[#FF5812] hover:underline">
                 full case study library
               </Link>{" "}
               for the latest work.

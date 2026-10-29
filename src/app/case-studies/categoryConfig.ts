@@ -114,7 +114,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     eyebrow: "Web Development · Modern Platforms",
     description:
       "Real-world web platforms engineered for performance, scalability, and measurable business growth.",
-    accentColor: "#1852FF",
+    accentColor: "#FF5812",
     heroStat: "+210%",
     heroStatLabel: "online bookings for Auto Repair Pro",
     projectCount: 40,
@@ -285,7 +285,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     eyebrow: "Power BI · Fabric · Modern Data Platforms",
     description:
       "Analytics programs that turn fragmented data into dashboards, forecasts, and decisions leaders trust.",
-    accentColor: "#0F5CC0",
+    accentColor: "#FF5812",
     heroStat: "3x",
     heroStatLabel: "faster reporting cycles after Fabric implementation",
     projectCount: 20,
