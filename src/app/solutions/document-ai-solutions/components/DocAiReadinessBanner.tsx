@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ScanText, BrainCircuit, Workflow, ShieldCheck, LucideIcon } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
@@ -39,6 +39,14 @@ const FEATURES: FeatureItem[] = [
 ];
 
 export default function DocumentAiReadinessBanner() {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && !videoRef.current.paused && videoRef.current.readyState >= 3) {
+      setIsVideoPlaying(true);
+    }
+  }, []);
   return (
     <section className="relative w-full pt-16 lg:pt-24 pb-12 lg:pb-16 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
@@ -133,18 +141,23 @@ export default function DocumentAiReadinessBanner() {
             </div>
 
             <video
+              ref={videoRef}
               itemProp="video"
               src="/documentai-video/document-ai-capabilities-v3.mp4"
-              poster="/documentai-video/document-ai-capabilities-poster.jpg"
+              
               title="Enterprise Document AI Solutions & Workflow Automation Overview"
               aria-label="Enterprise Document AI Solutions & Workflow Automation Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
+              onPlaying={() => setIsVideoPlaying(true)}
+              onError={() => setIsVideoPlaying(false)}
               controls={false}
-              className="absolute inset-0 h-full w-full select-none object-cover object-center"
+              className={`absolute inset-0 h-full w-full select-none object-cover object-center transition-opacity duration-700 ${
+                isVideoPlaying ? "opacity-100" : "opacity-0"
+              }`}
             >
               <source src="/documentai-video/document-ai-capabilities-v3.mp4" type="video/mp4" />
               Your browser does not support the video tag.

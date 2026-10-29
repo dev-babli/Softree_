@@ -1,12 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Tag, Users, CheckCircle2, UserPlus } from "lucide-react";
 import Link from "next/link";
 import { FlowButton } from "@/components/ui/flow-button";
 
 export default function AiReadinessBanner() {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && !videoRef.current.paused && videoRef.current.readyState >= 3) {
+      setIsVideoPlaying(true);
+    }
+  }, []);
   return (
     <section className="relative w-full pt-2 lg:pt-4 pb-8 lg:pb-10 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
@@ -142,19 +150,24 @@ export default function AiReadinessBanner() {
               </div>
             </div>
 
-            {/* Video element with complete indexing, poster, and accessibility attributes */}
+            {/* Video element with complete indexing and accessibility attributes */}
             <video
+              ref={videoRef}
               itemProp="video"
               src="/ai-development-service-video/Healhcare-ai-video.mp4"
-              poster="/images/solutions/ai-for-healthcare/hero.png"
+              
               aria-label="Healthcare AI Solutions & Engineering Partnership Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
+              onPlaying={() => setIsVideoPlaying(true)}
+              onError={() => setIsVideoPlaying(false)}
               controls={false}
-              className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
+              className={`w-full h-full object-cover absolute inset-0 select-none pointer-events-none transition-opacity duration-700 ${
+                isVideoPlaying ? "opacity-100" : "opacity-0"
+              }`}
             >
               <source src="/ai-development-service-video/Healhcare-ai-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.

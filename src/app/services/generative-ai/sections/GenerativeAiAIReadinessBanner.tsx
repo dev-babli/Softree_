@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Cpu, Database, Workflow, ShieldCheck, LucideIcon } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
@@ -39,6 +39,14 @@ const FEATURES: FeatureItem[] = [
 ];
 
 export default function GenerativeAiAIReadinessBanner() {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && !videoRef.current.paused && videoRef.current.readyState >= 3) {
+      setIsVideoPlaying(true);
+    }
+  }, []);
   return (
     <section className="relative w-full py-10 md:py-14 lg:py-16 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
@@ -134,17 +142,22 @@ export default function GenerativeAiAIReadinessBanner() {
 
             {/* The video with explicit indexing and accessibility attributes */}
             <video
+              ref={videoRef}
               src="/ai-development-service-video/ai-agent-video.mp4"
-              poster="/ai-development-service-video/ai-agent-video-poster.webp"
+
               title="Generative AI Development & Custom Solution Overview"
               aria-label="Generative AI Development & Custom Solution Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
+              onPlaying={() => setIsVideoPlaying(true)}
+              onError={() => setIsVideoPlaying(false)}
               controls={false}
-              className="w-full h-full object-cover absolute inset-0 select-none"
+              className={`w-full h-full object-cover absolute inset-0 select-none transition-opacity duration-700 ${
+                isVideoPlaying ? "opacity-100" : "opacity-0"
+              }`}
             >
               <source src="/ai-development-service-video/ai-agent-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.

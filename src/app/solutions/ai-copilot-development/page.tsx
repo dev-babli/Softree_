@@ -15,13 +15,10 @@ import TrustedBrandsMarquee from "@/app/services/ai-consulting-services/ai-consu
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer"
 import CopilotTestimonials from "./components/Testimonial/CopilotTestimonials";
-import CopilotTechnologies from "./components/Technologies/CopilotTechnologies";
-import { CopilotProcess } from "./components/Process/CopilotProcess";
+
 import CopilotCaseStudies from "./components/CopilotCaseStudies";
 import CopilotTechStack from "./components/CopilotTechStack";
-import CopilotHowItWorks from "./components/CopilotHowItWorks";
-import CopilotCapabilities from "./components/Core-capabilities/CopilotCapabilities";
-import ProvenResults from "@/components/sections/ProvenResults";
+
 import { CopilotFAQ } from "./components/FAQ/CopilotFAQ";
 import { copilotFaqs } from "./data/faqs";
 import NavigationClient from "@/components/sections/navigation-client";
@@ -197,12 +194,6 @@ export default function AICopilotDevelopmentPage() {
         <ReverseStickyScroll />
         <CopilotCaseStudies />
         <CopilotTechStack />
-        {/* <CopilotHowItWorks /> */}
-        {/* <CopilotCapabilities /> */}
-        {/* <ProvenResults solution="ai-copilot" /> */}
-        {/* <CopilotIndustries /> */}
-        {/* <CopilotTechnologies /> */}
-        {/* <CopilotProcess /> */}
         <CopilotTestimonials />
         <CopilotFAQ faqs={copilotFaqs} />
       </main>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Truck, Package, Link as LinkIcon, Bot, MapPin, ShieldCheck, LucideIcon } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
@@ -58,6 +58,14 @@ const FEATURES: FeatureItem[] = [
 ];
 
 export default function LogisticsTestingPositioning() {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && !videoRef.current.paused && videoRef.current.readyState >= 3) {
+      setIsVideoPlaying(true);
+    }
+  }, []);
   return (
     <section className="relative w-full pt-6 lg:pt-8 pb-8 lg:pb-12 bg-white overflow-hidden font-sans">
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
@@ -158,17 +166,22 @@ export default function LogisticsTestingPositioning() {
 
             {/* Video element with complete indexing, poster, and accessibility attributes */}
             <video
+              ref={videoRef}
               itemProp="video"
               src="/images/solutions/ai-for-logistics/hero.mp4"
-              poster="/images/solutions/ai-for-logistics/hero.webp"
+
               aria-label="Logistics Software Testing Services & Supply Chain QA Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
+              onPlaying={() => setIsVideoPlaying(true)}
+              onError={() => setIsVideoPlaying(false)}
               controls={false}
-              className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
+              className={`w-full h-full object-cover absolute inset-0 select-none pointer-events-none transition-opacity duration-700 ${
+                isVideoPlaying ? "opacity-100" : "opacity-0"
+              }`}
             >
               <source src="/images/solutions/ai-for-logistics/hero.mp4" type="video/mp4" />
               Your browser does not support the video tag.

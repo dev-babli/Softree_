@@ -6,7 +6,7 @@ import React from "react";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
-
+import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
 // Document AI Components (matching multi-agent structure)
 import { DocumentAiHero } from "./components/DocAiHero";
@@ -119,6 +119,7 @@ export default function DocumentAISolutionsPage() {
       />
       <NavigationClient />
       <DocumentAiHero />
+      <TrustedBrandsMarquee />
       <DocumentAiReadinessBanner />
       <DocumentAiServices />
       <DocumentAiStickyScroll />

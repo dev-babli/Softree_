@@ -5,10 +5,7 @@ import NavigationClient from "@/components/sections/navigation-client";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 
 import Footer from "@/components/sections/footer";
-import ProvenResults from "./ai-consulting-services-components/ProvenResult";
-import AIPhilosophy from "./ai-consulting-services-components/AIPhilosophy";
-import CapabilitiesBentoGrid from "./ai-consulting-services-components/Core-capabilities/CapabilitiesBentoGrid";
-import { Industries } from "./ai-consulting-services-components/industries/Industries";
+
 import WhyChooseWithTestimonialsSoftree from "./ai-consulting-services-components/WhySoftree/WhyChooseWithTestimonialsSoftree";
 import { SuccessStories } from "./ai-consulting-services-components/SuccessStories";
 import AIConsultingTechStack from "./ai-consulting-services-components/AIConsultingTechStack";
@@ -19,15 +16,10 @@ import dynamic from "next/dynamic";
 import NewWhoDoWeServeSection from "@/app/services/ai-development-services/components/NewWhoDoWeServeSection";
 
 const ReverseStickyScroll = dynamic(
-  () => import("./ai-consulting-services-components/ReverseStickyScroll").then((mod) => mod.ReverseStickyScroll),
+  () => import('./ai-consulting-services-components/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll),
   { ssr: true }
 );
-const IndustrySoftree = dynamic(
-  () => import("./ai-consulting-services-components/IndustrySoftree"),
-  { ssr: true }
-);
-import AITechnologies from "./ai-consulting-services-components/AITechnologies";
-import AIDeliveryProcess from "./ai-consulting-services-components/AIDeliveryProcess";
+
 import { AiConsultingFaq } from "./ai-consulting-services-components/FAQ/AiConsultingFaq";
 
 export const metadata: Metadata = applyPageOg("/services/ai-consulting-services", {
@@ -213,13 +205,6 @@ export default function AIConsultingServicesPage() {
         <ReverseStickyScroll />
         <SuccessStories />
         <AIConsultingTechStack />
-        {/* <IndustrySoftree /> */}
-        {/* <CapabilitiesBentoGrid /> */}
-        {/* <ProvenResults /> */}
-        {/* <AIPhilosophy /> */}
-        {/* <Industries /> */}
-        {/* <AITechnologies /> */}
-        {/* <AIDeliveryProcess /> */}
         <WhyChooseWithTestimonialsSoftree />
         <AiConsultingFaq />
         <LightContactSection />
