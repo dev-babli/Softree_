@@ -21,7 +21,10 @@ export const metadata: Metadata = {
   description:
     "Migrate from Tableau Server to Tableau Cloud with Softree. Get expert migration services for workbooks, dashboards, data sources, security, and validation.",
   keywords: [
+    // Primary Keyword
     "Tableau Server to Tableau Cloud Migration",
+
+    // Secondary Keywords
     "Tableau Cloud Migration Services",
     "Tableau Server Migration",
     "Tableau Cloud Migration",
@@ -47,6 +50,24 @@ export const metadata: Metadata = {
     "Enterprise Tableau Migration",
     "Offshore Tableau Migration Services",
     "Tableau Cloud Support Services",
+    "Tableau migration to cloud",
+    "Tableau migrate to new server",
+    "Tableau online migration",
+    "Tableau consulting services",
+    "Tableau software consulting",
+    "Tableau consultant",
+    "Tableau professional services",
+    "Tableau consulting companies",
+    "Tableau consulting firms",
+    "Tableau advisory services",
+    "Tableau data visualization consulting",
+    "Tableau to Power BI migration",
+    "Tableau Power BI migration",
+    "Tableau to Power BI conversion",
+    "Tableau to QuickSight migration",
+    "Cloud migration services",
+    "Tableau implementation services",
+    "Business intelligence migration services",
   ],
   alternates: {
     canonical:

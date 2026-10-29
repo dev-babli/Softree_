@@ -23,7 +23,10 @@ export const metadata: Metadata = {
   description:
     "Seamlessly migrate from Tableau to Microsoft Power BI with our expert migration, DAX conversion, semantic modeling, and report redesign services.",
   keywords: [
+    // Primary Keywords
     "Tableau to Power BI Migration",
+
+    // Secondary Keywords
     "Tableau to Power BI Migration Services",
     "Migrate Tableau to Power BI",
     "Tableau workbook to Power BI converter",
@@ -34,7 +37,31 @@ export const metadata: Metadata = {
     "Power BI offshore development",
     "Tableau dashboard migration",
     "Power BI DAX conversion",
-    "Softree Technology"
+    "Migrate from Tableau to Power BI",
+    "Moving from Tableau to Power BI",
+    "Power BI to Tableau migration",
+    "Tableau to Power BI conversion",
+    "Tableau to Power BI migration approach",
+    "Tableau to Power BI migration challenges",
+    "Tableau migration services",
+    "Power BI migration services",
+    "Power BI migration tool",
+    "Power BI migration",
+    "Power BI consultant",
+    "Power BI consulting companies",
+    "BI consultant",
+    "BI consulting services",
+    "Power BI specialist",
+    "Microsoft Power BI consultant",
+    "Microsoft BI consultants",
+    "Power BI consulting firms",
+    "Tableau software consulting",
+    "Tableau to Power BI migration tool",
+    "Power BI consulting services",
+    "Power BI development services",
+    "Power BI dashboard development",
+    "Business intelligence consulting services",
+    "Data visualization services",
   ],
   alternates: {
     canonical: "https://www.softreetechnology.com/services/tableau-to-power-bi-migration",

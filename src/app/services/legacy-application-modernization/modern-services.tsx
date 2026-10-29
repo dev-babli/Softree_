@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { typography } from "@/lib/typography";
 
 /* ─────────────────────────────────────────────
    Types
@@ -284,32 +285,8 @@ function FeaturedCard({ service, visible, isMobile }: { service: Service; visibl
                     </span>
                 </div>
 
-                <h2
-                    style={{
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-                        fontWeight: 700,
-                        color: "#000000",
-                        margin: "0 0 16px",
-                        letterSpacing: "-0.025em",
-                        lineHeight: 1.1,
-                    }}
-                >
-                    {service.title}
-                </h2>
-                <p
-                    style={{
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontSize: "15px",
-                        fontWeight: 500,
-                        color: "#000000",
-                        lineHeight: 1.75,
-                        margin: "0 0 28px",
-                        maxWidth: "480px",
-                    }}
-                >
-                    {service.description}
-                </p>
+                <h2 className={`${typography.heading.h2} font-bold text-black mb-4 leading-tight`}>{service.title}</h2>
+                <p className={`${typography.body.lg} font-medium text-black leading-relaxed mb-7 max-w-[480px]`}>{service.description}</p>
 
                 <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                     {service.tags.map((tag) => (
@@ -494,32 +471,9 @@ function ServiceCard({
                     </div>
                 </div>
 
-                <h3
-                    style={{
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontSize: "15px",
-                        fontWeight: 700,
-                        color: "#000000",
-                        margin: "0 0 10px",
-                        letterSpacing: "-0.01em",
-                        lineHeight: 1.25,
-                    }}
-                >
-                    {service.title}
-                </h3>
+                <h3 className={`${typography.heading.h3} font-bold text-black mb-2.5 leading-snug`}>{service.title}</h3>
 
-                <p
-                    style={{
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontSize: "13px",
-                        fontWeight: 500,
-                        color: "#000000",
-                        lineHeight: 1.7,
-                        margin: "0 0 20px",
-                    }}
-                >
-                    {service.description}
-                </p>
+                <p className={`${typography.body.sm} font-medium text-black leading-relaxed mb-5`}>{service.description}</p>
 
                 {/* Tags */}
                 <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
@@ -686,19 +640,7 @@ export default function ModernizeSection() {
                                 transition: "opacity 0.6s ease, transform 0.6s ease",
                             }}
                         >
-                            <span
-                                style={{
-                                    display: "inline-flex",
-                                    alignItems: "center",
-                                    gap: "6px",
-                                    fontFamily: "'DM Sans', sans-serif",
-                                    fontSize: "11px",
-                                    fontWeight: 700,
-                                    letterSpacing: "0.2em",
-                                    textTransform: "uppercase",
-                                    color: "#ff5812",
-                                }}
-                            >
+                            <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-[#ff5812]`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                                 <span
                                     style={{
                                         width: "6px",
@@ -712,52 +654,13 @@ export default function ModernizeSection() {
                                 Section 02
                             </span>
                             <div style={{ flex: 1, height: "1px", background: "#ff5812" }} />
-                            <span
-                                style={{
-                                    fontSize: "11px",
-                                    letterSpacing: "0.2em",
-                                    textTransform: "uppercase",
-                                    color: "#000000",
-                                    fontFamily: "'DM Sans', sans-serif",
-                                    fontWeight: 700,
-                                }}
-                            >
-                                What We Modernize
-                            </span>
+                            <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-black`}>What We Modernize</span>
                         </div>
 
                         {/* Headline */}
-                        <h1
-                            style={{
-                                fontFamily: "'DM Sans', sans-serif",
-                                fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-                                fontWeight: 700,
-                                color: "#000000",
-                                lineHeight: 1.1,
-                                margin: "0 0 22px",
-                                letterSpacing: "-0.02em",
-                                opacity: heroVisible ? 1 : 0,
-                                transform: heroVisible ? "none" : "translateY(22px)",
-                                transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s",
-                            }}
-                        >
-                            End-to-End Legacy Modernization Services
-                        </h1>
+                        <h2 className={`${typography.heading.h2} font-bold text-black leading-[1.1] mb-5`} style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(22px)", transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s" }}>End-to-End Legacy Modernization Services</h2>
 
-                        <p
-                            style={{
-                                fontFamily: "'DM Sans', sans-serif",
-                                fontSize: "15px",
-                                fontWeight: 500,
-                                color: "#000000",
-                                lineHeight: 1.75,
-                                maxWidth: "520px",
-                                margin: 0,
-                                opacity: heroVisible ? 1 : 0,
-                                transform: heroVisible ? "none" : "translateY(16px)",
-                                transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s",
-                            }}
-                        >
+                        <p className={`${typography.description.default} font-medium text-black leading-relaxed max-w-[520px] m-0`} style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(16px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>
                             Six purpose-built service tracks that take your organization from legacy constraints to future-ready infrastructure — end to end.
                         </p>
                     </div>

@@ -84,6 +84,10 @@ export const metadata: Metadata = applyPageOg("/services/offshore-sharepoint-dev
     "Offshore SharePoint development services. Build custom intranets, document management systems, and modern portals with Softree’s Microsoft 365 engineers.",
 
   keywords: [
+    // Primary Keyword
+    "SharePoint development services",
+
+    //Secondary Keywords
     "SharePoint development",
     "SharePoint customization",
     "SharePoint migration",
@@ -94,6 +98,23 @@ export const metadata: Metadata = applyPageOg("/services/offshore-sharepoint-dev
     "enterprise portal development",
     "document management system",
     "SharePoint development company",
+    "SharePoint development companies",
+    "Custom SharePoint application development services",
+    "SharePoint development services Microsoft 365",
+    "SharePoint developer jobs",
+    "SharePoint login",
+    "SharePoint development examples",
+    "Custom SharePoint development services",
+    "Microsoft SharePoint development company",
+    "Custom SharePoint development solutions",
+    "SharePoint development tutorial",
+    "SharePoint consulting & development services",
+    "SharePoint dev",
+    "SharePoint for developers",
+    "SharePoint migration services",
+    "SharePoint Online development",
+    "SharePoint integration services",
+    "Hire SharePoint developers",
   ],
 
   openGraph: {

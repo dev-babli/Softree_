@@ -20,26 +20,27 @@ import MultiAgentFAQ from "./components/MultiAgentFAQ";
 
 export const metadata: Metadata = applyPageOg("/services/multi-agent-systems-development", {
   title: {
-    absolute: "Multi-Agent Systems Development | Softree",
+    absolute: "Multi-Agent AI System Development Services | Softree Technology",
   },
   description:
-    "Design, orchestrate, and deploy collaborative multi-agent AI systems. Specialized agent swarms that coordinate and execute complex workflows at enterprise scale.",
+    "Build custom multi-agent AI systems with Softree Technology. We design agent orchestration, collaborative AI workflows, and secure enterprise integrations",
   keywords: [
+    // Primary keyword
+    "Multi-Agent AI System Development",
+
+    // Secondary commercial keywords
+    "Multi-Agent AI Systems",
+    "Multi-Agent Development Services",
+    "Multi-Agent System Development",
+    "Multi-Agent Development Company",
     "Multi-Agent Systems Development",
-    "Multi-Agent AI Development Services",
-    "Multi-Agent System Architecture",
     "Agent Orchestration Services",
+    "Enterprise Multi-Agent Workflows",
+    "Collaborative AI Agents",
+    "Custom Multi-Agent AI Systems",
     "LangGraph Multi-Agent Development",
     "CrewAI Multi-Agent Systems",
-    "AutoGen Development Company",
-    "Collaborative AI Agents",
-    "Autonomous Agent Swarms",
-    "Enterprise Multi-Agent Workflows",
-    "Dedicated Multi-Agent Developers",
-    "Offshore AI Engineering Teams",
-    "White-Label Multi-Agent AI Development",
-    "Tool Calling and Agent Handoffs",
-    "Shared Memory AI Systems",
+    "AutoGen Development",
     "Multi-Agent RAG Integration",
     "Azure AI Multi-Agent Solutions",
     "Semantic Kernel Agent Orchestration",
@@ -71,6 +72,8 @@ export const metadata: Metadata = applyPageOg("/services/multi-agent-systems-dev
 export default function MultiAgentSystemsPage() {
   return (
     <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0F3C] antialiased">
+      <link rel="preload" href="/scene.splinecode" as="fetch" crossOrigin="anonymous" />
+      <link rel="modulepreload" href="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js" />
       {/* Structured SEO Schema Data */}
       <script
         type="application/ld+json"
@@ -155,3 +158,4 @@ export default function MultiAgentSystemsPage() {
     </main>
   );
 }
+

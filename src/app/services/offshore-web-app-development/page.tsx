@@ -1,54 +1,79 @@
+import dynamic from "next/dynamic";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import FullStackTeams from "./full-stack";
-import ThreePillars from "./three-pillar";
-import CollaborationTabs from "./collab-tab";
-import WebDevelopmentHero from "./process";
-import QualityBenchmark from "./quality";
 import WhyChooseSoftreeWebDevelopment from "./why-chose";
 import WebDevelopmentCaseStudies from "./case-studies";
-import WebDevHero from "./hero";
+import Hero from "./components/Hero";
+import WhoWeHelp from "./components/WhoWeHelp";
+import WebAppSqueezeCarousel from "./components/WebAppSqueezeCarousel";
+import WebAppTechStack from "./components/WebAppTechStack";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+
+const ReverseStickyScroll = dynamic(
+  () => import("./components/ReverseStickyScroll").then((mod) => mod.ReverseStickyScroll),
+  { ssr: true }
+);
 
 const webAppFAQs = [
   {
     id: 1,
     serial: "question 01",
-    question: "What technologies do you use for web app development?",
+    question: "What offshore web app development services does Softree Technology offer?",
     answer:
-      "We specialize in modern web technologies: React.js, Next.js, Node.js, TypeScript, and cloud platforms like AWS and Azure. We choose the right tech stack based on your project requirements, scalability needs, and performance goals.",
+      "Softree Technology provides web application development services, including custom web applications, enterprise web solutions, API integrations, and application maintenance. We build solutions tailored to your business requirements, operational needs, and growth goals.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How long does it take to build a custom web application?",
+    question: "Does Softree Technology provide custom web application development?",
     answer:
-      "Typical web app MVPs take 8-12 weeks. Complex enterprise portals may take 12-16 weeks. We provide a detailed timeline during discovery phase with milestone checkpoints to ensure transparent delivery.",
+      "Yes, Softree Technology develops custom web applications designed around your business workflows and user needs. Our solutions focus on functionality, responsive user experiences, scalability, and integration with existing business systems.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Do you provide ongoing maintenance and support?",
+    question: "Why choose Softree Technology for offshore web development?",
     answer:
-      "Yes, we offer flexible maintenance packages including bug fixes, security updates, performance optimization, and feature enhancements. Our support team ensures your web application stays secure and up-to-date.",
+      "Softree Technology helps businesses extend their development capacity through offshore web development services. Our approach focuses on business requirements, flexible engagement options, modern technologies, and reliable application delivery.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "How do you ensure web application security?",
+    question: "What technologies does Softree Technology use for web app development?",
     answer:
-      "We implement industry-standard security practices: OWASP compliance, data encryption, secure authentication, regular security audits, and penetration testing. We follow Microsoft Gold Partner security standards.",
+      "Softree Technology works with modern web technologies, including React.js, Next.js, Node.js, and TypeScript, along with cloud platforms such as AWS and Azure. We select the technology stack according to your application requirements, performance needs, and scalability goals.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "Can you integrate with existing systems and APIs?",
+    question: "Does Softree Technology develop enterprise web applications?",
     answer:
-      "Absolutely. We have extensive experience integrating web applications with third-party APIs, legacy systems, databases, CRMs, ERPs, and other enterprise software. We ensure seamless data flow and system interoperability.",
+      "Yes, Softree Technology supports enterprise web application development for businesses that need scalable applications, business portals, workflow solutions, and integrations with existing systems. Our solutions are designed to support operational efficiency and evolving business requirements.",
   },
-]
+  {
+    id: 6,
+    serial: "question 06",
+    question: "Can Softree Technology integrate web applications with existing business systems?",
+    answer:
+      "Yes, we develop API integrations that connect web applications with databases, third-party services, and existing business systems such as CRM and ERP platforms. These integrations help improve data exchange and streamline business workflows.",
+  },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "How does Softree Technology approach web application security and scalability?",
+    answer:
+      "Softree Technology considers security, performance, and scalability throughout the web application development process. Our development approach can include secure authentication, access controls, data protection practices, performance optimization, and scalable architecture based on project requirements.",
+  },
+  {
+    id: 8,
+    serial: "question 08",
+    question: "Does Softree Technology provide web application maintenance and support?",
+    answer:
+      "Yes, Softree Technology can support ongoing web application maintenance, including bug fixes, updates, performance improvements, and feature enhancements, based on the agreed project scope and support arrangement.",
+  },
+];
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Config                                                */
@@ -63,25 +88,42 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Custom web app development services for enterprises and SaaS platforms. Build scalable, secure web applications with Softree's offshore engineering teams.",
+    "Softree Technology offers offshore web app development services to build secure, scalable custom web applications for enterprises and growing businesses.",
 
   keywords: [
+    // Primary Keyword
+    "web application development",
+
+    // Secondary Keywords
     "web app development",
-    "custom web applications",
-    "enterprise web development",
+    "web app development services",
+    "web application development services",
+    "custom web application development",
+    "custom web application development services",
+    "custom web app development",
+    "custom web app development services",
+    "web application development company",
+    "web app development companies",
+    "web app development agency",
+    "website and app development",
+    "web and app development",
+    "web application and development",
+    "web software development",
+    "enterprise web application development",
+    "offshore web app development",
+    "offshore web development",
+    "offshore web development services",
+    "offshore web development company",
     "SaaS application development",
     "full-stack development",
-    "React.js development",
-    "Node.js development",
-    "cloud-based web apps",
-    "web application development company",
-    "secure web applications",
+    "web application integration",
+    "web application maintenance services",
   ],
 
   openGraph: {
     title: "Web App Development Services | Softree Technology",
     description:
-      "Custom web app development services for enterprises and SaaS platforms. Build scalable, secure web applications with Softree's offshore engineering teams.",
+      "Softree Technology offers offshore web app development services to build secure, scalable custom web applications for enterprises and growing businesses.",
     url: "https://www.softreetechnology.com/services/offshore-web-app-development",
     siteName: "Softree Technology",
     type: "website",
@@ -91,7 +133,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Web App Development Services | Softree Technology",
     description:
-      "Custom web app development services for enterprises and SaaS platforms. Build scalable, secure web applications with Softree's offshore engineering teams.",
+      "Softree Technology offers offshore web app development services to build secure, scalable custom web applications for enterprises and growing businesses.",
   },
 
   alternates: {
@@ -106,22 +148,21 @@ export default function Home() {
       <NavigationClient />
 
       {/* HERO */}
-      <WebDevHero />
+      <Hero />
 
       {/* MAIN CONTENT — COMPONENT BACKGROUND */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <TrustedBrandsMarquee />
+        <WhoWeHelp />
+        <ReverseStickyScroll />
         <WebDevelopmentCaseStudies />
-        <WebDevelopmentHero />
-        <FullStackTeams />
-        <ThreePillars />
-        <CollaborationTabs />
-        <QualityBenchmark />
+        <WebAppSqueezeCarousel />
+        <WebAppTechStack />
         <WhyChooseSoftreeWebDevelopment />
       </section>
-
-      <LightContactSection />
       <LightFAQExact faqs={webAppFAQs} />
+      <LightContactSection />
+
 
       <Footer />
     </main>

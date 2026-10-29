@@ -29,30 +29,52 @@ export const metadata: Metadata = {
   },
   description: 'Enterprise AI development services. Hire offshore AI developers to build custom copilots, agentic workflows, and RAG pipelines with Softree Technology.',
   keywords: [
+    // Primary Keyword
     'AI Development Services',
-    'Custom AI Development',
+    // Secondary Keywords — Core & Partner Variations
+    'AI Development Company',
+    'AI Development Companies',
+    'AI Development Service',
+    'Custom AI Development Services',
+    'Custom AI Development Company',
     'Offshore AI Development',
+    'Offshore AI Engineering Partner',
+    'Enterprise AI Solutions',
     'AI Development Partner',
     'AI Delivery Partner',
+    'AI Development Solutions',
     'AI Solutions',
     'AI Application Development',
     'AI Software Development',
+    'AI Software Development Services',
+    'AI Software Development Companies',
+    'AI Software Developers',
+    'AI App Development Company',
+    'AI and Software Development',
+    'AI-Based Software Development',
+    'Artificial Intelligence Software Development',
+    'Artificial Intelligence Development Companies',
+    'AI/ML Development Services',
+    'AI/ML Development Company',
+    'Machine Learning Development',
+    'Machine Learning Development Company',
+    'ML Development Company',
     'Generative AI Development',
+    'Generative AI Solutions',
     'AI Agent Development',
     'RAG Development',
     'AI Integration Services',
-    'White-Label AI Development',
     'AI Engineering Services',
-    'Offshore AI Team',
-    'Dedicated AI Development Team',
     'AI Implementation Services',
-    'LLM Application Development',
-    'Generative AI Solutions',
     'AI Automation',
     'Intelligent Automation',
     'AI Workflow Automation',
+    'LLM Application Development',
     'Azure AI Development',
-    'Microsoft AI Solutions'
+    'Microsoft AI Solutions',
+    'White-Label AI Development',
+    'Offshore AI Team',
+    'Dedicated AI Development Team'
   ],
   alternates: {
     canonical: 'https://www.softreetechnology.com/services/ai-development-services',
@@ -84,7 +106,7 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Agentic AI Development Services",
+  "name": "AI Development Services",
   "serviceType": "AI Development Services",
   "provider": {
     "@type": "Organization",
@@ -152,30 +174,6 @@ const breadcrumbSchema = {
   ]
 };
 
-const videoSchema = {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Agentic AI Development Services & Offshore Engineering Overview",
-  "description":
-    "Discover how Softree Technology builds and scales custom Agentic AI solutions, autonomous AI agents, enterprise RAG architectures, and intelligent workflows with dedicated offshore engineering teams.",
-  "thumbnailUrl": [
-    "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
-    "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
-  ],
-  "uploadDate": "2025-01-15T08:00:00+00:00",
-  "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4",
-  "embedUrl": "https://www.softreetechnology.com/services/ai-development-services",
-  "duration": "PT30S",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Softree Technology",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.softreetechnology.com/logo/logo.png"
-    }
-  }
-};
-
 export default function AiDevelopmentServicesPage() {
   return (
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
@@ -186,10 +184,6 @@ export default function AiDevelopmentServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
       />
       <NavigationClient />
       <WovenLightHero />

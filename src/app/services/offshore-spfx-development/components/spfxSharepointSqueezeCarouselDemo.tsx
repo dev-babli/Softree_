@@ -17,6 +17,8 @@ export const settings = {
 
 type DemoProps = Partial<typeof settings>;
 
+import { WavyBrandBackground } from "@/components/ui/wavy-brand-background";
+
 const slides: SqueezeSlide[] = [
     {
         id: "spfx-web-parts",
@@ -32,8 +34,7 @@ const slides: SqueezeSlide[] = [
             "Responsive Search Experiences",
         ],
         bulletTitle: "DEVELOPMENT CAPABILITIES",
-        image: "/images/spfx/sharepoint-card-1.jpg",
-        imageAlt: "Custom SPFx Web Parts and interactive dashboards",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={0} totalParts={5} />,
     },
     {
         id: "spfx-extensions",
@@ -49,8 +50,7 @@ const slides: SqueezeSlide[] = [
             "Tailored Workflow Actions",
         ],
         bulletTitle: "EXTENSION ARCHITECTURE",
-        image: "/images/spfx/sharepoint-card-2.jpg",
-        imageAlt: "SPFx Extensions and SharePoint customization interfaces",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={1} totalParts={5} />,
     },
     {
         id: "react-typescript",
@@ -66,8 +66,7 @@ const slides: SqueezeSlide[] = [
             "Consistent Responsive UX",
         ],
         bulletTitle: "FRONT-END ARCHITECTURE",
-        image: "/images/spfx/sharepoint-card-3.jpg",
-        imageAlt: "React, TypeScript and Fluent UI development interface",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={2} totalParts={5} />,
     },
     {
         id: "m365-integration",
@@ -83,8 +82,7 @@ const slides: SqueezeSlide[] = [
             "Cross-Service Authentication",
         ],
         bulletTitle: "INTEGRATION CAPABILITIES",
-        image: "/images/spfx/sharepoint-card-4.jpg",
-        imageAlt: "Microsoft 365, Graph and SharePoint API integrations",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={3} totalParts={5} />,
     },
     {
         id: "spfx-modernization",
@@ -100,8 +98,7 @@ const slides: SqueezeSlide[] = [
             "Scalable M365 Governance",
         ],
         bulletTitle: "OPTIMIZATION SCOPE",
-        image: "/images/spfx/sharepoint-card-5.jpg",
-        imageAlt: "SPFx modernization and Microsoft 365 performance optimization",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={4} totalParts={5} />,
     },
 ];
 

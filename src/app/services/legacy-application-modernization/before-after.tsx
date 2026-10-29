@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { typography } from "@/lib/typography";
 
 /* ─────────────────────────────────────────────
    Data
@@ -927,19 +928,7 @@ export default function TransformationSection() {
                                 transition: "opacity 0.6s ease, transform 0.6s ease",
                             }}
                         >
-                            <span
-                                style={{
-                                    display: "inline-flex",
-                                    alignItems: "center",
-                                    gap: "6px",
-                                    fontFamily: "'DM Sans', sans-serif",
-                                    fontSize: "11px",
-                                    fontWeight: 700,
-                                    letterSpacing: "0.2em",
-                                    textTransform: "uppercase",
-                                    color: "#ff5812",
-                                }}
-                            >
+                            <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-[#ff5812]`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                                 <span
                                     style={{
                                         width: "6px",
@@ -953,18 +942,7 @@ export default function TransformationSection() {
                                 Section 03
                             </span>
                             <div style={{ flex: 1, height: "1px", background: "#ff5812" }} />
-                            <span
-                                style={{
-                                    fontSize: "11px",
-                                    letterSpacing: "0.2em",
-                                    textTransform: "uppercase",
-                                    color: "#000000",
-                                    fontFamily: "'DM Sans', sans-serif",
-                                    fontWeight: 700,
-                                }}
-                            >
-                                Before vs After
-                            </span>
+                            <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-black`}>Before vs After</span>
                         </div>
 
                         {/* Two-line dramatic headline */}
@@ -975,36 +953,11 @@ export default function TransformationSection() {
                                 transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s",
                             }}
                         >
-                            <h2
-                                style={{
-                                    fontFamily: "'DM Sans', sans-serif",
-                                    fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-                                    fontWeight: 700,
-                                    color: "#000000",
-                                    lineHeight: 1.1,
-                                    margin: "0 0 24px",
-                                    letterSpacing: "-0.02em",
-                                }}
-                            >
-                                From Legacy Complexity to Modern Efficiency
-                            </h2>
+                            <h2 className={`${typography.heading.h2} font-bold text-black leading-[1.1] mb-6`}>From Legacy Complexity to Modern Efficiency</h2>
                         </div>
 
                         {/* Sub line */}
-                        <p
-                            style={{
-                                fontFamily: "'DM Sans', sans-serif",
-                                fontSize: "15px",
-                                fontWeight: 500,
-                                color: "#000000",
-                                lineHeight: 1.75,
-                                maxWidth: "500px",
-                                margin: "24px 0 0",
-                                opacity: heroVisible ? 1 : 0,
-                                transform: heroVisible ? "none" : "translateY(16px)",
-                                transition: "opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s",
-                            }}
-                        >
+                        <p className={`${typography.description.default} font-medium text-black leading-relaxed max-w-[500px] mt-6`} style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(16px)", transition: "opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s" }}>
                             Every element of your legacy stack has a modern counterpart. Here's exactly what changes — and why it matters.
                         </p>
                     </div>
@@ -1078,18 +1031,7 @@ export default function TransformationSection() {
                         }}
                     >
                         <div>
-                            <p
-                                style={{
-                                    fontFamily: "'Syne', sans-serif",
-                                    fontSize: "20px",
-                                    fontWeight: 800,
-                                    color: "#000000",
-                                    margin: "0 0 6px",
-                                    letterSpacing: "-0.01em",
-                                }}
-                            >
-                                Ready to make the shift?
-                            </p>
+                            <p className={`${typography.heading.h3} font-bold text-black mb-1.5 m-0`}>Ready to make the shift?</p>
                             <p
                                 style={{
                                     fontFamily: "'DM Sans', sans-serif",

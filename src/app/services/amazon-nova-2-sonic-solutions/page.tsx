@@ -30,17 +30,35 @@ const PAGE_URL = 'https://www.softreetechnology.com/services/amazon-nova-2-sonic
 
 export const metadata: Metadata = applyPageOg("/services/amazon-nova-2-sonic-solutions", {
   title: {
-    absolute: "Amazon Nova Sonic AI Solutions | Softree",
+    absolute: "AI Voice Agent Development | Amazon Nova 2 Sonic | Softree Technology",
   },
   description:
-    "Deploy multimodal AI agents and generative systems powered by Amazon Nova and real-time voice intelligence. Dedicated offshore engineering teams by Softree.",
+    "Build real-time AI voice agents with Amazon Nova 2 Sonic and Amazon Bedrock. Softree develops conversational voice solutions, business integrations, and automated workflows.",
+  keywords: [
+    // Primary Keyword
+    "AI Voice Agent Development",
+
+    // Secondary Keywords
+    "Amazon Nova 2 Sonic",
+    "Amazon Nova 2 Sonic Development",
+    "Voice AI Solutions",
+    "AI Voice Solutions",
+    "Real-Time Voice AI",
+    "Speech-to-Speech AI",
+    "Amazon Bedrock Voice AI",
+    "Conversational AI Development",
+    "AI Voice Assistants",
+    "Voice AI Integration Services",
+    "Enterprise Voice AI Solutions",
+    "AI Customer Support Automation",
+  ],
   alternates: {
     canonical: "https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions",
   },
   openGraph: {
-    title: "Amazon Nova Sonic AI Solutions | Softree",
+    title: "AI Voice Agent Development | Amazon Nova 2 Sonic | Softree Technology",
     description:
-      "Deploy multimodal AI agents and generative systems powered by Amazon Nova and real-time voice intelligence. Dedicated offshore engineering teams by Softree.",
+      "Build real-time AI voice agents with Amazon Nova 2 Sonic and Amazon Bedrock. Softree develops conversational voice solutions, business integrations, and automated workflows.",
     url: "https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions",
     siteName: "Softree Technology",
     type: "website",

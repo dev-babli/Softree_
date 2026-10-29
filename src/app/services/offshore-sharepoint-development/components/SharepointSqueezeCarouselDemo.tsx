@@ -17,6 +17,8 @@ export const settings = {
 
 type DemoProps = Partial<typeof settings>;
 
+import { WavyBrandBackground } from "@/components/ui/wavy-brand-background";
+
 const slides: SqueezeSlide[] = [
     {
         id: "custom-sharepoint",
@@ -32,8 +34,7 @@ const slides: SqueezeSlide[] = [
             "Role-Based Access Control",
         ],
         bulletTitle: "DEVELOPMENT CAPABILITIES",
-        image: "/images/spfx/sharepoint-card-1.jpg",
-        imageAlt: "Custom SharePoint applications, intranet and interactive dashboards",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={0} totalParts={5} />,
     },
     {
         id: "intranet-portals",
@@ -49,8 +50,7 @@ const slides: SqueezeSlide[] = [
             "Cross-Device Experience",
         ],
         bulletTitle: "PORTAL ARCHITECTURE",
-        image: "/images/spfx/sharepoint-card-2.jpg",
-        imageAlt: "SharePoint Document Management and Cloud Storage Interface",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={1} totalParts={5} />,
     },
     {
         id: "document-management",
@@ -66,8 +66,7 @@ const slides: SqueezeSlide[] = [
             "Granular File Permissions",
         ],
         bulletTitle: "INFORMATION ARCHITECTURE",
-        image: "/images/spfx/sharepoint-card-3.jpg",
-        imageAlt: "SharePoint Workflow and Approval Automation Interface",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={2} totalParts={5} />,
     },
     {
         id: "workflow-automation",
@@ -83,8 +82,7 @@ const slides: SqueezeSlide[] = [
             "Error Trapping & SLA Tracking",
         ],
         bulletTitle: "AUTOMATION ENGINE",
-        image: "/images/spfx/sharepoint-card-4.jpg",
-        imageAlt: "SharePoint Project Team Site, Collaboration and Meeting Interface",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={3} totalParts={5} />,
     },
     {
         id: "integration-modernization",
@@ -100,8 +98,7 @@ const slides: SqueezeSlide[] = [
             "Cloud Security & Performance",
         ],
         bulletTitle: "ECOSYSTEM CONNECTIVITY",
-        image: "/images/spfx/sharepoint-card-5.jpg",
-        imageAlt: "SharePoint Cloud Ecosystem, Microsoft 365, Power BI and Connected Workplaces",
+        background: <WavyBrandBackground className="absolute inset-0" partIndex={4} totalParts={5} />,
     },
 ];
 

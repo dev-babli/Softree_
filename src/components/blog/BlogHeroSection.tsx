@@ -117,19 +117,20 @@ export function BlogHeroSection({
             </RevealStagger>
           ) : null}
 
-          <div className="mt-14 w-full max-w-4xl">
+          <div className="mt-12 w-full max-w-3xl">
             <HeroReveal delay={0.14} variant="scale" distance={40}>
               <ParallaxLayer strength={28}>
                 <div className="rounded-[1.75rem] p-2 shadow-[0_24px_64px_rgba(0,0,0,0.06)] ring-1 ring-[#0a0a1a]/[0.05] [background:#F0F2F6]">
                   <div className="overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)]">
-                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white">
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white">
                       <Image
                         src={heroSrc}
                         alt={heroAlt}
                         fill
                         priority
+                        unoptimized
                         className="object-contain p-2"
-                        sizes="(max-width: 1024px) 100vw, 896px"
+                        sizes="(max-width: 1024px) 100vw, 768px"
                       />
                     </div>
                   </div>

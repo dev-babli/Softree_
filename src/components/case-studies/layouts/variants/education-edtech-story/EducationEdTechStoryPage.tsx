@@ -29,6 +29,7 @@ import type { CaseStudyLayoutData, Highlight, PTBlock, RelatedStudy } from "../.
 import LightContactSection from "@/components/homepage-light/LightContactSection"
 import { sharedPortableTextTypes } from "@/components/portable-text/contentBlockTypes"
 import { stockPackForSlug } from "@/lib/case-study-stock-images"
+import { ProjectDeliveryProcess } from "./ProjectDeliveryProcess"
 import "./education-edtech-story.css"
 
 type Props = {
@@ -101,6 +102,24 @@ const notebookPortableTextComponents: PortableTextComponents = {
   },
 }
 
+export function CaseStudyEyebrow({
+  text,
+  className = "",
+}: {
+  text: React.ReactNode
+  className?: string
+}) {
+  const cleanText = typeof text === "string" ? text.replace(/^\/\/\s*/, "") : text
+  return (
+    <div
+      className={`inline-flex items-center self-start h-fit w-fit border border-[#14213D]/25 bg-[#ff5c00] px-3.5 py-1 text-[11px] font-semibold tracking-wider text-white uppercase shadow-[2.5px_2.5px_0px_0px_#14213D] mb-4 ${className}`}
+      style={{ fontFamily: "var(--mono, 'IBM Plex Mono', monospace)" }}
+    >
+      {cleanText}
+    </div>
+  )
+}
+
 export function EducationEdTechStoryPage({ data }: Props) {
   const clientDetailsText = useMemo(() => {
     const details = data.clientDetails;
@@ -160,26 +179,47 @@ export function EducationEdTechStoryPage({ data }: Props) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Section observer for highlighting index menu
+  // Section scroll-spy for buttery-smooth highlighting index menu
+  const isClickScrolling = useRef(false)
+
   useEffect(() => {
-    const tracked = ["overview", "challenge", "approach", "outcome", "results", "faq"]
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
+    const tracked = ["overview", "challenge", "approach", "delivery", "outcome", "results", "faq"]
+    let ticking = false
+
+    const handleScrollSpy = () => {
+      if (isClickScrolling.current) return
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPos = window.scrollY + window.innerHeight * 0.38
+          const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60
+
+          if (isAtBottom) {
+            setActiveSection(tracked[tracked.length - 1])
+            ticking = false
+            return
           }
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
-    )
 
-    tracked.forEach((id) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
+          let current = tracked[0]
+          for (const id of tracked) {
+            const el = document.getElementById(id)
+            if (el) {
+              const top = el.offsetTop
+              if (scrollPos >= top) {
+                current = id
+              }
+            }
+          }
+          setActiveSection(current)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
 
-    return () => observer.disconnect()
+    window.addEventListener("scroll", handleScrollSpy, { passive: true })
+    handleScrollSpy()
+
+    return () => window.removeEventListener("scroll", handleScrollSpy)
   }, [])
 
   // Title rendering with italic em fallback
@@ -374,14 +414,19 @@ export function EducationEdTechStoryPage({ data }: Props) {
 
       {/* Sticky Right Side Index Tracker */}
       <nav className="side-index" aria-label="Section index">
-        {["overview", "challenge", "approach", "outcome", "results", "faq"].map((id) => (
+        {["overview", "challenge", "approach", "delivery", "outcome", "results", "faq"].map((id) => (
           <a
             key={id}
             href={`#${id}`}
             className={activeSection === id ? "active" : ""}
             onClick={(e) => {
               e.preventDefault()
+              setActiveSection(id)
+              isClickScrolling.current = true
               document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+              setTimeout(() => {
+                isClickScrolling.current = false
+              }, 800)
             }}
           >
             <span className="idx-label">{id.charAt(0).toUpperCase() + id.slice(1)}</span>
@@ -396,7 +441,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
           <div className="hero-split-grid">
             <div className="hero-left">
               <Reveal className="eyebrow-row">
-                <span className="tag">{data.industry || "Education Technology (EdTech)"}</span>
+                <CaseStudyEyebrow text={data.industry || "Education Technology (EdTech)"} className="!mb-0" />
               </Reveal>
               <Reveal className="mt-4">{renderTitle()}</Reveal>
               <Reveal className="hero-sub mt-6">
@@ -599,7 +644,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section className="band-dim ruled" id="challenge">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">{data.challengeHeading || "The Client Challenge"}</div>
+            <CaseStudyEyebrow text={data.challengeHeading || "The Client Challenge"} />
             <h2>{data.challengeTitle || "Business Process Challenges"}</h2>
           </Reveal>
           <Reveal className="section-body">
@@ -623,7 +668,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section id="approach">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">{data.approachHeading || "Our Approach"}</div>
+            <CaseStudyEyebrow text={data.approachHeading || "Our Approach"} />
             <h2>{data.approachSummary || "Our Strategic Approach"}</h2>
           </Reveal>
           <Reveal className="section-body">
@@ -643,28 +688,23 @@ export function EducationEdTechStoryPage({ data }: Props) {
         </div>
       </section>
 
-      {/* DELIVERY / STACK OVERVIEW */}
-      <section className="band-dim">
+      {/* PROJECT DELIVERY PROCESS (8-BIT TIMELINE) */}
+      <section className="band-dim ruled" id="delivery">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">{data.solutionHeading || "Solution Overview"}</div>
-            <h2>{data.solutionTitle || "How we delivered it."}</h2>
-          </Reveal>
-          <Reveal className="section-body">
-            <div className="spacer" />
-            <div className="w-full">
-              <div className="stack-list">
-                {techStack.map((tech, i) => (
-                  <div key={i} className="stack-item">
-                    <div className="stack-chip">{tech.chip}</div>
-                    <div>
-                      <div className="stack-name">{tech.name}</div>
-                      <div className="stack-desc">{tech.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <CaseStudyEyebrow text="Project Delivery Lifecycle" />
+            <div>
+              <h2>Our Engineering &amp; Delivery Process</h2>
+              <p
+                className="mt-4 text-base leading-relaxed text-[#2A3A5C] max-w-2xl"
+                style={{ fontFamily: "var(--body, 'IBM Plex Sans', sans-serif)" }}
+              >
+                Our structured project delivery approach takes you from discovery and planning to development, testing, and deployment, ensuring quality, transparency, and predictable outcomes at every stage.
+              </p>
             </div>
+          </Reveal>
+          <Reveal className="w-full mt-6">
+            <ProjectDeliveryProcess showHeader={false} />
           </Reveal>
         </div>
       </section>
@@ -673,7 +713,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section className="band-dim">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">{data.galleryHeading || "Visual Proof"}</div>
+            <CaseStudyEyebrow text={data.galleryHeading || "Visual Proof"} />
             <h2>{data.gallerySubheading || "Explore the Solution Through visuals"}</h2>
           </Reveal>
           <Reveal className="section-body">
@@ -783,7 +823,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section className="band-ink" id="outcome">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">{data.outcomeHeading || "The Outcome"}</div>
+            <CaseStudyEyebrow text={data.outcomeHeading || "The Outcome"} />
             <h2>{data.outcomeTitle || "Delivering Measurable Business Outcomes"}</h2>
           </Reveal>
           <Reveal className="section-body">
@@ -811,7 +851,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section id="results">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">{data.resultsHeading || "Results & Business Impact"}</div>
+            <CaseStudyEyebrow text={data.resultsHeading || "Results & Business Impact"} />
             <h2>The numbers behind the rollout.</h2>
           </Reveal>
           <Reveal className="section-body">
@@ -833,7 +873,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section className="band-dim">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">{data.techStackHeading || "Reference Tech Stack"}</div>
+            <CaseStudyEyebrow text={data.techStackHeading || "Reference Tech Stack"} />
             <h2>{data.techStackTitle || "The full integration layer."}</h2>
           </Reveal>
           <Reveal className="section-body">
@@ -868,7 +908,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
         <div className="wrap">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8 md:mb-12">
             <Reveal className="section-head !mb-0">
-              <div className="section-eyebrow">More Customer Stories</div>
+              <CaseStudyEyebrow text="More Customer Stories" />
               <h2>Other engagements worth a look.</h2>
             </Reveal>
             {relatedCases.length > visibleCount && (
@@ -980,7 +1020,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section className="band-dim" id="faq">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">FAQ</div>
+            <CaseStudyEyebrow text="FAQ" />
             <h2>Frequently asked questions.</h2>
           </Reveal>
           <Reveal className="section-body">

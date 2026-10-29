@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { typography } from "@/lib/typography";
 
 /* ─────────────────────────────────────────────
    Types
@@ -303,32 +304,10 @@ function PainCard({
       </div>
 
       {/* Label */}
-      <h3
-        style={{
-         
-          fontSize: "15px",
-          fontWeight: 800,
-          color: "#000000",
-          margin: "0 0 8px",
-          letterSpacing: "-0.01em",
-        }}
-      >
-        {point.label}
-      </h3>
+      <h3 className={`${typography.heading.h3} font-bold text-black m-0 mb-2`}>{point.label}</h3>
 
       {/* Detail */}
-      <p
-        style={{
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: "13px",
-          color: "#000000",
-          lineHeight: 1.6,
-          margin: 0,
-          fontWeight: 500,
-        }}
-      >
-        {point.detail}
-      </p>
+      <p className={`${typography.body.sm} font-medium text-black leading-relaxed m-0`}>{point.detail}</p>
     </div>
   );
 }
@@ -461,19 +440,7 @@ export default function ProblemSection() {
                 transition: "opacity 0.6s ease, transform 0.6s ease",
               }}
             >
-              <span
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "#ff5812",
-                }}
-              >
+              <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-[#ff5812]`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                 <span
                   style={{
                     width: "6px",
@@ -489,59 +456,14 @@ export default function ProblemSection() {
               <div
                 style={{ flex: 1, height: "1px", background: "#ff5812" }}
               />
-              <span
-                style={{
-                  fontSize: "11px",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "#000000",
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 700,
-                }}
-              >
-                The Problem
-              </span>
+              <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-black`}>The Problem</span>
             </div>
 
             {/* Headline */}
-            <h1
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-                fontWeight: 700,
-                color: "#000000",
-                lineHeight: 1.1,
-                margin: "0 0 24px",
-                letterSpacing: "-0.02em",
-                opacity: heroVisible ? 1 : 0,
-                transform: heroVisible ? "none" : "translateY(20px)",
-                transition:
-                  "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s",
-              }}
-            >
-              Legacy Systems Are Slowing Business Growth
-            </h1>
+            <h2 className={`${typography.heading.h2} font-bold text-black leading-[1.1] mb-6`} style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(20px)", transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s" }}>Legacy Systems Are Slowing Business Growth</h2>
 
             {/* Sub */}
-            <p
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "15px",
-                fontWeight: 500,
-                color: "#000000",
-                lineHeight: 1.7,
-                maxWidth: "540px",
-                margin: 0,
-                opacity: heroVisible ? 1 : 0,
-                transform: heroVisible ? "none" : "translateY(16px)",
-                transition:
-                  "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s",
-              }}
-            >
-              Many organizations still depend on outdated platforms that drain
-              resources, block innovation, and prevent adoption of modern
-              technology.
-            </p>
+            <p className={`${typography.description.default} font-medium text-black leading-relaxed max-w-[540px] m-0`} style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(16px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>Many organizations still depend on outdated platforms that drain resources, block innovation, and prevent adoption of modern technology.</p>
           </div>
 
           {/* ── DIVIDER ── */}
@@ -563,18 +485,7 @@ export default function ProblemSection() {
                   "linear-gradient(to right, #ff5812, #000000)",
               }}
             />
-            <span
-              style={{
-                fontSize: "11px",
-                color: "#000000",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 700,
-              }}
-            >
-              6 critical barriers
-            </span>
+            <span className={`${typography.caption.default} font-bold uppercase tracking-wider text-black`}>6 critical barriers</span>
             <div
               style={{
                 height: "2px",
@@ -638,32 +549,8 @@ export default function ProblemSection() {
               ⚠️
             </div>
             <div>
-              <p
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "18px",
-                  fontWeight: 700,
-                  color: "#000000",
-                  margin: "0 0 8px",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                The cost of inaction compounds every quarter.
-              </p>
-              <p
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  color: "#000000",
-                  lineHeight: 1.7,
-                  margin: 0,
-                }}
-              >
-                As technology evolves, legacy platforms become barriers to
-                innovation and operational efficiency. Organizations that delay
-                modernization don't stand still — they fall behind.
-              </p>
+              <p className={`${typography.heading.h4} font-bold text-black m-0 mb-2`}>The cost of inaction compounds every quarter.</p>
+              <p className={`${typography.body.default} font-medium text-black leading-relaxed m-0`}>As technology evolves, legacy platforms become barriers to innovation and operational efficiency. Organizations that delay modernization don't stand still — they fall behind.</p>
             </div>
           </div>
 

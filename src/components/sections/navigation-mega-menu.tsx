@@ -212,6 +212,21 @@ const CATEGORY_META: Record<
     featuredCtaText: "Talk to Our Team",
     featuredCtaUrl: "/contact",
   },
+  "AI for IT Services": {
+    eyebrow: "AI FOR IT SERVICES",
+    introHeading: "Next-Gen AI for IT Service Desks, AIOps & Incident Triage.",
+    introDescription:
+      "Accelerate IT service delivery, automated ticket triage, infrastructure anomaly detection, and autonomous Tier-1 support workflows.",
+    introCtaText: "Explore AI for IT Services",
+    introCtaUrl: "/industries/ai-for-it-services",
+    featuredEyebrow: "IT OPERATIONS AI",
+    featuredHeading: "Autonomous IT Services & Incident Deflection",
+    featuredDescription:
+      "Automate Tier-1/2 ticketing, runbook diagnostics, and multi-cloud observability with enterprise AI.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Talk to Our Team",
+    featuredCtaUrl: "/contact",
+  },
 };
 
 // Compact, enterprise-grade descriptions tailored for sleek 2-column cards
@@ -238,6 +253,8 @@ const CATEGORY_SHORT_DESCS: Record<string, string> = {
     "Clinical copilots, HIPAA document AI & digital health QA",
   "Logistics & Supply Chain":
     "Smart route optimization, warehouse automation & logistics QA",
+  "AI for IT Services":
+    "Autonomous IT service desk, AIOps monitoring & incident triage",
 };
 
 /* -------------------------------------------------------------------------- */

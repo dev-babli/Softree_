@@ -50,7 +50,6 @@ export const CASE_STUDY_STOCK: Record<
 
 const SLUG_THEME: Record<string, CaseStudyImageTheme> = {
   "wicked-point-power-platform-governance": "power-platform",
-  "ecg-group-ai-copilot-transformation": "ai-copilot",
   "sp-marketplace-installation-automation": "product-engineering",
 }
 

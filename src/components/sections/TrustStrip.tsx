@@ -28,8 +28,8 @@ export default function TrustStrip({ theme = "light", className = "" }: TrustStr
       </div>
 
       {/* New Trust Strip Container */}
-      <div className={`rounded-[1.5rem] lg:rounded-[2rem] border ${isDark ? "border-white/10 bg-black/80 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" : "border-slate-200/80 bg-white shadow-[0_4px_24px_rgba(10,10,26,0.04)]"} w-full max-w-7xl overflow-hidden mx-auto backdrop-blur-md`}>
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-[1px] ${isDark ? "bg-white/10" : "bg-slate-100"}`}>
+      <div className={`rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem] border ${isDark ? "border-white/10 bg-black/80 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" : "border-slate-200/80 bg-white shadow-[0_4px_24px_rgba(10,10,26,0.04)]"} w-full max-w-7xl overflow-hidden mx-auto backdrop-blur-md`}>
+        <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-[1px] ${isDark ? "bg-white/10" : "bg-slate-100"}`}>
           {[
             {
               title: "ISO 27001:2022",
@@ -70,16 +70,16 @@ export default function TrustStrip({ theme = "light", className = "" }: TrustStr
           ].map((item, idx) => (
             <div
               key={idx}
-              className={`${isDark ? "bg-black/90 hover:bg-white/[0.04]" : "bg-white hover:bg-slate-50/50"} group relative flex items-center lg:items-start gap-2.5 p-4 sm:p-5 lg:p-3 xl:p-4 transition-colors duration-300`}
+              className={`${isDark ? "bg-black/90 hover:bg-white/[0.04]" : "bg-white hover:bg-slate-50/50"} group relative flex items-center lg:items-start gap-2 sm:gap-2.5 p-2.5 sm:p-4 lg:p-3 xl:p-4 transition-colors duration-300`}
             >
               <div className="shrink-0 lg:pt-0.5">
-                <item.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${item.color} stroke-[1.5]`} />
+                <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${item.color} stroke-[1.5]`} />
               </div>
               <div className="flex flex-col text-left leading-snug">
-                <span className={`typo-caption-meta font-bold ${isDark ? "text-white/90" : "text-slate-800"} tracking-tight whitespace-nowrap`}>
+                <span className={`text-[11px] sm:text-xs font-bold ${isDark ? "text-white/90" : "text-slate-800"} tracking-tight whitespace-nowrap`}>
                   {item.title}
                 </span>
-                <span className={`typo-caption-meta ${isDark ? "text-white/50" : "text-slate-500"} mt-0.5 whitespace-pre-line`}>
+                <span className={`text-[10px] sm:text-[11px] ${isDark ? "text-white/50" : "text-slate-500"} mt-0.5 whitespace-pre-line leading-tight`}>
                   {item.subtitle}
                 </span>
               </div>

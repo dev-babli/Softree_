@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     "IT Staff Augmentation Partners",
   ],
   alternates: {
-    canonical: "https://www.softreetechnology.com/global-partners/",
+    canonical: "https://www.softreetechnology.com/global-partners",
   },
   openGraph: {
     title: "Global Technology Partners & Partnerships | Softree",
     description:
       "Partner with Softree Technology to extend your AI, Microsoft, data, and software engineering capabilities through flexible technology partnerships and delivery models.",
-    url: "https://www.softreetechnology.com/global-partners/",
+    url: "https://www.softreetechnology.com/global-partners",
     siteName: "Softree Technology",
     type: "website",
   },

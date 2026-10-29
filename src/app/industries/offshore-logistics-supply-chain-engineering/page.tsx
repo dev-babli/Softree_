@@ -28,6 +28,32 @@ export const metadata: Metadata = applyPageOg("/industries/offshore-logistics-su
   alternates: {
     canonical: "https://www.softreetechnology.com/industries/offshore-logistics-supply-chain-engineering",
   },
+  keywords: [
+    // Primary Keyword
+    "Logistics Software Development",
+
+    // Secondary Keywords
+    "Logistics Software Development Services",
+    "Logistics Software Development Company",
+    "Supply Chain Software Development",
+    "Supply Chain Software Development Services",
+    "Custom Logistics Software Development",
+    "Custom Logistics Software",
+    "Transportation Software Development",
+    "Logistics Management Software Development",
+    "Logistics Technology Solutions",
+    "Logistics Software",
+    "ERP in Logistics",
+    "ERP for Logistics Industry",
+    "Logistics IoT",
+    "Transportation Management System Development",
+    "Warehouse Management System Development",
+    "Supply Chain Management Software Development",
+    "Logistics and Transportation Software Development",
+    "Transportation and Logistics Software Development",
+    "Custom Software Development for Logistics",
+    "Supply Chain Software Development Company",
+  ],
   openGraph: {
     title: "Logistics & Supply Chain Engineering | Softree Technology",
     description:

@@ -170,6 +170,7 @@ const portableTextComponents: PortableTextComponents = {
               alt={value.alt || 'Article illustration'}
               width={dims.width}
               height={dims.height}
+              unoptimized
               className="h-auto w-full rounded-2xl object-contain"
               sizes="(max-width: 768px) 100vw, 900px"
             />
@@ -469,15 +470,18 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             {post.mainImage?.asset?.url ? (() => {
               const dims = getSanityDimensions(post.mainImage.asset.url)
               return (
-                <div className="relative mb-10 w-full overflow-hidden rounded-xl border border-zinc-200 bg-[#0a0d14]/[0.02] flex items-center justify-center">
+                <div className="relative mb-10 mx-auto w-full max-w-4xl overflow-hidden rounded-xl border border-zinc-200 bg-[#0a0d14]/[0.02] flex items-center justify-center">
                   <Image
                     src={post.mainImage.asset.url}
                     alt={post.mainImage.alt || post.title}
                     width={dims.width}
                     height={dims.height}
                     priority
-                    className="h-auto w-full rounded-xl object-contain"
-                    sizes="(max-width: 1440px) 100vw, 1360px"
+
+                    unoptimized
+                    className="h-auto max-h-[480px] md:max-h-[520px] w-auto max-w-full rounded-xl object-contain"
+                    sizes="(max-width: 1024px) 100vw, 896px"
+
                   />
                 </div>
               )
@@ -534,6 +538,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         src={rel.mainImage?.asset?.url || "/og-image.png"}
                         alt={rel.mainImage?.alt || rel.title}
                         fill
+                        unoptimized
                         sizes="(max-width: 768px) 100vw, 400px"
                         className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                       />

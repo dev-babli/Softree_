@@ -43,6 +43,18 @@ export const metadata: Metadata = {
     "Multi-Agent LangGraph Development",
     "LLM Orchestration Services",
     "LangSmith Integration",
+    "LangChain ecosystem",
+    "LangChain company",
+    "LangChain architecture",
+    "LangChain",
+    "LangChain consulting and development services",
+    "LangChain AI",
+    "LangChain GitHub",
+    "LangChain LLM",
+    "LangChain software development",
+    "LangChain development lifecycle",
+    "LangChain tools",
+    "LLM application development services",
   ],
 
   alternates: {

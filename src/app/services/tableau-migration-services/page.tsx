@@ -19,9 +19,35 @@ import { faqs } from "./data/faqs";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Tableau Migration Services | Softree",
+    absolute: "Tableau Migration Services | Cloud & Power BI | Softree",
   },
   description: "Expert Tableau migration services. Move Tableau Server to Tableau Cloud, modernize analytics, and securely migrate workbooks, dashboards, and data sources.",
+  keywords: [
+    // Primary Keyword
+    "Tableau Migration Services",
+
+    // Secondary Keywords
+    "Tableau to Power BI Migration",
+    "Tableau Server Migration",
+    "Tableau Cloud Migration",
+    "Tableau Server to Tableau Cloud Migration",
+    "Tableau Cloud Migration Services",
+    "Tableau Dashboard Migration",
+    "Tableau Workbook Migration",
+    "Tableau Data Source Migration",
+    "Tableau Migration Company",
+    "Tableau Migration Consulting",
+    "Tableau Analytics Modernization",
+    "Tableau Migration Solutions",
+    "Tableau Server to Cloud Migration",
+    "Tableau Online Migration",
+    "Tableau to Power BI Conversion",
+    "Tableau Cloud Migration Solutions",
+    "Enterprise Tableau Migration",
+    "Tableau Infrastructure Migration",
+    "Tableau Platform Migration",
+    "Tableau Reporting Migration",
+  ],
   alternates: {
     canonical: "https://www.softreetechnology.com/services/tableau-migration-services",
   },

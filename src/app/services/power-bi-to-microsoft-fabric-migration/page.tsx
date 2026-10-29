@@ -21,16 +21,25 @@ export const metadata: Metadata = {
   description:
     "Modernize data architectures by migrating from Power BI to Microsoft Fabric. Expert guidance on Direct Lake mode, OneLake integration, and semantic models.",
   keywords: [
-    "Power BI to Microsoft Fabric migration",
-    "Migrate Power BI to Fabric",
-    "Power BI Premium P-SKU to Fabric F-SKU",
-    "Microsoft Fabric data architecture",
-    "Dataflows Gen2 migration",
-    "Semantic model modernization Fabric",
-    "DirectLake mode migration",
-    "Power BI integration with OneLake",
-    "Modernize analytics with Microsoft Fabric",
-    "Microsoft Fabric migration consulting"
+    // Primary keyword
+    "Power BI to Fabric Migration",
+
+    // Secondary keywords
+    "Power BI Premium Migration to Fabric",
+    "Power BI to Microsoft Fabric Migration",
+    "Power BI Fabric Migration Services",
+    "Microsoft Fabric Migration Services",
+    "Power BI Capacity Migration",
+    "Microsoft Fabric Capacity Migration",
+    "Power BI Premium Capacity Migration",
+    "Power BI P-SKU to F-SKU Migration",
+    "Power BI Semantic Model Migration",
+    "Power BI Direct Lake Migration",
+    "Power BI OneLake Integration",
+    "Microsoft Fabric Consulting Services",
+    "Power BI Analytics Modernization",
+    "Power BI Architecture Modernization",
+    "Enterprise Power BI Migration",
   ],
   openGraph: {
     title: "Power BI to Microsoft Fabric Migration Services | Softree Technology",

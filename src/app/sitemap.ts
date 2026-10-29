@@ -7,6 +7,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   // Primary Core Pages (Priority 1.0 - 0.95)
   { url: `${BASE_URL}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/who-do-we-serve`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
+  { url: `${BASE_URL}/global-partners`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
 
   // AI & Automation Services
   { url: `${BASE_URL}/services/ai-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
@@ -58,7 +59,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/industries/healthcare-ai-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/industries/healthcare-software-testing-services`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/industries/offshore-logistics-supply-chain-engineering`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-  { url: `${BASE_URL}/industries/ai-for-it-services-solutions`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
+  { url: `${BASE_URL}/industries/ai-for-it-services`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
 
   // Case Studies & Categories
   { url: `${BASE_URL}/case-studies`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },

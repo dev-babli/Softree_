@@ -21,7 +21,10 @@ export const metadata: Metadata = {
   description:
     "Modernize SQL Server workloads with Softree’s Microsoft Fabric migration services. Migrate databases and data pipelines with structured planning and validation.",
   keywords: [
+    // Primary Keyword
     "SQL Server to Microsoft Fabric Migration",
+
+    // Secondary Keywords
     "Microsoft Fabric Migration Services",
     "SQL Server Migration Services",
     "SQL Server to Fabric Migration",
@@ -53,6 +56,20 @@ export const metadata: Metadata = {
     "Enterprise Data Migration Services",
     "Offshore Microsoft Fabric Migration Services",
     "Microsoft Fabric Migration Partner",
+    "SQL Server migration",
+    "SQL Server migration assistant",
+    "SQL Server database migration services",
+    "SQL Server to Azure SQL migration",
+    "Azure SQL migration",
+    "Migrating SQL Server to Azure",
+    "Oracle to SQL Server migration",
+    "Microsoft data migration assistant",
+    "Database migration services",
+    "Fabric Migration Assistant",
+    "Data migration services",
+    "Cloud database migration",
+    "Database modernization services",
+    "Microsoft Fabric implementation services",
   ],
   alternates: {
     canonical:

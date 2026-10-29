@@ -84,8 +84,11 @@ export const metadata: Metadata = applyPageOg("/services/offshore-spfx-developme
     "Custom SharePoint Framework (SPFx) development services. Build modern web parts, extensions, and Microsoft 365 intranet tools with Softree’s React developers.",
 
   keywords: [
-    "SharePoint Framework development",
+    // Primary Keyword
     "SPFX development services",
+
+    // Secondary Keywords
+    "SharePoint Framework development",
     "SharePoint web part development",
     "SPFX customization",
     "SharePoint modern intranet",
@@ -94,6 +97,26 @@ export const metadata: Metadata = applyPageOg("/services/offshore-spfx-developme
     "SharePoint Framework solutions",
     "Microsoft 365 SPFX development",
     "SharePoint extension development",
+    "SPFx development",
+    "SPFx developer",
+    "SharePoint SPFx development",
+    "SharePoint app development",
+    "SPFx development company",
+    "SPFx development SharePoint Online",
+    "Hire SPFx developers",
+    "SPFx",
+    "SharePoint Framework (SPFx)",
+    "SPFx development services SharePoint",
+    "Custom SharePoint Framework (SPFx)",
+    "SPFx SharePoint",
+    "SPFx development services SharePoint Framework",
+    "SPFx app",
+    "SPFx documentation",
+    "SharePoint Framework developers",
+    "SPFx development with React JS",
+    "SharePoint Online development services",
+    "Custom SharePoint web parts",
+    "SharePoint customization services",
   ],
 
   openGraph: {

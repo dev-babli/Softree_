@@ -248,7 +248,7 @@ const caseStudyData: Gallery4Props = {
 
 export function AiDevelopmentSuccessStories() {
   return (
-    <div className="relative bg-white flex flex-col items-center -mt-4 md:-mt-8 -mb-8 md:-mb-12">
+    <div className="relative bg-white flex flex-col items-center mt-12 md:mt-20">
       <div className="w-full">
         <Gallery4
           {...caseStudyData}

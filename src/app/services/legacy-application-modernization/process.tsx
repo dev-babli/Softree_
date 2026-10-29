@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { typography } from "@/lib/typography";
 
 const steps = [
   {
@@ -152,39 +153,17 @@ export default function ModernizationApproach() {
               opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(12px)",
               transition: "opacity .6s ease, transform .6s ease",
             }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#ff5812" }}>
+              <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-[#ff5812]`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                 <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ff5812", display: "inline-block", animation: "pulse-dot 2s ease-in-out infinite" }} />
                 Section 06
               </span>
               <div style={{ flex: 1, height: "1px", background: "linear-gradient(to right, #ff5812, #eaeaea)" }} />
-              <span style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#000000", fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>
-                Our Methodology
-              </span>
+              <span className={`${typography.caption.default} font-bold uppercase tracking-widest text-black`}>Our Methodology</span>
             </div>
 
-            <h2 style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-              fontWeight: 700,
-              color: "#000000",
-              lineHeight: 1.1,
-              margin: "0 0 24px",
-              letterSpacing: "-0.02em",
-              opacity: headerVisible ? 1 : 0,
-              transform: headerVisible ? "none" : "translateY(20px)",
-              transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s",
-            }}>
-              Our Modernization Approach
-            </h2>
+            <h2 className={`${typography.heading.h2} font-bold text-black leading-[1.1] mb-6`} style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(20px)", transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s" }}>Our Modernization Approach</h2>
 
-            <p style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: "15px", fontWeight: 400, color: "#555555",
-              lineHeight: 1.75, maxWidth: "500px", margin: 0,
-              opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(16px)",
-              transition: "opacity .7s ease .25s, transform .7s ease .25s",
-            }}>
-              We guide organizations through a structured, low-risk, phase-by-phase journey from legacy software to resilient cloud solutions.
-            </p>
+            <p className={`${typography.description.default} font-normal text-[#555] leading-relaxed max-w-[500px] m-0`} style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(16px)", transition: "opacity .7s ease .25s, transform .7s ease .25s" }}>We guide organizations through a structured, low-risk, phase-by-phase journey from legacy software to resilient cloud solutions.</p>
           </div>
 
           {/* ── DIVIDER STRIP ── */}
@@ -311,36 +290,10 @@ export default function ModernizationApproach() {
                         </div>
 
                         {/* Step Title */}
-                        <h3
-                          style={{
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontSize: "clamp(16px, 2vw, 20px)",
-                            fontWeight: 700,
-                            textTransform: "uppercase",
-                            lineHeight: 1.15,
-                            color: "#000000",
-                            margin: "0 0 10px",
-                            whiteSpace: "pre-line",
-                            letterSpacing: "-0.01em",
-                          }}
-                        >
-                          {step.title}
-                        </h3>
+                        <h3 className={`${typography.heading.h3} font-bold uppercase leading-tight text-black mb-2.5 whitespace-pre-line m-0`}>{step.title}</h3>
 
                         {/* Description */}
-                        <p
-                          style={{
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontSize: "14px",
-                            fontWeight: 400,
-                            color: "#475569",
-                            lineHeight: 1.6,
-                            margin: 0,
-                            maxWidth: "520px",
-                          }}
-                        >
-                          {step.description}
-                        </p>
+                        <p className={`${typography.body.sm} font-normal text-[#475569] leading-relaxed m-0 max-w-[520px]`}>{step.description}</p>
                       </div>
 
                       {/* Large Watermark Number (Positioned absolutely inside background) */}
