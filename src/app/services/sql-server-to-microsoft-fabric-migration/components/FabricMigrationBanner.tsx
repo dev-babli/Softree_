@@ -130,14 +130,14 @@ export default function FabricMigrationBanner() {
             <video
               itemProp="video"
               src="/ai-development-service-video/sqlserver-video.mp4"
-              poster="/ai-development-service-video/sqlserver-fabric-migration-poster.webp"
+
               title="SQL Server to Microsoft Fabric Migration Overview"
               aria-label="SQL Server to Microsoft Fabric Migration Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
               <source src="/ai-development-service-video/sqlserver-video.mp4" type="video/mp4" />

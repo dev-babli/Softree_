@@ -130,14 +130,14 @@ export default function TableauMigrationBanner() {
             <video
               itemProp="video"
               src="/ai-development-service-video/tableauserver-video.mp4"
-              poster="/ai-development-service-video/tableauserver-video-poster.webp"
+
               title="Tableau Server to Tableau Cloud Migration Overview"
               aria-label="Tableau Server to Tableau Cloud Migration Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
               <source src="/ai-development-service-video/tableauserver-video.mp4" type="video/mp4" />

@@ -143,13 +143,13 @@ export default function AIReadinessBanner() {
             <video
               itemProp="video"
               src="/ai-development-service-video/ai-2.mp4"
-              poster="/ai-development-service-video/ai-agent-video-poster.webp"
+
               aria-label="Enterprise Power BI Development Services & Analytics Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               controls={false}
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >

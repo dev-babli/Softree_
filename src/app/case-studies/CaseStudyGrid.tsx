@@ -110,30 +110,6 @@ export default function CaseStudyGrid({
           <p className="mt-4 max-w-2xl text-base text-[#0a0a1a]/60">{sectionSubtitle}</p>
         </motion.div>
 
-        {/* Filters if categories exist */}
-        {allFilters.length > 1 && (
-          <motion.div
-            className="mb-6 flex flex-wrap gap-2"
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-          >
-            {allFilters.map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                onClick={() => setActiveFilter(filter)}
-                className={`rounded-full border px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-200 ${
-                  activeFilter === filter
-                    ? "border-transparent bg-[#FF5812] text-white shadow-md"
-                    : "border-[#0a0a1a]/10 bg-white text-[#0a0a1a]/60 hover:border-[#0a0a1a]/20 hover:text-[#0a0a1a]"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </motion.div>
-        )}
 
         {/* Only show the number of projects without card, in brand orange */}
         <motion.div
@@ -260,7 +236,7 @@ export default function CaseStudyGrid({
                     </div>
 
                     {/* Thick partial bottom border accent */}
-                    <div 
+                    <div
                       className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-[4px] rounded-t-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-full z-30 bg-[#FF5812]"
                     />
                   </div>

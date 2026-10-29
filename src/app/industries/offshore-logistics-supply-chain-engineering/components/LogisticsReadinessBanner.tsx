@@ -30,14 +30,14 @@ export default function LogisticsReadinessBanner() {
             {/* Insight tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4">
               <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-              WHY SOFTREE FOR LOGISTICS &amp; SUPPLY CHAIN
+              LOGISTICS &amp; SUPPLY CHAIN DEVELOPMENT CAPABILITIES
             </div>
 
             {/* Headline */}
             <h2 className="typo-heading-2 mb-4">
               <span className="text-slate-900 block mb-1">Your Logistics Tech Vision.</span>
               <span className="text-[#FF6B2C] block">Our Offshore Engineering Team.</span>
-            </h2>         
+            </h2>
 
             {/* Vertical List of Items */}
             <div className="flex flex-col w-full max-w-xl mb-6 space-y-1">
@@ -141,14 +141,14 @@ export default function LogisticsReadinessBanner() {
             <video
               itemProp="video"
               src="/images/solutions/ai-for-logistics/hero.mp4"
-              poster="/images/solutions/ai-for-logistics/hero.webp"
+
               title="Offshore Logistics & Supply Chain Engineering Overview"
               aria-label="Offshore Logistics & Supply Chain Engineering Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
               <source src="/images/solutions/ai-for-logistics/hero.mp4" type="video/mp4" />

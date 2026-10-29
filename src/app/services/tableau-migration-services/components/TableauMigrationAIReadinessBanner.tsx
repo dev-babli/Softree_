@@ -129,14 +129,14 @@ export default function TableauMigrationAIReadinessBanner() {
             <video
               itemProp="video"
               src="/ai-development-service-video/RAG-video.mp4"
-              poster="/ai-development-service-video/ai-agent-video-poster.webp"
+
               title="Tableau Migration and Analytics Modernization Overview"
               aria-label="Tableau Migration and Analytics Modernization Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
               <source src="/ai-development-service-video/RAG-video.mp4" type="video/mp4" />
