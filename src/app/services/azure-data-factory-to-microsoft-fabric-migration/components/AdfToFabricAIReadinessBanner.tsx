@@ -129,14 +129,14 @@ export default function AdfToFabricAIReadinessBanner() {
             <video
               itemProp="video"
               src="/ai-development-service-video/RAG-video.mp4"
-              poster="/ai-development-service-video/adf-to-fabric-migration-poster.webp"
+
               title="Azure Data Factory to Microsoft Fabric Migration Overview"
               aria-label="Azure Data Factory to Microsoft Fabric Migration Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
               <source src="/ai-development-service-video/RAG-video.mp4" type="video/mp4" />

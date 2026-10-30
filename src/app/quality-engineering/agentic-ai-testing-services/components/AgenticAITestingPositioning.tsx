@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Bot, Sparkles, Database, Link as LinkIcon, Users, Shield, LucideIcon } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
+import { typography } from "@/lib/typography";
 
 interface FeatureItem {
   number: string;
@@ -58,6 +59,9 @@ const FEATURES: FeatureItem[] = [
 ];
 
 export default function AgenticAITestingPositioning() {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   return (
     <section className="relative w-full pt-2 lg:pt-3 pb-4 lg:pb-6 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
@@ -81,13 +85,13 @@ export default function AgenticAITestingPositioning() {
 
             {/* WHAT WE TEST Eyebrow Pill */}
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/70 px-3.5 py-1 rounded-full border border-white/60 mb-3 inline-block">
-              <span className="typo-caption text-[#ea580c] uppercase font-semibold text-[11px] sm:text-xs">
+              <span className={`${typography.caption.default} text-[#ea580c] uppercase font-semibold text-[11px] sm:text-xs`}>
                 WHAT WE TEST
               </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight leading-snug mb-2.5 max-w-2xl">
+            <h2 className={`${typography.heading.h2} text-slate-900 tracking-tight leading-snug mb-2.5 max-w-2xl`}>
               From AI Models to Autonomous Workflows,{" "}
               <span className="text-[#ea580c]">
                 We Test the Complete Agentic AI Lifecycle
@@ -95,7 +99,7 @@ export default function AgenticAITestingPositioning() {
             </h2>
 
             {/* Description Paragraph */}
-            <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal max-w-2xl mb-5">
+            <p className={`${typography.description.default} text-slate-600 leading-relaxed font-normal max-w-2xl mb-5`}>
               Softree provides end-to-end agentic AI testing services to validate AI agents, LLM applications, RAG systems, tool integrations, multi-agent workflows, and autonomous decision-making across real-world business scenarios.
             </p>
 
@@ -109,13 +113,13 @@ export default function AgenticAITestingPositioning() {
                       <Icon className="w-4 h-4 text-[#ea580c]" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-[13.5px] sm:text-[14px] font-bold text-slate-900 tracking-tight mb-0.5 leading-snug">
+                      <h4 className={`${typography.heading.h4} font-bold text-slate-900 tracking-tight mb-0.5 leading-snug`}>
                         <span className="text-[#ea580c] font-mono mr-1">
                           {item.number} —
                         </span>
                         {item.title}
                       </h4>
-                      <p className="text-[11.5px] sm:text-[12px] text-slate-600 leading-snug font-normal">
+                      <p className={`${typography.body.sm} text-slate-600 leading-snug font-normal`}>
                         {item.description}
                       </p>
                     </div>
@@ -158,17 +162,22 @@ export default function AgenticAITestingPositioning() {
 
             {/* Video element with complete indexing, poster, and accessibility attributes */}
             <video
+              ref={videoRef}
               itemProp="video"
               src="/ai-development-service-video/agentic-ai-testing-video.mp4"
-              poster="/ai-development-service-video/ai-agent-video-poster.webp"
+
               aria-label="Agentic AI Testing Services & Autonomous Workflow Quality Assurance Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
+              onPlaying={() => setIsVideoPlaying(true)}
+              onError={() => setIsVideoPlaying(false)}
               controls={false}
-              className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
+              className={`w-full h-full object-cover absolute inset-0 select-none pointer-events-none transition-opacity duration-700 ${
+                isVideoPlaying ? "opacity-100" : "opacity-0"
+              }`}
             >
               <source src="/ai-development-service-video/agentic-ai-testing-video.mp4" type="video/mp4" />
               <source src="/ai-development-service-video/automation-testing.mp4" type="video/mp4" />

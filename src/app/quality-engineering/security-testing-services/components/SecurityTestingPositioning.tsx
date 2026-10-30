@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Monitor, Smartphone, Network, Repeat, Zap, RefreshCcw, LucideIcon } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
@@ -59,6 +59,14 @@ const FEATURES: FeatureItem[] = [
 ];
 
 export default function SecurityTestingPositioning() {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && !videoRef.current.paused && videoRef.current.readyState >= 3) {
+      setIsVideoPlaying(true);
+    }
+  }, []);
   return (
     <section className="relative w-full pt-2 lg:pt-3 pb-4 lg:pb-6 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
@@ -159,17 +167,22 @@ export default function SecurityTestingPositioning() {
 
             {/* Video element with complete indexing, poster, and accessibility attributes */}
             <video
+              ref={videoRef}
               itemProp="video"
               src="/ai-development-service-video/security-position-video.mp4"
-              poster="/ai-development-service-video/ai-agent-video-poster.webp"
+
               aria-label="Security Testing Services & Application Vulnerability Assessment Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
+              onPlaying={() => setIsVideoPlaying(true)}
+              onError={() => setIsVideoPlaying(false)}
               controls={false}
-              className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
+              className={`w-full h-full object-cover absolute inset-0 select-none pointer-events-none transition-opacity duration-700 ${
+                isVideoPlaying ? "opacity-100" : "opacity-0"
+              }`}
             >
               <source src="/ai-development-service-video/security-position-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.

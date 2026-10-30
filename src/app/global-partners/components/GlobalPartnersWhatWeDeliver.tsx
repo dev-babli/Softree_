@@ -47,8 +47,8 @@ const PROJECTS: ProjectData[] = [
 
 export const GlobalPartnersWhatWeDeliver = () => {
   return (
-    <section className="bg-white pt-12 md:pt-16 pb-0 overflow-hidden">
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-start text-left">
+    <section className="bg-white py-12 md:py-16 lg:py-20 overflow-hidden">
+      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-start text-left">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3 uppercase">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
           WHAT WE DELIVER TOGETHER
@@ -61,7 +61,7 @@ export const GlobalPartnersWhatWeDeliver = () => {
         </p>
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 mt-8 md:mt-12">
+      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-8 md:mt-12">
         <div className="relative w-full h-[510px] xs:h-[500px] sm:h-[490px] md:h-[420px] lg:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
           <ArgentLoopSlider
             projects={PROJECTS}

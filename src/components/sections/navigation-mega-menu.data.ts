@@ -132,7 +132,7 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
       },
       {
         label: "AI Test Automation",
-        url: "/services/ai-powered-test-automation",
+        url: "/quality-engineering/automation-testing-services",
         icon: Cpu,
         description: "AI-assisted quality and regression testing",
       },

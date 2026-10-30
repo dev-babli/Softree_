@@ -63,7 +63,7 @@ export default function AIReadinessBanner() {
             {/* Eyebrow Pill */}
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/70 px-4 py-1.5 rounded-full border border-white/60 mb-5 inline-block">
               <span className="typo-caption text-[#FF6B2C]">
-                WHY SOFTREE
+                FABRIC DEVEVLOPMENT CAPABILITIES
               </span>
             </div>
 
@@ -129,14 +129,14 @@ export default function AIReadinessBanner() {
             <video
               itemProp="video"
               src="/ai-development-service-video/ai-2.mp4"
-              poster="/ai-development-service-video/fabric-ai-banner-poster.webp"
+
               title="Microsoft Fabric Architecture & Offshore Development Team Overview"
               aria-label="Microsoft Fabric Architecture & Offshore Development Team Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
               <source src="/ai-development-service-video/ai-2.mp4" type="video/mp4" />

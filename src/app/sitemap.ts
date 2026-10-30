@@ -13,13 +13,13 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/ai-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/generative-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/ai-consulting-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/ai-healthcare-development-service`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/azure-openai-development-partner`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+
+
   { url: `${BASE_URL}/services/amazon-bedrock-agentcore-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/amazon-nova-2-sonic-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/offshore-langchain-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/offshore-langgraph-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/ai-powered-test-automation`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+
 
   // Quality Engineering & Testing Services
   { url: `${BASE_URL}/quality-engineering/automation-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },

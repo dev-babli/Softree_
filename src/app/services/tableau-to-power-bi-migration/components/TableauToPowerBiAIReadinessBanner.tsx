@@ -129,14 +129,14 @@ export default function TableauToPowerBiAIReadinessBanner() {
               itemProp="video"
               id="tableau-to-powerbi-video"
               src="/ai-development-service-video/RAG-video.mp4"
-              poster="/ai-development-service-video/tableau-to-power-bi-poster.webp"
+
               title="Tableau to Microsoft Power BI Migration and Dashboard Modernization"
               aria-label="Tableau to Microsoft Power BI Migration and Dashboard Modernization Walkthrough"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
               <source src="/ai-development-service-video/RAG-video.mp4" type="video/mp4" />

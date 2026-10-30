@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { AnimatePresence, motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Search, Sparkles, X } from "lucide-react";
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero";
 import CaseStudiesCategoryRail from "@/components/case-studies/listing/CaseStudiesCategoryRail";
@@ -92,14 +92,24 @@ export default function CaseStudiesListingClient({
   const searchParams = useSearchParams();
   const techQuery = searchParams.get("tech");
   const techStackQuery = searchParams.get("techStack") || searchParams.get("technology");
+  const industryQuery = searchParams.get("industry");
 
   useEffect(() => {
     let tech: string | null = null;
+    let ind: string | null = null;
+
     if (techQuery) {
       tech = techQuery;
     } else if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       tech = params.get("tech");
+    }
+
+    if (industryQuery) {
+      ind = industryQuery;
+    } else if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      ind = params.get("industry");
     }
 
     if (tech) {
@@ -116,7 +126,20 @@ export default function CaseStudiesListingClient({
     if (techStackQuery) {
       setSelectedTech(techStackQuery);
     }
-  }, [techQuery, techStackQuery]);
+
+    if (ind) {
+      const lower = ind.toLowerCase().trim();
+      if (lower.includes("health")) {
+        setIndustry("Healthcare");
+      } else if (lower.includes("logistic") || lower.includes("supply") || lower.includes("freight")) {
+        setIndustry("Logistics & Supply Chain");
+      } else {
+        setIndustry(ind);
+      }
+    } else {
+      setIndustry("All");
+    }
+  }, [techQuery, techStackQuery, industryQuery]);
 
   const industryOptions = useMemo(() => {
     if (!mounted) return ["All"];
@@ -184,13 +207,16 @@ export default function CaseStudiesListingClient({
   const gridInView = useInView(gridRef, { once: true, margin: "-80px" });
   const [stickyVisible, setStickyVisible] = useState(false);
 
-  const { scrollY } = useScroll();
-  useMotionValueEvent(scrollY, "change", () => {
-    if (!sectionRef.current) return;
-    const rect = sectionRef.current.getBoundingClientRect();
-    const nextVisible = rect.top < -120 && rect.bottom > 200;
-    setStickyVisible((prev) => (prev === nextVisible ? prev : nextVisible));
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const nextVisible = rect.top < -120 && rect.bottom > 200;
+      setStickyVisible(nextVisible);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const filtered = useMemo(() => {
     return caseStudies.filter((study) => {
@@ -395,7 +421,7 @@ export default function CaseStudiesListingClient({
                 ) : null}
                 {selectedTech !== "All" ? (
                   <span
-                    className="rounded-full bg-[#1852ff] px-2.5 py-1 text-[10px] font-bold text-white shadow-sm"
+                    className="rounded-full bg-[#FF5812] px-2.5 py-1 text-[10px] font-bold text-white shadow-sm"
                   >
                     Tech: {selectedTech}
                   </span>

@@ -11,6 +11,7 @@ import {
   SiSelenium, SiCypress, SiAppium, SiPostman, SiPython, SiJenkins, SiGithubactions, SiMysql, SiSwagger
 } from "react-icons/si";
 import { FaJava, FaAws, FaMicrosoft } from "react-icons/fa";
+import { typography } from "@/lib/typography";
 
 const PlaywrightIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 32 32" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,14 +130,14 @@ export default function AgenticAITechnologyTesting() {
 
       {/* Section Heading */}
       <div className="text-center w-full max-w-4xl mx-auto flex flex-col items-center px-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-500/20 text-[#FF5812] typo-caption mb-4 shadow-sm">
+        <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-500/20 text-[#FF5812] ${typography.caption.default} mb-4 shadow-sm`}>
           <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FF5812] animate-pulse" />
           TECHNOLOGY WE WORK WITH
         </div>
-        <h2 className="typo-heading-2 text-slate-900 leading-[1.1] mb-2 sm:mb-4">
+        <h2 className={`${typography.heading.h2} text-slate-900 leading-[1.1] mb-2 sm:mb-4`}>
           Technology We Use for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5812] to-amber-500">Agentic AI Testing</span>
         </h2>
-        <p className="typo-description text-slate-600 max-w-2xl text-center">
+        <p className={`${typography.description.default} text-slate-600 max-w-2xl text-center`}>
           We work with modern AI testing tools, LLM evaluation frameworks, automation technologies, APIs, programming languages, CI/CD platforms, and cloud environments to build scalable and reliable AI testing solutions.
         </p>
       </div>
@@ -155,10 +156,10 @@ export default function AgenticAITechnologyTesting() {
             <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50 p-4 sm:p-5 xl:p-6 shadow-[0_0_25px_rgba(255,107,44,0.05)] flex flex-col justify-between items-stretch w-full h-auto min-h-[280px] lg:h-[500px] z-10">
               <div className="space-y-1.5 text-left">
 
-                <h2 className="typo-heading-4 tracking-wider text-slate-900 uppercase leading-[1.1] mb-1">
+                <h2 className={`${typography.heading.h4} tracking-wider text-slate-900 uppercase leading-[1.1] mb-1`}>
                   CORE<br />TECHNOLOGY
                 </h2>
-                <p className="typo-caption font-bold text-orange-600 tracking-wider uppercase">
+                <p className={`${typography.caption.default} font-bold text-orange-600 tracking-wider uppercase`}>
                   MODELS • TOOLS • CLOUD • CI/CD
                 </p>
               </div>

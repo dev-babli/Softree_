@@ -229,10 +229,251 @@ const CATEGORY_META: Record<
   },
 };
 
+
+const CASE_STUDY_CATEGORY_META: Record<
+  string,
+  {
+    eyebrow: string;
+    introHeading: string;
+    introDescription: string;
+    introCtaText: string;
+    introCtaUrl: string;
+    featuredEyebrow: string;
+    featuredHeading: string;
+    featuredDescription: string;
+    featuredImage: string;
+    featuredCtaText: string;
+    featuredCtaUrl: string;
+  }
+> = {
+  "AI & Automation": {
+    eyebrow: "AI & AUTOMATION",
+    introHeading: "Autonomous Multi-Agent Networks & Generative Copilots",
+    introDescription:
+      "Engineer production-grade AI agents, RAG architectures, and automated customer service copilots with verifiable business outcomes.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "AI & AUTOMATION",
+    featuredHeading: "Customer Support Automation with AI Agent",
+    featuredDescription:
+      "Multi-agent reasoning system achieving 70%+ Tier-1 support deflection and autonomous resolution.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/intelligent-customer-support-automation-ai-agent",
+  },
+  "AI Automation": {
+    eyebrow: "AI & AUTOMATION",
+    introHeading: "Autonomous Multi-Agent Networks & Generative Copilots",
+    introDescription:
+      "Engineer production-grade AI agents, RAG architectures, and automated customer service copilots with verifiable business outcomes.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "AI & AUTOMATION",
+    featuredHeading: "Customer Support Automation with AI Agent",
+    featuredDescription:
+      "Multi-agent reasoning system achieving 70%+ Tier-1 support deflection and autonomous resolution.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/intelligent-customer-support-automation-ai-agent",
+  },
+  "Power Apps & Platform": {
+    eyebrow: "POWER APPS & PLATFORM",
+    introHeading: "Enterprise Low-Code Apps & Dataverse Integrations",
+    introDescription:
+      "Modernize manual workflows, build canvas & model-driven apps, and connect business systems with Power Platform.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "POWER APPS & AUTOMATION",
+    featuredHeading: "Employee Leave Management System",
+    featuredDescription:
+      "Automated multi-tier approvals, Outlook calendar sync, and Dataverse audit trails for enterprise workforce.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/enterprise-leave-management-system",
+  },
+  "Power Apps": {
+    eyebrow: "POWER APPS & PLATFORM",
+    introHeading: "Enterprise Low-Code Apps & Dataverse Integrations",
+    introDescription:
+      "Modernize manual workflows, build canvas & model-driven apps, and connect business systems with Power Platform.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "POWER APPS & AUTOMATION",
+    featuredHeading: "Employee Leave Management System",
+    featuredDescription:
+      "Automated multi-tier approvals, Outlook calendar sync, and Dataverse audit trails for enterprise workforce.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/enterprise-leave-management-system",
+  },
+  "Data & Analytics": {
+    eyebrow: "DATA & ANALYTICS",
+    introHeading: "Executive BI, Microsoft Fabric Lakehouses & Telemetry",
+    introDescription:
+      "Turn fragmented databases into unified OneLake lakehouses, interactive Power BI executive dashboards, and real-time decision intelligence.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "DATA & ANALYTICS",
+    featuredHeading: "Enterprise Fabric & Power BI Lakehouse",
+    featuredDescription:
+      "Modernized legacy data pipelines into Direct Lake mode for sub-second enterprise dashboard telemetry.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/enterprise-lakehouse-power-bi-modernization",
+  },
+  "SharePoint & SPFx": {
+    eyebrow: "SHAREPOINT & SPFX",
+    introHeading: "Modern Intranets, SPFx Solutions & M365 Portals",
+    introDescription:
+      "Transform corporate communications and document compliance with tailored SharePoint Online intranets and custom SPFx framework web parts.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "SHAREPOINT & SPFX",
+    featuredHeading: "SharePoint Site Pages to PDF Export",
+    featuredDescription:
+      "High-fidelity document conversion and automated archival compliance for enterprise knowledge repositories.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/sharepoint-site-pages-to-pdf",
+  },
+  "Mobile Applications": {
+    eyebrow: "MOBILE ENGINEERING",
+    introHeading: "Enterprise iOS & Android Apps & Hardware Integrations",
+    introDescription:
+      "Deliver fluid cross-platform mobile apps with offline synchronization, device scanner controls, and native performance.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "MOBILE & IOT SOLUTIONS",
+    featuredHeading: "Barcode Scanner App for Olympic Equipment",
+    featuredDescription:
+      "Streamlined audio equipment transfers and provided real-time inventory traceability for the 2026 Winter Olympics.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/barcode-scanner-app-audio-equipment-management",
+  },
+  "Mobile": {
+    eyebrow: "MOBILE ENGINEERING",
+    introHeading: "Enterprise iOS & Android Apps & Hardware Integrations",
+    introDescription:
+      "Deliver fluid cross-platform mobile apps with offline synchronization, device scanner controls, and native performance.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "MOBILE & IOT SOLUTIONS",
+    featuredHeading: "Barcode Scanner App for Olympic Equipment",
+    featuredDescription:
+      "Streamlined audio equipment transfers and provided real-time inventory traceability for the 2026 Winter Olympics.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/barcode-scanner-app-audio-equipment-management",
+  },
+  "Web Applications": {
+    eyebrow: "WEB & CLOUD PLATFORMS",
+    introHeading: "Scalable Full-Stack Web Portals & Marketplace Systems",
+    introDescription:
+      "Engineer high-concurrency React/Next.js portals, multi-tenant SaaS backends, and digital commerce applications.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "DIGITAL PLATFORMS",
+    featuredHeading: "Digital Learning & Student Management Platform",
+    featuredDescription:
+      "Modern education portal that boosted academic administrative efficiency by 60% with real-time analytics.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/digital-learning-management-platform",
+  },
+  "Web": {
+    eyebrow: "WEB & CLOUD PLATFORMS",
+    introHeading: "Scalable Full-Stack Web Portals & Marketplace Systems",
+    introDescription:
+      "Engineer high-concurrency React/Next.js portals, multi-tenant SaaS backends, and digital commerce applications.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "DIGITAL PLATFORMS",
+    featuredHeading: "Digital Learning & Student Management Platform",
+    featuredDescription:
+      "Modern education portal that boosted academic administrative efficiency by 60% with real-time analytics.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/digital-learning-management-platform",
+  },
+  "Healthcare & Life Sciences": {
+    eyebrow: "HEALTHCARE INTELLIGENCE",
+    introHeading: "Clinical AI Copilots, Hospital Operations & EMR",
+    introDescription:
+      "Deploy HIPAA-compliant clinical copilots, hospital bed management agents, and automated EMR workflow integrations.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "HEALTHCARE INTELLIGENCE",
+    featuredHeading: "Hospital Operations & Bed Management Agent",
+    featuredDescription:
+      "Autonomous triage routing, predictive bed occupancy forecasting, and clinical workflow coordination.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/hospital-operations-bed-management-agent",
+  },
+  "Healthcare": {
+    eyebrow: "HEALTHCARE INTELLIGENCE",
+    introHeading: "Clinical AI Copilots, Hospital Operations & EMR",
+    introDescription:
+      "Deploy HIPAA-compliant clinical copilots, hospital bed management agents, and automated EMR workflow integrations.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "HEALTHCARE INTELLIGENCE",
+    featuredHeading: "Hospital Operations & Bed Management Agent",
+    featuredDescription:
+      "Autonomous triage routing, predictive bed occupancy forecasting, and clinical workflow coordination.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/hospital-operations-bed-management-agent",
+  },
+  "Logistics & Supply Chain": {
+    eyebrow: "LOGISTICS & SUPPLY CHAIN",
+    introHeading: "Autonomous Customs Compliance, Freight & Warehouse AI",
+    introDescription:
+      "Accelerate supply chain throughput with AI freight documentation agents, customs compliance verification, and predictive yard scheduling.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "LOGISTICS & SUPPLY CHAIN",
+    featuredHeading: "AI Freight Documentation & Customs Agent",
+    featuredDescription:
+      "Automated commercial invoice parsing, HS code validation, and cross-border regulatory compliance checks.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/ai-freight-documentation-customs-compliance-agent",
+  },
+  "Logistics": {
+    eyebrow: "LOGISTICS & SUPPLY CHAIN",
+    introHeading: "Autonomous Customs Compliance, Freight & Warehouse AI",
+    introDescription:
+      "Accelerate supply chain throughput with AI freight documentation agents, customs compliance verification, and predictive yard scheduling.",
+    introCtaText: "Contact Us",
+    introCtaUrl: "/contact",
+    featuredEyebrow: "LOGISTICS & SUPPLY CHAIN",
+    featuredHeading: "AI Freight Documentation & Customs Agent",
+    featuredDescription:
+      "Automated commercial invoice parsing, HS code validation, and cross-border regulatory compliance checks.",
+    featuredImage: "/images/nav/ai-featured.jpg",
+    featuredCtaText: "Read Case Study",
+    featuredCtaUrl: "/case-studies/ai-freight-documentation-customs-compliance-agent",
+  },
+};
+
 // Compact, enterprise-grade descriptions tailored for sleek 2-column cards
 const CATEGORY_SHORT_DESCS: Record<string, string> = {
-  "AI & Automation":
-    "Custom GenAI models, enterprise copilots & automated workflows",
+  "AI & Automation": "Autonomous AI agents, LLM copilots & smart workflows",
+  "AI Automation": "Autonomous AI agents, LLM copilots & smart workflows",
+  "Power Apps & Platform": "Custom canvas apps, Power Automate RPA & Dataverse",
+  "Power Apps": "Custom canvas apps, Power Automate RPA & Dataverse",
+  "Data & Analytics": "Executive Power BI dashboards & Microsoft Fabric lakehouse",
+  "SharePoint & SPFx": "Modern SharePoint Online intranets & custom SPFx web parts",
+  "Mobile Applications": "High-performance iOS, Android & cross-platform apps",
+  "Mobile": "High-performance iOS, Android & cross-platform apps",
+  "Web Applications": "Modern Next.js platforms, SaaS portals & cloud apps",
+  "Web": "Modern Next.js platforms, SaaS portals & cloud apps",
+  "Healthcare & Life Sciences": "Clinical AI copilots, hospital bed management & HIPAA QA",
+  "Healthcare": "Clinical AI copilots, hospital bed management & HIPAA QA",
+  "Logistics & Supply Chain": "AI customs compliance, freight tracking & warehouse tools",
+  "Logistics": "AI customs compliance, freight tracking & warehouse tools",
   "Agentic Orchestration":
     "Multi-agent systems, LangGraph pipelines & reasoning swarms",
   "Testing & Quality Engineering":
@@ -241,18 +482,12 @@ const CATEGORY_SHORT_DESCS: Record<string, string> = {
     "Multimodal Document AI, smart OCR & Azure OpenAI pipelines",
   "Microsoft & Business Applications":
     "Enterprise Power Apps, Power Automate & Dataverse solutions",
-  "Data & Analytics":
-    "Executive Power BI dashboards, Fabric lakehouse & Databricks",
   "Digital Engineering":
     "Full-stack web apps, native mobile apps & cloud microservices",
   "Digital Workplace":
     "Modern SharePoint Online intranets & custom SPFx portals",
   "Migration & Modernization":
     "Cloud migrations across Tableau, SQL Server, ADF & Fabric",
-  "Healthcare":
-    "Clinical copilots, HIPAA document AI & digital health QA",
-  "Logistics & Supply Chain":
-    "Smart route optimization, warehouse automation & logistics QA",
   "AI for IT Services":
     "Autonomous IT service desk, AIOps monitoring & incident triage",
 };
@@ -279,15 +514,17 @@ export function MegaMenuPanel({
 
   const safeIdx = activeIdx < availableGroups.length ? activeIdx : 0;
   const currentGroup = availableGroups[safeIdx];
-  const meta = CATEGORY_META[currentGroup.title] || {
+  const isCaseStudies = _label === "Case Studies";
+  const metaSource = isCaseStudies ? CASE_STUDY_CATEGORY_META : CATEGORY_META;
+  const meta = metaSource[currentGroup.title] || CATEGORY_META[currentGroup.title] || {
     eyebrow: _label ? _label.toUpperCase() : "SERVICES & SOLUTIONS",
     introHeading: currentGroup.description || `${currentGroup.title} Solutions`,
     introDescription:
       _label === "Case Studies"
         ? "Explore real-world client success stories, enterprise architecture deployments, and business transformation outcomes."
         : "Comprehensive digital solutions, specialized engineering squads, and modern enterprise services.",
-    introCtaText: _label === "Case Studies" ? "View All Case Studies" : `Explore ${currentGroup.title}`,
-    introCtaUrl: currentGroup.links[0]?.url || (_label === "Case Studies" ? "/case-studies" : "/services"),
+    introCtaText: _label === "Case Studies" ? "Contact Us" : `Explore ${currentGroup.title}`,
+    introCtaUrl: _label === "Case Studies" ? "/contact" : (currentGroup.url || currentGroup.links[0]?.url || "/services"),
     featuredEyebrow: currentGroup.title.toUpperCase(),
     featuredHeading: _label === "Case Studies" ? "Client Success & Proven Impact" : "Turn Strategy into Real Results",
     featuredDescription:
@@ -377,7 +614,7 @@ export function MegaMenuPanel({
                   <h3 className="text-[18px] xl:text-[20px] font-extrabold leading-[1.2] tracking-tight text-white mb-2 drop-shadow-sm">
                     {meta.introHeading}
                   </h3>
-                  <p className="text-[12.5px] xl:text-[13px] leading-relaxed text-white/90 font-medium line-clamp-3">
+                  <p className="text-[12.5px] xl:text-[13px] leading-relaxed text-white/90 font-medium">
                     {meta.introDescription}
                   </p>
                 </motion.div>
@@ -386,12 +623,12 @@ export function MegaMenuPanel({
 
             <div className="pt-4 mt-auto">
               <Link
-                href={meta.introCtaUrl}
+                href={isCaseStudies ? "/contact" : meta.introCtaUrl}
                 prefetch={false}
                 onClick={onClose}
                 className="group inline-flex items-center gap-1.5 rounded-full bg-white text-slate-900 hover:bg-slate-100 px-4 py-2 text-[12px] font-bold shadow-[0_4px_14px_rgba(0,0,0,0.15)] transition-all duration-150"
               >
-                <span>{meta.introCtaText}</span>
+                <span>{isCaseStudies ? "Contact Us" : meta.introCtaText}</span>
                 <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover:translate-x-1 text-[#FF5812]" />
               </Link>
             </div>
@@ -409,10 +646,10 @@ export function MegaMenuPanel({
             <div>
               <div className="flex items-center justify-between mb-2 px-1">
                 <span className="text-[10.5px] font-bold tracking-[0.14em] text-slate-400 uppercase">
-                  OUR SERVICES
+                  {_label === "Case Studies" ? "CASE STUDY DOMAINS" : _label === "Industries" ? "OUR INDUSTRIES" : "OUR SERVICES"}
                 </span>
                 <span className="text-[10.5px] font-medium text-slate-400">
-                  Select a category to view services
+                  {_label === "Case Studies" ? "Click any domain to explore all related case studies" : _label === "Industries" ? "Select an industry to explore solutions" : "Select a category to view services"}
                 </span>
               </div>
 
@@ -426,18 +663,12 @@ export function MegaMenuPanel({
                     group.description ||
                     "Specialized enterprise solutions";
 
-                  return (
-                    <button
-                      key={group.title}
-                      type="button"
-                      onClick={() => handleSelectCategory(idx)}
-                      onMouseEnter={() => setActiveIdx(idx)}
-                      className={`group w-full text-left relative flex items-center justify-between py-2 px-2.5 xl:py-2.5 xl:px-3 rounded-lg border transition-all duration-150 cursor-pointer ${
-                        isSelected
-                          ? "bg-gradient-to-r from-[#FFF7F2] to-[#FFF1E8] border-[#FF5812]/40 shadow-[0_2px_10px_rgba(255,88,18,0.1)]"
-                          : "bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50/70"
-                      }`}
-                    >
+                  const isDirect =
+                    _label === "Case Studies" ||
+                    (Boolean(group.url) && (!group.links || group.links.length === 0));
+
+                  const cardInner = (
+                    <>
                       <div className="flex items-center gap-2.5 xl:gap-3 min-w-0 pr-1.5 flex-1">
                         {/* Solid Orange-Red Gradient Icon Badge */}
                         <div
@@ -490,6 +721,39 @@ export function MegaMenuPanel({
                           />
                         )}
                       </div>
+                    </>
+                  );
+
+                  const cardClass = `group w-full text-left relative flex items-center justify-between py-2 px-2.5 xl:py-2.5 xl:px-3 rounded-lg border transition-all duration-150 cursor-pointer ${
+                    isSelected
+                      ? "bg-gradient-to-r from-[#FFF7F2] to-[#FFF1E8] border-[#FF5812]/40 shadow-[0_2px_10px_rgba(255,88,18,0.1)]"
+                      : "bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50/70"
+                  }`;
+
+                  if (isDirect) {
+                    return (
+                      <Link
+                        key={group.title}
+                        href={group.url || "/case-studies"}
+                        prefetch={false}
+                        onClick={onClose}
+                        onMouseEnter={() => setActiveIdx(idx)}
+                        className={cardClass}
+                      >
+                        {cardInner}
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <button
+                      key={group.title}
+                      type="button"
+                      onClick={() => handleSelectCategory(idx)}
+                      onMouseEnter={() => setActiveIdx(idx)}
+                      className={cardClass}
+                    >
+                      {cardInner}
                     </button>
                   );
                 })}
@@ -509,7 +773,7 @@ export function MegaMenuPanel({
                     className="group inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-white bg-gradient-to-r from-[#FF6B2C] via-[#FF5812] to-[#E64A09] hover:from-[#FF5812] hover:to-[#D92C00] py-1.5 px-3.5 rounded-full shadow-[0_2px_8px_rgba(255,88,18,0.25)] hover:shadow-[0_4px_14px_rgba(255,88,18,0.35)] transition-all duration-200 cursor-pointer active:scale-95"
                   >
                     <ChevronLeft size={15} className="stroke-[2.5] transition-transform duration-200 group-hover:-translate-x-0.5" />
-                    <span>Back to All Categories</span>
+                    <span>Back to All {_label === "Case Studies" ? "Domains" : "Categories"}</span>
                   </button>
                   <span className="h-4 w-px bg-slate-200" />
                   <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.1em] text-slate-700 uppercase bg-slate-100/90 px-2.5 py-0.5 rounded-md border border-slate-200/60">
@@ -520,7 +784,7 @@ export function MegaMenuPanel({
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-semibold text-slate-500 bg-slate-50 border border-slate-200/70 px-2.5 py-0.5 rounded-full flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812]" />
-                    <span>{safeIdx + 1} of {availableGroups.length} categories</span>
+                    <span>{safeIdx + 1} of {availableGroups.length} {_label === "Case Studies" ? "domains" : "categories"}</span>
                   </span>
                   <div className="hidden sm:flex items-center gap-0.5 border border-slate-200/80 rounded-full p-0.5 bg-white shadow-2xs">
                     <button

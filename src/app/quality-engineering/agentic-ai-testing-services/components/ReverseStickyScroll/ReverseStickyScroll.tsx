@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Lenis from 'lenis';
+import { typography } from '@/lib/typography';
 
 import './ReverseStickyScroll.css';
 
@@ -147,14 +148,14 @@ export const ReverseStickyScroll = () => {
       ].map((card, idx) => (
         <section key={idx} className={`rss_section rss_s${idx + 1}`} style={{ zIndex: idx + 1 }}>
           <div className="rss_container flex flex-col items-start text-left" style={{ backgroundColor: card.bg, color: card.text }}>
-            <p className="rss_tag">{card.num} — {card.title}</p>
+            <p className={`rss_tag ${typography.caption.default}`}>{card.num} — {card.title}</p>
             <hr className="rss_hr w-full" />
             <div className="w-full text-left">
-              <h2 className="rss_big text-left" dangerouslySetInnerHTML={{ __html: card.titleSplit }}></h2>
+              <h2 className={`rss_big ${typography.heading.h2} text-left`} dangerouslySetInnerHTML={{ __html: card.titleSplit }}></h2>
             </div>
             <hr className="rss_hr w-full" />
             <div className="w-full text-left">
-              <p className="rss_sub text-left">{card.desc}</p>
+              <p className={`rss_sub ${typography.description.default} text-left`}>{card.desc}</p>
               {card.features && (
                 <ul className="mt-8 space-y-4">
                   {card.features.map((feature, fIdx) => (

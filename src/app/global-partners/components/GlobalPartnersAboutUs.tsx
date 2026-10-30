@@ -121,8 +121,8 @@ export function GlobalPartnersAboutUs() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
   return (
-    <section ref={containerRef} id="exact-about-us" className="w-full overflow-hidden bg-white pt-10 pb-20 lg:pt-12 lg:pb-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+    <section ref={containerRef} id="exact-about-us" className="w-full overflow-hidden bg-white py-12 md:py-16 lg:py-20">
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Top Section - Award Count & Content */}
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-stretch lg:grid-cols-2">
           {/* Left - Award Count */}

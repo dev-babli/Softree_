@@ -54,7 +54,7 @@ const items = [
 ];
 
   return (
-    <section id="partnership" className="bg-white pt-6 md:pt-8 pb-12 md:pb-16 text-slate-900 scroll-mt-24">
+    <section id="partnership" className="bg-white py-12 md:py-16 lg:py-20 text-slate-900 scroll-mt-24">
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top Header: Heading on left, Description on right top */}
         <div className="mb-8 md:mb-10 grid grid-cols-1 lg:grid-cols-12 items-end gap-x-12 lg:gap-x-16 gap-y-4">

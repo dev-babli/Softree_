@@ -141,7 +141,7 @@ export function AIReadinessBanner(props: DemoProps) {
                     <div className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/30 bg-[#FF6B2C]/10 px-3.5 py-1.5 shadow-sm">
                         <span className="h-2 w-2 rounded-full bg-[#FF6B2C]" />
                         <span className={`${typography.caption.default} font-bold tracking-wider text-[#FF6B2C] uppercase font-mono`}>
-                            WHY SOFTREE
+                            RAG DEVELOPMENT CAPABILITIES
                         </span>
                     </div>
 

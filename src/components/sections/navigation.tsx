@@ -77,6 +77,90 @@ type MenuItem = {
 
 const CLOSE_DELAY_MS = 220;
 
+export const DEFAULT_CASE_STUDY_GROUPS: MenuGroup[] = [
+  {
+    title: "AI & Automation",
+    url: "/case-studies/ai",
+    icon: BrainCircuit,
+    description: "Autonomous AI agents, LLM copilots & smart workflows.",
+    links: [],
+  },
+  {
+    title: "Power Apps & Platform",
+    url: "/case-studies/power-platform",
+    icon: LayoutDashboard,
+    description: "Custom canvas apps, Power Automate RPA & Dataverse.",
+    links: [],
+  },
+  {
+    title: "Data & Analytics",
+    url: "/case-studies/data-analytics",
+    icon: BarChart3,
+    description: "Executive Power BI dashboards & Microsoft Fabric lakehouse.",
+    links: [],
+  },
+  {
+    title: "SharePoint & SPFx",
+    url: "/case-studies/sharepoint",
+    icon: Building2,
+    description: "Modern SharePoint Online intranets & custom SPFx web parts.",
+    links: [],
+  },
+  {
+    title: "Mobile Applications",
+    url: "/case-studies/mobile",
+    icon: Smartphone,
+    description: "High-performance iOS, Android & cross-platform apps.",
+    links: [],
+  },
+  {
+    title: "Web Applications",
+    url: "/case-studies/web",
+    icon: Globe2,
+    description: "Modern Next.js platforms, SaaS portals & cloud apps.",
+    links: [],
+  },
+  {
+    title: "Healthcare & Life Sciences",
+    url: "/case-studies?industry=healthcare",
+    icon: HeartPulse,
+    description: "Clinical AI copilots, hospital bed management & HIPAA QA.",
+    links: [],
+  },
+  {
+    title: "Logistics & Supply Chain",
+    url: "/case-studies?industry=logistics",
+    icon: Truck,
+    description: "AI customs compliance, freight tracking & warehouse tools.",
+    links: [],
+  },
+];
+
+const CASE_STUDY_ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  "AI & Automation": BrainCircuit,
+  "AI Automation": BrainCircuit,
+  "ai": BrainCircuit,
+  "Power Apps & Platform": LayoutDashboard,
+  "Power Apps": LayoutDashboard,
+  "power-platform": LayoutDashboard,
+  "Data & Analytics": BarChart3,
+  "data-analytics": BarChart3,
+  "SharePoint & SPFx": Building2,
+  "sharepoint": Building2,
+  "Mobile Applications": Smartphone,
+  "Mobile": Smartphone,
+  "mobile": Smartphone,
+  "Web Applications": Globe2,
+  "Web": Globe2,
+  "web": Globe2,
+  "Healthcare & Life Sciences": HeartPulse,
+  "Healthcare": HeartPulse,
+  "healthcare": HeartPulse,
+  "Logistics & Supply Chain": Truck,
+  "Logistics": Truck,
+  "logistics": Truck,
+};
+
 const menu: MenuItem[] = [
   { label: "About", url: "/about-us" },
   { label: "Who Do We Serve", url: "/who-do-we-serve" },
@@ -287,7 +371,7 @@ const menu: MenuItem[] = [
     ],
   },
 
-  { label: "Case Studies", url: "/case-studies", mega: true, children: [] },
+  { label: "Case Studies", url: "/case-studies", mega: true, children: DEFAULT_CASE_STUDY_GROUPS },
   { label: "Blog", url: "/blog" },
   { label: "Careers", url: "/careers" },
 ];
@@ -324,23 +408,31 @@ const CASE_STUDY_TECH_MAP: Record<string, string> = {
 function buildCaseStudyChildren(
   caseStudyCategories: SanityNavCaseStudyCategory[],
 ): MenuGroup[] {
-  return caseStudyCategories
-    .filter((c) => c.links?.length)
-    .slice(0, 4)
-    .map((cat) => ({
+  if (!caseStudyCategories || caseStudyCategories.length === 0) {
+    return DEFAULT_CASE_STUDY_GROUPS;
+  }
+
+  return caseStudyCategories.map((cat) => {
+    const groupIcon =
+      CASE_STUDY_ICON_MAP[cat.title] ||
+      CASE_STUDY_ICON_MAP[cat.key] ||
+      Layers;
+
+    const groupUrl =
+      cat.key === "healthcare"
+        ? "/case-studies?industry=healthcare"
+        : cat.key === "logistics"
+          ? "/case-studies?industry=logistics"
+          : `/case-studies/${cat.key}`;
+
+    return {
       title: cat.title,
+      url: groupUrl,
+      icon: groupIcon,
       description: cat.description,
-      links: cat.links.map((link) => {
-        const techKey = CASE_STUDY_TECH_MAP[link.label];
-        const targetUrl = techKey ? `/case-studies?tech=${techKey}` : link.href;
-        return {
-          label: link.label,
-          url: targetUrl,
-          icon: Layers,
-          description: link.description,
-        };
-      }),
-    }));
+      links: [], // Direct navigation: no sublinks
+    };
+  });
 }
 
 // Fallback stub for HMR cache safety
@@ -373,11 +465,20 @@ export default function Navigation({
   );
 
   const dynamicMenu = useMemo(() => {
-    const caseStudyChildren = buildCaseStudyChildren(caseStudyCategories);
+    const caseStudyChildren =
+      caseStudyCategories.length > 0
+        ? buildCaseStudyChildren(caseStudyCategories)
+        : DEFAULT_CASE_STUDY_GROUPS;
 
     return menu.map((item) => {
-      if (item.label === "Case Studies" && caseStudyChildren.length > 0) {
-        return { ...item, children: caseStudyChildren };
+      if (item.label === "Case Studies") {
+        return {
+          ...item,
+          children:
+            caseStudyChildren.length > 0
+              ? caseStudyChildren
+              : DEFAULT_CASE_STUDY_GROUPS,
+        };
       }
       return item;
     });

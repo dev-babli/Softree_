@@ -165,7 +165,7 @@ export const SERVICES_HUB: ServicesHubItem[] = [
     n: "11",
     title: "Test automation",
     shortTitle: "QA AI",
-    href: "/services/ai-powered-test-automation",
+    href: "/quality-engineering/automation-testing-services",
     image: "/service_image/ai.jpg",
     imgSrc: "/service_image/ai.jpg",
     accent: "#FF5812",

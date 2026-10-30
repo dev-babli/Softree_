@@ -136,14 +136,14 @@ export default function AzureOpenAIReadinessBanner() {
             <video
               itemProp="video"
               src="/images/solutions/azure-openai-development/azure-openai-hero.mp4"
-              poster="/ai-development-service-video/ai-agent-video-poster.webp"
+
               title="Enterprise Azure OpenAI Development & AI Architecture Overview"
               aria-label="Enterprise Azure OpenAI Development & AI Architecture Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               controls={false}
               className="w-full h-full object-cover absolute inset-0 select-none"
             >
