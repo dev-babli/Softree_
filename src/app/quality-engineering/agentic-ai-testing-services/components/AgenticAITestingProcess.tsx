@@ -10,6 +10,7 @@ import {
   BarChart3,
   TrendingUp,
 } from "lucide-react";
+import { typography } from "@/lib/typography";
 
 const PROCESS_STEPS = [
   {
@@ -58,12 +59,12 @@ const PROCESS_STEPS = [
 
 const automationSlides: SqueezeSlide[] = [
   {
-    id: "discover",
+    id: "discovery",
     category: "STAGE 01 — AI DISCOVERY & USE CASE ANALYSIS",
     title: "AI Discovery & Use Case Analysis",
     shortTitle: "AI Discovery",
     description:
-      "Understand the AI application's objectives, agents, models, tools, data sources, workflows, and expected outcomes.",
+      "Analyze the agent's objectives, expected outputs, model architecture, knowledge sources, integrated tools, and target workflows to design relevant evaluation scenarios.",
     image: "/images/ai-development-services/core-capabilities/ai-strategy.webp",
     imageAlt: "AI Discovery & Use Case Analysis",
     bullets: [
@@ -170,24 +171,22 @@ export default function AgenticAITestingProcess() {
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-8 md:mb-12 text-center">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4 text-xs font-semibold">
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 ${typography.caption.default} text-[#FF6B00] uppercase mb-4`}>
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] animate-pulse" />
             OUR APPROACH
           </div>
 
           {/* Heading */}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-[1.2] mb-3 text-center max-w-3xl">
+          <h2 className={`${typography.heading.h2} text-slate-900 tracking-tight leading-[1.2] mb-3 text-center max-w-3xl`}>
             We Turn Agentic AI Testing Into a{" "}
             <span className="text-[#FF6B2C]">Continuous Quality Engineering Process</span>
           </h2>
 
           {/* Subheading */}
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto text-center">
+          <p className={`${typography.description.default} text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto text-center`}>
             Softree combines AI evaluation, agent testing, security validation, automation, and continuous monitoring to create a scalable approach to AI quality and reliability.
           </p>
         </div>
-
-       
 
         {/* Squeeze Carousel - 6 Stage Deep Dive */}
         <div className="w-full">

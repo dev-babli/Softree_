@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
+import { typography } from "@/lib/typography";
 
 import "./components/ai-testing.css";
 
@@ -163,17 +164,17 @@ export default function AgenticAITestingPage() {
       {/* Reverse Sticky Scroll Overall Header */}
       <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">
         <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block">
-          <span className="typo-caption text-[#FF6B2C] uppercase">
+          <span className={`${typography.caption.default} text-[#FF6B2C] uppercase`}>
             AGENTIC AI TESTING SERVICES
           </span>
         </div>
 
-        <h2 className="typo-heading-2 text-slate-900 mb-4">
+        <h2 className={`${typography.heading.h2} text-slate-900 mb-4`}>
           One AI Testing Team Across <br />
           <span className="text-[#FF6B2C]">Every Stage of Your Agentic AI Lifecycle</span>
         </h2>
 
-        <p className="typo-description text-slate-500 max-w-2xl">
+        <p className={`${typography.description.default} text-slate-500 max-w-2xl`}>
           Softree provides end-to-end agentic AI testing services that help teams evaluate AI behavior, validate autonomous workflows, secure AI interactions, improve model reliability, and continuously monitor AI quality from development through production.
         </p>
       </div>

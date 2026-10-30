@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Monitor, Smartphone, Network, Repeat, Zap, RefreshCcw, LucideIcon } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
+import { typography } from "@/lib/typography";
 
 interface FeatureItem {
   number: string;
@@ -51,21 +52,30 @@ const FEATURES: FeatureItem[] = [
   {
     number: "06",
     icon: RefreshCcw,
-    title: "Continuous Testing & CI/CD",
+    title: "CI/CD & DevOps Integration",
     description:
-      "Test automation integrated with CI/CD pipelines to enable continuous validation, faster feedback, and reliable software releases.",
+      "Integrate automated testing into continuous integration and continuous deployment pipelines for automated quality gates and faster feedback cycles.",
   },
 ];
 
 export default function AiTestingPositioning() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeItem, setActiveItem] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Auto-cycle through items
   useEffect(() => {
-    if (videoRef.current && !videoRef.current.paused && videoRef.current.readyState >= 3) {
-      setIsVideoPlaying(true);
-    }
-  }, []);
+    if (!isPlaying) return;
+
+    timerRef.current = setInterval(() => {
+      setActiveItem((prev) => (prev + 1) % FEATURES.length);
+    }, 4500);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPlaying]);
+
   return (
     <section className="relative w-full pt-2 lg:pt-3 pb-4 lg:pb-6 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
@@ -89,13 +99,13 @@ export default function AiTestingPositioning() {
 
             {/* WHAT WE TEST Eyebrow Pill */}
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/70 px-3.5 py-1 rounded-full border border-white/60 mb-3 inline-block">
-              <span className="typo-caption text-[#ea580c] uppercase font-semibold text-[11px] sm:text-xs">
+              <span className={`${typography.caption.default} text-[#ea580c] uppercase font-semibold text-[11px] sm:text-xs`}>
                 WHAT WE TEST
               </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight leading-snug mb-2.5 max-w-2xl">
+            <h2 className={`${typography.heading.h2} text-slate-900 tracking-tight leading-snug mb-2.5 max-w-2xl`}>
               From User Interfaces to APIs,{" "}
               <span className="text-[#ea580c]">
                 We Automate the Complete Testing Lifecycle
@@ -103,7 +113,7 @@ export default function AiTestingPositioning() {
             </h2>
 
             {/* Description Paragraph */}
-            <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal max-w-2xl mb-5">
+            <p className={`${typography.description.default} text-slate-600 leading-relaxed font-normal max-w-2xl mb-5`}>
               Softree provides end-to-end automation testing services across web, mobile, APIs, enterprise applications, and software workflows—helping teams improve test coverage, accelerate releases, and maintain consistent application quality.
             </p>
 
@@ -117,13 +127,13 @@ export default function AiTestingPositioning() {
                       <Icon className="w-4 h-4 text-[#ea580c]" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-[13.5px] sm:text-[14px] font-bold text-slate-900 tracking-tight mb-0.5 leading-snug">
+                      <h4 className={`${typography.heading.h4} font-bold text-slate-900 tracking-tight mb-0.5 leading-snug`}>
                         <span className="text-[#ea580c] font-mono mr-1">
                           {item.number} —
                         </span>
                         {item.title}
                       </h4>
-                      <p className="text-[11.5px] sm:text-[12px] text-slate-600 leading-snug font-normal">
+                      <p className={`${typography.body.sm} text-slate-600 leading-snug font-normal`}>
                         {item.description}
                       </p>
                     </div>
@@ -143,51 +153,18 @@ export default function AiTestingPositioning() {
 
           </div>
 
-          {/* Right Video Side */}
-          <div
-            itemScope
-            itemType="https://schema.org/VideoObject"
-            className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
-          >
-            <meta itemProp="name" content="Automation Testing Services & Quality Engineering Overview" />
-            <meta itemProp="description" content="Discover how Softree Technology delivers end-to-end automation testing and QA services for web, mobile, API, and enterprise applications with dedicated offshore engineering teams." />
-            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp" />
-            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
-            <meta itemProp="duration" content="PT30S" />
-            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/automation-testing.mp4" />
-            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/quality-engineering/automation-testing-services" />
-
-            <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
-              <meta itemProp="name" content="Softree Technology" />
-              <div itemProp="logo" itemScope itemType="https://schema.org/ImageObject">
-                <meta itemProp="url" content="https://www.softreetechnology.com/logo/logo.png" />
-              </div>
-            </div>
-
-            {/* Video element with complete indexing, poster, and accessibility attributes */}
+          {/* Right Video / Visual Presentation (50% width on desktop) */}
+          <div className="relative flex-1 lg:w-1/2 bg-slate-900 overflow-hidden flex items-center justify-center min-h-[300px] sm:min-h-[380px] lg:min-h-[440px]">
+            {/* Background subtle video stream */}
             <video
-              ref={videoRef}
-              itemProp="video"
-              src="/ai-development-service-video/automation-testing.mp4"
-
-              aria-label="Automation Testing Services & Quality Engineering Overview"
               autoPlay
               loop
               muted
               playsInline
-              preload="auto"
-              onPlaying={() => setIsVideoPlaying(true)}
-              onError={() => setIsVideoPlaying(false)}
-              controls={false}
-              className={`w-full h-full object-cover absolute inset-0 select-none pointer-events-none transition-opacity duration-700 ${
-                isVideoPlaying ? "opacity-100" : "opacity-0"
-              }`}
+              className="w-full h-full object-cover"
             >
-              <source src="/ai-development-service-video/automation-testing.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
+              <source src="/ai-development-service-video/ai-2.mp4" type="video/mp4" />
             </video>
-            {/* Subtle shade vignette overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>
 
         </motion.div>

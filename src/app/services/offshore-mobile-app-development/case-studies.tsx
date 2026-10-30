@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
 import { FileText, AlertTriangle, Lightbulb, TrendingUp } from "lucide-react";
+import { typography } from "@/lib/typography";
 
 import 'swiper/css';
 const caseStudies = [
@@ -53,18 +54,18 @@ export default function MobileAppCaseStudies() {
       <div className="w-[86%] max-w-7xl mx-auto space-y-8">
         <div className="text-center">
           {/* Badge */}
-          <span className="inline-block mb-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 border border-orange-100 text-xs font-semibold tracking-[0.18em] uppercase">
+          <span className={`inline-block mb-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 border border-orange-100 ${typography.caption.default} font-semibold uppercase`}>
             Mobile App Case Studies
           </span>
 
           {/* Title */}
-          <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
+          <h2 className={`${typography.heading.h2} text-gray-900`}>
             Mobile Apps in Action:
             <span className="text-orange-600"> Real-World Success Stories</span>
           </h2>
 
           {/* Description */}
-          <p className="mt-3 max-w-3xl mx-auto text-base text-gray-600 leading-relaxed">
+          <p className={`mt-3 max-w-3xl mx-auto ${typography.description.default} text-gray-600 leading-relaxed`}>
             Discover how Softree builds high-performance mobile applications
             that streamline operations, enhance user experiences, and deliver
             measurable business growth across healthcare, eCommerce, and
@@ -116,11 +117,11 @@ export default function MobileAppCaseStudies() {
                     >
                       {/* Header */}
                       <div className="text-center mb-6">
-                        <h3 className="text-2xl font-semibold text-white">
+                        <h3 className={`${typography.heading.h3} font-semibold text-white`}>
                           {item.title} — Case Study
                         </h3>
   
-                        <p className="mt-2 text-sm text-slate-300 flex items-center justify-center gap-2">
+                        <p className={`mt-2 ${typography.body.sm} text-slate-300 flex items-center justify-center gap-2`}>
                           📍 Client Country
                           <span className="font-medium text-white">
                             United States 🇺🇸
@@ -147,11 +148,11 @@ export default function MobileAppCaseStudies() {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2">
                               <FileText className="w-4 h-4 text-orange-400" />
-                              <h4 className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
+                              <h4 className={`${typography.caption.default} font-semibold text-orange-400 uppercase`}>
                                 Summary
                               </h4>
                             </div>
-                            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            <p className={`${typography.body.sm} text-slate-300 leading-relaxed`}>
                               {item.summary}
                             </p>
                           </div>
@@ -160,11 +161,11 @@ export default function MobileAppCaseStudies() {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2">
                               <AlertTriangle className="w-4 h-4 text-rose-400" />
-                              <h4 className="text-xs font-semibold tracking-wide text-rose-400 uppercase">
+                              <h4 className={`${typography.caption.default} font-semibold text-rose-400 uppercase`}>
                                 Problem
                               </h4>
                             </div>
-                            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            <p className={`${typography.body.sm} text-slate-300 leading-relaxed`}>
                               {item.challenge}
                             </p>
                           </div>
@@ -173,11 +174,11 @@ export default function MobileAppCaseStudies() {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2">
                               <Lightbulb className="w-4 h-4 text-cyan-400" />
-                              <h4 className="text-xs font-semibold tracking-wide text-cyan-400 uppercase">
+                              <h4 className={`${typography.caption.default} font-semibold text-cyan-400 uppercase`}>
                                 Solution
                               </h4>
                             </div>
-                            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            <p className={`${typography.body.sm} text-slate-300 leading-relaxed`}>
                               {item.solution}
                             </p>
                           </div>
@@ -197,10 +198,10 @@ export default function MobileAppCaseStudies() {
         "
                           >
                             <div className="relative z-10 space-y-0.5 flex-1 min-w-0 pr-3">
-                              <p className="text-xs uppercase tracking-wider text-white/70 truncate">
+                              <p className={`${typography.caption.meta} uppercase tracking-wider text-white/70 truncate`}>
                                 Impact
                               </p>
-                              <p className="text-sm font-semibold leading-snug break-words">
+                              <p className={`${typography.body.sm} font-semibold leading-snug break-words`}>
                                 {item.impact}
                               </p>
                             </div>
@@ -209,18 +210,18 @@ export default function MobileAppCaseStudies() {
                               href={item.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="
+                              className={`
       relative z-10
       inline-flex items-center justify-center
       px-4 py-2
-      text-xs font-semibold uppercase tracking-wide
+      ${typography.button.sm} uppercase
       rounded-full
       bg-white text-orange-700
       hover:scale-105
       transition-all duration-300
       whitespace-nowrap
       flex-shrink-0
-    "
+    `}
                             >
                               View Case Study →
                             </a>

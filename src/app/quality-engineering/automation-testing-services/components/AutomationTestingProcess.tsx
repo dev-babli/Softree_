@@ -10,6 +10,7 @@ import {
   BarChart3,
   TrendingUp,
 } from "lucide-react";
+import { typography } from "@/lib/typography";
 
 const PROCESS_STEPS = [
   {
@@ -52,58 +53,58 @@ const PROCESS_STEPS = [
     name: "Continuous Improvement",
     icon: TrendingUp,
     description:
-      "Use test results to strengthen application quality and future releases.",
+      "Maintain, optimize, and expand automated testing across releases.",
   },
 ];
 
 const automationSlides: SqueezeSlide[] = [
   {
-    id: "discover",
-    category: "STAGE 01 — AUTOMATION DISCOVERY",
-    title: "Automation Discovery",
-    shortTitle: "Automation Discovery",
+    id: "discovery",
+    category: "STAGE 01 — SYSTEM DISCOVERY",
+    title: "Application & Quality Discovery",
+    shortTitle: "System Discovery",
     description:
-      "Analyze your application, existing test processes, technology stack, and automation opportunities to define a practical test automation strategy.",
+      "Analyze your application architecture, user journeys, workflows, integrations, existing testing assets, and quality goals to establish a clear automation baseline.",
     image: "/images/ai-development-services/core-capabilities/ai-strategy.webp",
-    imageAlt: "Automation Discovery",
+    imageAlt: "System Discovery & QA Architecture Assessment",
     bullets: [
-      "Application & workflow analysis",
+      "Application architecture analysis",
+      "User journey & workflow mapping",
       "Automation feasibility assessment",
-      "Existing test suite evaluation",
     ],
     action: "Contact Us",
     href: "/contact",
   },
   {
-    id: "plan",
-    category: "STAGE 02 — TEST STRATEGY & PLANNING",
-    title: "Test Strategy & Planning",
-    shortTitle: "Test Strategy & Planning",
+    id: "strategy",
+    category: "STAGE 02 — QA & TEST PLANNING",
+    title: "Automation Strategy & Planning",
+    shortTitle: "QA & Test Planning",
     description:
-      "Define automation scope, testing priorities, frameworks, environments, data requirements, and execution strategies aligned with your software delivery goals.",
+      "Define your automation roadmap, selecting the right tools, frameworks, environments, test data management, and test coverage priorities for your team.",
     image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.webp",
-    imageAlt: "Test Strategy & Planning",
+    imageAlt: "Automation Strategy & Test Planning",
     bullets: [
-      "Test automation roadmap",
       "Framework & tool selection",
-      "Test environment planning",
+      "Test scope & coverage planning",
+      "Test data & environment setup",
     ],
     action: "Contact Us",
     href: "/contact",
   },
   {
-    id: "automate",
-    category: "STAGE 03 — AUTOMATION FRAMEWORK",
-    title: "Automation Framework Development",
-    shortTitle: "Automation Framework",
+    id: "design",
+    category: "STAGE 03 — TEST AUTOMATION",
+    title: "Framework Setup & Test Automation",
+    shortTitle: "Test Automation",
     description:
-      "Design and build scalable, reusable automation frameworks for web, mobile, API, regression, and end-to-end testing.",
+      "Design, build, and maintain scalable automated test suites across web, mobile, APIs, and microservices using modern testing frameworks.",
     image: "/images/ai-development-services/core-capabilities/intelligent-automation.webp",
-    imageAlt: "Automation Framework Development",
+    imageAlt: "Framework Setup & Test Automation",
     bullets: [
-      "Web & UI automation",
-      "Mobile test automation",
-      "API automation",
+      "Custom test framework design",
+      "UI & API script development",
+      "Cross-browser & mobile coverage",
     ],
     action: "Contact Us",
     href: "/contact",
@@ -170,24 +171,22 @@ export default function AutomationTestingProcess() {
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-8 md:mb-12 text-center">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4 text-xs font-semibold">
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 ${typography.caption.default} text-[#FF6B00] uppercase mb-4`}>
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] animate-pulse" />
             OUR APPROACH
           </div>
 
           {/* Heading */}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-[1.2] mb-3 text-center max-w-3xl">
+          <h2 className={`${typography.heading.h2} text-slate-900 tracking-tight leading-[1.2] mb-3 text-center max-w-3xl`}>
             We Turn Test Automation Into a{" "}
             <span className="text-[#FF6B2C]">Continuous Quality Engineering Process</span>
           </h2>
 
           {/* Subheading */}
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto text-center">
+          <p className={`${typography.description.default} text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto text-center`}>
             Softree combines test automation, quality engineering, CI/CD integration, regression testing, and continuous improvement to create a scalable approach to software quality.
           </p>
         </div>
-
-       
 
         {/* Squeeze Carousel - 6 Stage Deep Dive */}
         <div className="w-full">

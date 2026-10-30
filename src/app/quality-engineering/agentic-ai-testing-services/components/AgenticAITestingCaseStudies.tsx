@@ -3,6 +3,7 @@
 import React from "react";
 import { Gallery4, Gallery4Props } from "@/components/blocks/gallery4";
 import { FlowButton } from "@/components/ui/flow-button";
+import { typography } from "@/lib/typography";
 
 export type CaseStudy = {
   id: string;
@@ -82,11 +83,11 @@ export const caseStudies: CaseStudy[] = [
 const caseStudyData: Gallery4Props = {
   title: (
     <div className="flex flex-col items-start">
-      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4 w-fit">
+      <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 ${typography.caption.default} text-[#FF6B00] uppercase mb-4 w-fit`}>
         <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
         AGENTIC AI TESTING CASE STUDIES
       </div>
-      <span className="typo-heading-2 text-slate-900 leading-tight text-left">
+      <span className={`${typography.heading.h2} text-slate-900 leading-tight text-left`}>
         Agentic AI Testing in Action <span className="text-orange-600">Across Modern AI Applications</span>
       </span>
     </div>
@@ -111,7 +112,7 @@ const caseStudyData: Gallery4Props = {
             ))}
           </div>
         )}
-        <p className={`text-white/90 typo-body-sm leading-relaxed ${study.metrics && study.metrics.length > 0 ? "mb-3 border-b border-white/10 pb-3" : ""}`}>
+        <p className={`text-white/90 ${typography.body.sm} leading-relaxed ${study.metrics && study.metrics.length > 0 ? "mb-3 border-b border-white/10 pb-3" : ""}`}>
           {study.description}
         </p>
         {study.metrics && study.metrics.length > 0 && (
@@ -121,7 +122,7 @@ const caseStudyData: Gallery4Props = {
                 <span className="text-[#FF6B2C] font-mono font-bold tracking-tight shrink-0 min-w-[36px]">
                   {result.value}
                 </span>
-                <span className="text-white/80 typo-caption-meta uppercase tracking-wider">
+                <span className={`text-white/80 ${typography.caption.meta} uppercase tracking-wider`}>
                   {result.label}
                 </span>
               </div>
