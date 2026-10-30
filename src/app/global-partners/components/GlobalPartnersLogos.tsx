@@ -141,7 +141,7 @@ export default function GlobalPartnersLogos({
     <section
       ref={ref}
       id="coengineered-logos"
-      className="relative w-full overflow-hidden pt-10 md:pt-14 pb-4 md:pb-6 bg-white text-neutral-950 border-y border-neutral-200/60"
+      className="relative w-full overflow-hidden py-12 md:py-16 lg:py-20 bg-white text-neutral-950 border-y border-neutral-200/60"
     >
       <style>{logoCardStyles}</style>
 
@@ -156,7 +156,7 @@ export default function GlobalPartnersLogos({
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
 
         {/* Centered headline section with section header */}
         <motion.div

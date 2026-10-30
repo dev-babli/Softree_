@@ -272,7 +272,7 @@ export default function GlobalPartnersModels() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <section className="bg-white pt-8 md:pt-12 pb-12 md:pb-20 text-slate-900 relative overflow-hidden">
+    <section className="bg-white py-12 md:py-16 lg:py-20 text-slate-900 relative overflow-hidden">
       {/* Subtle ambient backdrop lighting */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-500/[0.03] rounded-full blur-3xl pointer-events-none" />

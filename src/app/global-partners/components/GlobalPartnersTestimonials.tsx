@@ -98,10 +98,10 @@ export function GlobalPartnersTestimonials() {
   return (
     <section
       data-section="testimonials"
-      className="bg-white py-10 md:py-14 overflow-hidden w-full border-t border-[#0a0a1a]/[0.05]"
+      className="bg-white py-12 md:py-16 lg:py-20 overflow-hidden w-full border-t border-[#0a0a1a]/[0.05]"
       aria-labelledby="testimonials-heading"
     >
-      <div className="max-w-[1400px] px-4 sm:px-6 lg:px-12 w-full mx-auto">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 w-full">
 
         {/* Custom Designed Section Header (No commas, black & orange scheme) */}
         <div className="text-center mb-10 md:mb-12 flex flex-col items-center max-w-6xl mx-auto px-4">

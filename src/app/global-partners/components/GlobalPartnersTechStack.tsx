@@ -178,7 +178,7 @@ export function GlobalPartnersTechStack() {
   );
 
   return (
-    <section className="relative scroll-mt-24 overflow-hidden bg-white py-12 text-slate-900 md:py-20">
+    <section className="relative scroll-mt-24 overflow-hidden bg-white py-12 md:py-16 lg:py-20 text-slate-900">
       {/* Backdrop: soft glow + dotted grid fading out toward the edges */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-1/3 h-[480px] w-[860px] -translate-x-1/2 rounded-full bg-orange-500/[0.06] blur-[140px]" />
