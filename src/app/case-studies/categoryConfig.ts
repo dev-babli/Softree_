@@ -58,7 +58,10 @@ export type CaseStudyCategoryConfig = {
   faqs: CategoryFAQ[]
 }
 
-export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyCategoryConfig> = {
+export const CASE_STUDY_CATEGORY_CONFIG: Record<
+  CaseStudyCategoryKey,
+  CaseStudyCategoryConfig
+> = {
   ai: {
     key: "ai",
     title: "AI",
@@ -70,7 +73,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     heroStat: "412%",
     heroStatLabel: "ROI achieved for Enterprise AI Decision Platform",
     projectCount: 25,
-    sectionTitle: "AI & machine learning Projects",
+    sectionTitle: "Applied Intelligence in Action",
     sectionSubtitle:
       "Generative AI, predictive analytics, and intelligent automation delivering transformative results.",
     proofChallenge: "Ready to turn your data into a competitive advantage?",
@@ -107,6 +110,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
       },
     ],
   },
+
   web: {
     key: "web",
     title: "Web",
@@ -118,7 +122,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     heroStat: "+210%",
     heroStatLabel: "online bookings for Auto Repair Pro",
     projectCount: 40,
-    sectionTitle: "Web development Projects",
+    sectionTitle: "Digital Engineering in Action",
     sectionSubtitle:
       "Enterprise platforms, SaaS apps, and marketing websites delivering real business outcomes.",
     proofChallenge: "Need a web platform that actually moves the numbers?",
@@ -155,6 +159,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
       },
     ],
   },
+
   mobile: {
     key: "mobile",
     title: "Mobile",
@@ -166,7 +171,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     heroStat: "4.8★",
     heroStatLabel: "average app store rating across recent launches",
     projectCount: 30,
-    sectionTitle: "Mobile app Projects",
+    sectionTitle: "Connected Experiences in Action",
     sectionSubtitle:
       "Consumer and enterprise apps with secure backends, payments, and real-time experiences.",
     proofChallenge: "Launching a mobile product that users actually keep?",
@@ -196,6 +201,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
       },
     ],
   },
+
   "power-platform": {
     key: "power-platform",
     title: "Power Platform",
@@ -207,7 +213,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     heroStat: "60%",
     heroStatLabel: "reduction in manual data entry for enterprise clients",
     projectCount: 35,
-    sectionTitle: "Power Platform Projects",
+    sectionTitle: "Intelligent Process Innovation in Action",
     sectionSubtitle:
       "Canvas apps, model-driven apps, and automation flows delivering enterprise ROI.",
     proofChallenge: "Still running critical processes on spreadsheets?",
@@ -237,6 +243,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
       },
     ],
   },
+
   sharepoint: {
     key: "sharepoint",
     title: "SharePoint",
@@ -248,7 +255,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     heroStat: "50%",
     heroStatLabel: "faster document retrieval after SPFx modernization",
     projectCount: 28,
-    sectionTitle: "SharePoint & M365 Projects",
+    sectionTitle: "Digital Workplace Evolution in Action",
     sectionSubtitle:
       "SPFx extensions, migration programs, and collaboration portals with measurable adoption gains.",
     proofChallenge: "SharePoint feeling slow, fragmented, or hard to adopt?",
@@ -278,6 +285,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
       },
     ],
   },
+
   "data-analytics": {
     key: "data-analytics",
     title: "Data & Analytics",
@@ -289,7 +297,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     heroStat: "3x",
     heroStatLabel: "faster reporting cycles after Fabric implementation",
     projectCount: 20,
-    sectionTitle: "Data & analytics Projects",
+    sectionTitle: "Data-Driven Intelligence in Action",
     sectionSubtitle:
       "Warehousing, BI dashboards, and ML pipelines with clear executive visibility.",
     proofChallenge: "Leaders waiting weeks for numbers that should be real-time?",
@@ -319,7 +327,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
       },
     ],
   },
-}
+};
 
 export function getCaseStudyCategoryConfig(
   category: string,
