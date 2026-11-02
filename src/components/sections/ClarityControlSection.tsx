@@ -124,21 +124,24 @@ const cardGroupContainer: Variants = {
 /* ── Premium CountUp with enhanced motion and styling ─────────────── */
 function CountUp({
     to,
+    from,
     decimals = 0,
     prefix = "",
     suffix = "",
-    duration = 1.6,
+    duration = 0.8,
     className,
 }: {
     to: number;
+    from?: number;
     decimals?: number;
     prefix?: string;
     suffix?: string;
     duration?: number;
     className?: string;
 }) {
+    const startVal = from !== undefined ? from : (to > 50 ? Math.max(0, Math.floor(to - 10)) : 0);
     const ref = useRef<HTMLSpanElement>(null);
-    const inView = useInView(ref, { once: true, margin: "-15%" });
+    const inView = useInView(ref, { once: true, margin: "100px 0px" });
     useEffect(() => {
         if (!inView || !ref.current) return;
         const reduced = prefersReducedMotion();
@@ -146,7 +149,7 @@ function CountUp({
             ref.current.textContent = `${prefix}${to.toFixed(decimals)}${suffix}`;
             return undefined;
         }
-        const obj = { v: 0 };
+        const obj = { v: startVal };
         const tween = gsap.to(obj, {
             v: to,
             duration,
@@ -159,10 +162,10 @@ function CountUp({
         return () => {
             tween.kill();
         };
-    }, [inView, to, decimals, prefix, suffix, duration]);
+    }, [inView, to, startVal, decimals, prefix, suffix, duration]);
     return (
-        <span ref={ref} className={`${className} tabular-nums`}>
-            {`${prefix}${(0).toFixed(decimals)}${suffix}`}
+        <span ref={ref} className={`${className || ""} tabular-nums`}>
+            {`${prefix}${startVal.toFixed(decimals)}${suffix}`}
         </span>
     );
 }
@@ -845,7 +848,7 @@ function Card3Visual() {
                     className="block text-[28px] sm:text-[38px] font-semibold leading-[0.92] tracking-[-0.04em] text-white tabular-nums"
                     style={{ textShadow: "0 1px 2px rgba(0,0,0,0.32)" }}
                 >
-                    <CountUp to={99.9} decimals={1} suffix="%" duration={1.8} />
+                    <CountUp to={99.9} from={92.0} decimals={1} suffix="%" duration={0.8} />
                 </span>
                 <span className="mt-1 block text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.14em] text-white/55">
                     SUCCESSFUL DELIVERY
@@ -889,9 +892,9 @@ function Card1Visual() {
             <div className="mt-2">
                 <KpiStrip
                     items={[
-                        { value: <CountUp to={128} duration={1.6} />, label: "Projects" },
-                        { value: <CountUp to={97} suffix="%" duration={1.6} />, label: "Success rate" },
-                        { value: <CountUp to={18} duration={1.6} />, label: "Teams" },
+                        { value: <CountUp to={128} from={90} duration={0.8} />, label: "Projects" },
+                        { value: <CountUp to={97} from={85} suffix="%" duration={0.8} />, label: "Success rate" },
+                        { value: <CountUp to={18} from={8} duration={0.8} />, label: "Teams" },
                     ]}
                 />
             </div>
@@ -921,7 +924,7 @@ function Card2Visual() {
                         className="text-[24px] sm:text-[32px] font-semibold leading-none tracking-[-0.04em] text-white tabular-nums"
                         style={{ textShadow: "0 1px 2px rgba(0,0,0,0.30)" }}
                     >
-                        <CountUp to={97.8} decimals={1} suffix="%" duration={1.8} />
+                        <CountUp to={97.8} from={88.0} decimals={1} suffix="%" duration={0.8} />
                     </span>
                     <span className="text-[8.5px] sm:text-[10px] text-white/70">Workflow Accuracy</span>
                 </div>

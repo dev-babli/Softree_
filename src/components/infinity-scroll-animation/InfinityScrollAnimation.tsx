@@ -94,10 +94,10 @@ const PARTNER_REASONS = [
 ] as const;
 
 const IDEAL_AUDIENCES = [
-  "Software and web development agencies",
-  "Microsoft and cloud consultancies",
-  "ISVs and SaaS product companies",
-  "Businesses looking to extend engineering capacity",
+  "Organizations developing AI and Agentic AI solutions",
+  "Businesses investing in Data Engineering, AI and Microsoft Fabric",
+  "Companies implementing Power Platform and business automation",
+  "Technology firms modernizing applications, cloud and engineering platforms",
 ] as const;
 
 const CAPABILITY_PILLARS = [
@@ -414,7 +414,7 @@ export default function InfinityScrollAnimation() {
                     </div>
 
                     <h3 className="mt-2 text-[15px] sm:text-[16px] xl:text-[17px] font-bold leading-tight text-slate-900">
-                      Technology partners and digital firms
+                      Technology partners and businesses building next-generation solutions
                     </h3>
 
                     <div className="mt-2.5 sm:mt-3 flex flex-col gap-2 sm:gap-2.5">

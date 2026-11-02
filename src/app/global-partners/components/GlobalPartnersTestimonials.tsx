@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
+import { typography } from "@/lib/typography";
 
 // Real client data from TestimonialsSplitSlider
 const testimonials = [
@@ -107,14 +108,14 @@ export function GlobalPartnersTestimonials() {
         <div className="text-center mb-10 md:mb-12 flex flex-col items-center max-w-6xl mx-auto px-4">
 
           {/* Pill Badge */}
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.20em] text-[#FF5812] mb-5 shadow-sm">
+          <span className={`inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-2 ${typography.caption.default} text-[#FF5812] mb-5 shadow-sm`}>
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
             PARTNER VOICES
           </span>
 
           {/* Designed Main Title (One size, black & orange scheme, comma-free) */}
-          <h2 id="testimonials-heading" className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
-            <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
+          <h2 id="testimonials-heading" className={`${typography.heading.h2} text-[#0a0a1a] mb-4 flex flex-col items-center`}>
+            <span className="max-w-none block w-full">
               <span className="text-[#0a0a1a]">What Our</span>{" "}
               <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">
                 Partners Say
@@ -123,7 +124,7 @@ export function GlobalPartnersTestimonials() {
           </h2>
 
           {/* Subheading Description (Comma-free) */}
-          <p className="text-zinc-600/90 font-medium text-base md:text-lg leading-relaxed max-w-2xl mt-1">
+          <p className={`${typography.description.default} text-zinc-600/90 font-medium max-w-2xl mt-1`}>
             Our strongest relationships are built through consistent delivery, technical expertise and trust.
           </p>
         </div>
@@ -164,8 +165,8 @@ export function GlobalPartnersTestimonials() {
                       exit={{ opacity: 0, x: 10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <h4 className="text-white font-bold text-base mb-1">{currentSlide.name}</h4>
-                      <p className="text-white/60 text-xs leading-normal">
+                      <h4 className={`${typography.heading.h4} text-white font-bold mb-1`}>{currentSlide.name}</h4>
+                      <p className={`${typography.body.sm} text-white/60 leading-normal`}>
                         <span className="font-semibold text-white/80">{currentSlide.role}</span>
                         <br />
                         <span className="text-[#FF5812] font-semibold">{currentSlide.company}</span>
@@ -202,7 +203,7 @@ export function GlobalPartnersTestimonials() {
                             className="max-w-[130px] sm:max-w-[150px] max-h-[52px] sm:max-h-[58px] w-auto h-auto object-contain"
                           />
                         ) : (
-                          <span className="border border-[#FF5812]/30 bg-[#FF5812]/05 px-3 py-1.5 rounded-full text-[#FF5812] font-black tracking-widest uppercase text-xs text-center truncate">
+                          <span className={`border border-[#FF5812]/30 bg-[#FF5812]/05 px-3 py-1.5 rounded-full text-[#FF5812] font-black uppercase text-center truncate ${typography.caption.meta}`}>
                             {currentSlide.logoText}
                           </span>
                         )}
@@ -220,13 +221,12 @@ export function GlobalPartnersTestimonials() {
                       </div>
 
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[10px] font-mono tracking-widest text-[#FF5812] font-bold uppercase">
+                        <span className={`${typography.caption.meta} font-mono text-[#FF5812] font-bold uppercase`}>
                           REGION
                         </span>
-                        <span className="text-sm sm:text-base font-bold text-white tracking-tight truncate drop-shadow-sm">
+                        <span className={`${typography.body.default} font-bold text-white tracking-tight truncate drop-shadow-sm`}>
                           {currentSlide.country}
                         </span>
-
                       </div>
                     </div>
                   </motion.div>
@@ -258,7 +258,7 @@ export function GlobalPartnersTestimonials() {
                     transition={{ duration: 0.35 }}
                   >
                     {/* Modern advanced quote message styled with an elegant, responsive serif italic font */}
-                    <p className="text-xl md:text-2xl text-zinc-100 font-serif italic leading-relaxed tracking-wide max-w-[95%]">
+                    <p className={`${typography.heading.h3} text-zinc-100 font-serif italic leading-relaxed tracking-wide max-w-[95%]`}>
                       {currentSlide.text}
                     </p>
                   </motion.div>

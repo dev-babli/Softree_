@@ -121,7 +121,7 @@ export function GlobalPartnersAboutUs() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
   return (
-    <section ref={containerRef} id="exact-about-us" className="w-full overflow-hidden bg-white py-12 md:py-16 lg:py-20">
+    <section ref={containerRef} id="exact-about-us" className="w-full overflow-x-clip bg-white py-12 md:py-16 lg:py-20 pb-16 md:pb-20 lg:pb-24">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Top Section - Award Count & Content */}
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-stretch lg:grid-cols-2">
@@ -144,7 +144,7 @@ export function GlobalPartnersAboutUs() {
             </motion.div>
 
             {/* Award Count with Globe Background */}
-            <div className="relative isolate flex-1 flex flex-col justify-center py-4">
+            <div className="relative isolate flex-1 flex flex-col justify-center py-4 min-h-[340px] sm:min-h-[380px] lg:min-h-[420px]">
               {/* Orbital Lines and Globe */}
               <div className="pointer-events-none absolute -inset-10 -z-10 flex items-center justify-center opacity-60">
                 {/* Thin circular/orbital lines */}
@@ -156,7 +156,12 @@ export function GlobalPartnersAboutUs() {
 
                 {/* We apply a mask/fade to make globe blend in better */}
                 <div className="absolute inset-0 flex items-center justify-center scale-[0.95] opacity-80">
-                  <Globe config={ORANGE_GLOBE_CONFIG} />
+                  <div className="relative aspect-square w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] flex items-center justify-center">
+                    <Globe
+                      config={ORANGE_GLOBE_CONFIG}
+                      className="relative inset-auto aspect-square w-full h-full max-w-none"
+                    />
+                  </div>
                 </div>
               </div>
 

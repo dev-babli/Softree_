@@ -59,16 +59,18 @@ export default function GlobalPartnersPage() {
       <NavigationClient />
       <main className="flex-grow flex flex-col">
         <GlobalPartnersHero />
-        <TrustedBrandsMarquee surface="light" />
-        <GlobalPartnersLogos />
-        <GlobalPartnersWhoWeServe />
-        <GlobalPartnersWhatWeDeliver />
-        <GlobalPartnersTechStack />
+        {/* <TrustedBrandsMarquee surface="light" /> */}
         <GlobalPartnersIndustries />
-        <GlobalPartnersModels />
-        <GlobalPartnersWhy />
-        <GlobalPartnersTestimonials />
+        <GlobalPartnersLogos />
         <GlobalPartnersAboutUs />
+        {/* <GlobalPartnersWhoWeServe /> */}
+        {/* <GlobalPartnersWhatWeDeliver /> */}
+        {/* <GlobalPartnersTechStack /> */}
+
+        {/* <GlobalPartnersModels /> */}
+        <GlobalPartnersWhy />
+        {/* <GlobalPartnersTestimonials /> */}
+
         <LightContactSection />
       </main>
       <Footer />
