@@ -530,6 +530,42 @@ export function TransferredSoftreeHero() {
                   margin-top: 0.5rem;
                 }
               }
+
+              /* Pillar card content layout & typography - auto-adjusts smoothly to all screen & viewport sizes */
+              .pillar-card-content {
+                padding: clamp(0.75rem, 1.25vw, 1.5rem);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+              }
+
+              @media (min-width: 1024px) and (max-height: 800px) {
+                .pillar-card-content {
+                  padding: clamp(0.75rem, 1vw, 1.25rem) clamp(0.85rem, 1.1vw, 1.35rem);
+                }
+              }
+
+              .pillar-card-eyebrow {
+                font-size: clamp(10px, 0.75vw, 11px);
+                letter-spacing: 0.08em;
+              }
+
+              .pillar-card-heading {
+                font-size: clamp(1rem, 1.15vw, 1.25rem);
+                line-height: 1.22;
+                margin-top: clamp(0.2rem, 0.35vw, 0.35rem);
+              }
+
+              .pillar-card-desc {
+                font-size: clamp(0.75rem, 0.8vw, 0.8125rem);
+                line-height: 1.45;
+                margin-top: clamp(0.25rem, 0.4vw, 0.4rem);
+              }
+
+              .pillar-card-cta {
+                font-size: clamp(0.75rem, 0.8vw, 0.8125rem);
+                margin-top: clamp(0.5rem, 0.8vw, 0.85rem);
+              }
             `,
               }}
             />
@@ -595,19 +631,19 @@ export function TransferredSoftreeHero() {
 
             {/* Card UI — Positioned in the lower 42% area matching Center and Right Cards */}
             <div className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none">
-              <div className="p-5 sm:p-6 flex flex-col items-start text-left">
-                <p className="typo-caption tracking-wider uppercase font-semibold text-xs text-[#FF5812]">
+              <div className="pillar-card-content items-start text-left">
+                <p className="pillar-card-eyebrow tracking-wider uppercase font-semibold text-[#FF5812]">
                   MICROSOFT & DATA
                 </p>
-                <p className="typo-heading-4 mt-1 text-white font-bold leading-snug">
+                <p className="pillar-card-heading text-white font-bold leading-snug">
                   Cloud, data and enterprise solutions
                 </p>
-                <p className="text-white/70 text-xs sm:text-[13px] leading-relaxed mt-1.5 line-clamp-2">
+                <p className="pillar-card-desc text-white/70">
                   Unlock the power of Microsoft technologies to modernize and grow your business.
                 </p>
                 <Link
                   href="/services/offshore-power-platform-development"
-                  className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold text-xs sm:text-sm transition-colors duration-150 pointer-events-auto"
+                  className="pillar-card-cta inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold transition-colors duration-150 pointer-events-auto"
                 >
                   Explore Microsoft solutions <span className="text-[11px]">→</span>
                 </Link>
@@ -648,19 +684,19 @@ export function TransferredSoftreeHero() {
               className="card-ui absolute inset-x-0 bottom-0 z-[5] opacity-100 lg:opacity-0 pointer-events-none"
               style={{ willChange: "opacity" }}
             >
-              <div className="p-5 sm:p-6 flex flex-col items-start text-left">
-                <p className="typo-caption tracking-wider uppercase font-semibold text-xs text-[#FF5812]">
+              <div className="pillar-card-content items-start text-left">
+                <p className="pillar-card-eyebrow tracking-wider uppercase font-semibold text-[#FF5812]">
                   AI & AUTOMATION
                 </p>
-                <p className="typo-heading-4 mt-1 text-white font-bold leading-snug">
+                <p className="pillar-card-heading text-white font-bold leading-snug">
                   AI systems that streamline operations
                 </p>
-                <p className="text-white/70 text-xs sm:text-[13px] leading-relaxed mt-1.5 line-clamp-2">
+                <p className="pillar-card-desc text-white/70">
                   Design and deploy AI agents, automate workflows and turn your data into action.
                 </p>
                 <Link
                   href="/services/ai-development-services"
-                  className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold text-xs sm:text-sm transition-colors duration-150 pointer-events-auto"
+                  className="pillar-card-cta inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold transition-colors duration-150 pointer-events-auto"
                 >
                   Explore AI solutions <span className="text-[11px]">→</span>
                 </Link>
@@ -692,19 +728,19 @@ export function TransferredSoftreeHero() {
 
             {/* Card UI — Positioned in the lower 42% area matching Center Card */}
             <div className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none">
-              <div className="p-5 sm:p-6 flex flex-col items-start text-left">
-                <p className="typo-caption tracking-wider uppercase font-semibold text-xs text-[#FF5812]">
+              <div className="pillar-card-content items-start text-left">
+                <p className="pillar-card-eyebrow tracking-wider uppercase font-semibold text-[#FF5812]">
                   DATA ANALYTICS
                 </p>
-                <p className="typo-heading-4 mt-1 text-white font-bold leading-snug">
+                <p className="pillar-card-heading text-white font-bold leading-snug">
                   Data analytics built for scale and performance
                 </p>
-                <p className="text-white/70 text-xs sm:text-[13px] leading-relaxed mt-1.5 line-clamp-2">
+                <p className="pillar-card-desc text-white/70">
                   Turn high-volume data into actionable business insights with scalable pipelines.
                 </p>
                 <Link
                   href="/services/microsoft-fabric-development-services"
-                  className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold text-xs sm:text-sm transition-colors duration-150 pointer-events-auto"
+                  className="pillar-card-cta inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold transition-colors duration-150 pointer-events-auto"
                 >
                   Explore data analytics <span className="text-[11px]">→</span>
                 </Link>

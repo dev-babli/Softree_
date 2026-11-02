@@ -603,8 +603,8 @@ export default function Navigation({
           scheduleCloseMenu();
         }}
       >
-        <div className="mx-auto max-w-[1440px] px-3 sm:px-5 pt-2.5 lg:px-6 xl:px-8">
-          <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-3 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-4 xl:px-6">
+        <div className="mx-auto max-w-[1440px] px-3 sm:px-5 pt-2.5 lg:px-4 xl:px-8">
+          <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-3 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-4 xl:px-7">
             <Link
               href="/"
               prefetch={true}
@@ -622,7 +622,7 @@ export default function Navigation({
             </Link>
 
             <div
-              className="hidden items-center gap-0 lg:flex shrink-0"
+              className="hidden items-center justify-center flex-1 min-w-0 gap-0 xl:gap-0.5 mx-2 lg:mx-4 xl:mx-8 lg:flex"
               onMouseLeave={() => setHoveredItem(null)}
             >
               {dynamicMenu.map((item) => {
@@ -639,7 +639,7 @@ export default function Navigation({
                         closeMenu();
                       }}
                       className={cn(
-                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-2 lg:px-2.5 xl:px-3 2xl:px-3.5 py-2 typo-nav-link text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-1.5 lg:px-2 xl:px-3.5 2xl:px-4 py-2 text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                         isSelected
                           ? "text-[#FF5812]"
                           : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
@@ -683,7 +683,7 @@ export default function Navigation({
                           if (canOpen) openMenu(item.label);
                         }}
                         className={cn(
-                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-2 lg:px-2.5 xl:px-3 2xl:px-3.5 py-2 typo-nav-link text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-1.5 lg:px-2 xl:px-3.5 2xl:px-4 py-2 text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                           isSelected
                             ? "text-[#FF5812]"
                             : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
@@ -726,7 +726,7 @@ export default function Navigation({
                           if (canOpen) openMenu(item.label);
                         }}
                         className={cn(
-                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-2 lg:px-2.5 xl:px-3 2xl:px-3.5 py-2 typo-nav-link text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-1.5 lg:px-2 xl:px-3.5 2xl:px-4 py-2 text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                           isSelected
                             ? "text-[#FF5812]"
                             : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
@@ -774,7 +774,7 @@ export default function Navigation({
               <Link
                 href="/contact"
                 prefetch={true}
-                className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-4 xl:px-5 py-2.5 typo-button-sm text-xs xl:text-sm text-white whitespace-nowrap shrink-0 shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
+                className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-4 lg:px-4.5 xl:px-5 py-2.5 typo-button-sm text-xs lg:text-[13.5px] xl:text-sm text-white whitespace-nowrap shrink-0 shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
               >
                 Schedule a Call
               </Link>
