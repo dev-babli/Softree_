@@ -6,6 +6,7 @@ import GlobalPartnersWhoWeServe from "./components/GlobalPartnersWhoWeServe";
 import GlobalPartnersWhatWeDeliver from "./components/GlobalPartnersWhatWeDeliver";
 import GlobalPartnersTechStack from "./components/GlobalPartnersTechStack";
 import GlobalPartnersIndustries from "./components/GlobalPartnersIndustries";
+import GlobalPartnersSqueezeCarouselDemo from "./components/globalpartnerSqueezeCarouselDemo";
 import GlobalPartnersModels from "./components/GlobalPartnersModels";
 import GlobalPartnersWhy from "./components/GlobalPartnersWhy";
 import { GlobalPartnersTestimonials } from "./components/GlobalPartnersTestimonials";
@@ -61,13 +62,14 @@ export default function GlobalPartnersPage() {
         <GlobalPartnersHero />
         {/* <TrustedBrandsMarquee surface="light" /> */}
         <GlobalPartnersIndustries />
+        <GlobalPartnersSqueezeCarouselDemo />
         <GlobalPartnersLogos />
         <GlobalPartnersAboutUs />
         {/* <GlobalPartnersWhoWeServe /> */}
         {/* <GlobalPartnersWhatWeDeliver /> */}
         {/* <GlobalPartnersTechStack /> */}
 
-        {/* <GlobalPartnersModels /> */}
+        <GlobalPartnersModels />
         <GlobalPartnersWhy />
         {/* <GlobalPartnersTestimonials /> */}
 
