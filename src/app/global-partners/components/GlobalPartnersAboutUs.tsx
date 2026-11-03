@@ -133,7 +133,7 @@ export function GlobalPartnersAboutUs() {
             transition={{ duration: 0.8, ease: EASE_OUT }}
           >
             {/* Badge */}
-            <motion.div
+            {/* <motion.div
               className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-[#FF5812]/20 bg-[#FFF5EE] px-3.5 py-1.5"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -141,7 +141,7 @@ export function GlobalPartnersAboutUs() {
             >
               <div className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
               <span className="typo-caption text-[#FF5812]">BECOME A GLOBAL PARTNER</span>
-            </motion.div>
+            </motion.div> */}
 
             {/* Award Count with Globe Background */}
             <div className="relative isolate flex-1 flex flex-col justify-center py-4 min-h-[340px] sm:min-h-[380px] lg:min-h-[420px]">
@@ -223,19 +223,25 @@ export function GlobalPartnersAboutUs() {
             transition={{ duration: 0.8, delay: 0.2, ease: EASE_OUT }}
           >
             <div>
+              <TextReveal delay={0.25}>
+                <p className="typo-caption font-bold uppercase tracking-[0.18em] text-[#FF5812] mb-3">
+                  LET&apos;S BUILD TOGETHER
+                </p>
+              </TextReveal>
+
               <TextReveal delay={0.3}>
                 <h2 className="typo-heading-3 mb-4 font-bold leading-tight tracking-tight text-[#0a0a1a]">
-                  Looking for a Technology Partner <span className="text-[#FF5812]">You Can Rely On?</span>
+                  Looking for a Technology Partner <span className="text-[#FF5812]">to Grow With?</span>
                 </h2>
               </TextReveal>
 
               <TextReveal delay={0.4}>
                 <div className="typo-body-lg mb-8 space-y-4 leading-relaxed text-[#0a0a1a]/85">
                   <p>
-                    Extend your AI, Microsoft, Data and Software Engineering capabilities with a flexible technology partner built for long-term collaboration.
+                    Expand your engineering capabilities, strengthen project delivery, and explore new business opportunities with Softree Technology.
                   </p>
                   <p>
-                    Whether you need additional engineering capacity, white-label delivery or a strategic technology partner, let's explore how we can work together.
+                    Let&apos;s discuss how our technology expertise and flexible partnership models can support your business objectives.
                   </p>
                 </div>
               </TextReveal>
@@ -248,7 +254,7 @@ export function GlobalPartnersAboutUs() {
               className="pt-2"
             >
               <FlowButton
-                href="/contact"
+                href="#partnership-enquiry"
                 text="Become a Global Partner"
                 variant="orange-filled"
               />

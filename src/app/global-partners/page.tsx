@@ -8,9 +8,12 @@ import GlobalPartnersTechStack from "./components/GlobalPartnersTechStack";
 import GlobalPartnersIndustries from "./components/GlobalPartnersIndustries";
 import GlobalPartnersSqueezeCarouselDemo from "./components/globalpartnerSqueezeCarouselDemo";
 import GlobalPartnersModels from "./components/GlobalPartnersModels";
+import GlobalPartnersProcess from "./components/GlobalPartnersProcess";
 import GlobalPartnersWhy from "./components/GlobalPartnersWhy";
+import GlobalPartnersFaq from "./components/GlobalPartnersFaq";
 import { GlobalPartnersTestimonials } from "./components/GlobalPartnersTestimonials";
 import { GlobalPartnersAboutUs } from "./components/GlobalPartnersAboutUs";
+import GlobalPartnersEnquiryForm from "./components/GlobalPartnersEnquiryForm";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
@@ -61,16 +64,20 @@ export default function GlobalPartnersPage() {
       <main className="flex-grow flex flex-col">
         <GlobalPartnersHero />
         {/* <TrustedBrandsMarquee surface="light" /> */}
-        <GlobalPartnersIndustries />
-        <GlobalPartnersSqueezeCarouselDemo />
         <GlobalPartnersLogos />
-        <GlobalPartnersAboutUs />
+        <GlobalPartnersSqueezeCarouselDemo />
+        <GlobalPartnersIndustries />
+        <GlobalPartnersModels />
+        <GlobalPartnersProcess />
+
+        {/* <GlobalPartnersAboutUs /> */}
         {/* <GlobalPartnersWhoWeServe /> */}
         {/* <GlobalPartnersWhatWeDeliver /> */}
         {/* <GlobalPartnersTechStack /> */}
 
-        <GlobalPartnersModels />
         <GlobalPartnersWhy />
+        <GlobalPartnersFaq />
+        {/* <GlobalPartnersEnquiryForm /> */}
         {/* <GlobalPartnersTestimonials /> */}
 
         <LightContactSection />
