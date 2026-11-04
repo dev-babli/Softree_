@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FlowButton } from "@/components/ui/flow-button";
-import { Users, Compass, Sliders, TrendingUp, RefreshCw } from "lucide-react";
+import { Search, Compass, Network, Rocket, ShieldCheck } from "lucide-react";
 
 /* =========================================================
  * 1. FAN CARD STACK COMPONENT (Responsive for mobile & desktop)
@@ -64,7 +64,7 @@ function FanCardStack<T extends FanCardStackItem>({
   initialIndex = 0,
   maxVisible = 7,
   cardWidth = 520,
-  cardHeight = 360,
+  cardHeight = 350,
   overlap = 0.48,
   spreadDeg = 48,
   perspectivePx = 1100,
@@ -104,7 +104,7 @@ function FanCardStack<T extends FanCardStackItem>({
         setIsMobile(true);
       } else if (width < 768) {
         setCw(420);
-        setCh(360);
+        setCh(355);
         setIsMobile(true);
       } else {
         setCw(cardWidth);
@@ -171,7 +171,7 @@ function FanCardStack<T extends FanCardStackItem>({
     >
       <div
         className="relative w-full focus:outline-none"
-        style={{ height: Math.max(360, ch + 60) }}
+        style={{ height: Math.max(350, ch + 60) }}
         tabIndex={0}
         onKeyDown={onKeyDown}
       >
@@ -272,7 +272,7 @@ function FanCardStack<T extends FanCardStackItem>({
             key={it.id}
             onClick={() => setActive(idx)}
             className={cn(
-              "h-2 rounded-full transition-all duration-300",
+              "h-2 rounded-full transition-all duration-300 cursor-pointer",
               idx === active
                 ? "w-6 bg-[#FF5812]"
                 : "w-2 bg-[#0a0a1a]/20 hover:bg-[#0a0a1a]/40"
@@ -312,23 +312,23 @@ function DefaultFanCard({
       </div>
 
       {/* dark gradient overlay for text readability */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/30" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20" />
 
       {/* content */}
-      <div className="relative z-10 flex h-full flex-col justify-start px-4 sm:px-6 pt-4 sm:pt-6 pb-4 sm:pb-6">
-        <div className="flex flex-col items-start gap-2 sm:gap-2.5 mb-2 sm:mb-2.5">
+      <div className="relative z-10 flex h-full flex-col justify-start px-5 sm:px-6 pt-5 sm:pt-6 pb-5 sm:pb-6">
+        <div className="flex flex-col items-start gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
           {item.icon && (
-            <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-black/50 backdrop-blur-md border border-white/10 shadow-lg transition-transform duration-300 group-hover:scale-110">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-black/40 backdrop-blur-md border border-white/10 shadow-lg transition-transform duration-300 group-hover:scale-110">
               {item.icon}
             </div>
           )}
-          <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#FF5812]/30 bg-[#FF5812]/15 px-2.5 sm:px-3 py-1 text-[11px] sm:text-[12px] font-bold tracking-wider text-[#FF5812] backdrop-blur-md transition-colors duration-300 group-hover:bg-[#FF5812]/25">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/30 bg-[#FF5812]/15 px-3 py-1 sm:py-1.5 text-[12px] sm:text-[13px] font-bold tracking-wide text-[#FF5812] backdrop-blur-md transition-colors duration-300 group-hover:bg-[#FF5812]/25">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]"></span>
             {item.title}
           </span>
         </div>
         {item.description ? (
-          <div className="flex flex-col gap-1 leading-relaxed text-white/95">
+          <div className="flex flex-col gap-1 text-[13px] sm:text-[14px] leading-snug text-white/90 whitespace-pre-wrap">
             {item.description}
           </div>
         ) : null}
@@ -338,7 +338,7 @@ function DefaultFanCard({
 }
 
 /* =========================================================
- * 2. PARTNERSHIP PROCESS CARDS
+ * 2. PARTNERSHIP PROCESS CARDS (Structured with Headline + Bullets)
  * ========================================================= */
 const CARDS = [
   {
@@ -346,15 +346,21 @@ const CARDS = [
     title: "01 — CONNECT",
     description: (
       <>
-        <strong className="text-white text-[14px] sm:text-[15px] font-semibold leading-snug">
+        <strong className="text-white text-[15px] sm:text-[16px]">
           Start a Conversation About Partnership Opportunities
         </strong>
-        <p className="mt-1 text-white/85 text-[12px] sm:text-[13px] leading-relaxed">
-          Share your organization&apos;s background, business objectives, technology requirements, and partnership interests with our team. We take the time to understand your goals, current challenges, and expectations to identify how a collaboration with Softree can create meaningful value.
-        </p>
+        <br />
+        Share your organization&apos;s background, business objectives, technology requirements, and partnership interests with our team.
+        <br />
+        <br />
+        • Understand your business goals, target markets, and expectations.
+        <br />
+        • Identify synergy areas where collaboration creates meaningful value.
+        <br />
+        • Explore technical capabilities and engineering team alignment.
       </>
     ),
-    icon: <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5812]" />,
+    icon: <Search className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/1c/1c40e9d2fc325643f20991f6c4361c803b8d0ad690ad1e7529c7377151a282eb.jpg",
   },
@@ -363,15 +369,21 @@ const CARDS = [
     title: "02 — EXPLORE",
     description: (
       <>
-        <strong className="text-white text-[14px] sm:text-[15px] font-semibold leading-snug">
+        <strong className="text-white text-[15px] sm:text-[16px]">
           Discover Opportunities for Strategic Technology Collaboration
         </strong>
-        <p className="mt-1 text-white/85 text-[12px] sm:text-[13px] leading-relaxed">
-          Explore potential collaboration opportunities across software development, Microsoft technologies, cloud solutions, AI and automation, and digital engineering. Together, we evaluate technical requirements, complementary capabilities, target markets, and areas where our teams can create value through a strategic technology partnership.
-        </p>
+        <br />
+        Explore potential collaboration opportunities across software development, Microsoft technologies, cloud solutions, AI, and digital engineering.
+        <br />
+        <br />
+        • Evaluate technical requirements and complementary capabilities.
+        <br />
+        • Identify joint service offerings across AI, cloud, and modern apps.
+        <br />
+        • Define addressable market segments and mutual growth opportunities.
       </>
     ),
-    icon: <Compass className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5812]" />,
+    icon: <Compass className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/ba/baa07e4ac6f0a4420a74083de7959083153be3dbfa7732dc26378fb69c1bf2eb.jpg",
   },
@@ -380,15 +392,21 @@ const CARDS = [
     title: "03 — ALIGN",
     description: (
       <>
-        <strong className="text-white text-[14px] sm:text-[15px] font-semibold leading-snug">
+        <strong className="text-white text-[15px] sm:text-[16px]">
           Define the Right Partnership Model and Shared Goals
         </strong>
-        <p className="mt-1 text-white/85 text-[12px] sm:text-[13px] leading-relaxed">
-          Once we identify the right opportunities, we work together to establish a suitable partnership model, define roles and responsibilities, and agree on project expectations, communication processes, and delivery objectives. This alignment creates a clear foundation for transparent collaboration and successful execution.
-        </p>
+        <br />
+        Establish a suitable partnership engagement model, define roles and responsibilities, and set clear delivery objectives.
+        <br />
+        <br />
+        • Choose between dedicated teams, white-label, or project delivery.
+        <br />
+        • Agree on communication cadence, sprint workflows, and governance.
+        <br />
+        • Create a clear foundation for transparent, reliable collaboration.
       </>
     ),
-    icon: <Sliders className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5812]" />,
+    icon: <Network className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/80/80e27ca27a44306f03e4708cb8a7d622e480996fdb40955ecbe735109c62ca69.jpg",
   },
@@ -397,15 +415,21 @@ const CARDS = [
     title: "04 — COLLABORATE & GROW",
     description: (
       <>
-        <strong className="text-white text-[14px] sm:text-[15px] font-semibold leading-snug">
+        <strong className="text-white text-[15px] sm:text-[16px]">
           Build Solutions and Expand Together
         </strong>
-        <p className="mt-1 text-white/85 text-[12px] sm:text-[13px] leading-relaxed">
-          Move from planning to execution by working together on client projects, technology initiatives, and business opportunities. Our teams collaborate to deliver quality solutions, strengthen technical capabilities, expand service offerings, and create new growth opportunities through a reliable technology partnership.
-        </p>
+        <br />
+        Move from planning to execution by working together on client projects, technology initiatives, and business opportunities.
+        <br />
+        <br />
+        • Deliver quality solutions with high engineering and QA standards.
+        <br />
+        • Strengthen technical capabilities and scale delivery capacity.
+        <br />
+        • Expand service offerings and win larger client engagements.
       </>
     ),
-    icon: <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5812]" />,
+    icon: <Rocket className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/5c/5c9f812d112ce28b3524a9bc44bc65ad85da3958f45492845ba060af904cb189.jpg",
   },
@@ -414,15 +438,21 @@ const CARDS = [
     title: "05 — REVIEW & EVOLVE",
     description: (
       <>
-        <strong className="text-white text-[14px] sm:text-[15px] font-semibold leading-snug">
+        <strong className="text-white text-[15px] sm:text-[16px]">
           Continuously Improve and Build Long-Term Value
         </strong>
-        <p className="mt-1 text-white/85 text-[12px] sm:text-[13px] leading-relaxed">
-          We regularly review partnership performance, project outcomes, delivery quality, and shared business objectives. By identifying new opportunities, adapting to changing technology needs, and improving collaboration, we help our partners expand capabilities, explore new markets, and build sustainable long-term growth.
-        </p>
+        <br />
+        Regularly review partnership performance, project outcomes, delivery quality, and shared business objectives.
+        <br />
+        <br />
+        • Evaluate delivery outcomes, velocity, and quality benchmarks.
+        <br />
+        • Adapt to changing technology needs across AI and cloud ecosystems.
+        <br />
+        • Expand capabilities, explore new markets, and drive sustainable growth.
       </>
     ),
-    icon: <RefreshCw className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5812]" />,
+    icon: <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/37/37ea3835df0f51289154b990eb4d61b95b3ad63d4bf71cd79554cc56f2f134a8.jpg",
   },
@@ -443,7 +473,7 @@ export const GlobalPartnersProcess = () => {
             <span className="text-[#FF6B2C]">Long-Term Collaboration</span>
           </h2>
           <p className="mt-4 sm:mt-6 max-w-2xl text-pretty typo-description text-[#0a0a1a]/70 font-medium">
-            Building a successful technology partnership starts with understanding shared goals and creating the right foundation for collaboration. Our structured partnership process helps businesses identify opportunities, align capabilities, and build long-term relationships that drive innovation, business growth, and digital transformation.
+            Building a successful technology partnership starts with shared goals and a clear vision. Our structured process helps businesses identify opportunities, align capabilities, and build lasting relationships that drive innovation and growth.
           </p>
         </div>
 
@@ -454,7 +484,7 @@ export const GlobalPartnersProcess = () => {
             autoAdvance={true}
             intervalMs={4500}
             cardWidth={520}
-            cardHeight={360}
+            cardHeight={350}
             showDots={true}
           />
         </div>

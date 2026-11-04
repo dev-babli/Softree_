@@ -24,59 +24,60 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What types of partnership models does Softree offer?",
+    question: "What types of technology partnerships does Softree offer?",
     answer:
-      "Softree offers flexible partnership models tailored to your business goals, including dedicated offshore engineering teams, white-label software development, project-based delivery, and long-term strategic technology alliances. You can scale engineering capacity up or down based on your roadmap and client commitments.",
+      "Softree offers flexible technology partnership models, including dedicated engineering teams, white-label software development, project-based delivery, and long-term technology partnerships. These models help businesses, digital agencies, consulting firms, and technology companies extend their engineering capabilities and deliver projects more efficiently.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How does white-label development work with Softree?",
+    question: "Who can become a global technology partner of Softree?",
     answer:
-      "Under our white-label model, Softree functions entirely behind the scenes under your agency or consultancy brand. We handle architecture, development, QA, and delivery while you maintain 100% ownership of client relationships, contracts, communication, and billing.",
+      "Softree collaborates with Microsoft technology partners, AI development companies, digital agencies, IT consulting firms, SaaS providers, data and analytics companies, and cloud service providers. Our global partnership network supports organizations looking to expand technical capabilities, increase delivery capacity, and explore new business opportunities.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Which technologies and services are covered under the partnership?",
+    question: "Does Softree provide white-label software development services?",
     answer:
-      "Our engineering capabilities span Agentic AI & Generative AI, Microsoft Technologies (Azure AI, Microsoft Fabric, Power Platform, SharePoint, Dynamics), Data Engineering & Analytics, Cloud Architecture, and Full-Stack Web & Mobile Development using React, Next.js, Node.js, Python, and modern cloud platforms.",
+      "Yes. Softree provides white-label software development services for agencies, consultancies, and technology companies that want to deliver projects under their own brand. Our engineering teams support software development, AI solutions, cloud implementation, integrations, and quality assurance while partners maintain their client-facing relationships and brand identity.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "How do you protect intellectual property and confidentiality?",
+    question: "What technologies and services can partners access through Softree?",
     answer:
-      "We adhere to strict IP protection and security protocols. Every partnership is backed by comprehensive Non-Disclosure Agreements (NDAs), secure code repositories, isolated environments, and strict access controls. All intellectual property, source code, and project assets remain 100% owned by you or your client.",
+      "Our technology capabilities cover Agentic AI, Generative AI, AI agents, RAG, Microsoft Azure, Microsoft Fabric, Power BI, Power Platform, SharePoint, data engineering, cloud architecture, API integration, and custom web and mobile application development. Partners can leverage these capabilities to expand service offerings and support diverse client technology requirements.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "Can Softree integrate with our existing workflows and tools?",
+    question: "Can Softree provide dedicated offshore software development teams?",
     answer:
-      "Yes. Our engineers seamlessly integrate into your development processes and toolchains, including Jira, Azure DevOps, GitHub, Slack, Microsoft Teams, and CI/CD pipelines. We follow your sprint cycles, standups, coding standards, and project management methodologies.",
+      "Yes. Softree provides dedicated offshore engineering teams from India that work as an extension of your internal organization. You can access specialized developers and engineering expertise aligned with your technology stack, workflows, project requirements, and delivery objectives across AI, Microsoft technologies, data engineering, cloud, and software development.",
   },
   {
     id: 6,
     serial: "question 06",
-    question: "Can we start with a pilot project or small engagement?",
+    question: "How does project-based technology collaboration work?",
     answer:
-      "Absolutely. Many of our successful long-term partnerships began with a focused proof of concept (PoC), pilot project, or scoped development phase. This allows both teams to align on communication, delivery quality, and working cadence before scaling.",
+      "With project-based collaboration, partners can engage Softree for clearly defined software development projects, cloud implementations, AI solutions, data initiatives, migrations, and application modernization. We align on project scope, technical requirements, timelines, milestones, and deliverables to establish a structured approach to development and delivery.",
   },
   {
     id: 7,
     serial: "question 07",
-    question: "How do you manage communication across different time zones?",
+    question: "How does Softree protect partner information and intellectual property?",
     answer:
-      "Our global delivery model is structured with dedicated daily overlap hours for standups, reviews, and real-time collaboration with teams across North America, Europe, Australia, and APAC. Dedicated technical project leads ensure transparent communication and continuous progress.",
+      "Softree emphasizes confidentiality, information security, and responsible handling of partner and client information. Our global partnership approach includes NDA and intellectual property protection considerations, supported by security-focused engineering practices and controlled access to project information. Specific contractual and IP arrangements can be discussed during partnership onboarding.",
   },
   {
     id: 8,
     serial: "question 08",
-    question: "Why choose Softree Technology as your global technology partner?",
+    question: "Can Softree work with our existing developers, tools, and workflows?",
     answer:
-      "Softree brings 13+ years of engineering excellence, 3,000+ delivered projects, deep expertise across AI and Microsoft ecosystems, and a transparent delivery culture. We help partners accelerate delivery, expand technical capabilities, win larger client accounts, and achieve sustainable long-term growth.",
+      "Yes. Softree's dedicated engineering and collaboration models are designed to complement existing teams and development processes. Our engineers can align with your technical requirements, project management practices, communication processes, development workflows, and technology stack to support coordinated project execution.",
   },
+
 ];
 
 /** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
@@ -180,9 +181,8 @@ export function GlobalPartnersFaq({ faqs: customFaqs }: GlobalPartnersFaqProps) 
     return (
       <div
         key={faq.id}
-        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${
-          isActive ? "bg-white shadow-xl" : "bg-white/90 shadow-sm hover:shadow-md"
-        }`}
+        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive ? "bg-white shadow-xl" : "bg-white/90 shadow-sm hover:shadow-md"
+          }`}
         style={{
           borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
           boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
@@ -252,20 +252,18 @@ export function GlobalPartnersFaq({ faqs: customFaqs }: GlobalPartnersFaqProps) 
               <div className="relative h-6 w-6 flex-shrink-0">
                 {/* Plus Icon */}
                 <Plus
-                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
-                    isActive
-                      ? "scale-0 opacity-0 rotate-90"
-                      : "scale-100 opacity-100 rotate-0"
-                  }`}
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
+                    ? "scale-0 opacity-0 rotate-90"
+                    : "scale-100 opacity-100 rotate-0"
+                    }`}
                   style={{ color: theme.accent }}
                 />
                 {/* Minus Icon */}
                 <Minus
-                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
-                    isActive
-                      ? "scale-100 opacity-100 rotate-0"
-                      : "scale-0 opacity-0 -rotate-90"
-                  }`}
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
+                    ? "scale-100 opacity-100 rotate-0"
+                    : "scale-0 opacity-0 -rotate-90"
+                    }`}
                   style={{ color: theme.accent }}
                 />
               </div>
@@ -276,9 +274,8 @@ export function GlobalPartnersFaq({ faqs: customFaqs }: GlobalPartnersFaqProps) 
               {/* Question */}
               <div className="mb-2">
                 <h3
-                  className={`font-semibold leading-snug transition-colors duration-500 ${
-                    isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
-                  }`}
+                  className={`font-semibold leading-snug transition-colors duration-500 ${isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
+                    }`}
                   style={{
                     color: FAQ_INK,
                   }}
