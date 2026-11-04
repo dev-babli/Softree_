@@ -18,58 +18,58 @@ const SLIDES: UseCaseSlide[] = [
   {
     id: "01",
     domain: "TEAM EXTENSION",
-    title: "Dedicated Teams",
+    title: "Dedicated Engineering Teams",
     description:
-      "Build a dedicated engineering team that works as an extension of your organization.",
+      "Extend development capacity with dedicated engineers aligned with your workflows and technical standards.",
     cardCategory: "[ PARTNERSHIP MODEL ]",
     highlights: [
-      "Access specialized engineering and AI talent",
-      "Seamless integration with your internal workflows",
-      "Dedicated focus on your business goals",
+      "Dedicated full-time developers and engineers",
+      "Seamless alignment with internal workflows and tech stack",
+      "Direct communication, agile sprints, and full control",
     ],
-    tags: ["Dedicated Team", "Engineering", "Scale"],
+    tags: ["Dedicated Team", "Engineering Scale", "Co-Development"],
   },
   {
     id: "02",
     domain: "WHITE-LABEL",
-    title: "White-Label Delivery",
+    title: "White-Label Software Development",
     description:
-      "Deliver projects under your brand with Softree providing the technology and engineering expertise behind the scenes.",
+      "Deliver custom software under your own brand, fully backed by Softree's engineering capabilities.",
     cardCategory: "[ PARTNERSHIP MODEL ]",
     highlights: [
-      "Expand your service offerings effortlessly",
-      "Maintain client relationships and branding",
-      "Leverage our technical execution capabilities",
+      "100% white-label delivery under your agency/company brand",
+      "Retain complete client relationships and billing ownership",
+      "Backed by Softree's enterprise engineering capabilities",
     ],
-    tags: ["White-Label", "Agency Support", "Growth"],
+    tags: ["White-Label", "Agency Expansion", "Brand Growth"],
   },
   {
     id: "03",
     domain: "PROJECT BASED",
-    title: "Project Delivery",
+    title: "Project-Based Collaboration",
     description:
-      "Engage us for defined projects, implementations, migrations or modernization initiatives.",
+      "Collaborate on defined technology initiatives with clear scope, milestones, and deliverables.",
     cardCategory: "[ PARTNERSHIP MODEL ]",
     highlights: [
-      "End-to-end delivery of complex technology initiatives",
-      "Clear scope, timeline, and deliverables",
-      "Expert execution of migrations and modernization",
+      "Defined project scope, clear timelines, and fixed deliverables",
+      "End-to-end execution across modern web, cloud and AI apps",
+      "Predictable milestone delivery with strict quality gates",
     ],
-    tags: ["Fixed Scope", "Implementations", "Migrations"],
+    tags: ["Fixed Scope", "Milestone Delivery", "Custom Projects"],
   },
   {
     id: "04",
     domain: "STRATEGIC",
-    title: "Long-Term Partnership",
+    title: "Long-Term Technology Partnership",
     description:
-      "Create a strategic delivery relationship that grows with your business.",
+      "Build an ongoing alliance that supports evolving technology roadmaps and scalable delivery.",
     cardCategory: "[ PARTNERSHIP MODEL ]",
     highlights: [
-      "Evolving support across multiple technology stacks",
-      "Continuous innovation and architecture planning",
-      "Flexible engagement adapting to your needs",
+      "Continuous architecture innovation and technical roadmap support",
+      "Scalable engineering capacity adapted to your growth cycles",
+      "Executive alignment and sustained multi-year co-innovation",
     ],
-    tags: ["Strategic", "Long-Term", "Innovation"],
+    tags: ["Strategic Alliance", "Ongoing Support", "Long-Term Value"],
   },
 ];
 
@@ -294,13 +294,13 @@ export default function GlobalPartnersModels() {
             {/* Headline & Subheading */}
             <div className="space-y-3">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-[1.2]">
-                A Partnership Model That{" "}
+                Flexible Ways to{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B2C] via-[#ea580c] to-[#c2410c]">
-                  Fits Your Business
+                  Partner with Softree
                 </span>
               </h2>
               <p className="typo-description text-slate-600 max-w-2xl pt-1 text-sm sm:text-base leading-relaxed">
-                Choose how you want to work with us—from extending your team to delivering complete solutions.
+                Every business has different technology requirements and growth objectives. Our partnership models support different ways of collaborating.
               </p>
             </div>
 
@@ -336,7 +336,7 @@ export default function GlobalPartnersModels() {
                     >
                       {slide.title}
                     </h4>
-                    <p className="text-xs sm:text-[13px] text-slate-500 mt-0.5 line-clamp-2 pr-2 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-slate-500 mt-0.5 line-clamp-3 pr-2 leading-relaxed">
                       {slide.description}
                     </p>
                   </div>

@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { typography } from "@/lib/typography";
 
 export const PARTNER_LOGOS = [
   { name: "GO ERP", src: "/images/logo/goerp1.webp", accent: "#3b82f6" },
@@ -46,7 +47,7 @@ export function PartnerLogo({
       className="partner-logo-card group relative flex h-[88px] w-[220px] shrink-0 items-center justify-center rounded-xl border border-zinc-800 bg-gradient-to-b from-zinc-950 via-[#1b0900] to-black px-6 py-4 shadow-lg shadow-orange-950/5 transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-500/50 hover:shadow-[0_8px_25px_-5px_rgba(249,115,22,0.2)]"
     >
       {error ? (
-        <span className="text-xs font-semibold tracking-tight text-zinc-400">
+        <span className={`${typography.caption.meta} font-semibold tracking-tight text-zinc-400`}>
           {partner.name}
         </span>
       ) : (
@@ -113,12 +114,12 @@ export function AboutClientStatsGrid({
               {stat.value}
             </span>
 
-            <span className={`mt-2 text-sm font-extrabold uppercase tracking-[0.24em] ${dark ? "text-neutral-400" : "text-neutral-500"
+            <span className={`mt-2 ${typography.caption.default} font-extrabold uppercase ${dark ? "text-neutral-400" : "text-neutral-500"
               }`}>
               {stat.label}
             </span>
 
-            <span className={`mt-2 text-sm font-normal leading-relaxed ${dark ? "text-neutral-500" : "text-neutral-500"
+            <span className={`mt-2 ${typography.body.sm} font-normal leading-relaxed ${dark ? "text-neutral-500" : "text-neutral-500"
               }`}>
               {stat.desc}
             </span>
@@ -171,13 +172,13 @@ export default function GlobalPartnersLogos({
               Our Partnerships
             </span> */}
           </div>
-          <h2 className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
-            <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
+          <h2 className={`${typography.heading.h2} text-[#0a0a1a] mb-4 flex flex-col items-center`}>
+            <span className="max-w-none block w-full">
               <span className="text-[#0a0a1a]">Trusted by</span>{" "}
               <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Technology Teams Worldwide</span>
             </span>
           </h2>
-          <p className="text-zinc-600/90 font-medium text-base md:text-lg leading-relaxed max-w-2xl mx-auto mt-1">
+          <p className={`${typography.description.default} text-zinc-600/90 font-medium max-w-2xl mx-auto mt-1`}>
             We work behind the scenes with organizations that need reliable engineering expertise, flexible delivery capacity and long-term technology support.
           </p>
         </motion.div>

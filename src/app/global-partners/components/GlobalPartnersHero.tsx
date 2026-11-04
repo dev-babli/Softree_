@@ -20,7 +20,7 @@ export const GlobalPartnersHero: React.FC = () => {
               Mobile: Content (Heading order-1 + Description order-2) -> Globe (order-3)
               Desktop: Three-Zone (Left Heading cols 1-4 -> Middle Globe cols 5-8 -> Right Description cols 9-12) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-6 lg:gap-x-8 xl:gap-x-12 items-center">
-            {/* Left Column - Eyebrow & 4-Line Heading (order-1 on mobile, cols 1-4 on desktop) */}
+            {/* Left Column - Eyebrow & Heading (order-1 on mobile, cols 1-4 on desktop) */}
             <div className="flex flex-col order-1 lg:order-1 lg:col-span-4 xl:col-span-4 lg:col-start-1 max-w-[420px] z-20">
               {/* Top Badge with Live Beacon Animation */}
               <motion.div
@@ -39,39 +39,23 @@ export const GlobalPartnersHero: React.FC = () => {
                 </span>
               </motion.div>
 
-              {/* 4-Line Structured Heading - Part White, Part Orange */}
+              {/* Structured Heading - Part White, Part Orange */}
               <h1 className="typo-heading-3 sm:typo-heading-2 leading-[1.12] font-extrabold">
                 <motion.span
                   initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="block whitespace-nowrap text-white"
+                  className="block text-white"
                 >
-                  Your Global
+                  Partner with Softree.
                 </motion.span>
                 <motion.span
                   initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.6, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
-                  className="block whitespace-nowrap text-white"
+                  transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)] mt-1 sm:mt-2"
                 >
-                  Technology Partner for
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.6, delay: 0.20, ease: [0.16, 1, 0.3, 1] }}
-                  className="block whitespace-nowrap text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)] mt-1"
-                >
-                  AI, Microsoft, Data &amp;
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.6, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
-                  className="block whitespace-nowrap text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)]"
-                >
-                  Software Engineering
+                  Grow Your Technology Business.
                 </motion.span>
               </h1>
             </div>
@@ -85,10 +69,10 @@ export const GlobalPartnersHero: React.FC = () => {
                 className="space-y-3 sm:space-y-4 max-w-lg lg:max-w-none"
               >
                 <p className="typo-description-sm text-zinc-300 leading-relaxed">
-                  Softree partners with technology companies, Microsoft partners, digital agencies, SaaS providers, and businesses worldwide to accelerate AI development, Microsoft technology adoption, data engineering, and software development.
+                  Build a stronger technology business with Softree Technology. Partner with our engineering team to expand service capabilities, accelerate project delivery, and unlock new opportunities across AI, Microsoft technologies, data engineering, and software development.
                 </p>
                 <p className="typo-description-sm text-zinc-400 leading-relaxed">
-                  Extend your technical capabilities, scale engineering capacity, and deliver innovative digital products with a reliable technology partner.
+                  Whether you&apos;re a technology company, digital agency, IT consultancy, or SaaS provider, we offer flexible partnership models designed around your business goals.
                 </p>
               </motion.div>
             </div>

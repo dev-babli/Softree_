@@ -1,25 +1,25 @@
 import { Metadata } from "next";
 import { GlobalPartnersHero } from "./components/GlobalPartnersHero";
-import TrustedBrandsMarquee from "./components/trust";
 import GlobalPartnersLogos from "./components/GlobalPartnersLogos";
-import GlobalPartnersWhoWeServe from "./components/GlobalPartnersWhoWeServe";
-import GlobalPartnersWhatWeDeliver from "./components/GlobalPartnersWhatWeDeliver";
-import GlobalPartnersTechStack from "./components/GlobalPartnersTechStack";
 import GlobalPartnersIndustries from "./components/GlobalPartnersIndustries";
+import GlobalPartnersSqueezeCarouselDemo from "./components/globalpartnerSqueezeCarouselDemo";
 import GlobalPartnersModels from "./components/GlobalPartnersModels";
+import GlobalPartnersProcess from "./components/GlobalPartnersProcess";
 import GlobalPartnersWhy from "./components/GlobalPartnersWhy";
-import { GlobalPartnersTestimonials } from "./components/GlobalPartnersTestimonials";
-import { GlobalPartnersAboutUs } from "./components/GlobalPartnersAboutUs";
-import LightContactSection from "@/components/homepage-light/LightContactSection";
+import GlobalPartnersFaq from "./components/GlobalPartnersFaq";
 import NavigationClient from "@/components/sections/navigation-client";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer";
 
 export const metadata: Metadata = {
-  title: "Your Global Technology Partner for AI, Microsoft, Data & Software Engineering | Softree",
+  title: "Global Technology Partnerships | Partner with Softree",
   description:
-    "Softree partners with technology companies, Microsoft partners, digital agencies, SaaS providers, and businesses worldwide to accelerate AI development, Microsoft technology adoption, data engineering, and software development.",
+    "Partner with Softree Technology to expand your software development, AI, Microsoft, and data engineering capabilities through flexible global technology partnerships.",
   keywords: [
-    "Global Technology Partners",
+    //primary keyword
+    "Global Technology Partnerships",
+
+    //secondary keywords
     "Technology Partnerships",
     "Global Technology Partnership",
     "Microsoft Technology Partners",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     canonical: "https://www.softreetechnology.com/global-partners",
   },
   openGraph: {
-    title: "Global Technology Partners & Partnerships | Softree",
+    title: "Global Technology Partnerships | Partner with Softree",
     description:
-      "Partner with Softree Technology to extend your AI, Microsoft, data, and software engineering capabilities through flexible technology partnerships and delivery models.",
+      "Partner with Softree Technology to expand your software development, AI, Microsoft, and data engineering capabilities through flexible global technology partnerships.",
     url: "https://www.softreetechnology.com/global-partners",
     siteName: "Softree Technology",
     type: "website",
@@ -59,16 +59,13 @@ export default function GlobalPartnersPage() {
       <NavigationClient />
       <main className="flex-grow flex flex-col">
         <GlobalPartnersHero />
-        <TrustedBrandsMarquee surface="light" />
         <GlobalPartnersLogos />
-        <GlobalPartnersWhoWeServe />
-        <GlobalPartnersWhatWeDeliver />
-        <GlobalPartnersTechStack />
+        <GlobalPartnersSqueezeCarouselDemo />
         <GlobalPartnersIndustries />
         <GlobalPartnersModels />
+        <GlobalPartnersProcess />
         <GlobalPartnersWhy />
-        <GlobalPartnersTestimonials />
-        <GlobalPartnersAboutUs />
+        <GlobalPartnersFaq />
         <LightContactSection />
       </main>
       <Footer />
