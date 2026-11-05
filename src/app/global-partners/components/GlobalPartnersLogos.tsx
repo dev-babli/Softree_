@@ -166,21 +166,23 @@ export default function GlobalPartnersLogos({
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="mb-5 flex items-center justify-center gap-2">
-
-            {/* <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-zinc-400/90 uppercase">
-              Our Partnerships
-            </span> */}
+          <div className="mb-4 flex items-center justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/5 px-3 py-1 typo-caption text-[#FF5812] uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]"></span>
+              OUR GLOBAL NETWORK
+            </span>
           </div>
           <h2 className={`${typography.heading.h2} text-[#0a0a1a] mb-4 flex flex-col items-center`}>
             <span className="max-w-none block w-full">
-              <span className="text-[#0a0a1a]">Trusted by</span>{" "}
-              <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Technology Teams Worldwide</span>
+              <span className="text-[#0a0a1a]">Trusted by Businesses and</span>{" "}
+              <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Technology Partners Worldwide</span>
             </span>
           </h2>
-          <p className={`${typography.description.default} text-zinc-600/90 font-medium max-w-2xl mx-auto mt-1`}>
-            We work behind the scenes with organizations that need reliable engineering expertise, flexible delivery capacity and long-term technology support.
-          </p>
+          <div className="space-y-2 max-w-3xl mx-auto mt-2">
+            <p className={`${typography.description.default} text-zinc-600/90 font-normal leading-relaxed`}>
+              We believe successful partnerships are built on trust, collaboration and shared business objectives. Softree has established business relationships and collaborations across international markets, working with organizations to extend their capabilities and support their growth.
+            </p>
+          </div>
         </motion.div>
 
         {/* Infinite scrolling marquee of company logos passing from left to right */}

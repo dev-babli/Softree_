@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FlowButton } from "@/components/ui/flow-button";
-import { Search, Compass, Network, Rocket, ShieldCheck } from "lucide-react";
+import { Layers, Users, UserPlus, Rocket, Handshake } from "lucide-react";
 
 /* =========================================================
  * 1. FAN CARD STACK COMPONENT (Responsive for mobile & desktop)
@@ -338,95 +338,95 @@ function DefaultFanCard({
 }
 
 /* =========================================================
- * 2. PARTNERSHIP PROCESS CARDS (Structured with Headline + Bullets)
+ * 2. PARTNERSHIP MODELS CARDS (Structured with Headline + Bullets)
  * ========================================================= */
 const CARDS = [
   {
     id: "01",
-    title: "01 — CONNECT",
+    title: "01 — WHITE-LABEL DEVELOPMENT",
     description: (
       <>
         <strong className="text-white text-[15px] sm:text-[16px]">
-          Start a Conversation About Partnership Opportunities
+          Your Brand. Our Engineering.
         </strong>
         <br />
-        Share your organization&apos;s background, business objectives, technology requirements, and partnership interests with our team.
+        Expand your service offerings with Softree&apos;s white-label software development expertise. We work behind the scenes to help you deliver technology solutions under your own brand.
         <br />
         <br />
-        • Understand your business goals, target markets, and expectations.
+        • Deliver custom software, web, and mobile applications.
         <br />
-        • Identify synergy areas where collaboration creates meaningful value.
+        • Extend your services with AI-powered solutions.
         <br />
-        • Explore technical capabilities and engineering team alignment.
+        • Serve more clients without expanding your in-house team.
       </>
     ),
-    icon: <Search className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
+    icon: <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/1c/1c40e9d2fc325643f20991f6c4361c803b8d0ad690ad1e7529c7377151a282eb.jpg",
   },
   {
     id: "02",
-    title: "02 — EXPLORE",
+    title: "02 — DEDICATED ENGINEERING TEAMS",
     description: (
       <>
         <strong className="text-white text-[15px] sm:text-[16px]">
-          Discover Opportunities for Strategic Technology Collaboration
+          Your Extended Engineering Team.
         </strong>
         <br />
-        Explore potential collaboration opportunities across software development, Microsoft technologies, cloud solutions, AI, and digital engineering.
+        Scale your development capabilities with dedicated offshore engineers who integrate with your organization, workflows, and technical requirements.
         <br />
         <br />
-        • Evaluate technical requirements and complementary capabilities.
+        • Access dedicated software development professionals.
         <br />
-        • Identify joint service offerings across AI, cloud, and modern apps.
+        • Align engineering teams with your technology stack.
         <br />
-        • Define addressable market segments and mutual growth opportunities.
+        • Support ongoing projects and long-term development needs.
       </>
     ),
-    icon: <Compass className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
+    icon: <Users className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/ba/baa07e4ac6f0a4420a74083de7959083153be3dbfa7732dc26378fb69c1bf2eb.jpg",
   },
   {
     id: "03",
-    title: "03 — ALIGN",
+    title: "03 — STAFF AUGMENTATION",
     description: (
       <>
         <strong className="text-white text-[15px] sm:text-[16px]">
-          Define the Right Partnership Model and Shared Goals
+          The Right Talent When You Need It.
         </strong>
         <br />
-        Establish a suitable partnership engagement model, define roles and responsibilities, and set clear delivery objectives.
+        Strengthen your existing development team with experienced engineers and specialized technology professionals to meet changing project requirements.
         <br />
         <br />
-        • Choose between dedicated teams, white-label, or project delivery.
+        • Access expertise across AI and Microsoft technologies.
         <br />
-        • Agree on communication cadence, sprint workflows, and governance.
+        • Strengthen cloud, data, and application development teams.
         <br />
-        • Create a clear foundation for transparent, reliable collaboration.
+        • Scale technical resources based on project demands.
       </>
     ),
-    icon: <Network className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
+    icon: <UserPlus className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/80/80e27ca27a44306f03e4708cb8a7d622e480996fdb40955ecbe735109c62ca69.jpg",
   },
   {
     id: "04",
-    title: "04 — COLLABORATE & GROW",
+    title: "04 — PROJECT-BASED COLLABORATION",
     description: (
       <>
         <strong className="text-white text-[15px] sm:text-[16px]">
-          Build Solutions and Expand Together
+          Let&apos;s Deliver Together.
         </strong>
         <br />
-        Move from planning to execution by working together on client projects, technology initiatives, and business opportunities.
+        Collaborate with Softree on specific software development and technology initiatives through structured project engagements with clearly defined objectives.
         <br />
         <br />
-        • Deliver quality solutions with high engineering and QA standards.
+        • Develop custom applications and software solutions.
         <br />
-        • Strengthen technical capabilities and scale delivery capacity.
+        • Implement cloud solutions, AI, and system modernization.
         <br />
-        • Expand service offerings and win larger client engagements.
+        • Work toward agreed scopes, milestones, and deliverables.
       </>
     ),
     icon: <Rocket className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
@@ -435,24 +435,24 @@ const CARDS = [
   },
   {
     id: "05",
-    title: "05 — REVIEW & EVOLVE",
+    title: "05 — STRATEGIC TECHNOLOGY COLLABORATION",
     description: (
       <>
         <strong className="text-white text-[15px] sm:text-[16px]">
-          Continuously Improve and Build Long-Term Value
+          Shared Expertise. Greater Opportunities.
         </strong>
         <br />
-        Regularly review partnership performance, project outcomes, delivery quality, and shared business objectives.
+        Build a strategic relationship with Softree to combine technical expertise, explore new technology opportunities, and strengthen your service capabilities.
         <br />
         <br />
-        • Evaluate delivery outcomes, velocity, and quality benchmarks.
+        • Combine complementary engineering skills and technical expertise.
         <br />
-        • Adapt to changing technology needs across AI and cloud ecosystems.
+        • Explore joint projects and new business opportunities.
         <br />
-        • Expand capabilities, explore new markets, and drive sustainable growth.
+        • Build long-term technology relationships that support mutual growth.
       </>
     ),
-    icon: <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
+    icon: <Handshake className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5812]" />,
     imageSrc:
       "https://cdn.21st.dev/assets/mirror/37/37ea3835df0f51289154b990eb4d61b95b3ad63d4bf71cd79554cc56f2f134a8.jpg",
   },
@@ -460,20 +460,20 @@ const CARDS = [
 
 export const GlobalPartnersProcess = () => {
   return (
-    <section className="relative w-full bg-white pt-12 pb-12 md:pt-16 md:pb-16 border-t border-[#0a0a1a]/[0.06] overflow-hidden">
+    <section className="relative w-full bg-white pt-8 sm:pt-12 md:pt-16 pb-12 md:pb-16 border-t border-[#0a0a1a]/[0.06] overflow-hidden">
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 md:px-10">
         {/* Section Header */}
         <div className="mb-8 sm:mb-12 md:mb-16 flex flex-col items-center text-center">
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/5 px-3 py-1 typo-caption text-[#FF5812]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]"></span>
-            PARTNERSHIP PROCESS
+            IT Engagement Models
           </span>
           <h2 className="typo-heading-2 tracking-[-0.03em] text-[#0a0a1a]">
-            From First Conversation to{" "}
-            <span className="text-[#FF6B2C]">Long-Term Collaboration</span>
+            Flexible IT Engagement Models{" "} <br />
+            <span className="text-[#FF6B2C]">Built Around Your Business</span>
           </h2>
           <p className="mt-4 sm:mt-6 max-w-2xl text-pretty typo-description text-[#0a0a1a]/70 font-medium">
-            Building a successful technology partnership starts with shared goals and a clear vision. Our structured process helps businesses identify opportunities, align capabilities, and build lasting relationships that drive innovation and growth.
+            Choose the right IT engagement model to align with your business goals, team structure, project requirements, and delivery expectations.
           </p>
         </div>
 
@@ -492,11 +492,11 @@ export const GlobalPartnersProcess = () => {
         {/* Bottom CTA */}
         <div className="mt-10 sm:mt-12 md:mt-16 flex flex-col items-center text-center border-t border-[#0a0a1a]/[0.06] pt-8 sm:pt-10 md:pt-12">
           <h3 className="typo-heading-4 tracking-tight text-[#0a0a1a] max-w-4xl">
-            Whatever your technology goals, we&apos;re ready to work alongside you.
+            Find the right collaboration model to achieve your technology goals. We&apos;re ready to work alongside you.
           </h3>
           <FlowButton
             href="/contact"
-            text="Start Partnership Conversation"
+            text="Start a Partnership Conversation"
             className="mt-6 sm:mt-8"
           />
         </div>

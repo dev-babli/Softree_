@@ -47,7 +47,7 @@ export const GlobalPartnersHero: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
                   className="block text-white"
                 >
-                  Partner with Softree.
+                  Your Global Offshore Engineering Partner
                 </motion.span>
                 <motion.span
                   initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
@@ -55,7 +55,7 @@ export const GlobalPartnersHero: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
                   className="block text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)] mt-1 sm:mt-2"
                 >
-                  Grow Your Technology Business.
+                  Your Engineering Team, Extended.
                 </motion.span>
               </h1>
             </div>
@@ -69,10 +69,11 @@ export const GlobalPartnersHero: React.FC = () => {
                 className="space-y-3 sm:space-y-4 max-w-lg lg:max-w-none"
               >
                 <p className="typo-description-sm text-zinc-300 leading-relaxed">
-                  Build a stronger technology business with Softree Technology. Partner with our engineering team to expand service capabilities, accelerate project delivery, and unlock new opportunities across AI, Microsoft technologies, data engineering, and software development.
+                  Build stronger partnerships, expand your delivery capabilities and grow your business with a reliable offshore engineering partner.
                 </p>
                 <p className="typo-description-sm text-zinc-400 leading-relaxed">
-                  Whether you&apos;re a technology company, digital agency, IT consultancy, or SaaS provider, we offer flexible partnership models designed around your business goals.
+                  Softree Technology collaborates with global businesses, technology companies, consulting firms and digital agencies to help them scale their engineering capabilities, deliver projects and create new business opportunities.
+                  Whether you are looking for white-label development, dedicated engineering teams or a long-term technology partnership, we bring the flexibility and commitment to grow together.
                 </p>
               </motion.div>
             </div>
