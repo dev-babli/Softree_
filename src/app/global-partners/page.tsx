@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import { GlobalPartnersHero } from "./components/GlobalPartnersHero";
 import GlobalPartnersLogos from "./components/GlobalPartnersLogos";
 import GlobalPartnersSqueezeCarouselDemo from "./components/globalpartnerSqueezeCarouselDemo";
-import GlobalPartnersProcess from "./components/GlobalPartnersProcess";
+import GlobalPartnersWhoWeWorkWith from "./components/GlobalPartnersWhoWeWorkWith";
+import GlobalPartnersEngagementModels from "./components/GlobalPartnersEngagementModels";
 import LightTestimonialFeature from "./components/LightTestimonialFeature";
 import NavigationClient from "@/components/sections/navigation-client";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
@@ -58,7 +59,8 @@ export default function GlobalPartnersPage() {
         <GlobalPartnersHero />
         <GlobalPartnersLogos />
         <GlobalPartnersSqueezeCarouselDemo />
-        <GlobalPartnersProcess />
+        <GlobalPartnersWhoWeWorkWith />
+        <GlobalPartnersEngagementModels />
         <LightTestimonialFeature />
         <LightContactSection />
       </main>
