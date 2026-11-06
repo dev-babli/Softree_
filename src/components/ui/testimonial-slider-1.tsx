@@ -23,7 +23,7 @@ interface TestimonialSliderProps {
   reviews: Review[];
   className?: string;
   eyebrow?: string;
-  heading?: string;
+  heading?: React.ReactNode;
   description?: string;
 }
 
@@ -309,7 +309,7 @@ export const TestimonialSlider = ({
               <span className="text-[11px] font-mono font-bold tracking-widest bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
                 {activeReview.id} / {String(reviews.length).padStart(2, "0")}
               </span>
-              <span className="text-xs font-bold text-white drop-shadow">
+              <span className="text-xs font-bold text-white drop-shadow truncate pl-2 text-right">
                 {activeReview.title}
               </span>
             </div>
@@ -331,7 +331,7 @@ export const TestimonialSlider = ({
                   <span className="typo-caption-meta font-bold text-[#0a0a1a]/50">
                     {activeReview.id} <span className="mx-1.5">/</span> {String(reviews.length).padStart(2, "0")}
                   </span>
-                  <h3 className="typo-heading-3 text-[#0a0a1a] whitespace-normal sm:whitespace-nowrap">
+                  <h3 className="typo-heading-3 text-[#0a0a1a] break-words text-balance leading-tight">
                     {activeReview.title}
                   </h3>
                 </div>

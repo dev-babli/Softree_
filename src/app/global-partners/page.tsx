@@ -1,12 +1,10 @@
 import { Metadata } from "next";
 import { GlobalPartnersHero } from "./components/GlobalPartnersHero";
 import GlobalPartnersLogos from "./components/GlobalPartnersLogos";
-import GlobalPartnersIndustries from "./components/GlobalPartnersIndustries";
 import GlobalPartnersSqueezeCarouselDemo from "./components/globalpartnerSqueezeCarouselDemo";
-import GlobalPartnersModels from "./components/GlobalPartnersModels";
-import GlobalPartnersProcess from "./components/GlobalPartnersProcess";
-import GlobalPartnersWhy from "./components/GlobalPartnersWhy";
-import GlobalPartnersFaq from "./components/GlobalPartnersFaq";
+import GlobalPartnersWhoWeWorkWith from "./components/GlobalPartnersWhoWeWorkWith";
+import GlobalPartnersEngagementModels from "./components/GlobalPartnersEngagementModels";
+import LightTestimonialFeature from "./components/LightTestimonialFeature";
 import NavigationClient from "@/components/sections/navigation-client";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer";
@@ -61,11 +59,9 @@ export default function GlobalPartnersPage() {
         <GlobalPartnersHero />
         <GlobalPartnersLogos />
         <GlobalPartnersSqueezeCarouselDemo />
-        <GlobalPartnersIndustries />
-        <GlobalPartnersModels />
-        <GlobalPartnersProcess />
-        <GlobalPartnersWhy />
-        <GlobalPartnersFaq />
+        <GlobalPartnersWhoWeWorkWith />
+        <GlobalPartnersEngagementModels />
+        <LightTestimonialFeature />
         <LightContactSection />
       </main>
       <Footer />

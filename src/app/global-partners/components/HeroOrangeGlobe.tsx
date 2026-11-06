@@ -14,13 +14,16 @@ interface Point3D {
   x: number;
   y: number;
   z: number;
+  xPercent: number;
+  yPercent: number;
   visibleScale: number;
 }
 
 interface PinStyle {
   visible: boolean;
-  left: number;
-  top: number;
+  opacity: number;
+  leftPercent: number;
+  topPercent: number;
 }
 
 // 13 Countries as requested
@@ -210,7 +213,7 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
   const rafRef = useRef<number | null>(null);
 
   const [pinStyles, setPinStyles] = useState<PinStyle[]>(() =>
-    LOCATIONS_13.map(() => ({ visible: false, left: 0, top: 0 }))
+    LOCATIONS_13.map(() => ({ visible: false, opacity: 0, leftPercent: 50, topPercent: 50 }))
   );
 
   const project = useCallback((lat: number, lon: number): Point3D => {
@@ -236,6 +239,8 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
       x: W / 2 + x3_z * R,
       y: H / 2 - y3_z * R,
       z: z3_x,
+      xPercent: 50 + x3_z * 44, // 44% is R / W
+      yPercent: 50 - y3_z * 44,
       visibleScale: (z3_x + 1) / 2,
     };
   }, []);
@@ -245,17 +250,20 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
     const canvas = canvasRef.current;
     if (!wrap || !canvas) return;
     const rect = wrap.getBoundingClientRect();
+    const w = wrap.clientWidth || rect.width;
+    const h = wrap.clientHeight || rect.height;
+    if (w === 0 || h === 0) return;
     const DPR = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = rect.width * DPR;
-    canvas.height = rect.height * DPR;
+    canvas.width = w * DPR;
+    canvas.height = h * DPR;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     ctxRef.current = ctx;
     dimsRef.current = {
-      W: rect.width,
-      H: rect.height,
-      R: Math.min(rect.width, rect.height) * 0.44, // 44% radius leaves plenty of margin for badges
+      W: w,
+      H: h,
+      R: Math.min(w, h) * 0.44, // 44% radius leaves plenty of margin for badges
     };
   }, []);
 
@@ -287,8 +295,8 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
     // Subtle orange sphere edge outline
     ctx.beginPath();
     ctx.arc(W / 2, H / 2, R, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(255, 107, 0, 0.18)";
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = "rgba(255, 107, 0, 0.32)";
+    ctx.lineWidth = 1.25;
     ctx.stroke();
 
     // 2. Longitude meridians
@@ -328,7 +336,7 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
       if (!a || !b) return;
       const pa = project(a.lat, a.lon);
       const pb = project(b.lat, b.lon);
-      if (pa.z < -0.2 || pb.z < -0.2) return;
+      if (pa.z < 0.05 || pb.z < 0.05) return;
 
       const mx = (pa.x + pb.x) / 2;
       const my = (pa.y + pb.y) / 2;
@@ -393,10 +401,13 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
     setPinStyles(
       LOCATIONS_13.map((loc) => {
         const p = project(loc.lat, loc.lon);
+        // Only visible on front hemisphere (z >= 0.30), smoothly fading out before reaching silhouette edge
+        const opacity = Math.max(0, Math.min(1, (p.z - 0.30) / 0.20));
         return {
-          visible: p.z > 0.05,
-          left: p.x,
-          top: p.y - 14,
+          visible: opacity > 0.05,
+          opacity: Number(opacity.toFixed(2)),
+          leftPercent: Number(p.xPercent.toFixed(2)),
+          topPercent: Number((p.yPercent - 3).toFixed(2)),
         };
       })
     );
@@ -404,6 +415,14 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
 
   useEffect(() => {
     resize();
+    const wrap = wrapRef.current;
+    let ro: ResizeObserver | null = null;
+    if (wrap && typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => {
+        resize();
+      });
+      ro.observe(wrap);
+    }
     window.addEventListener("resize", resize);
 
     function tick() {
@@ -418,6 +437,7 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
     rafRef.current = requestAnimationFrame(tick);
 
     return () => {
+      if (ro) ro.disconnect();
       window.removeEventListener("resize", resize);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
@@ -452,27 +472,30 @@ export function HeroOrangeGlobe({ className = "" }: { className?: string }) {
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerLeave={onPointerUp}
-        className="w-full h-full block cursor-grab active:cursor-grabbing touch-none"
+        className="w-full h-full block cursor-grab active:cursor-grabbing touch-none relative z-10"
         style={{ aspectRatio: "1 / 1" }}
       />
 
       {/* 13 Country Pin Labels */}
       {LOCATIONS_13.map((loc, i) => {
         const style = pinStyles[i];
-        if (!style) return null;
+        if (!style || !style.visible) return null;
         return (
           <div
             key={loc.name}
-            className={`pointer-events-none absolute -translate-x-1/2 -translate-y-full transition-opacity duration-200 ${
-              style.visible ? "opacity-100" : "opacity-0"
-            }`}
+            className="pointer-events-none absolute -translate-x-1/2 -translate-y-full transition-opacity duration-150 z-20"
             style={{
-              left: style.left,
-              top: style.top,
+              left: `${style.leftPercent}%`,
+              top: `${style.topPercent}%`,
+              opacity: style.opacity,
             }}
           >
-            {/* Pill Container */}
-            <div className="relative inline-flex items-center px-2.5 py-1 rounded-full bg-[#1e1d1b]/95 border border-white/20 shadow-[0_4px_14px_rgba(0,0,0,0.6)] backdrop-blur-sm">
+            {/* Pill Container with Location Pin Icon matching reference */}
+            <div className="relative inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#141210]/95 border border-[#FF5812]/45 shadow-[0_4px_16px_rgba(0,0,0,0.7)] backdrop-blur-sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#FF5812" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3 shrink-0">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" fill="#FF5812" />
+              </svg>
               <span className="text-[11px] sm:text-[12px] font-bold text-white tracking-wide whitespace-nowrap">
                 {loc.name}
               </span>
