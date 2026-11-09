@@ -603,8 +603,8 @@ export default function Navigation({
           scheduleCloseMenu();
         }}
       >
-        <div className="mx-auto max-w-[1440px] px-3 sm:px-5 pt-2.5 lg:px-4 xl:px-8">
-          <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-3 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-4 xl:px-7">
+        <div className="mx-auto max-w-[1440px] px-3 sm:px-5 pt-2.5 lg:px-6 xl:px-8">
+          <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-3 sm:px-4 lg:px-5 xl:px-6 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl">
             <Link
               href="/"
               prefetch={true}
@@ -622,7 +622,7 @@ export default function Navigation({
             </Link>
 
             <div
-              className="hidden items-center justify-center flex-1 min-w-0 gap-0 xl:gap-0.5 mx-2 lg:mx-4 xl:mx-8 lg:flex"
+              className="hidden items-center justify-center flex-1 min-w-0 gap-0 xl:gap-0.5 ml-4 sm:ml-6 lg:ml-8 xl:ml-12 mr-3 sm:mr-4 lg:mr-6 xl:mr-10 lg:flex"
               onMouseLeave={() => setHoveredItem(null)}
             >
               {dynamicMenu.map((item) => {
@@ -639,7 +639,7 @@ export default function Navigation({
                         closeMenu();
                       }}
                       className={cn(
-                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-1.5 lg:px-2 xl:px-3.5 2xl:px-4 py-2 text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-1.5 lg:px-2 xl:px-3 2xl:px-3.5 py-2 text-xs lg:text-[12.5px] xl:text-[13.5px] 2xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                         isSelected
                           ? "text-[#FF5812]"
                           : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
@@ -683,7 +683,7 @@ export default function Navigation({
                           if (canOpen) openMenu(item.label);
                         }}
                         className={cn(
-                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-1.5 lg:px-2 xl:px-3.5 2xl:px-4 py-2 text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-1.5 lg:px-2 xl:px-3 2xl:px-3.5 py-2 text-xs lg:text-[12.5px] xl:text-[13.5px] 2xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                           isSelected
                             ? "text-[#FF5812]"
                             : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
@@ -726,7 +726,7 @@ export default function Navigation({
                           if (canOpen) openMenu(item.label);
                         }}
                         className={cn(
-                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-1.5 lg:px-2 xl:px-3.5 2xl:px-4 py-2 text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-1.5 lg:px-2 xl:px-3 2xl:px-3.5 py-2 text-xs lg:text-[12.5px] xl:text-[13.5px] 2xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                           isSelected
                             ? "text-[#FF5812]"
                             : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
