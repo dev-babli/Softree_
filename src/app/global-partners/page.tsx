@@ -3,7 +3,7 @@ import { GlobalPartnersHero } from "./components/GlobalPartnersHero";
 import GlobalPartnersLogos from "./components/GlobalPartnersLogos";
 import GlobalPartnersSqueezeCarouselDemo from "./components/globalpartnerSqueezeCarouselDemo";
 import GlobalPartnersWhoWeWorkWith from "./components/GlobalPartnersWhoWeWorkWith";
-import GlobalPartnersEngagementModels from "./components/GlobalPartnersEngagementModels";
+import LightEngagementModels from "./components/LightEngagementModels";
 import LightTestimonialFeature from "./components/LightTestimonialFeature";
 import NavigationClient from "@/components/sections/navigation-client";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
@@ -60,7 +60,7 @@ export default function GlobalPartnersPage() {
         <GlobalPartnersLogos />
         <GlobalPartnersSqueezeCarouselDemo />
         <GlobalPartnersWhoWeWorkWith />
-        <GlobalPartnersEngagementModels />
+        <LightEngagementModels />
         <LightTestimonialFeature />
         <LightContactSection />
       </main>
