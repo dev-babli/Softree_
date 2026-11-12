@@ -774,9 +774,18 @@ export default function Navigation({
               <Link
                 href="/contact"
                 prefetch={true}
-                className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-4 lg:px-4.5 xl:px-5 py-2.5 typo-button-sm text-xs lg:text-[13.5px] xl:text-sm text-white whitespace-nowrap shrink-0 shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
+                className="group inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[#FF5812] px-4 lg:px-4 xl:px-5 py-2.5 typo-button-sm text-xs lg:text-[13px] xl:text-sm text-white whitespace-nowrap shrink-0 shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
               >
-                Schedule a Call
+                <span>Schedule a Call</span>
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  className="shrink-0 transition-transform duration-200 group-hover:translate-x-[1.5px] group-hover:-translate-y-[1.5px]"
+                >
+                  <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Link>
             </div>
 
@@ -966,9 +975,18 @@ export default function Navigation({
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-full bg-[#FF5812] py-3.5 text-center typo-button text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+                  className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-[#FF5812] py-3.5 text-center typo-button text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                 >
-                  Schedule a Call
+                  <span>Schedule a Call</span>
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    className="shrink-0 transition-transform duration-200 group-hover:translate-x-[1.5px] group-hover:-translate-y-[1.5px]"
+                  >
+                    <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </Link>
               </div>            </div>
           </motion.div>

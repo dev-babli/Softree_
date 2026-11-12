@@ -183,13 +183,13 @@ export default async function CareersPage() {
                 pillars={data.introPillars}
             />
 
-            {/* 4. Open roles
+            {/* 4. Open roles*/}
             <CareersJobsLight
                 heading={data.jobsHeading}
                 subheading={data.jobsSubheading}
                 categories={data.jobsCategories}
                 jobs={data.jobs}
-            /> */}
+            />
 
             {/* 5. Hiring process
             <CareersProcessLight
