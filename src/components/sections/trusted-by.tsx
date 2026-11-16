@@ -14,7 +14,6 @@ const LOGOS: Logo[] = [
   { name: "Jonians", src: "/images/logo/jonians.webp" },
   { name: "Export Control", src: "/images/logo/ecg.webp" },
   { name: "SP Marketplace", src: "/images/logo/sp-marketplace.png" },
-  { name: "Bosch", src: "/images/logo/bosch.webp" },
   { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
   { name: "Link Innovation", src: "/images/logo/link-innovation.webp" },
   { name: "Intellectt", src: "/images/logo/Intellectt_logo.webp" },

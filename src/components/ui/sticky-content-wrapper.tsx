@@ -4,6 +4,7 @@ import React, { useLayoutEffect, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { FlowButton } from "@/components/ui/flow-button";
+import { cn } from "@/lib/utils";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -125,9 +126,9 @@ const renderStickyContent = (item: StickyContentItem) => {
   const link = getLink(item);
 
   return (
-    <div className="flex w-full flex-col justify-center text-foreground max-w-xl pr-0 lg:pr-4">
+    <div className="flex w-full flex-col justify-center text-foreground max-w-xl pr-0 lg:pr-3 xl:pr-4">
       {item.heading && (
-        <h3 className="text-base xs:text-lg sm:text-2xl lg:text-[2.1rem] font-extrabold tracking-tight text-[#0a0a1a] mb-1 sm:mb-2.5 leading-[1.2]">
+        <h3 className="text-base xs:text-lg sm:text-2xl lg:text-[1.55rem] xl:text-[1.85rem] 2xl:text-[2.1rem] font-extrabold tracking-tight text-[#0a0a1a] mb-1 sm:mb-2 lg:mb-2.5 leading-[1.2]">
           {item.heading}
         </h3>
       )}
@@ -135,18 +136,18 @@ const renderStickyContent = (item: StickyContentItem) => {
       {paragraphs.map((paragraph, paragraphIndex) => (
         <p
           key={`paragraph-${paragraphIndex}`}
-          className="text-xs sm:text-sm lg:text-base text-zinc-600 leading-relaxed font-normal mb-1.5 sm:mb-3"
+          className="text-xs sm:text-sm lg:text-[13px] xl:text-sm 2xl:text-base text-zinc-600 leading-relaxed font-normal mb-1.5 sm:mb-2.5 lg:mb-3"
         >
           {paragraph}
         </p>
       ))}
 
       {listItems.length > 0 && (
-        <ul className="flex flex-col space-y-0.5 sm:space-y-1.5 mb-2 sm:mb-4">
+        <ul className="flex flex-col space-y-0.5 sm:space-y-1 lg:space-y-1.5 mb-2 sm:mb-3 lg:mb-4">
           {listItems.map((listItem, listIndex) => (
             <li
               key={`list-${listIndex}`}
-              className="flex items-start gap-1.5 sm:gap-2 text-xs sm:text-sm lg:text-base text-zinc-700"
+              className="flex items-start gap-1.5 sm:gap-2 text-xs sm:text-sm lg:text-[13px] xl:text-sm 2xl:text-base text-zinc-700"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812] shrink-0 mt-1" />
               <span className="leading-snug">{listItem}</span>
@@ -410,14 +411,17 @@ export function StickyContentComp({
   return (
     <section
       ref={sectionRef}
-      className={`relative w-full h-auto lg:h-[calc(100vh-80px)] min-h-0 flex items-center justify-center overflow-x-clip ${className}`}
+      className={cn(
+        "relative w-full h-auto lg:h-[calc(100vh-80px)] lg:min-h-[460px] flex items-center justify-center overflow-x-clip",
+        className
+      )}
       style={{
         ...(bgColor ? { backgroundColor: bgColor } : null),
       }}
     >
       <div
         ref={stickyRef}
-        className="w-full flex items-center justify-center px-3 sm:px-6 lg:px-8 xl:px-12 py-1 sm:py-2 lg:py-4"
+        className="w-full flex items-center justify-center px-3 sm:px-6 lg:px-8 xl:px-12 py-1 sm:py-2 lg:py-3"
       >
         {/* Unified Card Showcase Wrapper */}
         <div
@@ -427,11 +431,17 @@ export function StickyContentComp({
           onMouseLeave={() => {
             isHoveredRef.current = false;
           }}
-          className={`w-full max-w-[1240px] xl:max-w-[1280px] mx-auto rounded-2xl sm:rounded-3xl border border-neutral-200/90 bg-white p-4 sm:p-6 lg:p-8 xl:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.04)] flex flex-col lg:flex-row items-stretch justify-between gap-3 sm:gap-6 lg:gap-8 xl:gap-10 overflow-hidden ${wrapperClassName}`}
+          className={cn(
+            "w-full max-w-[1240px] xl:max-w-[1280px] mx-auto rounded-2xl sm:rounded-3xl border border-neutral-200/90 bg-white p-4 sm:p-5 lg:p-6 xl:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] flex flex-col lg:flex-row items-stretch justify-between gap-3 sm:gap-5 lg:gap-6 xl:gap-8 overflow-hidden",
+            wrapperClassName
+          )}
         >
           {/* Image Column - Top on Mobile (order-1), Right on Desktop (lg:order-2) */}
           <div
-            className={`order-1 lg:order-2 relative w-full lg:w-1/2 h-[200px] xs:h-[220px] sm:h-[260px] md:h-[300px] lg:h-[480px] xl:h-[500px] shrink-0 flex-none lg:flex-1 overflow-hidden rounded-xl sm:rounded-2xl border border-neutral-200/80 shadow-md ${rightClassName}`}
+            className={cn(
+              "order-1 lg:order-2 relative w-full lg:w-1/2 h-[200px] xs:h-[220px] sm:h-[260px] md:h-[290px] lg:h-[clamp(300px,calc(100vh-220px),460px)] xl:h-[clamp(320px,calc(100vh-210px),480px)] shrink-0 flex-none lg:flex-1 overflow-hidden rounded-xl sm:rounded-2xl border border-neutral-200/80 shadow-md",
+              rightClassName
+            )}
           >
             {items.map((item, index) => (
               <div
@@ -444,7 +454,7 @@ export function StickyContentComp({
                   clipPath: "inset(0% 0% 0% 0%)",
                   WebkitClipPath: "inset(0% 0% 0% 0%)",
                 }}
-                className={`absolute inset-0 h-full w-full transform-gpu ${imageClassName}`}
+                className={cn("absolute inset-0 h-full w-full transform-gpu", imageClassName)}
               >
                 <img
                   src={item.image}
@@ -461,9 +471,11 @@ export function StickyContentComp({
 
           {/* Content Column - Bottom on Mobile (order-2), Left on Desktop (lg:order-1) */}
           <div
-            className={`order-2 lg:order-1 relative w-full lg:w-1/2 min-h-[260px] xs:min-h-[280px] sm:min-h-[300px] lg:min-h-0 lg:h-[480px] xl:h-[500px] shrink-0 flex-none lg:flex-1 flex items-center ${
-              bgColor ? "" : "bg-transparent"
-            } ${leftClassName}`}
+            className={cn(
+              "order-2 lg:order-1 relative w-full lg:w-1/2 min-h-[260px] xs:min-h-[280px] sm:min-h-[290px] lg:min-h-0 lg:h-[clamp(300px,calc(100vh-220px),460px)] xl:h-[clamp(320px,calc(100vh-210px),480px)] shrink-0 flex-none lg:flex-1 flex items-center",
+              bgColor ? "" : "bg-transparent",
+              leftClassName
+            )}
           >
             {items.map((item, index) => (
               <div
@@ -471,11 +483,13 @@ export function StickyContentComp({
                 ref={(element) => {
                   contentRefsRef.current[index] = element;
                 }}
-                className={`absolute inset-0 flex flex-col justify-center ${
+                className={cn(
+                  "absolute inset-0 flex flex-col justify-center",
                   index === 0
                     ? "opacity-100 z-30 pointer-events-auto"
-                    : "opacity-0 z-1 pointer-events-none"
-                } ${contentClassName}`}
+                    : "opacity-0 z-1 pointer-events-none",
+                  contentClassName
+                )}
               >
                 {renderStickyContent(item)}
               </div>

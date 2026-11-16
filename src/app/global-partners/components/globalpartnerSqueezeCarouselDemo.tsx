@@ -87,9 +87,9 @@ const PARTNER_ITEMS: StickyContentItem[] = [
 
 export function GlobalPartnersSqueezeCarouselDemo() {
   return (
-    <section id="who-we-partner-with" className="w-full bg-white pt-6 sm:pt-10 md:pt-12 pb-0 border-t border-neutral-200/80">
+    <section id="who-we-partner-with" className="w-full bg-white pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-4 border-t border-neutral-200/80">
       {/* Centered Section Header */}
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 md:px-8 text-center flex flex-col items-center mb-1 sm:mb-3">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 md:px-8 text-center flex flex-col items-center mb-4 sm:mb-6 lg:mb-8">
         {/* Eyebrow Pill Badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/5 px-3.5 py-1.5 shadow-sm mb-2.5">
           <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
@@ -102,7 +102,7 @@ export function GlobalPartnersSqueezeCarouselDemo() {
 
         {/* Heading */}
         <h2
-          className={`${typography.heading.h2} text-[#0a0a1a] leading-[1.15] tracking-tight`}
+          className={`${typography.heading.h2} text-[#0a0a1a] leading-[1.15] tracking-tight text-balance`}
         >
           <span>Partnerships That </span>
           <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">
@@ -112,7 +112,7 @@ export function GlobalPartnersSqueezeCarouselDemo() {
 
         {/* Subtitle / Description */}
         <p
-          className={`${typography.description.default} text-zinc-600 max-w-3xl mt-2 leading-relaxed font-normal text-center`}
+          className={`${typography.description.default} text-zinc-600 max-w-3xl mt-2 leading-relaxed font-normal text-center text-balance`}
         >
           We collaborate with organizations looking for a reliable offshore
           engineering partner to expand their capabilities, strengthen delivery

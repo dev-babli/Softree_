@@ -14,7 +14,6 @@ export default function TrustedBrandsMarquee({
     { name: "Jonians", src: "/images/logo/jonians.webp" },
     { name: "Export Control Group", src: "/images/logo/ecg.webp" },
     { name: "SP Marketplace", src: "/images/logo/1.webp" },
-    { name: "Bosch", src: "/images/logo/bosch.webp" },
 
     // New Logos
     { name: "Emscale", src: "/images/logo/emscale_logo.webp" },

@@ -68,12 +68,6 @@ const DEFAULT_LOGOS: CustomerLogo[] = [
     height: 40,
   },
   {
-    src: "/images/logo/bosch.webp",
-    alt: "Bosch",
-    width: 100,
-    height: 40,
-  },
-  {
     src: "/images/logo/emscale_logo.webp",
     alt: "Emscale",
     width: 100,

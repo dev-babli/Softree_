@@ -22,6 +22,7 @@ const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), {
 });
 const Nova2SonicDevelopmentApproach = dynamic(() => import('./components/Nova2SonicDevelopmentApproach'), { ssr: true });
 const AmazonNovaVoiceAiCapabilities = dynamic(() => import('./components/AmazonNovaVoiceAiCapabilities'), { ssr: true });
+const NovaSonicSuccessStories = dynamic(() => import('./components/NovaSonicSuccessStories'), { ssr: true });
 const HowWeBuildIt = dynamic(() => import('./components/HowWeBuildIt'), { ssr: true });
 const WhyChooseSoftree = dynamic(() => import('./components/WhyChooseSoftree'), { ssr: true });
 const TrustAndReadiness = dynamic(() => import('./components/TrustAndReadiness'), { ssr: true });
@@ -72,6 +73,7 @@ export default function AmazonNova2SonicDevelopmentPage() {
 
       {/* Hero Section which also includes the Trust Strip */}
       <Hero />
+      <TrustedBrandsMarquee />
 
       {/* Two-Column Layout: What You Can Build & Global Network */}
       <div className="bg-white py-10 md:py-14">
@@ -100,9 +102,9 @@ export default function AmazonNova2SonicDevelopmentPage() {
       <Nova2SonicDevelopmentApproach />
 
       <AmazonNovaVoiceAiCapabilities />
+      <NovaSonicSuccessStories />
       <HowWeBuildIt />
-      {/* <TrustAndReadiness /> */}
-      <TrustedBrandsMarquee />
+
       <WhyChooseSoftree />
       <FAQ />
       <LightContactSection />

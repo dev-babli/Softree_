@@ -18,81 +18,68 @@ import ApplicationFormLight from "./form-light";
 import type { CareersJob } from "./types";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-const ACCENT = "#F5B947";
+const ACCENT = "#ff5812";
 
 const DEFAULT_JOBS: CareersJob[] = [
+    {
+        title: "B2B Cold Calling Specialist – IT Services",
+        category: "Sales",
+        location: "India (Work from Office / Remote)",
+        type: "Full time",
+        experience: "2–5 yrs",
+        salary: "",
+        badge: "Priority Hire",
+        description:
+            "Drive international outbound sales across USA, UK, Europe, and Australia — connect with IT leaders to generate qualified meetings for offshore engineering partnerships.",
+        tags: ["B2B Cold Calling", "Outbound Sales", "IT Services", "Lead Qualification", "CRM"],
+    },
+    {
+        title: "Senior Lead Generation Specialist – International B2B",
+        category: "Sales",
+        location: "India",
+        type: "Full time",
+        experience: "7–10 yrs",
+        salary: "",
+        badge: "Urgent Hiring",
+        description:
+            "Architect strategic international B2B lead generation pipelines across email and LinkedIn, driving high-conversion outreach for IT and Microsoft technology services.",
+        tags: ["Lead Generation", "Apollo", "LinkedIn Sales Navigator", "Email Outreach", "ICP Strategy"],
+    },
     {
         title: "AI Engineer",
         category: "AI",
         location: "Hybrid · Bengaluru",
         type: "Full time",
         experience: "3+ yrs",
-        salary: "₹18–32 LPA",
-        badge: "Hot",
+        salary: "",
+        badge: "Open",
         description:
             "Build and deploy production AI features — RAG pipelines, agent workflows, and ML services on Azure for Fortune 500 clients.",
         tags: ["Python", "LLMs", "Azure AI", "FastAPI"],
     },
     {
-        title: "Senior Power BI Developer",
-        category: "Power BI",
-        location: "Remote",
-        type: "Full time",
-        experience: "4+ yrs",
-        salary: "₹14–24 LPA",
-        badge: "New",
-        description:
-            "Own end-to-end analytics — DAX, semantic models, and embedded Power BI dashboards for enterprise reporting.",
-        tags: ["DAX", "Power BI", "SQL", "Tabular Editor"],
-    },
-    {
-        title: "Power Apps Developer",
+        title: "Senior Power Apps Developer",
         category: "Power Platform",
         location: "Remote",
         type: "Full time",
-        experience: "2+ yrs",
-        salary: "₹10–18 LPA",
+        experience: "4+ yrs",
+        salary: "",
         badge: "Open",
         description:
-            "Ship canvas and model-driven apps on Microsoft Power Platform with Dataverse and Power Automate cloud flows.",
-        tags: ["Power FX", "Dataverse", "Power Automate"],
-    },
-    {
-        title: "QA Automation Engineer",
-        category: "QA",
-        location: "Hybrid · Bengaluru",
-        type: "Full time",
-        experience: "2+ yrs",
-        salary: "₹9–16 LPA",
-        badge: "Urgent",
-        description:
-            "Drive test strategy and automation — Playwright, Cypress, API testing with Postman, and CI/CD pipeline integration.",
-        tags: ["Playwright", "Cypress", "API", "CI/CD"],
-    },
-    {
-        title: "Full-stack Developer",
-        category: "Web",
-        location: "Hybrid · Bengaluru",
-        type: "Full time",
-        experience: "3+ yrs",
-        salary: "₹14–26 LPA",
-        badge: "Open",
-        description:
-            "Build production web apps end-to-end — Next.js, TypeScript, Node, and Postgres on Azure or AWS.",
-        tags: ["Next.js", "TypeScript", "Node", "Postgres"],
+            "Ship enterprise canvas and model-driven apps on Microsoft Power Platform with complex Dataverse architectures and Power Automate cloud flows.",
+        tags: ["Power Apps", "Dataverse", "Power Automate", "Power FX"],
     },
 ];
 
 function badgeStyle(badge?: string) {
-    switch ((badge || "").toLowerCase()) {
-        case "hot":
-        case "urgent":
-            return { color: "#9b1c1c", bg: "rgba(220,38,38,0.08)", border: "rgba(220,38,38,0.18)" };
-        case "new":
-            return { color: "#0c4a6e", bg: "rgba(14,165,233,0.08)", border: "rgba(14,165,233,0.2)" };
-        default:
-            return { color: "#7c4a03", bg: "rgba(245,185,71,0.18)", border: "rgba(245,185,71,0.3)" };
+    const b = (badge || "").toLowerCase();
+    if (b.includes("urgent") || b === "hot") {
+        return { color: "#9b1c1c", bg: "rgba(220,38,38,0.08)", border: "rgba(220,38,38,0.18)" };
     }
+    if (b === "new") {
+        return { color: "#0c4a6e", bg: "rgba(14,165,233,0.08)", border: "rgba(14,165,233,0.2)" };
+    }
+    return { color: "#7c4a03", bg: "rgba(245,185,71,0.18)", border: "rgba(245,185,71,0.3)" };
 }
 
 export interface CareersJobsLightProps {
@@ -167,7 +154,7 @@ export default function CareersJobsLight({
                         </span>
                         <h2 className="break-words text-[clamp(2rem,7vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-neutral-950 sm:leading-[0.92]">
                             {heading.replace(/\.+$/, "")}
-                            <span className="text-[#F5B947]">.</span>
+                            <span className="text-[#ff5812]">.</span>
                         </h2>
                         <p className="mt-3 max-w-[520px] text-[14px] leading-[1.65] text-neutral-600 sm:mt-4 sm:text-[15px]">
                             {subheading}

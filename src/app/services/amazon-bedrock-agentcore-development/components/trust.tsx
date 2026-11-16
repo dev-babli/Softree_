@@ -1,36 +1,35 @@
 "use client";
 
 type TrustedBrandsMarqueeProps = {
-    surface?: "legacy" | "light";
+  surface?: "legacy" | "light";
 };
 
 export default function TrustedBrandsMarquee({
-    surface = "legacy",
+  surface = "legacy",
 }: TrustedBrandsMarqueeProps) {
-    const logos = [
-        { name: "GO ERP", src: "/images/logo/goerp1.webp" },
-        { name: "Nuvento", src: "/images/logo/nuvento.webp" },
-        { name: "Snapon", src: "/images/logo/snapon.webp" },
-        { name: "Jonians", src: "/images/logo/jonians.webp" },
-        { name: "Export Control Group", src: "/images/logo/ecg.webp" },
-        { name: "SP Marketplace", src: "/images/logo/1.webp" },
-        { name: "Bosch", src: "/images/logo/bosch.webp" },
+  const logos = [
+    { name: "GO ERP", src: "/images/logo/goerp1.webp" },
+    { name: "Nuvento", src: "/images/logo/nuvento.webp" },
+    { name: "Snapon", src: "/images/logo/snapon.webp" },
+    { name: "Jonians", src: "/images/logo/jonians.webp" },
+    { name: "Export Control Group", src: "/images/logo/ecg.webp" },
+    { name: "SP Marketplace", src: "/images/logo/1.webp" },
 
-        // New Logos
-        { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
-        { name: "Link Innovation", src: "/images/logo/link-innovation.webp" },
-        { name: "Intellectt", src: "/images/logo/Intellectt_logo.webp" },
-    ];
+    // New Logos
+    { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
+    { name: "Link Innovation", src: "/images/logo/link-innovation.webp" },
+    { name: "Intellectt", src: "/images/logo/Intellectt_logo.webp" },
+  ];
 
-    return (
-        <section
-            className={
-                surface === "light"
-                    ? "relative overflow-hidden bg-[#F3F0EE] py-2"
-                    : "relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-2"
-            }
-        >
-            <style>{`
+  return (
+    <section
+      className={
+        surface === "light"
+          ? "relative overflow-hidden bg-[#F3F0EE] py-2"
+          : "relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-2"
+      }
+    >
+      <style>{`
         /* ── Scroll track ── */
         .pp-logo-wrap {
           overflow: hidden;
@@ -197,31 +196,31 @@ export default function TrustedBrandsMarquee({
         }
       `}</style>
 
-            <div className="relative w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
-                <div className="relative bg-gradient-to-r from-black via-[#4c1c02] to-black rounded-t-[80px] px-6 py-16 overflow-hidden">
-                    {/* Heading */}
-                    <div className="flex items-center gap-3 md:gap-6 mb-8 md:mb-12">
-                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent hidden sm:block" />
-                        <p className="text-center typo-heading-3 uppercase bg-white bg-clip-text text-transparent mx-auto px-2">
-                            Trusted by Partners &amp; Clients
-                        </p>
-                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-400 to-transparent hidden sm:block" />
-                    </div>
+      <div className="relative w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
+        <div className="relative bg-gradient-to-r from-black via-[#4c1c02] to-black rounded-t-[80px] px-6 py-16 overflow-hidden">
+          {/* Heading */}
+          <div className="flex items-center gap-3 md:gap-6 mb-8 md:mb-12">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent hidden sm:block" />
+            <p className="text-center typo-heading-3 uppercase bg-white bg-clip-text text-transparent mx-auto px-2">
+              Trusted by Partners &amp; Clients
+            </p>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-400 to-transparent hidden sm:block" />
+          </div>
 
-                    {/* Infinite Scrolling Logos */}
-                    <div className="pp-logo-wrap">
-                        <div className="pp-logo-track">
-                            {[...logos, ...logos].map((logo, index) => (
-                                <div key={index} className="pp-logo-card">
-                                    <span className="pp-card-shine" />
-                                    <img src={logo.src} alt={logo.name} />
-                                    <span className="pp-logo-name">{logo.name}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+          {/* Infinite Scrolling Logos */}
+          <div className="pp-logo-wrap">
+            <div className="pp-logo-track">
+              {[...logos, ...logos].map((logo, index) => (
+                <div key={index} className="pp-logo-card">
+                  <span className="pp-card-shine" />
+                  <img src={logo.src} alt={logo.name} />
+                  <span className="pp-logo-name">{logo.name}</span>
                 </div>
+              ))}
             </div>
-        </section>
-    );
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

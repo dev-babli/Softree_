@@ -13,7 +13,6 @@ const CLIENT_LOGOS = [
   { name: "Jonians", src: "/images/logo/jonians.webp" },
   { name: "Export Control Group", src: "/images/logo/ecg.webp" },
   { name: "SP Marketplace", src: "/images/logo/1.webp" },
-  { name: "Bosch", src: "/images/logo/bosch.webp" },
   { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
   { name: "Link Innovation", src: "/images/logo/link-innovation.webp" },
   { name: "Intellectt", src: "/images/logo/Intellectt_logo.webp" },
@@ -174,12 +173,11 @@ export const Hero: React.FC = () => {
         {/* RIGHT COLUMN: 3D UI (Bleeds to the right edge) */}
         <div className="w-full lg:w-1/2 flex flex-col items-start justify-center relative mt-4 lg:mt-0 lg:-translate-x-16">
           <div className="w-full h-[360px] sm:h-[440px] lg:h-[480px] relative pointer-events-none transform lg:scale-[0.85] lg:origin-top">
-            
+
             {/* Instant glowing aesthetic placeholder so there's zero empty delay */}
             <div
-              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 pointer-events-none ${
-                isSplineLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
-              }`}
+              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 pointer-events-none ${isSplineLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                }`}
             >
               <div className="w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#FF6B00]/20 via-[#FF6B00]/10 to-transparent blur-3xl animate-pulse" />
               <div className="w-[180px] h-[180px] rounded-full border border-[#FF6B00]/20 animate-spin [animation-duration:8s] opacity-40" />
@@ -212,7 +210,7 @@ export const Hero: React.FC = () => {
       <div className="w-full pb-10 pt-4 relative z-10">
         <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
           <div className="relative bg-black/80 rounded-2xl md:rounded-3xl border border-white/10 px-4 sm:px-6 py-5 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur-md">
-            
+
             {/* Heading with divider lines */}
             <div className="flex items-center gap-4 mb-4">
               <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />

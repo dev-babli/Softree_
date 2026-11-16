@@ -9,10 +9,10 @@ import {
 } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
-  title: "Softree | Agentic AI, Power Platform & Offshore Technology Partner",
+  title: "Softree Technology | AI, Data & Offshore Engineering",
 
   description:
-    "Softree is a white-label offshore technology partner helping agencies, consultancies, and technology companies deliver Agentic AI, Power Platform, data, and modern application solutions.",
+    "Softree Technology is a global offshore engineering partner delivering Agentic AI, data analytics, Microsoft solutions and custom software development for businesses worldwide.",
 
   alternates: {
     canonical: `${SITE_URL}/`,

@@ -189,11 +189,10 @@ export default function CareersHeroLight({
     headlineItalic = "worth telling.",
     subline = "Senior engineers, real ownership, fixed-scope client work that ships in weeks not quarters. Find the role that fits how you build best.",
     cyclingRoles = [
+        "B2B Cold Calling Specialist",
+        "Senior Lead Generation Specialist",
         "AI Engineer",
-        "Power BI Developer",
-        "Power Apps Developer",
-        "QA Automation Engineer",
-        "Full-stack Developer",
+        "Senior Power Apps Developer",
     ],
     gallery,
 }: CareersHeroLightProps) {
