@@ -3,6 +3,7 @@ import LightContactSection from "@/components/homepage-light/LightContactSection
 import Footer from "@/components/sections/footer";
 import NavigationClient from "@/components/sections/navigation-client";
 import TableauToPowerBiHero from "./components/TableauToPowerBiHero";
+import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 import TableauToPowerBiAIReadinessBanner from "./components/TableauToPowerBiAIReadinessBanner";
 import { TableauToPowerBiServices } from "./components/TableauToPowerBiServices";
 import TableauToPowerBiWhoDoWeServeSection from "./components/TableauToPowerBiWhoDoWeServeSection";
@@ -180,6 +181,7 @@ export default function TableauToPowerBiMigration() {
 
       {/* Hero Section */}
       <TableauToPowerBiHero />
+      <TrustedBrandsMarquee />
 
       <TableauToPowerBiAIReadinessBanner />
 

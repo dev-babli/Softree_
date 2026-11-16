@@ -10,7 +10,6 @@ export default function LogisticsTrust() {
     { name: "Jonians", src: "/images/logo/jonians.webp" },
     { name: "Export Control Group", src: "/images/logo/ecg.webp" },
     { name: "SP Marketplace", src: "/images/logo/1.webp" },
-    { name: "Bosch", src: "/images/logo/bosch.webp" },
     { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
     { name: "Link Innovation", src: "/images/logo/link-innovation.webp" },
     { name: "Intellectt", src: "/images/logo/Intellectt_logo.webp" },

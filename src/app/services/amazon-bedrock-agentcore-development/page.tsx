@@ -16,6 +16,7 @@ import dynamic from 'next/dynamic';
 
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
 const AgentCoreCapabilities = dynamic(() => import('./components/AgentCoreCapabilities'), { ssr: true });
+const AgentCoreSuccessStories = dynamic(() => import('./components/AgentCoreSuccessStories'), { ssr: true });
 const PAGE_URL = 'https://www.softreetechnology.com/services/amazon-bedrock-agentcore-development';
 const SITE_URL = 'https://www.softreetechnology.com';
 
@@ -67,16 +68,17 @@ export default function AmazonBedrockAgentCoreDevelopmentPage() {
     <main className="min-h-screen bg-white text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
       <NavigationClient />
       <AmazonBedrockHero />
-
+      <TrustedBrandsMarquee />
       <AgentCoreBuildCapabilities />
       <AmazonBedrockAgentCoreArc />
       <WhyAgentCoreSlider />
 
       <AgentCoreCapabilities />
+      <AgentCoreSuccessStories />
 
       <AgentCoreSystems />
       {/* <AgentCoreFeaturedUseCase /> */}
-      <TrustedBrandsMarquee />
+
       <WhyChooseWithTestimonials />
       <AgentCoreFAQ />
       <LightContactSection />

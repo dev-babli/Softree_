@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer";
 import NavigationClient from "@/components/sections/navigation-client";
+import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 import PowerBiFabricAIReadinessBanner from "./components/PowerBiFabricAIReadinessBanner";
 import { PowerBiFabricServices } from "./components/PowerBiFabricServices";
 import PowerBiFabricWhoDoWeServeSection from "./components/PowerBiFabricWhoDoWeServeSection";
@@ -141,6 +142,7 @@ export default function PowerBiToFabricMigration() {
       <NavigationClient />
       {/* Hero Section */}
       <PowerBiFabricHero />
+      <TrustedBrandsMarquee />
 
       <PowerBiFabricAIReadinessBanner />
 

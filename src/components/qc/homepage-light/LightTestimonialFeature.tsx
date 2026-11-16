@@ -64,7 +64,6 @@ const companyLogos: Record<string, string> = {
   "Wicked Point LLC": "/images/logo/wickedpoint.jpg",
   "ECG International": "/images/logo/ecg.webp",
   Nuvento: "/images/logo/nuvento.webp",
-  Bosch: "/images/logo/bosch.webp",
   Deloitte: "/images/logo/deloitte.png",
   Microsoft: "/images/logo/microsoft.png",
   Sanofi: "/images/logo/sanofi.jpg",

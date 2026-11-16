@@ -344,7 +344,7 @@ export default function AgentCoreCapabilities() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-white text-slate-900 pt-4 pb-16 md:pt-6 md:pb-24 border-t border-slate-100 overflow-hidden"
+      className="relative w-full bg-white text-slate-900 pt-4 pb-0 md:pt-6 md:pb-0 border-t border-slate-100 overflow-hidden"
     >
       {/* Background Subtle Gradient Accents */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-orange-100/40 rounded-full blur-[140px] pointer-events-none -z-10" />
