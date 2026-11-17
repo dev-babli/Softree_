@@ -39,7 +39,7 @@ export default function TrustStrip({ theme = "light", className = "" }: TrustStr
             },
             {
               title: "ISO 9001:2015",
-              subtitle: "Quality Management\nSystems",
+              subtitle: "Quality Management\nSystem",
               icon: Award,
               color: "text-blue-500",
             },
@@ -63,7 +63,7 @@ export default function TrustStrip({ theme = "light", className = "" }: TrustStr
             },
             {
               title: "13+ YEARS",
-              subtitle: "Proven Engineering\nExperience",
+              subtitle: "Engineering\nExperience",
               icon: CalendarDays,
               color: "text-red-500",
             },

@@ -168,7 +168,7 @@ const capabilities = [
   { title: "Agentic AI", icon: AgenticAiIcon },
   { title: "AI Agents", icon: AiAgentsIcon },
   { title: "Copilots", icon: CopilotsIcon },
-  { title: "RAG", icon: RagIcon },
+  { title: "Retrieval-Augmented Generation", icon: RagIcon },
   { title: "Intelligent Automation", icon: IntelligentAutomationIcon },
   { title: "Microsoft AI", icon: MicrosoftAiIcon },
   { title: "AWS AI", icon: AwsAiIcon },
