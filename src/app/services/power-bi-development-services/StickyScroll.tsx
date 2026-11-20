@@ -110,7 +110,7 @@ export const FabricStickyScroll = () => {
         </h2>
 
         <p className={`${typography.description.default} text-slate-500 max-w-2xl`}>
-          Softree's Power BI team supports the complete analytics lifecycle, from data preparation and modeling to dashboard development and reporting.
+          Softree&apos;s Power BI team supports the complete analytics lifecycle, from data preparation and modeling to dashboard development and reporting.
         </p>
       </div>
 
@@ -136,7 +136,7 @@ export const FabricStickyScroll = () => {
             num: "03",
             title: "Power BI Data Modeling",
             titleSplit: "Data<br/>Modeling",
-            desc: "Design robust, scalable semantic data models (Star Schema) in Power BI that support highly accurate and efficient enterprise reporting. We architect optimized datasets and relationships to ensure high-performance querying, single version of truth, and seamless self-service BI for business analysts.",
+            desc: "Build structured semantic data models using Star Schema designs that organize business data and table relationships into clear reporting dimensions. We architect optimized datasets to ensure fast query response, single-source metric consistency, and intuitive self-service BI for business teams.",
             points: ["Optimized Star Schema Design", "Enterprise Semantic Models"],
             bg: "#fcfbf9", text: "#111111"
           },
@@ -144,7 +144,7 @@ export const FabricStickyScroll = () => {
             num: "04",
             title: "Power Query & Data Transformation",
             titleSplit: "Data<br/>Transformation",
-            desc: "Clean, consolidate, and transform complex raw data from disparate sources using advanced Power Query (M language) techniques. We build reliable, automated ETL pipelines within Power BI to ensure data quality, consistency, and readiness for advanced analytics.",
+            desc: "Clean, shape, and consolidate complex raw data from disparate business sources using Power Query. We build automated Extract, Transform, Load (ETL) pipelines that prepare, validate, and move data reliably into Power BI for accurate enterprise analytics.",
             points: ["Advanced Data Cleansing", "Automated ETL Pipelines"],
             bg: "#FF6B00", text: "#ffffff"
           },
@@ -152,7 +152,7 @@ export const FabricStickyScroll = () => {
             num: "05",
             title: "DAX Development",
             titleSplit: "DAX<br/>Development",
-            desc: "Develop advanced business logic, complex measures, calculated columns, and precise analytical calculations using Data Analysis Expressions (DAX). We optimize DAX performance to handle large datasets, enabling sophisticated time-intelligence, dynamic KPIs, and custom business rules.",
+            desc: "Develop custom business logic, calculated measures, and analytical formulas using Data Analysis Expressions (DAX). We optimize DAX calculations to handle large datasets, enabling accurate time-intelligence reporting, dynamic KPIs, and complex business rules.",
             points: ["Complex Measure Calculations", "Time-Intelligence Analytics"],
             bg: "#C94716", text: "#ffffff"
           },
@@ -160,7 +160,7 @@ export const FabricStickyScroll = () => {
             num: "06",
             title: "Power BI Integration",
             titleSplit: "System<br/>Integration",
-            desc: "Seamlessly integrate Power BI with a wide ecosystem of databases, cloud services, CRM/ERP applications, and enterprise systems (Azure, SQL, Salesforce, Dynamics 365). We ensure secure, real-time data connectivity through API integration and optimized data gateways.",
+            desc: "Connect Power BI to cloud databases, on-premises SQL servers, CRM, and ERP platforms like Dynamics 365 and SAP. We establish secure data exchange and automated synchronization using REST APIs, cloud connectors, and enterprise on-premises data gateways.",
             points: ["Enterprise Systems Integration", "Secure Data Gateways"],
             bg: "#111111", text: "#f5f5f5"
           },
@@ -176,7 +176,7 @@ export const FabricStickyScroll = () => {
             num: "08",
             title: "Power BI Support & Optimization",
             titleSplit: "Support &<br/>Optimization",
-            desc: "Provide ongoing administration, health checks, and performance optimization for your existing Power BI reports, dashboards, and semantic models. We resolve slow rendering times, optimize DAX queries, manage workspace governance, and implement Row-Level Security (RLS) to keep your analytics environment secure and blazing fast.",
+            desc: "Provide ongoing administration, health checks, and performance optimization for Power BI reports and semantic models. We resolve slow rendering, tune DAX queries, manage workspace governance, and configure Row-Level Security (RLS) to control which data individual users can access securely and efficiently.",
             points: ["Dashboard Performance Tuning", "Governance & Security (RLS)"],
             bg: "#FF6B00", text: "#ffffff"
           }

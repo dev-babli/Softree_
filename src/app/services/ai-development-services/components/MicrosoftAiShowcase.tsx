@@ -668,43 +668,6 @@ export default function MicrosoftAiShowcase() {
         </div>
 
       </div>
-
-      {/* Integrated bottom delivering business impact banner */}
-      <div className="relative overflow-hidden rounded-[20px] border border-orange-500/20 bg-white py-4 px-4 sm:px-6 md:px-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-6 z-10 text-slate-900 w-full">
-
-        {/* Mirror-morphism reflection glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,107,44,0.03),transparent_50%)] pointer-events-none" />
-
-        {/* Header left */}
-        <div className="flex items-center gap-3 shrink-0 border-b lg:border-b-0 lg:border-r border-slate-200 pb-3 lg:pb-0 lg:pr-6 w-full lg:w-auto">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white border-2 border-orange-500/40 text-orange-600 shadow-[0_0_10px_rgba(255,107,44,0.05)] animate-pulse">
-            <Target className="w-5 h-5 text-orange-600" />
-          </div>
-          <div className="text-left">
-            <span className="text-[13px] sm:text-[14.5px] lg:text-[15px] font-black text-orange-600 tracking-wider uppercase select-none">DELIVERING BUSINESS IMPACT</span>
-          </div>
-        </div>
-
-        {/* 5 Metrics row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-between items-center w-full gap-4">
-          {businessImpactMetrics.map((metric, idx) => (
-            <React.Fragment key={idx}>
-              <div className="flex items-center gap-3 text-left group">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white border border-orange-500/20 shadow-[0_0_8px_rgba(255,107,44,0.05)] transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 shrink-0">
-                  {React.cloneElement(metric.icon, { className: "w-4.5 h-4.5 text-orange-600 animate-pulse" })}
-                </div>
-                <div>
-                  <span className="text-[12px] sm:text-[13px] font-black text-slate-900 block tracking-tight uppercase leading-none mb-0.5">{metric.title}</span>
-                  <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-500 font-semibold block leading-none">{metric.value}</span>
-                </div>
-              </div>
-              {idx < businessImpactMetrics.length - 1 && (
-                <div className="hidden lg:block w-[1px] h-6 bg-slate-200" />
-              )}
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

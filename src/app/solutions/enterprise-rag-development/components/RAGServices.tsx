@@ -13,7 +13,7 @@ export const RAGServices = ({ simple = false }: { simple?: boolean }) => {
     {
       title: "Consulting Firms",
       desc: "Extend your AI delivery capabilities with an experienced offshore RAG engineering team.",
-      subdesc: "Turn your AI strategy and client engagements into production-ready RAG applications, knowledge assistants, and enterprise AI solutions.",
+      subdesc: "Turn your AI strategy and client engagements into production-ready knowledge assistants, document search, and enterprise AI solutions.",
       icon: Building,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -29,7 +29,7 @@ export const RAGServices = ({ simple = false }: { simple?: boolean }) => {
     {
       title: "Technology & Product Companies",
       desc: "Accelerate AI product development with dedicated RAG engineering capacity.",
-      subdesc: "Build RAG-powered applications, knowledge systems, and intelligent product experiences connected to your proprietary data and business systems.",
+      subdesc: "Build AI-powered product features and knowledge systems connected to your proprietary data and business applications.",
       icon: Code,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",

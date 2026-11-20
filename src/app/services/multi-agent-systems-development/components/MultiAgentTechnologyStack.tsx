@@ -14,7 +14,7 @@ import {
 
 export const aiAgentTechCategories = [
   {
-    label: "LLMs & Models",
+    label: "Large Language Models (LLMs) & Models",
     icon: Sparkles,
     items: [
       { name: "OpenAI" },
@@ -28,14 +28,14 @@ export const aiAgentTechCategories = [
     label: "Multi-Agent Frameworks",
     icon: Bot,
     items: [
-      { name: "LangGraph" },
-      { name: "AutoGen" },
-      { name: "CrewAI" },
-      { name: "Semantic Kernel" },
+      { name: "LangGraph — Cyclic Multi-Agent Graphs" },
+      { name: "AutoGen — Multi-Agent Conversation" },
+      { name: "CrewAI — Role-Based Orchestration" },
+      { name: "Semantic Kernel — Enterprise Agent Orchestration" },
     ],
   },
   {
-    label: "RAG & Knowledge",
+    label: "Retrieval-Augmented Generation (RAG) & Knowledge",
     icon: Database,
     items: [
       { name: "LangChain" },
@@ -78,7 +78,7 @@ export const aiAgentTechCategories = [
     icon: ArrowRightLeft,
     items: [
       { name: "REST APIs" },
-      { name: "MCP-Compatible Integrations" },
+      { name: "Model Context Protocol (MCP) Integrations" },
       { name: "Enterprise Connectors" },
       { name: "Workflow Tools" },
     ],
@@ -95,10 +95,10 @@ const techToImgUrl: Record<string, string> = {
   "Meta Llama": "https://cdn.simpleicons.org/meta/FF5812",
   "Mistral AI": "https://cdn.simpleicons.org/mistral/FF5812",
 
-  LangGraph: "https://cdn.simpleicons.org/langchain/FF5812",
-  AutoGen: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-  CrewAI: "https://cdn.simpleicons.org/crewai/FF5812",
-  "Semantic Kernel": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+  "LangGraph — Cyclic Multi-Agent Graphs": "https://cdn.simpleicons.org/langchain/FF5812",
+  "AutoGen — Multi-Agent Conversation": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+  "CrewAI — Role-Based Orchestration": "https://cdn.simpleicons.org/crewai/FF5812",
+  "Semantic Kernel — Enterprise Agent Orchestration": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
 
   LangChain: "https://cdn.simpleicons.org/langchain/FF5812",
   "Azure AI Search": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
@@ -120,7 +120,7 @@ const techToImgUrl: Record<string, string> = {
   Monitoring: "https://cdn.simpleicons.org/opentelemetry/FF5812",
 
   "REST APIs": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
-  "MCP-Compatible Integrations": "https://cdn.simpleicons.org/anthropic/FF5812",
+  "Model Context Protocol (MCP) Integrations": "https://cdn.simpleicons.org/anthropic/FF5812",
   "Enterprise Connectors": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
   "Workflow Tools": "https://cdn.simpleicons.org/zapier/FF5812",
 };
@@ -304,7 +304,7 @@ export function AIAgentsTechnologyStack() {
 
           <div className="lg:justify-self-end">
             <p className="typo-description w-full text-slate-500 lg:max-w-xl">
-              Production-ready multi-agent tech stack featuring top LLMs, orchestration frameworks, RAG architectures, and enterprise cloud integrations for scalable autonomous systems.
+              A technology stack for coordinated AI systems, covering Large Language Models (LLMs), orchestration frameworks, Retrieval-Augmented Generation (RAG), and enterprise cloud integrations.
             </p>
             <p className="mt-4 text-sm text-zinc-500">
               <span className="font-semibold text-zinc-900">25+</span>{" "}

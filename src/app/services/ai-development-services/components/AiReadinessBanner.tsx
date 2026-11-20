@@ -16,25 +16,25 @@ const FEATURES: FeatureItem[] = [
     icon: Bot,
     title: "Agentic AI Expertise",
     description:
-      "Build AI agents, multi-agent systems, RAG solutions, and intelligent workflows designed around real business processes.",
+      "Design AI agents, multi-agent workflows, and knowledge-grounded applications that support specific business processes.",
   },
   {
     icon: Users,
-    title: "Dedicated Offshore AI Engineers",
+    title: "Dedicated AI Engineering Team",
     description:
-      "Extend your team with AI architects, engineers, data specialists, QA, and cloud experts to support Agentic AI development from architecture through production.",
+      "Add AI engineering capacity for solution architecture, agent development, data integration, testing, and deployment.",
   },
   {
     icon: Cloud,
-    title: "Microsoft + AWS AI Expertise",
+    title: "Microsoft & AWS AI Expertise",
     description:
-      "Build Agentic AI solutions across Azure AI, Azure OpenAI, Copilot, Amazon Bedrock, and other supported cloud services.",
+      "Build AI solutions using Microsoft Azure AI, Azure OpenAI, Microsoft Copilot technologies, and Amazon Bedrock, selected to fit your business requirements.",
   },
   {
     icon: SlidersHorizontal,
     title: "Flexible & White-Label Delivery",
     description:
-      "Choose dedicated teams, project delivery, staff augmentation, managed engineering, or white-label AI development based on your delivery model.",
+      "Choose a delivery model that fits your project: dedicated teams, project-based delivery, staff augmentation, managed engineering, or white-label AI development.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function AiReadinessBanner() {
 
             {/* Description Paragraph */}
             <p className="typo-description text-slate-600 max-w-xl mb-8">
-              Build and scale Agentic AI solutions with an experienced offshore engineering team. From AI agents and RAG to automation and integrations.
+              Build and scale Agentic AI solutions with an experienced offshore engineering team. From AI agents and Retrieval-Augmented Generation to automation and integrations.
             </p>
 
             {/* 4 Feature Items List */}

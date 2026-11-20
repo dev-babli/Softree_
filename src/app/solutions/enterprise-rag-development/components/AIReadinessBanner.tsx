@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { SqueezeCarousel, type SqueezeSlide } from "@/components/ui/carousel-squeeze";
@@ -32,7 +32,7 @@ const slides: SqueezeSlide[] = [
             "Client-Ready Architecture & QA",
             "Flexible Delivery Engagements",
         ],
-        bulletTitle: "DELIVERY CAPABILITIES",
+        bulletTitle: "WHITE-LABEL DELIVERY INCLUDES",
         background: <WavyBrandBackground className="absolute inset-0" partIndex={0} totalParts={5} />,
     },
     {
@@ -41,14 +41,14 @@ const slides: SqueezeSlide[] = [
         title: "Offshore RAG Engineering Capability",
         shortTitle: "Engineering Capacity",
         description:
-            "Add experienced AI engineers across RAG architecture, data ingestion, retrieval, LLM integration, testing, and production deployment without building a larger in-house team.",
+            "Extend your team with engineers supporting data ingestion, enterprise search, model integration, testing, and production deployment.",
         bullets: [
             "Data Ingestion & Preprocessing",
             "Hybrid Search & Indexing",
             "LLM Integration & Prompt Tuning",
             "Production Evaluation & QA",
         ],
-        bulletTitle: "ENGINEERING STACK",
+        bulletTitle: "ENGINEERING CAPABILITIES",
         background: <WavyBrandBackground className="absolute inset-0" partIndex={1} totalParts={5} />,
     },
     {
@@ -89,10 +89,10 @@ const slides: SqueezeSlide[] = [
         title: "Production RAG Security & Evaluation",
         shortTitle: "Security & Governance",
         description:
-            "Deploy production-ready Enterprise RAG solutions with secure knowledge access, enterprise governance, observability, evaluation, and continuous optimization.",
+            "Deploy and maintain enterprise RAG solutions with controlled knowledge access, governance, monitoring, response evaluation, and ongoing optimization.",
         bullets: [
-            "Granular RBAC & Access Control",
-            "Evaluation & Groundedness Metrics",
+            "Role-Based Access Control",
+            "Response Evaluation & Source Validation",
             "Continuous Latency & Cost Tuning",
             "Production Observability & Tracing",
         ],

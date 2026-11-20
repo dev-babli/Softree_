@@ -128,7 +128,7 @@ export default function PowerPlatformHero() {
 
         {/* Description Paragraph */}
         <p className={`${typography.description.default} max-w-3xl text-zinc-200 px-4 text-center leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]`}>
-          Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Softree provides offshore development and white-label delivery for businesses, agencies and technology partners that need flexible Power Platform engineering capacity.
+          Build Power Platform solutions with Power Apps, Power Automate, Power BI and Copilot Studio. Softree delivers offshore development and white-label services.
         </p>
       </div>
 

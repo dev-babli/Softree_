@@ -36,14 +36,14 @@ export const WhatYouCanBuild = ({ simple = false }: { simple?: boolean }) => {
     },
     {
       title: "Sales Agents",
-      desc: "Supercharge your inbound pipeline with automated voice AI sales agents that qualify leads, answer product questions, and seamlessly update CRM systems in real time.",
+      desc: "Use voice agents to qualify inbound leads, answer product questions, and update customer relationship management (CRM) records through configured integrations.",
       icon: TrendingUp,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
       title: "Enterprise Voice Copilots",
-      desc: "Connect low-latency voice interactions directly to your knowledge base using RAG architecture, turning static data into dynamic conversational enterprise copilots.",
+      desc: "Connect voice agents to enterprise knowledge bases through RAG, allowing responses to draw on relevant business information.",
       icon: Briefcase,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",

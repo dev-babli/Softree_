@@ -10,6 +10,10 @@ const FeaturesShowcaseLazy = dynamic(
   () => import("@/components/features/FeaturesShowcase"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
+const LightTestimonialFeatureLazy = dynamic(
+  () => import("@/components/qc/homepage-light/LightTestimonialFeature"),
+  { loading: () => <div className="min-h-[50vh] w-full bg-white" aria-hidden="true" /> }
+);
 const TechStackSectionLazy = dynamic(
   () => import("@/components/sections/tech"),
   { loading: () => <div className="min-h-[28vh] w-full bg-[#F3F0EE]" aria-hidden /> }
@@ -96,6 +100,7 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         {/* ── Core sections ── */}
         {/* <ServicesStackedSlidesLazy /> */}
         <FeaturesShowcaseLazy />
+        <LightTestimonialFeatureLazy />
         {/* <LightServicesStickyListLazy /> */}
         {/* Global client network — hex world with city stat cards */}
         {/* <GlobalClientNetworkLazy /> */}

@@ -67,7 +67,7 @@ export const aiAgentTechCategories = [
     icon: Shield,
     items: [
       { name: "Identity & Access Management" },
-      { name: "RBAC" },
+      { name: "Role-Based Access Control (RBAC)" },
       { name: "AI Evaluation" },
       { name: "Monitoring" },
     ],
@@ -113,6 +113,7 @@ const techToImgUrl: Record<string, string> = {
   "Data Pipelines": "https://cdn.simpleicons.org/apachekafka/FF5812",
 
   "Identity & Access Management": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+  "Role-Based Access Control (RBAC)": "https://cdn.simpleicons.org/auth0/FF5812",
   RBAC: "https://cdn.simpleicons.org/auth0/FF5812",
   "AI Evaluation": "https://cdn.simpleicons.org/langchain/FF5812",
   Monitoring: "https://cdn.simpleicons.org/opentelemetry/FF5812",
@@ -295,7 +296,7 @@ export function GenerativeAiTechnologyStack() {
 
           <div className="lg:justify-self-end">
             <p className="typo-description w-full text-slate-500 lg:max-w-xl">
-              Build production-ready Generative AI solutions with leading LLMs, RAG frameworks, cloud AI, and enterprise integrations via offshore engineering.
+              Explore the technologies we use for Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), cloud AI, and enterprise integrations.
             </p>
             <p className="mt-4 text-sm text-zinc-500">
               <span className="font-semibold text-zinc-900">25+</span>{" "}

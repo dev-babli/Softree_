@@ -24,7 +24,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     tag: "Real-Time Conversation",
     title: "AI Voice Assistants",
     description:
-      "Build intelligent voice assistants that understand natural conversations, maintain context, and provide real-time responses with sub-second latency.",
+      "Build intelligent voice assistants that understand natural conversations, maintain context, and provide responsive answers during real-time interactions.",
     media: "/images/novavoice/1.webp",
     effect: "glass",
   },
@@ -54,7 +54,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     tag: "Enterprise RAG & Data",
     title: "Voice Knowledge Assistants",
     description:
-      "Build voice-enabled knowledge assistants that use RAG and business data to provide relevant, context-aware, verifiable responses.",
+      "Build voice-enabled knowledge assistants using Retrieval-Augmented Generation (RAG) to retrieve relevant information from business knowledge sources and provide context-aware responses.",
     media: "/images/novavoice/4.webp",
     effect: "frost",
   },
@@ -94,7 +94,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     tag: "Autonomous Agentic AI",
     title: "Voice-Powered AI Agents",
     description:
-      "Combine Nova 2 Sonic with AI agents, tool calling, APIs, and business logic to create voice interfaces capable of taking autonomous actions.",
+      "Combine Nova 2 Sonic with AI agents and approved business APIs to create voice interfaces that can execute configured actions across connected systems.",
     media: "/images/novavoice/8.webp",
     effect: "plasma",
   },
@@ -604,9 +604,7 @@ export default function NovaVoiceSolutionsArc() {
         </h2>
 
         <p className="typo-description text-slate-600 max-w-3xl mx-auto mb-2">
-          Softree builds real-time voice AI applications with Amazon Nova 2 Sonic, connecting
-          conversational intelligence with business workflows, knowledge systems, APIs, and
-          enterprise applications.
+          We build real-time voice applications that connect natural conversations with business workflows, knowledge sources, APIs, and enterprise systems.
         </p>
 
         {/* Two Navigation Arrows Directly Below Description */}

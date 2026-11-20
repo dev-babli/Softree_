@@ -168,7 +168,7 @@ const capabilities = [
   { title: "Agentic AI", icon: AgenticAiIcon },
   { title: "AI Agents", icon: AiAgentsIcon },
   { title: "Copilots", icon: CopilotsIcon },
-  { title: "RAG", icon: RagIcon },
+  { title: "Retrieval-Augmented Generation", icon: RagIcon },
   { title: "Intelligent Automation", icon: IntelligentAutomationIcon },
   { title: "Microsoft AI", icon: MicrosoftAiIcon },
   { title: "AWS AI", icon: AwsAiIcon },
@@ -207,7 +207,7 @@ export const WovenLightHero = () => {
               className="leading-[1.12] tracking-tight flex flex-col items-start text-left select-none w-full"
             >
               <span className="text-white text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-                Offshore
+                Your Offshore
               </span>
               <span className="text-[#FF6B00] text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_0_35px_rgba(255,107,0,0.45)] mt-1 sm:mt-1.5">
                 AI Development
@@ -230,7 +230,7 @@ export const WovenLightHero = () => {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-slate-200 typo-body-lg sm:text-base lg:text-base xl:text-lg font-normal leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
             >
-              Build, deploy, and scale AI agents with a dedicated offshore engineering team — under your brand or as an extension of your team.
+              Build, deploy, and scale Agentic AI solutions with a dedicated offshore engineering team — under your brand or as an extension of your team.
             </motion.p>
 
             {/* Capability Pill Badges (Right) */}

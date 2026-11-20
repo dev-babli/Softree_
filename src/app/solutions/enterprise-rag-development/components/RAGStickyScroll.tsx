@@ -148,7 +148,7 @@ export const RAGStickyScroll = () => {
             tag: "EMBEDDINGS & VECTOR SEARCH",
             title: "Embeddings & Vector Search",
             titleSplit: "Embeddings &<br />Vector Search",
-            desc: "Convert enterprise knowledge into searchable vector representations and connect it to vector databases for semantic retrieval across large and diverse business information sources.",
+            desc: "Create embeddings (numerical representations of text that capture meaning) and store them in vector databases so related information can be found through semantic search.",
             points: ["Embedding generation and vector database integration", "Semantic and hybrid search for more relevant knowledge retrieval"],
             bg: "#FF6B00",
             text: "#ffffff"
@@ -158,7 +158,7 @@ export const RAGStickyScroll = () => {
             tag: "RETRIEVAL & RERANKING",
             title: "Intelligent Retrieval & Reranking",
             titleSplit: "Intelligent Retrieval<br />& Reranking",
-            desc: "Improve the quality of retrieved context before it reaches the language model by combining query understanding, semantic search, filtering, retrieval, and reranking.",
+            desc: "Find relevant information by interpreting queries, searching enterprise content, filtering results, and reranking them (reordering results by relevance) before they reach the language model.",
             points: ["Query understanding, filtering, retrieval, and reranking", "Retrieval pipelines designed to return focused business context"],
             bg: "#18181b",
             text: "#f5f5f5"
@@ -168,7 +168,7 @@ export const RAGStickyScroll = () => {
             tag: "LLM INTEGRATION",
             title: "Grounded LLM Responses",
             titleSplit: "Grounded LLM<br />Responses",
-            desc: "Connect retrieved enterprise knowledge with leading language models to generate context-aware responses grounded in the information available to your RAG application.",
+            desc: "Connect retrieved enterprise knowledge with language models to generate responses based on relevant business information and available source context.",
             points: ["Azure OpenAI, OpenAI, Claude, Gemini, and Llama integration", "Grounded responses with relevant enterprise context and source-aware answers"],
             bg: "#fcfbf9",
             text: "#111111"

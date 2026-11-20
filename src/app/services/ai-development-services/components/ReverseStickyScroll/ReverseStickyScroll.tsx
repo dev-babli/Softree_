@@ -102,7 +102,7 @@ export const ReverseStickyScroll = () => {
           num: "01",
           title: "AI Agent ",
           titleSplit: "AI Agent<br />Development",
-          desc: "Build custom AI agents that understand business context, use tools and APIs, access enterprise knowledge, and execute multi-step workflows.",
+          desc: "Build task-focused AI agents that interpret requests, retrieve business information, use approved tools and APIs, and carry out multi-step workflows.",
           bg: "#C94716", text: "#ffffff",
           link: "/solutions/ai-agents-development"
         },
@@ -110,7 +110,7 @@ export const ReverseStickyScroll = () => {
           num: "02",
           title: "Multi-Agent Systems",
           titleSplit: "Multi-Agent<br />Systems",
-          desc: "Design coordinated AI agents that work together across specialized tasks, workflows, and business processes to handle complex automation.",
+          desc: "Coordinate specialized agents to divide complex tasks, share relevant context, and complete connected business workflows.",
           bg: "#111111", text: "#f5f5f5",
           link: "/solutions/multi-agent-systems"
         },
@@ -118,7 +118,7 @@ export const ReverseStickyScroll = () => {
           num: "03",
           title: "RAG & Enterprise Knowledge",
           titleSplit: "RAG-Powered AI Agents",
-          desc: "Connect AI agents to business documents, knowledge bases, databases, and enterprise data using RAG for grounded responses and context-aware workflows.",
+          desc: "Retrieval-Augmented Generation (RAG) connects AI models to relevant business documents, knowledge bases, and databases so responses can draw on your organization's information.",
           bg: "#fcfbf9", text: "#111111",
           link: "/solutions/enterprise-rag-development"
         },
@@ -126,7 +126,7 @@ export const ReverseStickyScroll = () => {
           num: "04",
           title: "AI Copilots",
           titleSplit: "AI<br />Copilots",
-          desc: "Develop context-aware AI copilots that assist employees and customers with real-time guidance, knowledge access, decision support, and task execution across business applications.",
+          desc: "Build copilots that help employees and customers find information, get task guidance, and complete routine actions across business applications.",
           bg: "#18181b", text: "#f5f5f5",
           link: "/solutions/ai-copilot-development"
         },
@@ -134,7 +134,7 @@ export const ReverseStickyScroll = () => {
           num: "05",
           title: "Generative AI",
           titleSplit: "Generative AI Solutions",
-          desc: "Build production-ready generative AI applications that create content, assist users, support knowledge work, and add intelligent capabilities to business applications.",
+          desc: "Create generative AI applications for content drafting, document summarization, information extraction, and conversational assistance.",
           bg: "#fcfbf9", text: "#111111",
           link: "/services/generative-ai"
         },
@@ -142,7 +142,7 @@ export const ReverseStickyScroll = () => {
           num: "06",
           title: "Azure OpenAI",
           titleSplit: "Azure OpenAI Solutions",
-          desc: "Build secure Azure OpenAI solutions for enterprise applications, RAG, AI assistants, and governed AI experiences across the Microsoft ecosystem.",
+          desc: "Develop Azure OpenAI applications that connect language models with business data and Microsoft services, using access controls suited to the environment.",
           bg: "#2A2A2A", text: "#f5f5f5",
           link: "/solutions/azure-openai-development"
         }

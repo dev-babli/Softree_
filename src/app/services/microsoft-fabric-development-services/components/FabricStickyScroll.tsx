@@ -117,7 +117,7 @@ export const FabricStickyScroll = () => {
             tag: "MICROSOFT FABRIC DATA ENGINEERING",
             title: "Microsoft Fabric Data Engineering",
             titleSplit: "Fabric Data<br />Engineering",
-            desc: "Build scalable Microsoft Fabric data engineering solutions using OneLake, Lakehouse, Data Factory, pipelines, and Spark. We design reliable data platforms that bring enterprise data together for analytics, reporting, and AI-ready workloads.",
+            desc: "Build reliable data pipelines using Fabric Data Factory and Apache Spark. Organize enterprise data in OneLake (Fabric's unified data lake) and Lakehouse environments to prepare it for analytics and downstream workloads.",
             points: ["OneLake Data Integration", "Lakehouse & Data Pipelines"],
             bg: "#C94716",
             text: "#ffffff"
@@ -127,7 +127,7 @@ export const FabricStickyScroll = () => {
             tag: "MICROSOFT FABRIC DATA ANALYTICS",
             title: "Microsoft Fabric Data Analytics",
             titleSplit: "Fabric Data<br />Analytics",
-            desc: "Build unified data analytics solutions with Microsoft Fabric, connecting enterprise data across Lakehouse, Warehouse, semantic models, and Power BI. We help organizations turn complex data into trusted insights for faster, data-driven decision-making.",
+            desc: "Bring enterprise data together across Lakehouse and Warehouse environments, then build Power BI reports and semantic models (reusable business definitions and measures). Help teams work from consistent metrics and trusted insights.",
             points: ["Enterprise Data Analytics", "Power BI & Semantic Models"],
             bg: "#111111",
             text: "#f5f5f5"
@@ -137,7 +137,7 @@ export const FabricStickyScroll = () => {
             tag: "MICROSOFT FABRIC DATA WAREHOUSE",
             title: "Microsoft Fabric Data Warehouse",
             titleSplit: "Fabric Data<br />Warehouse",
-            desc: "Build modern cloud data warehouses with Microsoft Fabric to centralize enterprise data and support scalable analytics, reporting, and business intelligence. We develop structured data solutions designed for performance, governance, and reliable business reporting.",
+            desc: "Design Microsoft Fabric Data Warehouse solutions to centralize structured enterprise data for reporting and analytics. Develop governed data models that support consistent queries and reliable business reporting.",
             points: ["Fabric Data Warehouse", "Enterprise Data Modeling"],
             bg: "#fcfbf9",
             text: "#111111"
@@ -147,7 +147,7 @@ export const FabricStickyScroll = () => {
             tag: "MICROSOFT FABRIC REAL-TIME INTELLIGENCE",
             title: "Microsoft Fabric Real-Time Intelligence",
             titleSplit: "Real-Time<br />Intelligence",
-            desc: "Build real-time data solutions with Microsoft Fabric to monitor events, analyze streaming data, and support faster operational decisions. We connect real-time data sources with analytics and business intelligence workflows for actionable insights.",
+            desc: "Process incoming events with Microsoft Fabric Real-Time Intelligence to monitor operational activity and respond to changes as they happen. Connect event data with analytics and business intelligence workflows.",
             points: ["Real-Time Data Analytics", "Event & Streaming Intelligence"],
             bg: "#FF6B00",
             text: "#ffffff"
@@ -157,7 +157,7 @@ export const FabricStickyScroll = () => {
             tag: "MICROSOFT FABRIC AI-READY DATA",
             title: "Microsoft Fabric AI-Ready Data",
             titleSplit: "AI-Ready<br />Data",
-            desc: "Prepare enterprise data for AI applications with Microsoft Fabric by creating governed, accessible, and reliable data foundations. We connect Fabric data environments with AI, RAG, automation, and intelligent applications.",
+            desc: "Prepare governed, accessible enterprise data for AI applications. Connect data with retrieval-augmented generation (RAG), AI assistants, and automation workflows so applications can retrieve relevant organizational information.",
             points: ["AI-Ready Data Foundations", "RAG & Enterprise AI"],
             bg: "#18181b",
             text: "#f5f5f5"

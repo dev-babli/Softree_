@@ -29,7 +29,7 @@ export const AIAgentsServices = ({ simple = false }: { simple?: boolean }) => {
     {
       title: "Consulting Firms",
       desc: "Expand your AI consulting and delivery capabilities with specialized AI agent development support.",
-      subdesc: "Use Softree as an engineering partner for client projects involving custom agents, knowledge retrieval, workflow automation, and enterprise integrations.",
+      subdesc: "Partner with Softree to turn AI consulting strategies into custom agents, knowledge assistants, and workflow automation solutions for your clients.",
       icon: Code,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -37,7 +37,7 @@ export const AIAgentsServices = ({ simple = false }: { simple?: boolean }) => {
     {
       title: "System Integrators",
       desc: "Add AI agent development to your enterprise modernization and integration projects.",
-      subdesc: "Extend your delivery capacity with engineers supporting agent architecture, API connectivity, data integration, testing, and deployment.",
+      subdesc: "Add agent architecture, API connectivity, data integration, testing, and deployment capabilities to your existing enterprise modernization projects.",
       icon: Blocks,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -72,7 +72,7 @@ export const AIAgentsServices = ({ simple = false }: { simple?: boolean }) => {
                 </h2>
 
                 <p className="typo-description text-slate-500 w-full pt-1.5">
-                  We help enterprises, consulting firms, system integrators, and technology companies build custom AI agents, connect business systems, and automate complex workflows with dedicated offshore AI engineering support.
+                  Softree designs and develops enterprise AI agents for businesses and technology partners, connecting business applications, enterprise data, and operational workflows to support practical automation.
                 </p>
               </div>
             </div>

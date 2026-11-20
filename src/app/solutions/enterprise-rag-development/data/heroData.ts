@@ -37,7 +37,7 @@ export const HERO_DATA = {
     suffix: '',
   },
   paragraph:
-    'Extend your AI delivery capabilities with Softree’s offshore RAG engineering team. We build secure, production-ready RAG solutions that connect enterprise documents, databases, business applications, and knowledge sources to deliver grounded, context-aware AI experiences.',
+    "Extend your AI delivery capabilities with Softree's offshore Retrieval-Augmented Generation (RAG) engineering team. We connect enterprise documents, databases, business applications, and knowledge sources to deliver source-grounded AI responses.",
   ctaButtons: {
     primary: {
       text: 'Talk to An Expert',

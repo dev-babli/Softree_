@@ -133,7 +133,7 @@ export const AIAgentsStickyScroll = () => {
             titleSplit: "Custom AI Agent<br />Development",
             desc: "Build AI agents that interpret requests, reason through tasks, use approved tools, and support multi-step business workflows using suitable language models and agent frameworks.",
             points: [
-              "Develop agent logic, prompts, and tool-calling capabilities.",
+              "Develop agent logic, prompts, and the ability to use approved tools.",
               "Configure task handling and workflow orchestration."
             ],
             bg: "#111111",
@@ -144,7 +144,7 @@ export const AIAgentsStickyScroll = () => {
             tag: "RAG & ENTERPRISE KNOWLEDGE",
             title: "RAG & Enterprise Knowledge Integration",
             titleSplit: "RAG & Enterprise<br />Knowledge Integration",
-            desc: "Connect AI agents to relevant enterprise documents, databases, and knowledge bases to support context-aware responses grounded in approved information.",
+            desc: "Use Retrieval-Augmented Generation (RAG) to connect AI agents with enterprise documents and knowledge sources, allowing them to retrieve relevant information when responding to requests.",
             points: [
               "Integrate knowledge sources and retrieval pipelines.",
               "Validate source relevance and response grounding."
@@ -170,7 +170,7 @@ export const AIAgentsStickyScroll = () => {
             tag: "MEMORY & WORKFLOW ORCHESTRATION",
             title: "Memory & Workflow Orchestration",
             titleSplit: "Memory & Workflow<br />Orchestration",
-            desc: "Design conversational context, task sequencing, and coordinated agent workflows to support continuity across interactions and multi-step processes.",
+            desc: "Maintain relevant information across interactions and coordinate the sequence of tasks an AI agent completes within a business workflow.",
             points: [
               "Manage relevant context and state across tasks.",
               "Coordinate steps, tools, and agent handoffs where required."

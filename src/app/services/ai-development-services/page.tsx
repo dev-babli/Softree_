@@ -10,18 +10,13 @@ import TrustedBrandsMarquee from '@/app/services/offshore-power-platform-develop
 const AiReadinessBanner = dynamic(() => import('./components/AiReadinessBanner'), { ssr: true });
 const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
-const NewWhoDoWeServeSection = dynamic(() => import('./components/NewWhoDoWeServeSection'), { ssr: true });
-const CoreCapabilities = dynamic(() => import('./components/CoreCapabilities'), { ssr: true });
-const AiRoadmap = dynamic(() => import('./components/AiRoadmap'), { ssr: true });
 const WhyChooseWithTestimonials = dynamic(() => import('./components/WhyChooseWithTestimonials'), { ssr: true });
-const IndustrySoftree = dynamic(() => import('./components/IndustrySoftree'), { ssr: true });
 const WhySoftreeCurtainSlider = dynamic(() => import('./components/WhySoftreeCurtainSlider'), { ssr: true });
 const LightFAQExact = dynamic(() => import('./components/LightFAQExact'), { ssr: true });
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
 const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScroll/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll), { ssr: true });
 const AiDevelopmentSuccessStories = dynamic(() => import('./components/AiDevelopmentSuccessStories'), { ssr: true });
 const MicrosoftAiShowcase = dynamic(() => import('./components/MicrosoftAiShowcase'), { ssr: true });
-const OffshoreEngineeringSection = dynamic(() => import('./components/OffshoreEngineeringSection'), { ssr: true });
 const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infinite-slider'), { ssr: true });
 export const metadata: Metadata = {
   title: {
@@ -229,8 +224,6 @@ export default function AiDevelopmentServicesPage() {
         </div>
       </div>
 
-      {/* <NewWhoDoWeServeSection className="bg-white" /> */}
-
       {/* Reverse Sticky Scroll Overall Header */}
       <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">
         <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block">
@@ -251,30 +244,7 @@ export default function AiDevelopmentServicesPage() {
 
       <ReverseStickyScroll />
       <AiDevelopmentSuccessStories />
-      {/* Interactive Photo Stack Section - Offshore AI Engineering */}
-      {/* <OffshoreEngineeringSection /> */}
-      {/* <CoreCapabilities /> */}
-      {/* <IndustrySoftree /> */}
-      {/* Infinite Parallax AI Showcase */}
-      {/* <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-start text-left">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-          AWS AI ECOSYSTEM
-        </div>
-        <h2 className="typo-heading-2 max-w-4xl text-slate-900 mb-4">
-          Build Agentic AI Solutions Across the <span className="text-[#FF6B2C]">AWS Ecosystem</span>
-        </h2>
-        <p className="typo-description text-slate-500 max-w-5xl">
-          Build production-ready Agentic AI and AI solutions on AWS using foundation models, Amazon Bedrock, RAG, intelligent automation, vector search, and secure cloud infrastructure.
-        </p>
-      </div>
-      <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 mt-8 md:mt-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24">
-        <div className="relative w-full h-[660px] xs:h-[680px] sm:h-[720px] md:h-[780px] lg:h-[860px] rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
-          <ArgentLoopSlider className="h-full w-full" />
-        </div>
-      </div> */}
       <MicrosoftAiShowcase />
-      {/* <AiRoadmap /> */}
       <WhySoftreeCurtainSlider />
       <WhyChooseWithTestimonials />
       <LightFAQExact />

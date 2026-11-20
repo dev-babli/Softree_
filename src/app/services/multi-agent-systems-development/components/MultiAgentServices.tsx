@@ -72,7 +72,7 @@ export const AIAgentsServices = ({ simple = false }: { simple?: boolean }) => {
                 </h2>
 
                 <p className="typo-description text-slate-500 w-full pt-1.5">
-                  We empower tech companies, consultancies, agencies, and integrators with offshore engineering to architect, orchestrate, and deliver coordinated multi-agent AI systems via flexible white-label delivery.
+                  We work with technology companies, consultancies, agencies, and system integrators that need engineering capacity to design, build, and connect multi-agent AI solutions. Our team supports implementation and integration projects under agreed engagement models.
                 </p>
               </div>
             </div>

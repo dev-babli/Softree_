@@ -293,8 +293,8 @@ export default function HeroPowerApps() {
           </div>
 
           <div style={styles.right} className="hero-right">
-            <div 
-              style={styles.sliderViewport} 
+            <div
+              style={styles.sliderViewport}
               className="hero-slider-viewport"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}

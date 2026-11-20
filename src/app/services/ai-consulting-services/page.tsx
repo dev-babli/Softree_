@@ -13,7 +13,6 @@ import TrustedBrandsMarquee from "./ai-consulting-services-components/TrustedBra
 import AiReadinessBanner from "./ai-consulting-services-components/AiReadinessBanner";
 import AIConsultingWhoWeHelp from "./ai-consulting-services-components/AIConsultingWhoWeHelp";
 import dynamic from "next/dynamic";
-import NewWhoDoWeServeSection from "@/app/services/ai-development-services/components/NewWhoDoWeServeSection";
 
 const ReverseStickyScroll = dynamic(
   () => import('./ai-consulting-services-components/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll),
@@ -201,7 +200,6 @@ export default function AIConsultingServicesPage() {
         <TrustedBrandsMarquee />
         <AiReadinessBanner />
         <AIConsultingWhoWeHelp />
-        {/* <NewWhoDoWeServeSection className="bg-white" /> */}
         <ReverseStickyScroll />
         <SuccessStories />
         <AIConsultingTechStack />
