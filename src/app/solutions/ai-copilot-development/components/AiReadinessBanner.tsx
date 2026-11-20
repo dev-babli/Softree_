@@ -17,25 +17,25 @@ const FEATURES: FeatureItem[] = [
     icon: Bot,
     title: "Custom AI Copilot Expertise",
     description:
-      "Develop AI copilots that connect users with business knowledge, answer questions, and support everyday workflows.",
+      "Develop custom AI copilots with secure enterprise knowledge retrieval, contextual grounding, and automated role-based workflows.",
   },
   {
     icon: Users,
     title: "Dedicated Offshore AI Engineers",
     description:
-      "Extend your team with AI architects, developers, data specialists, and QA engineers to support copilot development and integration.",
+      "Deploy dedicated AI architects, LLM developers, and QA engineers to build, fine-tune, and integrate enterprise copilot solutions.",
   },
   {
     icon: Cloud,
     title: "Microsoft AI & Copilot Expertise",
     description:
-      "Build AI copilot solutions using Microsoft Copilot Studio, Azure AI, Azure OpenAI, and Power Platform, based on your project requirements.",
+      "Build and extend copilots using Microsoft Copilot Studio, Azure OpenAI, and Power Platform with secure enterprise integration.",
   },
   {
     icon: SlidersHorizontal,
     title: "Flexible & White-Label Delivery",
     description:
-      "Choose dedicated offshore teams, project-based delivery, staff augmentation, or white-label AI copilot development to fit your business model.",
+      "Engage through project-based delivery, agile engineering pods, or white-label copilot partnerships tailored to your business model.",
   },
 ];
 

@@ -17,31 +17,31 @@ const FEATURES: FeatureItem[] = [
     icon: LayoutDashboard,
     title: "Power BI Dashboard & Report Development",
     description:
-      "Build interactive Power BI dashboards and reports that turn complex business data into clear, actionable insights.",
+      "Build interactive executive dashboards, visual KPI scorecards, and drill-through reports tailored to departmental tracking and decision workflows.",
   },
   {
     icon: Database,
     title: "Data Integration & Power Query",
     description:
-      "Connect, transform, and prepare data from databases, business applications, cloud platforms, Excel, and other enterprise data sources.",
+      "Use Power Query to connect, cleanse, and automate data preparation across cloud platforms, databases, ERPs, and spreadsheets for reliable reporting.",
   },
   {
     icon: Boxes,
     title: "Data Modeling & DAX",
     description:
-      "Design scalable semantic data models and optimized DAX measures for accurate, high-performing analytics.",
+      "Build semantic data models that organize business data relationships and write DAX formula measures for accurate calculations, KPIs, and reporting.",
   },
   {
     icon: Rocket,
     title: "Power BI Implementation & Optimization",
     description:
-      "Take Power BI solutions from requirements through development, deployment, security, performance optimization, and ongoing enhancements.",
+      "Deploy secure Power BI workspaces with role permissions, scheduled gateway refreshes, and query tuning to keep reports fast and reliable.",
   },
   {
     icon: Users,
     title: "Offshore Power BI Engineering",
     description:
-      "Extend your team with dedicated Power BI developers for ongoing development, support, maintenance, and new analytics initiatives.",
+      "Access dedicated offshore Power BI developers to handle continuous report enhancements, dataset maintenance, ad-hoc analytics, and production support.",
   },
 ];
 
@@ -82,7 +82,7 @@ export default function AIReadinessBanner() {
 
             {/* Description Paragraph */}
             <p className={`${typography.description.default} text-slate-600 max-w-xl mb-8`}>
-              Extend your analytics capabilities with a dedicated offshore Power BI team that builds dashboards, reports, data models, and business intelligence solutions around your data and business goals.
+              Partner with a dedicated offshore Power BI team to unify your business data, establish dependable reporting, and give decision-makers clear operational visibility to act with confidence.
             </p>
 
             {/* 4 Feature Items List */}
@@ -111,7 +111,7 @@ export default function AIReadinessBanner() {
             <div className="inline-block mt-9">
               <FlowButton
                 href="/contact"
-                text="BUILD YOUR POWER BI TEAM"
+                text="Schedule a Power BI Consultation"
                 variant="orange-filled"
               />
             </div>

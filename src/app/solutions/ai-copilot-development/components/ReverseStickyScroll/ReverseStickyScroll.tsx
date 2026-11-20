@@ -120,7 +120,7 @@ export const ReverseStickyScroll = () => {
             num: "01",
             title: "CUSTOM AI COPILOT DEVELOPMENT",
             titleSplit: "Custom AI Copilot<br />Development",
-            desc: "Build AI copilots tailored to your business needs, helping users access information, get relevant answers, and complete everyday tasks.",
+            desc: "Engineer purpose-built conversational copilots and role-specific assistant software tailored to automate team inquiries, domain analysis, and daily operations.",
             features: [
               "Develop Custom AI Assistants",
               "Deliver Context-Aware Responses",
@@ -134,7 +134,7 @@ export const ReverseStickyScroll = () => {
             num: "02",
             title: "MICROSOFT COPILOT DEVELOPMENT",
             titleSplit: "Microsoft Copilot Studio<br />Solutions",
-            desc: "Create AI copilots using Microsoft Copilot Studio and relevant Microsoft technologies to support conversations, business processes, and application integration.",
+            desc: "Deploy low-code and custom copilots using Microsoft Copilot Studio to orchestrate conversational triggers, manage topics, and publish across Microsoft Teams and 365.",
             features: [
               "Develop Microsoft Copilots",
               "Connect Knowledge Sources",
@@ -148,7 +148,7 @@ export const ReverseStickyScroll = () => {
             num: "03",
             title: "AI KNOWLEDGE & DATA INTEGRATION",
             titleSplit: "AI Copilot Knowledge<br />Integration",
-            desc: "Connect AI copilots with approved documents, knowledge bases, databases, and business applications to provide relevant, context-aware information.",
+            desc: "Connect copilots to enterprise documents and databases using retrieval-augmented generation (RAG) to fetch grounded, accurate answers from verified sources.",
             features: [
               "Integrate Business Documents",
               "Connect Data Sources",
@@ -162,7 +162,7 @@ export const ReverseStickyScroll = () => {
             num: "04",
             title: "AI WORKFLOW AUTOMATION",
             titleSplit: "AI Copilot Workflow<br />Automation",
-            desc: "Connect AI copilots with supported business applications, APIs, and workflows to assist users and automate suitable repetitive tasks.",
+            desc: "Trigger automated actions across CRM, ERP, and internal systems by connecting copilots through REST APIs, webhooks, and multistep workflow orchestrations.",
             features: [
               "Automate Routine Tasks",
               "Integrate Business Applications",
@@ -176,7 +176,7 @@ export const ReverseStickyScroll = () => {
             num: "05",
             title: "AI COPILOT SECURITY & GOVERNANCE",
             titleSplit: "Secure AI Copilot<br />Development",
-            desc: "Build AI copilots with appropriate data access controls, security measures, and governance practices to support responsible use across business workflows.",
+            desc: "Protect company data with role-based access permissions, end-to-end encryption, and strict governance policies ensuring users only view authorized business information.",
             features: [
               "Implement Access Controls",
               "Protect Business Data",

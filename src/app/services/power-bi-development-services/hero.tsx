@@ -32,8 +32,8 @@ const PowerBIHero = () => {
           }
         `}
       </style>
-      
-      <div className="min-h-screen flex flex-col justify-between items-center bg-[#060403] text-white font-sans overflow-hidden relative">
+
+      <div className="min-h-[78vh] sm:min-h-[82vh] lg:min-h-[85vh] xl:min-h-[88vh] max-h-[850px] flex flex-col justify-between items-center bg-[#060403] text-white font-sans overflow-hidden relative">
         {/* Animated Red-Orange Bars Wave Background - Reduced Height */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-85">
           <BarsWave
@@ -54,7 +54,7 @@ const PowerBIHero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#060403]/60 via-transparent to-[#060403]/60 z-[2] pointer-events-none" />
 
         {/* Hero Content Container (Positioned from top below navbar) */}
-        <div className="container max-w-6xl text-center z-10 relative px-6 pt-28 sm:pt-32 pb-4 flex-1 flex flex-col justify-start items-center pointer-events-auto">
+        <div className="container max-w-6xl text-center z-10 relative px-6 pt-24 sm:pt-28 md:pt-30 pb-2 sm:pb-4 flex-1 flex flex-col justify-start items-center pointer-events-auto">
           {/* Eyebrow Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -73,10 +73,10 @@ const PowerBIHero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="typo-heading-2 max-w-4xl mx-auto m-0 relative z-20 text-white font-extrabold tracking-tight leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
           >
-            <span className="block">Your Trusted Offshore Power BI Team</span>
-            <span className="block">for Data Integration, Interactive Dashboards,</span>
+            <span className="block">Power BI Development with</span>
+            {/* <span className="block">for Data Integration, Interactive Dashboards,</span> */}
             <span className="gradient-text inline-block relative z-10 [text-shadow:none] mt-1">
-              Advanced Analytics & Actionable Business Insights
+              Offshore Expertise for Smarter Business Decisions
             </span>
           </motion.h1>
 
@@ -85,9 +85,9 @@ const PowerBIHero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 typo-description max-w-3xl mx-auto text-zinc-300 relative z-20 leading-relaxed"
+            className="mt-5 typo-description max-w-3xl mx-auto text-zinc-300 relative z-20 leading-relaxed"
           >
-            Build, modernize, and scale Power BI solutions with an experienced offshore engineering team. We develop interactive dashboards, reports, data models, DAX solutions, data integrations, and AI-powered analytics that help businesses turn complex data into actionable insights.
+            Build scalable Power BI solutions with interactive dashboards, advanced analytics, reliable data integration, and actionable business insights.
           </motion.p>
         </div>
 

@@ -45,7 +45,7 @@ const allCapabilities: CapabilityItem[] = [
     icon: <FaPaintBrush className="text-white" />,
     shortDesc: "Custom UI apps for mobile, tablet & desktop workflows.",
     description:
-      "We create intuitive Canvas Apps that offer complete design flexibility, allowing businesses to build task-focused applications tailored to their unique workflows. These apps deliver a seamless user experience across mobile, tablet, and desktop devices.",
+      "We design tailored Canvas Apps featuring custom screens, flexible forms, and intuitive UI controls for mobile, tablet, and desktop workflows. Power Apps Component Framework (PCF) enables developers to build custom components that extend the standard Power Apps interface, allowing teams to deliver specialized interactive features and offline-ready task experiences.",
     image: "/images/power-apps/1.webp",
     tags: ["Mobile First", "Tablet & Desktop", "Custom UI/UX", "Offline Sync"],
   },
@@ -56,7 +56,7 @@ const allCapabilities: CapabilityItem[] = [
     icon: <FaBolt className="text-white" />,
     shortDesc: "Rapid low-code apps to streamline business operations.",
     description:
-      "Our Power Apps solutions enable organizations to rapidly build secure and scalable applications using low-code capabilities, helping teams streamline operations, reduce development time, and improve productivity.",
+      "We rapidly build low-code business applications designed to replace error-prone Excel trackers, paper-based forms, and disconnected manual workflows. These solutions centralize operational records, automate routine approval handoffs, and connect business teams across Microsoft 365 and Teams without lengthy custom development cycles.",
     image: "/images/power-apps/2.webp",
     tags: ["Rapid Prototyping", "Low-Code Speed", "Role Permissions", "Teams Integration"],
   },
@@ -67,7 +67,7 @@ const allCapabilities: CapabilityItem[] = [
     icon: <FaDatabase className="text-white" />,
     shortDesc: "Enterprise, data-driven solutions using Dataverse.",
     description:
-      "We develop robust Model-Driven Apps that leverage structured data and business rules to deliver consistent, data-centric experiences, ideal for complex business processes and data-driven applications.",
+      "We develop structured Model-Driven Apps built on Microsoft Dataverse to support complex business processes, case management, and operational record keeping. Guided Business Process Flows, automated forms, and consistent business rules ensure users follow standardized operational stages with full auditability and role-based permissions.",
     image: "/images/power-apps/3.webp",
     tags: ["Dataverse Architecture", "Business Process Flows", "Automated Forms", "Audit Logs"],
   },
@@ -78,7 +78,7 @@ const allCapabilities: CapabilityItem[] = [
     icon: <FaGlobe className="text-white" />,
     shortDesc: "Secure external portals for customers & partners.",
     description:
-      "Our portal solutions provide secure, role-based access for customers, partners, and employees, enabling seamless external collaboration while maintaining security and performance.",
+      "We build secure external portals that provide customers, vendors, and business partners with self-service access to approved Dataverse information. External users can submit inquiries, track case status, and complete web forms through authenticated or anonymous access while maintaining strict table permissions and data boundaries.",
     image: "/images/power-apps/4.webp",
     tags: ["External Access", "B2B Collaboration", "Customer Self-Service", "Single Sign-On"],
   },
@@ -89,7 +89,7 @@ const allCapabilities: CapabilityItem[] = [
     icon: <FaRobot className="text-white" />,
     shortDesc: "Integrations, automation & AI-powered intelligence.",
     description:
-      "We enhance Power Apps with custom connectors and AI Builder capabilities to integrate external systems, automate workflows, and introduce intelligent capabilities into business applications.",
+      "We extend Power Apps with custom REST API connectors to securely communicate with external web services, SQL databases, and legacy line-of-business systems. With integrated AI Builder capabilities, Optical Character Recognition (OCR) extracts text from documents and images, helping automate document processing and form population within operational workflows.",
     image: "/images/power-apps/5.webp",
     tags: ["REST APIs", "AI Builder OCR", "Document Processing", "Legacy Systems"],
   },

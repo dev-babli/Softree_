@@ -48,11 +48,13 @@ const techToImgUrl: Record<string, string> = {
   Qdrant: "https://cdn.simpleicons.org/qdrant/FF5812",
 };
 
+type TechItem = string | { name: string; desc?: string };
+
 interface TechCategoryDef {
   id: string;
   label: string;
   icon: LucideIcon;
-  items: string[];
+  items: TechItem[];
 }
 
 const copilotTechCategories: TechCategoryDef[] = [
@@ -65,7 +67,7 @@ const copilotTechCategories: TechCategoryDef[] = [
       "Azure OpenAI Service",
       "Anthropic Claude",
       "Google Gemini",
-      "LLMs",
+      { name: "Large Language Models (LLMs)", desc: "Foundation Generative AI" },
       "Prompt Engineering",
     ],
   },
@@ -76,11 +78,11 @@ const copilotTechCategories: TechCategoryDef[] = [
     items: [
       "Microsoft Copilot Studio",
       "Microsoft Foundry",
-      "LangChain",
-      "LangGraph",
-      "Semantic Kernel",
-      "LlamaIndex",
-      "AI Agents",
+      { name: "LangChain", desc: "LLM Application Framework" },
+      { name: "LangGraph", desc: "Stateful Agent Workflow Graphs" },
+      { name: "Semantic Kernel", desc: "Microsoft Copilot SDK" },
+      { name: "LlamaIndex", desc: "Data Ingestion & RAG Retrieval" },
+      { name: "AI Agents", desc: "Autonomous Multi-Step Workflows" },
     ],
   },
   {
@@ -91,9 +93,9 @@ const copilotTechCategories: TechCategoryDef[] = [
       "Python",
       "Node.js",
       "FastAPI",
-      "REST APIs",
+      { name: "REST APIs", desc: "Application Programming Interfaces" },
       "GraphQL",
-      "Function Calling",
+      { name: "Function Calling", desc: "AI Tool & Function Execution" },
     ],
   },
   {
@@ -166,11 +168,11 @@ const copilotTechCategories: TechCategoryDef[] = [
     icon: ShieldCheck,
     items: [
       "Microsoft Entra ID",
-      "OAuth 2.0",
+      { name: "OAuth 2.0", desc: "Secure Authorization Protocol" },
       "Microsoft Power Platform",
       "API Authentication",
-      "Role-Based Access Control",
-      "CI/CD",
+      { name: "Role-Based Access Control", desc: "RBAC & User Permissions" },
+      { name: "CI/CD", desc: "Continuous Integration & Delivery" },
     ],
   },
 ];
@@ -180,6 +182,7 @@ type Tech = {
   category: string;
   categoryIcon?: LucideIcon | React.ComponentType<{ className?: string; strokeWidth?: number | string }>;
   imgUrl: string | null;
+  desc?: string;
 };
 
 /* -------------------------------------------------------------------------- */
@@ -219,7 +222,7 @@ function TechTile({ tech }: { tech: Tech }) {
           {tech.name}
         </span>
         <span className="whitespace-nowrap text-xs text-zinc-500">
-          {tech.category}
+          {tech.desc || tech.category}
         </span>
       </span>
     </div>
@@ -291,12 +294,15 @@ export function CopilotTechStack() {
   const allTechs = useMemo<Tech[]>(() => {
     const list: Tech[] = [];
     categories.forEach((cat) => {
-      cat.items.forEach((itemName) => {
+      cat.items.forEach((item) => {
+        const itemName = typeof item === "string" ? item : item.name;
+        const itemDesc = typeof item === "string" ? undefined : item.desc;
         list.push({
           name: itemName,
           category: cat.label,
           categoryIcon: cat.icon,
           imgUrl: techToImgUrl[itemName] ?? null,
+          desc: itemDesc,
         });
       });
     });
@@ -356,7 +362,7 @@ export function CopilotTechStack() {
 
           <div className="lg:justify-self-end">
             <p className="typo-description w-full text-slate-500 lg:max-w-xl">
-              Explore the technologies behind custom AI copilots, including LLMs, RAG, vector search, cloud AI platforms, and business application integrations.
+              Explore the technologies behind custom AI copilots, including Large Language Models (LLMs), Retrieval-Augmented Generation (RAG) for verified context, vector search for similarity matching, and Application Programming Interface (API) integrations.
             </p>
             <p className="mt-4 text-sm text-zinc-500">
               <span className="font-semibold text-zinc-900">

@@ -50,6 +50,7 @@ import {
   BarChart3,
   CloudUpload,
   Users,
+  Laptop,
 } from "lucide-react";
 
 type MenuLink = {
@@ -171,45 +172,31 @@ const menu: MenuItem[] = [
     children: [
       {
         title: "AI & Automation",
-        icon: BrainCircuit,
+        icon: Brain,
         description: "Build intelligent agents, automate workflows and unlock AI-powered business innovation.",
         links: [
           { label: "AI Development Services", url: "/services/ai-development-services", icon: Brain, description: "Custom GenAI models, predictive algorithms & enterprise AI solutions" },
-          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Context-aware AI copilots embedded directly into employee workflows" },
-          { label: "Generative AI Development", url: "/services/generative-ai", icon: Sparkles, description: "Production LLM applications with fine-tuning & safety guardrails" },
-          { label: "Enterprise RAG Development", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure Retrieval-Augmented Generation with hybrid vector search" },
           { label: "AI Consulting Services", url: "/services/ai-consulting-services", icon: Lightbulb, description: "Strategic AI roadmaps, technical feasibility & deployment advisory" },
-          { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Contextual conversational assistants with omni-channel integration" },
-          { label: "Amazon Bedrock AgentCore Development", url: "/services/amazon-bedrock-agentcore-development", icon: Bot, description: "Scalable generative AI agents deployed on enterprise AWS Bedrock" },
-          { label: "Amazon Nova 2 Sonic Solutions", url: "/services/amazon-nova-2-sonic-solutions", icon: BrainCircuit, description: "Ultra-low latency voice intelligence & conversational speech AI" }
-        ],
-      },
-      {
-        title: "Agentic Orchestration",
-        icon: Workflow,
-        description: "Build stateful multi-agent workflows, autonomous agent networks and complex chain-of-thought LLM pipelines.",
-        links: [
           { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Autonomous reasoning agents executing complex multi-step workflows" },
+          { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Contextual conversational assistants with omni-channel integration" },
+          { label: "Generative AI Development", url: "/services/generative-ai", icon: Sparkles, description: "Production LLM applications with fine-tuning & safety guardrails" },
+          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Context-aware AI copilots embedded directly into employee workflows" },
+          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automated OCR extraction from unstructured PDFs, invoices & contracts" },
+          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Private, enterprise-grade GPT-4 integrations on dedicated Azure cloud" },
           { label: "Multi-Agent Systems", url: "/services/multi-agent-systems-development", icon: BrainCircuit, description: "Collaborative multi-agent networks coordinating across business domains" },
+          { label: "Enterprise RAG Development", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure Retrieval-Augmented Generation with hybrid vector search" },
+          { label: "Amazon Bedrock AgentCore Development", url: "/services/amazon-bedrock-agentcore-development", icon: Bot, description: "Scalable generative AI agents deployed on enterprise AWS Bedrock" },
+          { label: "Amazon Nova 2 Sonic Solutions", url: "/services/amazon-nova-2-sonic-solutions", icon: BrainCircuit, description: "Ultra-low latency voice intelligence & conversational speech AI" },
           { label: "LangChain Development", url: "/solutions/lang-chain-development", icon: Link2, description: "Production LLM pipelines with structured outputs, tools & memory" },
           { label: "LangGraph Development", url: "/solutions/lang-graph-development", icon: Network, description: "Stateful agent graphs, cyclical workflows & human-in-the-loop logic" },
         ],
       },
       {
-        title: "Microsoft & Business Applications",
+        title: "Microsoft & Data",
         icon: Grid2X2,
-        description: "Optimize operations and accelerate growth with enterprise-grade business applications built on Power Platform.",
+        description: "Enterprise Power Apps, Power BI, Microsoft Fabric, Databricks & Snowflake cloud analytics.",
         links: [
           { label: "Power Apps", url: "/services/offshore-power-platform-development", icon: LayoutDashboard, description: "Custom low-code business applications connected to Dataverse & M365" },
-          { label: "Power Automate", url: "/services/offshore-power-platform-development", icon: Workflow, description: "Robotic process automation (RPA) & end-to-end cloud workflow integration" },
-          { label: "Dataverse", url: "/services/offshore-power-platform-development", icon: Server, description: "Unified, secure enterprise data architecture for Microsoft 365" },
-        ],
-      },
-      {
-        title: "Data & Analytics",
-        icon: BarChart3,
-        description: "Transform raw data into actionable intelligence and drive decision-making with modern analytics platforms.",
-        links: [
           { label: "Power BI", url: "/services/power-bi-development-services", icon: LineChart, description: "Executive dashboards, KPI telemetry & interactive business analytics" },
           { label: "Microsoft Fabric", url: "/services/microsoft-fabric-development-services", icon: Boxes, description: "Unified OneLake analytics, lakehouse architecture & real-time compute" },
           { label: "Databricks", url: "/services/power-bi-development-services", icon: Cpu, description: "High-performance Apache Spark data engineering & production ML pipelines" },
@@ -218,22 +205,15 @@ const menu: MenuItem[] = [
       },
       {
         title: "Digital Engineering",
-        icon: Code2,
-        description: "Build high-performance web applications, robust APIs, and custom software systems tailored to your business operations.",
+        icon: Laptop,
+        description: "Full-stack web apps, mobile apps, legacy modernization and SharePoint SPFx platforms.",
         links: [
           { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "High-concurrency React/Next.js portals with cloud-native backends" },
           { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "Feature-rich native iOS & Android applications with fluid interactions" },
           { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Monolith to microservices refactoring & cloud-native modernizations" },
-        ],
-      },
-      {
-        title: "Digital Workplace",
-        icon: Users,
-        description: "Empower your workforce with modern collaboration portals, secure intranets, and customized SharePoint environments.",
-        links: [
           { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Corporate intranet portals, document management & knowledge repositories" },
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom SharePoint Framework extensions & Microsoft 365 web parts" },
-        ]
+        ],
       },
       {
         title: "Migration & Modernization",
@@ -266,8 +246,8 @@ const menu: MenuItem[] = [
             url: "/services/power-bi-to-microsoft-fabric-migration",
             icon: LineChart,
             description: "Direct Lake mode integration for high-speed enterprise Power BI models",
-          }
-        ]
+          },
+        ],
       },
       {
         title: "Testing & Quality Engineering",
@@ -278,19 +258,19 @@ const menu: MenuItem[] = [
             label: "Automation Testing Services",
             url: "/quality-engineering/automation-testing-services",
             icon: Workflow,
-            description: "Continuous automated test suites across web, mobile, API & enterprise apps"
+            description: "Continuous automated test suites across web, mobile, API & enterprise apps",
           },
           {
             label: "Security Testing Services",
             url: "/quality-engineering/security-testing-services",
             icon: ShieldCheck,
-            description: "Penetration testing, OWASP Top 10 vulnerability assessments & DevSecOps"
+            description: "Penetration testing, OWASP Top 10 vulnerability assessments & DevSecOps",
           },
           {
             label: "Agentic AI Testing Services",
             url: "/quality-engineering/agentic-ai-testing-services",
             icon: BrainCircuit,
-            description: "Testing AI agent hallucinations, drift, prompt injections & guardrails"
+            description: "Testing AI agent hallucinations, drift, prompt injections & guardrails",
           },
           {
             label: "Healthcare Software Testing Services",
@@ -306,17 +286,6 @@ const menu: MenuItem[] = [
           },
         ],
       },
-      {
-        title: "Document & Process Intelligence",
-        icon: ScanText,
-        description: "Extract value from unstructured documents and orchestrate complex workflows using advanced Document AI and process mining.",
-        links: [
-          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automated OCR extraction from unstructured PDFs, invoices & contracts" },
-          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Private, enterprise-grade GPT-4 integrations on dedicated Azure cloud" },
-        ],
-      },
-
-
     ],
   },
   {
@@ -499,11 +468,13 @@ export default function Navigation({
 
   const hasMegaContent = (activeMegaItem?.children?.length ?? 0) > 0;
 
-  const lastMegaItemRef = useRef<MenuItem | null>(null);
-  if (activeMegaItem) {
-    lastMegaItemRef.current = activeMegaItem;
+  const [lastMegaItem, setLastMegaItem] = useState<MenuItem | null>(null);
+
+  if (activeMegaItem && activeMegaItem !== lastMegaItem) {
+    setLastMegaItem(activeMegaItem);
   }
-  const renderedMegaItem = activeMegaItem || lastMegaItemRef.current;
+
+  const renderedMegaItem = activeMegaItem || lastMegaItem;
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimer.current) {
@@ -649,7 +620,7 @@ export default function Navigation({
                       {isSelected && (
                         <motion.div
                           layoutId="navLampIndicator"
-                          className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full transform-gpu"
+                          className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 w-10 h-1 bg-[#FF5812] rounded-full transform-gpu"
                           transition={
                             reduceMotion
                               ? { duration: 0 }
@@ -706,7 +677,7 @@ export default function Navigation({
                         {isSelected && (
                           <motion.div
                             layoutId="navLampIndicator"
-                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full transform-gpu"
+                            className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 w-10 h-1 bg-[#FF5812] rounded-full transform-gpu"
                             transition={
                               reduceMotion
                                 ? { duration: 0 }
@@ -749,7 +720,7 @@ export default function Navigation({
                         {isSelected && (
                           <motion.div
                             layoutId="navLampIndicator"
-                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full transform-gpu"
+                            className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 w-10 h-1 bg-[#FF5812] rounded-full transform-gpu"
                             transition={
                               reduceMotion
                                 ? { duration: 0 }
@@ -806,7 +777,7 @@ export default function Navigation({
             aria-hidden={!hasMegaContent}
           >
             <div
-              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-[opacity,transform] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu will-change-[transform,opacity] ${hasMegaContent
+              className={`absolute left-0 right-0 top-0 z-40 pt-1.5 xl:pt-2 transition-[opacity,transform] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu will-change-[transform,opacity] ${hasMegaContent
                 ? "pointer-events-auto opacity-100 translate-y-0"
                 : "pointer-events-none opacity-0 -translate-y-2"
                 }`}

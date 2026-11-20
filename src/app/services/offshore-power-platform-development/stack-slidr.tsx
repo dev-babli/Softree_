@@ -64,13 +64,13 @@ const items: StackItem[] = [
     titleSplit: "Custom Power Apps<br /><span class=\"text-[#FF6B2C]\">Development &amp; Modernization</span>",
     icon: Layers,
     desc: "Engineer responsive Canvas and Model-Driven Microsoft Power Apps that replace error-prone spreadsheets, accelerate multi-department approvals, and connect seamlessly with your enterprise data.",
-    highlightMetric: "70% Faster",
+    highlightMetric: "Accelerated Delivery",
     highlightLabel: "Cycle times across field and back-office operations",
     coreCapabilities: [
       "Canvas apps with responsive UI/UX and offline data caching",
       "Model-Driven apps built on structured Microsoft Dataverse schemas",
       "Custom REST connectors for legacy ERPs, SQL & third-party APIs",
-      "Role-based access control (RBAC) and enterprise DLP policy compliance",
+      "Role-Based Access Control (RBAC) to manage user permissions and Data Loss Prevention (DLP) policies to prevent unauthorized data sharing",
     ],
     challenge: {
       title: "Manual Spreadsheets & Workflow Bottlenecks",
@@ -79,14 +79,14 @@ const items: StackItem[] = [
     },
     approach: {
       title: "Enterprise Canvas & Model-Driven Architecture",
-      description: "We design role-based Power Apps backed by Microsoft Dataverse, custom REST connectors, offline sync, and intuitive user experiences for web and mobile.",
-      points: ["Custom Canvas UI/UX", "Dataverse CDM Schemas", "Role-Based Security (RBAC)"],
+      description: "We design role-based Power Apps backed by Microsoft Dataverse Common Data Model (CDM) schemas to structure business data, custom REST connectors, offline sync, and intuitive user experiences for web and mobile.",
+      points: ["Custom Canvas UI/UX", "Common Data Model (CDM)", "Role-Based Security (RBAC)"],
     },
     outcome: {
-      metric: "70% Faster",
+      metric: "Rapid Turnaround",
       metricLabel: "Process Turnaround",
       resultText: "Eliminated paper/spreadsheet dependencies with centralized audit trails, automated validation, and real-time operational visibility.",
-      tags: ["100% Paperless", "Live Audit Trail", "Multi-Device Sync"],
+      tags: ["Paperless Workflows", "Live Audit Trail", "Multi-Device Sync"],
     },
     techBadges: ["Canvas Apps", "Model-Driven", "Dataverse", "Custom Connectors", "Offline Sync"],
     bg: "#0A0D14",
@@ -102,12 +102,12 @@ const items: StackItem[] = [
     titleSplit: "Power Automate<br /><span class=\"text-[#FF6B2C]\">&amp; Enterprise RPA Pipelines</span>",
     icon: Workflow,
     desc: "Eliminate repetitive manual handoffs and multi-system data entry by building resilient Cloud Flows, Desktop RPA bots, and AI Builder document extraction pipelines.",
-    highlightMetric: "85% Reduction",
-    highlightLabel: "In repetitive manual data processing effort",
+    highlightMetric: "Automated Processing",
+    highlightLabel: "Reduction in repetitive manual data entry effort",
     coreCapabilities: [
       "Multi-stage automated Cloud Flows with automated error handling & retries",
       "Desktop RPA bots for unattended legacy application data entry",
-      "AI Builder document intelligence for invoice & receipt OCR extraction",
+      "AI Builder Optical Character Recognition (OCR) to extract text and data from documents and invoices",
       "Native Microsoft Teams and Outlook actionable approval adaptive cards",
     ],
     challenge: {
@@ -117,13 +117,13 @@ const items: StackItem[] = [
     },
     approach: {
       title: "Cloud Flows, RPA & AI Builder Document Intelligence",
-      description: "We build self-healing multi-stage workflows with automated exception handling, AI Builder OCR extraction, and deep Microsoft 365 / Teams integrations.",
+      description: "We build self-healing multi-stage workflows with automated exception handling, AI Builder Optical Character Recognition (OCR) to extract text from documents, and deep Microsoft 365 / Teams integrations.",
       points: ["Multi-Stage Cloud Flows", "AI Builder OCR Extraction", "Desktop RPA Bot Scripts"],
     },
     outcome: {
-      metric: "85% Saved",
+      metric: "High Efficiency",
       metricLabel: "Manual Handling Time",
-      resultText: "Sub-minute approvals delivered straight to Microsoft Teams and Outlook with 99.8% automated document processing accuracy.",
+      resultText: "Sub-minute approvals delivered straight to Microsoft Teams and Outlook with automated document processing accuracy.",
       tags: ["Sub-Minute Approvals", "Zero Transcription Errors", "24/7 Unattended RPA"],
     },
     techBadges: ["Cloud Flows", "Desktop RPA", "AI Builder OCR", "Teams Adaptive Cards", "REST Webhooks"],
@@ -140,12 +140,12 @@ const items: StackItem[] = [
     titleSplit: "Enterprise Power BI<br /><span class=\"text-[#FF6B2C]\">&amp; Advanced Analytics</span>",
     icon: BarChart3,
     desc: "Transform disparate enterprise databases and spreadsheets into interactive, real-time executive dashboards with tuned DAX modeling, Row-Level Security, and Microsoft Fabric integration.",
-    highlightMetric: "Sub-Second",
+    highlightMetric: "Sub-Second Query",
     highlightLabel: "Query response on enterprise semantic datasets",
     coreCapabilities: [
       "High-performance DAX modeling and star-schema semantic data layers",
       "Sub-second executive dashboards with Direct Lake & Microsoft Fabric",
-      "Granular Row-Level Security (RLS) and compliance-ready data governance",
+      "Granular Row-Level Security (RLS) to control which data individual users can access",
       "Automated scheduled refreshes and cross-department KPI centralization",
     ],
     challenge: {
@@ -155,11 +155,11 @@ const items: StackItem[] = [
     },
     approach: {
       title: "Scalable Semantic Modeling & Fabric Architecture",
-      description: "We architect star-schema semantic models, tune complex DAX measures, configure granular Row-Level Security (RLS), and integrate Direct Lake with Microsoft Fabric.",
+      description: "We architect star-schema semantic models, tune complex DAX measures, configure granular Row-Level Security (RLS) to control user-specific data access, and integrate Direct Lake with Microsoft Fabric.",
       points: ["Optimized Star Schemas", "Executive KPI Dashboards", "Granular Row-Level Security"],
     },
     outcome: {
-      metric: "< 1 Sec",
+      metric: "Sub-Second",
       metricLabel: "Dashboard Response",
       resultText: "Delivered a single source of truth with automated daily data refreshes and secure self-service analytics for enterprise leadership.",
       tags: ["Unified Single Source", "Automated Daily Refresh", "Enterprise RLS"],
@@ -178,7 +178,7 @@ const items: StackItem[] = [
     titleSplit: "Power Pages &amp;<br /><span class=\"text-[#FF6B2C]\">Secure External Portals</span>",
     icon: Globe,
     desc: "Deploy custom-branded, highly secure customer, partner, and vendor self-service web portals seamlessly unified with Microsoft Dataverse and Microsoft Entra ID authentication.",
-    highlightMetric: "60% Lower Cost",
+    highlightMetric: "Cost-Effective",
     highlightLabel: "Compared to custom ground-up portal development",
     coreCapabilities: [
       "Custom-branded Liquid web templates with responsive mobile UX",
@@ -197,10 +197,10 @@ const items: StackItem[] = [
       points: ["Custom Liquid Web Templates", "Entra ID / B2C Federation", "Dataverse Table Permissions"],
     },
     outcome: {
-      metric: "60% Savings",
+      metric: "High ROI",
       metricLabel: "Build & Maintenance Cost",
-      resultText: "24/7 automated client self-service with SOC 2 & GDPR compliant data boundaries and zero per-user external licensing friction.",
-      tags: ["24/7 Self-Service", "Zero External License Friction", "SOC 2 & GDPR Aligned"],
+      resultText: "24/7 automated client self-service with SOC 2 & GDPR compliant data boundaries and seamless external user access.",
+      tags: ["24/7 Self-Service", "Secure Data Boundaries", "SOC 2 & GDPR Aligned"],
     },
     techBadges: ["Power Pages", "Entra ID / Azure B2C", "Liquid Templates", "Table Permissions", "Dataverse Sync"],
     bg: "#090D16",
@@ -215,30 +215,30 @@ const items: StackItem[] = [
     title: "Microsoft Dataverse & CDM Architecture",
     titleSplit: "Microsoft Dataverse<br /><span class=\"text-[#FF6B2C]\">&amp; Common Data Model</span>",
     icon: Database,
-    desc: "Architect scalable, normalized enterprise data layers using Microsoft Dataverse with Common Data Model (CDM) standards, strict DLP governance, and automated CI/CD ALM pipelines.",
-    highlightMetric: "99.9% Consistency",
+    desc: "Architect scalable, normalized enterprise data layers using Microsoft Dataverse with Common Data Model (CDM) standards to organize business data, strict Data Loss Prevention (DLP) governance to prevent unauthorized data sharing, and automated Application Lifecycle Management (ALM) pipelines.",
+    highlightMetric: "High Consistency",
     highlightLabel: "Across interconnected business apps & data sources",
     coreCapabilities: [
-      "Normalized Common Data Model (CDM) entity architecture & relations",
-      "Tenant-wide Data Loss Prevention (DLP) & environment boundary controls",
-      "Azure DevOps CI/CD pipelines for automated ALM solution releases",
+      "Normalized Common Data Model (CDM) entity architecture to structure and standardize business data",
+      "Tenant-wide Data Loss Prevention (DLP) policies to prevent unauthorized data sharing across environments",
+      "Azure DevOps CI/CD pipelines for automated Application Lifecycle Management (ALM) solution releases",
       "Automated Dataflows ETL pipelines & Azure Synapse data synchronization",
     ],
     challenge: {
       title: "Data Duplication & Uncontrolled App Sprawl",
-      description: "Rapid low-code adoption creates unmanaged database sprawl, duplicate entity records, weak Data Loss Prevention (DLP), and risky manual deployments.",
+      description: "Rapid low-code adoption creates unmanaged database sprawl, duplicate entity records, weak Data Loss Prevention (DLP) controls, and risky manual deployments.",
       points: ["Duplicate database records", "Unregulated connector sprawl", "Risky manual releases"],
     },
     approach: {
       title: "Normalized CDM Schemas & Azure DevOps ALM",
-      description: "We design normalized Dataverse relational models, implement tenant-wide DLP security policies, and configure automated Azure DevOps solution packaging.",
+      description: "We design normalized Dataverse relational models using Common Data Model standards, implement tenant-wide Data Loss Prevention (DLP) policies to protect data, and configure automated Azure DevOps Application Lifecycle Management (ALM) packaging.",
       points: ["Normalized CDM Schemas", "Enterprise DLP Policy Rules", "Azure DevOps ALM Pipelines"],
     },
     outcome: {
-      metric: "99.9%",
+      metric: "Unified Schema",
       metricLabel: "Data Consistency",
       resultText: "Unified relational schema across all business apps with automated multi-environment deployments and enterprise security compliance.",
-      tags: ["Enterprise DLP Enforced", "Automated CI/CD ALM", "Zero Data Redundancy"],
+      tags: ["Enterprise DLP Enforced", "Automated CI/CD ALM", "Data Deduplication"],
     },
     techBadges: ["Dataverse Architecture", "Common Data Model (CDM)", "DLP Governance", "Azure DevOps ALM", "Dataflows ETL"],
     bg: "#13111C",
@@ -254,10 +254,10 @@ const items: StackItem[] = [
     titleSplit: "Copilot Studio &amp;<br /><span class=\"text-[#FF6B2C]\">Enterprise AI Agents</span>",
     icon: Bot,
     desc: "Empower your teams and customers with autonomous AI copilots built on Microsoft Copilot Studio, grounded in enterprise Dataverse, SharePoint, and custom API plugins.",
-    highlightMetric: "50%+ Deflection",
-    highlightLabel: "Of tier-1 internal & customer support inquiries",
+    highlightMetric: "Tier-1 Deflection",
+    highlightLabel: "Of routine internal & customer support inquiries",
     coreCapabilities: [
-      "Semantic RAG agents grounded in SharePoint, Dataverse & enterprise docs",
+      "Retrieval-Augmented Generation (RAG) agents that retrieve verified enterprise documents before generating answers",
       "Autonomous action triggers via custom Power Platform & REST API plugins",
       "Enterprise generative AI answers with verifiable citations & guardrails",
       "Multi-channel deployment across Microsoft Teams, portals & custom apps",
@@ -269,11 +269,11 @@ const items: StackItem[] = [
     },
     approach: {
       title: "Semantic RAG Grounding & Autonomous Copilot Actions",
-      description: "We build generative Copilot Studio agents grounded in enterprise knowledge bases with custom Power Automate action plugins and Azure OpenAI models.",
+      description: "We build generative Copilot Studio agents using Retrieval-Augmented Generation (RAG) to retrieve relevant information before generating answers, with custom Power Automate action plugins and Azure OpenAI models.",
       points: ["Semantic RAG Grounding", "Custom Copilot Action Plugins", "Enterprise Security Guardrails"],
     },
     outcome: {
-      metric: "50%+ Deflected",
+      metric: "Automated Support",
       metricLabel: "Tier-1 Support Tickets",
       resultText: "Instant, citation-backed answers with autonomous multi-turn workflow execution directly within Microsoft Teams, web portals, and custom apps.",
       tags: ["Citation-Backed Answers", "Automated Action Execution", "Enterprise Guardrails"],
@@ -417,7 +417,7 @@ export default function StackedSlider() {
                 ref={(el) => {
                   cardRefs.current[i] = el;
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] lg:w-[calc(100%-4rem)] max-w-7xl h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] max-h-[1000px] min-h-[700px] rounded-2xl flex flex-col justify-between text-left p-5 sm:p-7 md:p-8 lg:p-10 shadow-2xl overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden transform-gpu"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] lg:w-[calc(100%-3.5rem)] xl:w-[calc(100%-4rem)] max-w-7xl h-[calc(100vh-1.5rem)] sm:h-[calc(100vh-2.5rem)] lg:h-[calc(100vh-3rem)] max-h-[960px] rounded-2xl flex flex-col justify-between text-left p-3.5 sm:p-5 md:p-6 lg:p-5 xl:p-6 2xl:p-8 shadow-2xl overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden transform-gpu"
                 style={{
                   backgroundColor: card.bg,
                   color: card.text,
@@ -430,63 +430,63 @@ export default function StackedSlider() {
               >
                 {/* Top Bar / Slide Header */}
                 <div className="w-full shrink-0">
-                  <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
-                    <div className="flex items-center gap-3">
-                      <span className="px-2.5 py-1 rounded-md text-xs font-bold font-mono tracking-wider bg-white/10 text-[#FF6B00] border border-white/10">
+                  <div className="flex items-center justify-between gap-3 mb-2 sm:mb-2.5">
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                      <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-bold font-mono tracking-wider bg-white/10 text-[#FF6B00] border border-white/10">
                         {card.num} / 06
                       </span>
-                      <p className="typo-caption-meta font-bold tracking-widest uppercase opacity-90 text-zinc-300">
+                      <p className="typo-caption-meta font-bold tracking-widest uppercase opacity-90 text-zinc-300 text-[11px] sm:text-xs">
                         {card.serviceTag}
                       </p>
                     </div>
-                    <span className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase border border-white/15 bg-white/5 text-zinc-300">
+                    <span className="hidden sm:inline-flex items-center gap-2 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase border border-white/15 bg-white/5 text-zinc-300">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
                       OFFSHORE ENGINEERING &amp; ALM
                     </span>
                   </div>
-                  <hr className="w-full border-t border-white/10 mb-4 sm:mb-6" />
+                  <hr className="w-full border-t border-white/10 mb-2 sm:mb-3 xl:mb-4" />
                 </div>
 
                 {/* Slide Body Grid: Left Summary + Right Challenge/Approach/Outcome Matrix */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 w-full my-auto items-stretch">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5 xl:gap-8 w-full my-auto items-stretch">
 
                   {/* Left Column: Title, Core Value Proposition & Primary Action */}
                   <div className="lg:col-span-5 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center gap-3.5 mb-4">
+                      <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5 xl:mb-3">
                         <div
-                          className="p-3 rounded-xl border border-white/15 shadow-lg backdrop-blur-md"
+                          className="p-1.5 sm:p-2 xl:p-2.5 rounded-lg border border-white/15 shadow-lg backdrop-blur-md"
                           style={{
                             backgroundColor: "rgba(255, 107, 0, 0.12)",
                           }}
                         >
-                          <IconComp className="w-7 h-7 text-[#FF6B00]" />
+                          <IconComp className="w-4 h-4 sm:w-5 sm:h-5 xl:w-6 xl:h-6 text-[#FF6B00]" />
                         </div>
-                        <span className="text-xs font-mono font-medium text-[#FF6B00] uppercase tracking-wider bg-[#FF6B00]/10 px-2.5 py-1 rounded-md border border-[#FF6B00]/20">
+                        <span className="text-[10px] sm:text-[11px] xl:text-xs font-mono font-medium text-[#FF6B00] uppercase tracking-wider bg-[#FF6B00]/10 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-[#FF6B00]/20">
                           {card.title}
                         </span>
                       </div>
 
                       <h3
-                        className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-[1.15]"
+                        className="text-lg sm:text-xl md:text-2xl lg:text-[22px] xl:text-[26px] 2xl:text-3xl font-bold tracking-tight text-white mb-2 sm:mb-2.5 xl:mb-3 leading-[1.2]"
                         dangerouslySetInnerHTML={{ __html: card.titleSplit }}
                       />
 
-                      <p className="text-sm sm:text-base leading-relaxed text-zinc-300 opacity-90 mb-6">
+                      <p className="text-xs sm:text-[13px] xl:text-sm leading-relaxed text-zinc-300 opacity-90 mb-2 sm:mb-2.5 xl:mb-3.5">
                         {card.desc}
                       </p>
 
                       {/* Highlight Metric Card */}
-                      <div className="p-4 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md mb-6 flex items-center gap-4">
-                        <div className="p-2.5 rounded-lg bg-[#FF6B00]/15 text-[#FF6B00] shrink-0">
-                          <TrendingUp className="w-5 h-5" />
+                      <div className="p-2 sm:p-2.5 xl:p-3 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md mb-2.5 sm:mb-3 xl:mb-4 flex items-center gap-3">
+                        <div className="p-1.5 sm:p-2 rounded-lg bg-[#FF6B00]/15 text-[#FF6B00] shrink-0">
+                          <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF6B00]" />
                         </div>
                         <div>
-                          <div className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                          <div className="text-sm sm:text-base xl:text-lg font-bold text-white tracking-tight flex items-center gap-2">
                             <span>{card.highlightMetric}</span>
 
                           </div>
-                          <div className="text-xs text-zinc-400 mt-0.5">
+                          <div className="text-[10px] sm:text-[11px] xl:text-xs text-zinc-400 mt-0.5">
                             {card.highlightLabel}
                           </div>
                         </div>
@@ -494,17 +494,17 @@ export default function StackedSlider() {
                     </div>
 
                     {/* Key Architectural & Delivery Capabilities Bullet Points */}
-                    <div className="pt-3 border-t border-white/10 mt-auto">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#FF6B00] mb-2.5">
+                    <div className="pt-2 sm:pt-2.5 border-t border-white/10 mt-auto">
+                      <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#FF6B00] mb-1 sm:mb-1.5">
                         Key Capabilities &amp; Scope
                       </div>
-                      <ul className="space-y-2">
+                      <ul className="space-y-1 sm:space-y-1.5 xl:space-y-2">
                         {card.coreCapabilities.map((point, ptIdx) => (
                           <li
                             key={ptIdx}
-                            className="group/item flex items-start gap-3 text-xs sm:text-[13px] text-zinc-300 leading-snug p-1 -mx-1 rounded-md transition-colors hover:bg-white/[0.02]"
+                            className="group/item flex items-start gap-2 sm:gap-2.5 text-[11px] sm:text-xs xl:text-[12.5px] 2xl:text-[13px] text-zinc-300 leading-snug py-0.5 px-1 -mx-1 rounded-md transition-colors hover:bg-white/[0.02]"
                           >
-                            <div className="w-4 h-4 rounded-md bg-[#FF6B00]/15 border border-[#FF6B00]/30 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:border-[#FF6B00]/60 group-hover/item:bg-[#FF6B00]/25 transition-all shadow-[0_0_8px_rgba(255,107,0,0.15)]">
+                            <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-md bg-[#FF6B00]/15 border border-[#FF6B00]/30 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:border-[#FF6B00]/60 group-hover/item:bg-[#FF6B00]/25 transition-all shadow-[0_0_8px_rgba(255,107,0,0.15)]">
                               <svg
                                 width="8"
                                 height="8"
@@ -530,7 +530,7 @@ export default function StackedSlider() {
 
                   {/* Right Column: Advanced Challenge ➔ Approach ➔ Outcome Delivery System */}
                   <div className="lg:col-span-7 flex flex-col justify-center">
-                    <div className="relative rounded-2xl border border-white/15 bg-black/40 backdrop-blur-xl p-4 sm:p-6 shadow-2xl flex flex-col gap-4">
+                    <div className="relative rounded-2xl border border-white/15 bg-black/40 backdrop-blur-xl p-3 sm:p-4 lg:p-3.5 xl:p-5 shadow-2xl flex flex-col gap-2 sm:gap-2.5 lg:gap-2.5 xl:gap-3.5">
 
                       {/* Ambient Glow */}
                       <div
@@ -539,52 +539,52 @@ export default function StackedSlider() {
                       />
 
                       {/* 1. CHALLENGE PILLAR (Shade 1: Warm Rust / Terracotta Orange) */}
-                      <div className="rounded-xl border border-[#EA580C]/30 bg-[#EA580C]/[0.08] p-3.5 sm:p-4 transition-all hover:border-[#EA580C]/50">
-                        <div className="flex items-center justify-between mb-1.5">
-                          <div className="flex items-center gap-2">
-                            <AlertTriangle className="w-4 h-4 text-[#FB923C] shrink-0" />
-                            <h4 className="text-xs font-bold uppercase tracking-wider text-[#FED7AA]">
+                      <div className="rounded-xl border border-[#EA580C]/30 bg-[#EA580C]/[0.08] p-2.5 sm:p-3 xl:p-3.5 transition-all hover:border-[#EA580C]/50">
+                        <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center gap-1.5 sm:gap-2">
+                            <AlertTriangle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FB923C] shrink-0" />
+                            <h4 className="text-[10px] sm:text-[11px] xl:text-xs font-bold uppercase tracking-wider text-[#FED7AA]">
                               THE ENTERPRISE CHALLENGE
                             </h4>
                           </div>
-                          <span className="text-[10px] text-[#FDBA74]/70 font-mono">Bottleneck</span>
+                          <span className="text-[9px] sm:text-[10px] text-[#FDBA74]/70 font-mono">Bottleneck</span>
                         </div>
-                        <p className="text-xs sm:text-sm text-zinc-300 font-medium mb-2.5 leading-snug">
+                        <p className="text-[11px] sm:text-xs xl:text-[13px] text-zinc-300 font-medium mb-1.5 sm:mb-2 leading-snug">
                           {card.challenge.description}
                         </p>
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-1 sm:gap-1.5">
                           {card.challenge.points.map((p, pIdx) => (
                             <span
                               key={pIdx}
-                              className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[#EA580C]/15 text-[#FED7AA] border border-[#EA580C]/30 flex items-center gap-1.5"
+                              className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-medium bg-[#EA580C]/15 text-[#FED7AA] border border-[#EA580C]/30 flex items-center gap-1 sm:gap-1.5"
                             >
-                              <span className="text-[#FB923C] text-[10px] font-bold">✕</span> {p}
+                              <span className="text-[#FB923C] text-[9px] sm:text-[10px] font-bold">✕</span> {p}
                             </span>
                           ))}
                         </div>
                       </div>
 
                       {/* 2. APPROACH PILLAR (Shade 2: Pure Electric / Vivid Orange) */}
-                      <div className="rounded-xl border border-[#FF6B00]/35 bg-[#FF6B00]/[0.10] p-3.5 sm:p-4 transition-all hover:border-[#FF6B00]/55">
-                        <div className="flex items-center justify-between mb-1.5">
-                          <div className="flex items-center gap-2">
-                            <Cpu className="w-4 h-4 text-[#FF7A00] shrink-0" />
-                            <h4 className="text-xs font-bold uppercase tracking-wider text-[#FFA756]">
+                      <div className="rounded-xl border border-[#FF6B00]/35 bg-[#FF6B00]/[0.10] p-2.5 sm:p-3 xl:p-3.5 transition-all hover:border-[#FF6B00]/55">
+                        <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center gap-1.5 sm:gap-2">
+                            <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FF7A00] shrink-0" />
+                            <h4 className="text-[10px] sm:text-[11px] xl:text-xs font-bold uppercase tracking-wider text-[#FFA756]">
                               SOFTREE ENGINEERING APPROACH
                             </h4>
                           </div>
-                          <span className="text-[10px] text-[#FF8A3D]/70 font-mono">Methodology</span>
+                          <span className="text-[9px] sm:text-[10px] text-[#FF8A3D]/70 font-mono">Methodology</span>
                         </div>
-                        <p className="text-xs sm:text-sm text-zinc-300 font-medium mb-2.5 leading-snug">
+                        <p className="text-[11px] sm:text-xs xl:text-[13px] text-zinc-300 font-medium mb-1.5 sm:mb-2 leading-snug">
                           {card.approach.description}
                         </p>
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-1 sm:gap-1.5">
                           {card.approach.points.map((p, pIdx) => (
                             <span
                               key={pIdx}
-                              className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[#FF6B00]/20 text-[#FFEDD5] border border-[#FF6B00]/35 flex items-center gap-1.5"
+                              className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-medium bg-[#FF6B00]/20 text-[#FFEDD5] border border-[#FF6B00]/35 flex items-center gap-1 sm:gap-1.5"
                             >
-                              <Zap className="w-3 h-3 text-[#FF6B00]" />
+                              <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#FF6B00]" />
                               {p}
                             </span>
                           ))}
@@ -592,26 +592,26 @@ export default function StackedSlider() {
                       </div>
 
                       {/* 3. OUTCOME PILLAR (Shade 3: Luminous Amber / Warm Glow Orange) */}
-                      <div className="rounded-xl border border-[#F97316]/40 bg-[#F97316]/[0.14] p-3.5 sm:p-4 transition-all hover:border-[#F97316]/60 shadow-lg shadow-orange-950/20">
-                        <div className="flex items-center justify-between mb-1.5">
-                          <div className="flex items-center gap-2">
-                            <CheckCircle2 className="w-4 h-4 text-[#FED7AA] shrink-0" />
-                            <h4 className="text-xs font-bold uppercase tracking-wider text-[#FFF7ED]">
+                      <div className="rounded-xl border border-[#F97316]/40 bg-[#F97316]/[0.14] p-2.5 sm:p-3 xl:p-3.5 transition-all hover:border-[#F97316]/60 shadow-lg shadow-orange-950/20">
+                        <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center gap-1.5 sm:gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FED7AA] shrink-0" />
+                            <h4 className="text-[10px] sm:text-[11px] xl:text-xs font-bold uppercase tracking-wider text-[#FFF7ED]">
                               DELIVERED BUSINESS OUTCOME
                             </h4>
                           </div>
-                          <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#FF6B00]/30 text-[#FFF7ED] text-[10px] font-bold font-mono border border-[#FF6B00]/50">
+                          <div className="flex items-center gap-1 px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded bg-[#FF6B00]/30 text-[#FFF7ED] text-[9px] sm:text-[10px] font-bold font-mono border border-[#FF6B00]/50">
                             <span>{card.outcome.metric}</span>
                           </div>
                         </div>
-                        <p className="text-xs sm:text-sm text-zinc-100 font-medium mb-2.5 leading-snug">
+                        <p className="text-[11px] sm:text-xs xl:text-[13px] text-zinc-100 font-medium mb-1.5 sm:mb-2 leading-snug">
                           {card.outcome.resultText}
                         </p>
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-1 sm:gap-1.5">
                           {card.outcome.tags.map((t, tIdx) => (
                             <span
                               key={tIdx}
-                              className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-[#F97316]/20 text-[#FFF7ED] border border-[#F97316]/40 flex items-center gap-1"
+                              className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-semibold bg-[#F97316]/20 text-[#FFF7ED] border border-[#F97316]/40 flex items-center gap-1"
                             >
                               <span className="text-[#FFA756] font-bold">✓</span> {t}
                             </span>
@@ -620,14 +620,14 @@ export default function StackedSlider() {
                       </div>
 
                       {/* SEO Technology Tag Strip */}
-                      <div className="pt-2 border-t border-white/10 flex flex-wrap items-center gap-2 text-[11px] text-zinc-400">
-                        <span className="font-semibold text-zinc-300 uppercase tracking-wider text-[10px]">
+                      <div className="pt-1.5 sm:pt-2 border-t border-white/10 flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-zinc-400">
+                        <span className="font-semibold text-zinc-300 uppercase tracking-wider text-[9px] sm:text-[10px]">
                           Tech Stack:
                         </span>
                         {card.techBadges.map((badge, bIdx) => (
                           <span
                             key={bIdx}
-                            className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-300 font-mono text-[10px]"
+                            className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-300 font-mono text-[9px] sm:text-[10px]"
                           >
                             #{badge}
                           </span>

@@ -291,7 +291,7 @@ export default function FabricTechnologyStack() {
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
       icon: <Network className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Integrate APIs, databases, and cloud sources for unified Power BI reporting.",
+      desc: "Integrate APIs, databases, and cloud sources using Extract, Transform, Load (ETL).",
     },
     {
       title: "DATA MODELING",
@@ -300,7 +300,7 @@ export default function FabricTechnologyStack() {
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
       icon: <Database className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Clean and structure data with Power Query for accurate, high-performance analytics.",
+      desc: "Transform data with Power Query into structured semantic models and relationships.",
     },
     {
       title: "POWER BI DEVELOPMENT",
@@ -309,7 +309,7 @@ export default function FabricTechnologyStack() {
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
       icon: <Activity className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Build interactive dashboards and custom DAX measures tailored to your business needs.",
+      desc: "Build interactive dashboards and custom DAX formulas for business calculations and measures.",
     },
     {
       title: "FABRIC & AZURE INTEGRATION",
@@ -318,7 +318,7 @@ export default function FabricTechnologyStack() {
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
       icon: <Cloud className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Natively extend Power BI with Microsoft Fabric to build scalable enterprise analytics.",
+      desc: "Connect Power BI with Microsoft Fabric and OneLake unified data lake storage.",
     },
     {
       title: "SECURE & OPTIMIZED ANALYTICS",
@@ -327,7 +327,7 @@ export default function FabricTechnologyStack() {
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
       icon: <Search className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Secure Power BI with role-based access and governance while optimizing performance.",
+      desc: "Implement Row-Level Security (RLS) to restrict user access while optimizing performance.",
     },
   ];
 
