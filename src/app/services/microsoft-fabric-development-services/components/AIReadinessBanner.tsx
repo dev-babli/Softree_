@@ -16,25 +16,25 @@ const FEATURES: FeatureItem[] = [
     icon: Bot,
     title: "White-Label Friendly",
     description:
-      "Deliver Fabric projects under your own brand. We operate as your  engineering team while you maintain ownership of the client relationship.",
+      "Deliver Fabric projects under your own brand. Softree provides engineering delivery while you retain the client relationship.",
   },
   {
     icon: Users,
     title: "Offshore Engineering Capability",
     description:
-      "Add experienced engineering capacity without building a large in-house team.Extend your delivery capability with a dedicated Fabric  team.",
+      "Add experienced Fabric engineers without building a larger in-house team. Scale your delivery capacity as project needs grow.",
   },
   {
     icon: Cloud,
     title: "Microsoft Technology Expertise",
     description:
-      "Fabric works across a broader Microsoft ecosystem. Our experience spans Azure, Power BI, Power Platform, SharePoint, Microsoft 365, and Azure AI.",
+      "Extend your Microsoft Fabric solutions across Azure, Power BI, Power Platform, SharePoint, Microsoft 365, and Azure AI.",
   },
   {
     icon: SlidersHorizontal,
     title: "Built for Technology Partners",
     description:
-      "We understand the requirements of companies that already sell technology services and need additional engineering capacity without introducing another layer between themselves and their clients.",
+      "We work alongside technology providers that need additional delivery capacity while keeping their existing client-facing teams and processes in place.",
   },
 ];
 

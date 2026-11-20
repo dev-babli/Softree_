@@ -32,7 +32,7 @@ const HeroSection = () => {
           }
         `}
       </style>
-      
+
       <div className="min-h-screen flex flex-col justify-between items-center bg-[#060403] text-white font-sans overflow-hidden relative">
         {/* Animated Red-Orange Bars Wave Background - Reduced Height */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-85">
@@ -87,7 +87,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 typo-description max-w-3xl mx-auto text-zinc-300 relative z-20 leading-relaxed"
           >
-            Extend your data engineering and analytics capabilities with an offshore Microsoft Fabric team that designs, builds, and maintains solutions—from OneLake architecture to Power BI and AI-ready data platforms.
+            Extend your data engineering and analytics capabilities with a Microsoft Fabric team that designs, builds, and maintains solutions—from OneLake architecture to Power BI and AI-ready data platforms.
           </motion.p>
         </div>
 

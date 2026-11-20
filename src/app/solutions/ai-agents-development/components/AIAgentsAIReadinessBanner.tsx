@@ -22,7 +22,7 @@ const FEATURES: FeatureItem[] = [
     icon: Database,
     title: "RAG & Enterprise Knowledge Integration",
     description:
-      "Connect AI agents with internal documents, knowledge bases, and enterprise data to retrieve relevant information and generate context-aware responses.",
+      "Use Retrieval-Augmented Generation (RAG) to connect AI agents with internal documents, knowledge bases, and enterprise data for relevant, context-aware responses.",
   },
   {
     icon: Workflow,
@@ -83,7 +83,7 @@ export default function AIAgentsAIReadinessBanner() {
 
             {/* Description Paragraph */}
             <p className="typo-description text-slate-600 font-normal leading-relaxed max-w-[550px] mb-8">
-              Develop custom AI agents that connect enterprise knowledge, core applications, and automated workflows. Softree Technology engineers production-grade agentic solutions to execute complex tasks, integrate systems, and deliver reliable business automation.
+              Build AI agents that use enterprise knowledge, connect with business applications, and carry out defined tasks across your workflows.
             </p>
 
             {/* 4 Feature Items List */}

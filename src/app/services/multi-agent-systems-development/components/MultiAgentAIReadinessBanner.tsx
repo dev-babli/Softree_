@@ -16,25 +16,25 @@ const FEATURES: FeatureItem[] = [
     icon: Cpu,
     title: "Multi-Agent Orchestration & Architecture",
     description:
-      "Design coordinated agent workflows with defined roles, task planning, routing, and handoffs to manage complex processes across multiple AI agents.",
+      "Design AI agents with defined responsibilities, task planning, communication, and handoffs so they can coordinate complex business workflows.",
   },
   {
     icon: Database,
-    title: "Shared Memory & Enterprise Knowledge",
+    title: "Shared Context & Enterprise Knowledge",
     description:
-      "Connect agents through shared context, session state, and enterprise knowledge sources so they can exchange relevant information and maintain workflow continuity.",
+      "Connect agents to shared information, conversation history, and enterprise knowledge sources so they can exchange relevant context and maintain continuity across tasks.",
   },
   {
     icon: Workflow,
     title: "Tool Integration & Workflow Automation",
     description:
-      "Integrate agent teams with APIs, databases, CRM, ERP, and business applications to retrieve information and execute authorized actions across connected workflows.",
+      "Connect AI agents with application programming interfaces (APIs), customer relationship management (CRM) systems, enterprise resource planning (ERP) platforms, databases, and business applications to retrieve information and execute authorized actions.",
   },
   {
     icon: ShieldCheck,
     title: "Governance, Testing & Production Support",
     description:
-      "Implement permission controls, human approval checkpoints, monitoring, and evaluation to help technology partners deliver controlled, maintainable multi-agent solutions.",
+      "Apply access controls, human review, performance monitoring, and testing to help maintain reliable, secure, and manageable multi-agent AI applications.",
   },
 ];
 

@@ -54,7 +54,7 @@ export default function LogisticsReadinessBanner() {
                     Supply Chain &amp; Logistics AI Expertise
                   </h4>
                   <p className="typo-body-sm text-slate-500">
-                    Build dynamic routing models, warehouse forecasting RAG, freight document parsing, and real-time visibility copilots.
+                    Build dynamic routing models, warehouse forecasting solutions, Retrieval-Augmented Generation (RAG) applications, freight document intelligence, and real-time visibility assistants.
                   </p>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function LogisticsReadinessBanner() {
                     Dedicated Logistics Tech Talent
                   </h4>
                   <p className="typo-body-sm text-slate-500">
-                    Extend your squad with supply chain software engineers, EDI/API integration specialists, cloud architects, and QA engineers.
+                    Extend your squad with supply chain software engineers and specialists in Electronic Data Interchange (EDI), Application Programming Interfaces (APIs), cloud architecture, and Quality Assurance (QA).
                   </p>
                 </div>
               </div>
@@ -105,7 +105,7 @@ export default function LogisticsReadinessBanner() {
                     Flexible Offshore Delivery
                   </h4>
                   <p className="typo-body-sm text-slate-500">
-                    Choose white-label delivery, dedicated squads, staff augmentation, project delivery, or managed engineering services.
+                    Access flexible delivery models, including white-label delivery, dedicated squads, staff augmentation, project delivery, and managed engineering services.
                   </p>
                 </div>
               </div>

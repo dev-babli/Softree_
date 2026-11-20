@@ -107,7 +107,7 @@ export const AIAgentsStickyScroll = () => {
         </h2>
 
         <p className="typo-description text-slate-500 max-w-2xl">
-          Build coordinated multi-agent systems from architecture and orchestration to integrations and governance—backed by offshore and white-label AI engineering.
+          Build coordinated AI solutions through architecture planning, agent development, knowledge integration, enterprise connectivity, testing, and deployment.
         </p>
       </div>
 

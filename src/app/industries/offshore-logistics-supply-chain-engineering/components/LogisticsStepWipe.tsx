@@ -21,6 +21,7 @@ interface SlideItem {
   titleSplit: string;
   desc: string;
   capabilities?: CapabilitySpec[];
+  footerLabel?: string;
   bg: string;
   text: string;
   accent?: string;
@@ -44,6 +45,7 @@ const slides: SlideItem[] = [
       { label: "TMS, WMS, ERP, and API system orchestration", tag: "System Connected" },
       { label: "Human-in-the-loop operational decision making", tag: "Supervised AI" },
     ],
+    footerLabel: "API • Workflow Orchestration",
     bg: "#0D0D0D",
     text: "#ffffff",
     accent: "#FF6B00",
@@ -62,6 +64,7 @@ const slides: SlideItem[] = [
       { label: "LLM-powered logistics applications", tag: "Multi-Model" },
       { label: "Context-aware shipment and supply chain insights", tag: "RAG 2.0" },
     ],
+    footerLabel: "RAG • LLMs • Knowledge Retrieval",
     bg: "#C94716",
     text: "#ffffff",
     accent: "#ffffff",
@@ -80,6 +83,7 @@ const slides: SlideItem[] = [
       { label: "Document classification and workflow routing", tag: "Schema Valid" },
       { label: "Structured data generation from logistics documents", tag: "JSON / API" },
     ],
+    footerLabel: "OCR • Document Extraction",
     bg: "#141414",
     text: "#ffffff",
     accent: "#FF6B2C",
@@ -98,6 +102,7 @@ const slides: SlideItem[] = [
       { label: "Human-in-the-loop logistics automation", tag: "Escalation" },
       { label: "Reduced manual intervention across operations", tag: "Process AI" },
     ],
+    footerLabel: "RPA • Workflow Automation",
     bg: "#FCFBF9",
     text: "#111111",
     accent: "#FF6B00",
@@ -116,6 +121,7 @@ const slides: SlideItem[] = [
       { label: "Operational dashboards and business intelligence", tag: "Executive BI" },
       { label: "AI-ready logistics data architectures", tag: "Cloud Native" },
     ],
+    footerLabel: "ETL/ELT • Data Pipelines",
     bg: "#1C1A18",
     text: "#ffffff",
     accent: "#FF6B00",
@@ -134,6 +140,7 @@ const slides: SlideItem[] = [
       { label: "Cloud and data platform integration", tag: "Hybrid Cloud" },
       { label: "AI-enabled upgrades to existing applications", tag: "Modern Stack" },
     ],
+    footerLabel: "REST APIs • System Integration",
     bg: "#101010",
     text: "#ffffff",
     accent: "#FF6B2C",
@@ -450,7 +457,7 @@ export default function LogisticsStepWipe() {
                           color: card.text,
                         }}
                       >
-                        <span>EDI • TMS / WMS READY</span>
+                        <span>{card.footerLabel || "EDI • TMS / WMS READY"}</span>
                         <span className="flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                           PROD READY

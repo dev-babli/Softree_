@@ -72,7 +72,7 @@ export const GenerativeAiServices = ({ simple = false }: { simple?: boolean }) =
                 </h2>
 
                 <p className="typo-description text-slate-500 w-full pt-1.5">
-                  We help technology companies, consultancies, agencies, and system integrators build custom Generative AI solutions through offshore engineering, LLM development, enterprise integration, and flexible white-label delivery.
+                  Softree designs and delivers custom Generative AI solutions for technology companies, consultancies, agencies, and system integrators. Our engineers extend existing teams through LLM development, enterprise integration, and white-label delivery under your brand.
                 </p>
               </div>
             </div>

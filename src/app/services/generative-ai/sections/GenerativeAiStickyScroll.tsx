@@ -103,7 +103,7 @@ export const GenerativeAiStickyScroll = () => {
 
         <h2 className="typo-heading-2 text-slate-900 mb-4">
           Generative AI Development Solutions for <br />
-          <span className="text-[#FF6B2C]">Intelligent Business Workflows</span>
+          <span className="text-[#FF6B2C]">Business Workflows</span>
         </h2>
 
         <p className="typo-description text-slate-500 max-w-2xl">

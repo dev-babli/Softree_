@@ -273,7 +273,7 @@ export default function FabricTechnologyStack() {
       desc: "Secure data globally with native Microsoft Purview integration and row-level security.",
     },
     {
-      title: "AI-POWERED COPILOT",
+      title: "MICROSOFT COPILOT",
       borderClass: "border-[#FF5812]/30",
       textClass: "text-[#FF5812]",
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
