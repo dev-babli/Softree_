@@ -269,6 +269,11 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/contacts",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
         source: "/contact-us",
         destination: "/contact",
         permanent: true,
