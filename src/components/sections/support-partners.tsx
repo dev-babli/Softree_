@@ -597,7 +597,7 @@ const services = [
     tech: ["Azure AI Foundry", "Copilot Integration", "AI Agents", "RAG Workflows"],
     partner: "Operate with confidence using our AI integration expertise.",
     deco: "circles",
-    href: "/agentic-ai-platform",
+    href: "/solutions/ai-agents-development",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="1.5" strokeLinecap="round">
         <circle cx="12" cy="12" r="3" />
@@ -627,7 +627,7 @@ const services = [
     tech: ["Selenium", "Playwright", "CI/CD Integration", "Visual AI Testing"],
     partner: "Achieve continuous quality with modern AI testing workflows.",
     deco: "test",
-    href: "/services/ai-powered-test-automation",
+    href: "/quality-engineering/automation-testing-services",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="1.5" strokeLinecap="round">
         <circle cx="12" cy="12" r="10" />

@@ -23,7 +23,7 @@ const baseCards: Card[] = [
   {
     title: "AI Intelligence",
     img: "/whysoftree/ai-agent.jpg",
-    href: "/agentic-ai-platform",
+    href: "/solutions/ai-agents-development",
     textColor: "text-white",
   },
   {

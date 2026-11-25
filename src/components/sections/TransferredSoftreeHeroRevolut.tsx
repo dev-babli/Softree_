@@ -503,7 +503,7 @@ export function TransferredSoftreeHeroRevolut() {
                                 AI system that streamline operations
                             </p>
                             <Link
-                                href="/services/offshore-ai-development"
+                                href="/services/ai-development-services"
                                 className="mt-3 self-start inline-flex items-center gap-1.5 bg-white text-zinc-900 text-xs font-semibold px-4 py-2 rounded-full transition-all hover:bg-white/90 pointer-events-auto shadow-sm"
                             >
                                 Explore AI solutions <span className="text-[10px]">→</span>

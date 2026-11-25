@@ -99,7 +99,7 @@ export default function ServicesSection() {
             </button>
 
             <Link
-              href="/services"
+              href="/services/offshore-sharepoint-development"
               className="ml-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-white font-semibold shadow-lg hover:scale-[1.03] transition"
             >
               View All Services

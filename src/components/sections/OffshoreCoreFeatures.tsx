@@ -155,7 +155,7 @@ export default function OffshoreCoreFeatures() {
           transition={{ duration: DUR.card, ease: EASE_T.silk, delay: 0.2 }}
         >
           <Link
-            href="/services"
+            href="/services/ai-development-services"
             className="inline-flex items-center justify-center gap-2 rounded-[8px] bg-[#FF5812] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#FF5812]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF5812]"
           >
             Explore delivery models
