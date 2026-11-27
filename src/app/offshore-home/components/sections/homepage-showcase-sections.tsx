@@ -58,7 +58,7 @@ const FALLBACK_BLOG_POSTS: BlogPostMock[] = [
     category: "Cybersecurity",
     excerpt: "An in-depth review of advanced QA automation and security testing models designed to safeguard LLM integration pipelines, evaluate API compliance, and block cognitive threats.",
     image: "/images/blog/security.png",
-    href: "/services/security-testing-services",
+    href: "/quality-engineering/security-testing-services",
     publishedAt: "2026-08-09T10:00:00Z",
     readingTime: "4 min read",
     takeaways: [

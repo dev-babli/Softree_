@@ -65,7 +65,7 @@ export default function NotFound() {
           </p>
           <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
             <Link
-              href="/services"
+              href="/services/ai-development-services"
               className="group flex flex-col rounded-xl border border-white/5 bg-white/[0.03] p-4 transition-colors hover:border-[#1852FF]/40 hover:bg-white/[0.06]"
             >
               <div className="flex items-center gap-2 text-sm font-semibold text-white group-hover:text-[#1852FF]">
@@ -78,7 +78,7 @@ export default function NotFound() {
             </Link>
 
             <Link
-              href="/solutions"
+              href="/solutions/ai-agents-development"
               className="group flex flex-col rounded-xl border border-white/5 bg-white/[0.03] p-4 transition-colors hover:border-[#1852FF]/40 hover:bg-white/[0.06]"
             >
               <div className="flex items-center gap-2 text-sm font-semibold text-white group-hover:text-[#1852FF]">

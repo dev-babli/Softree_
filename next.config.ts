@@ -195,12 +195,22 @@ const nextConfig: any = {
       },
       {
         source: "/kore-ai-component",
-        destination: "/agentic-ai-platform",
+        destination: "/solutions/ai-agents-development",
         permanent: true,
       },
       {
         source: "/kore-ai-component/:path*",
-        destination: "/agentic-ai-platform/:path*",
+        destination: "/solutions/ai-agents-development",
+        permanent: true,
+      },
+      {
+        source: "/agentic-ai-platform",
+        destination: "/solutions/ai-agents-development",
+        permanent: true,
+      },
+      {
+        source: "/agentic-ai-platform/:path*",
+        destination: "/solutions/ai-agents-development",
         permanent: true,
       },
       {
@@ -230,7 +240,32 @@ const nextConfig: any = {
       },
       {
         source: "/service",
-        destination: "/services",
+        destination: "/services/ai-development-services",
+        permanent: true,
+      },
+      {
+        source: "/services",
+        destination: "/services/ai-development-services",
+        permanent: true,
+      },
+      {
+        source: "/services/security-testing-services",
+        destination: "/quality-engineering/security-testing-services",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-powered-test-automation",
+        destination: "/quality-engineering/automation-testing-services",
+        permanent: true,
+      },
+      {
+        source: "/services/offshore-ai-development",
+        destination: "/services/ai-development-services",
+        permanent: true,
+      },
+      {
+        source: "/services/mvp",
+        destination: "/services/offshore-web-app-development",
         permanent: true,
       },
       {
@@ -245,12 +280,22 @@ const nextConfig: any = {
       },
       {
         source: "/solution",
-        destination: "/agentic-ai-platform",
+        destination: "/solutions/ai-agents-development",
         permanent: true,
       },
       {
         source: "/solutions",
-        destination: "/agentic-ai-platform",
+        destination: "/solutions/ai-agents-development",
+        permanent: true,
+      },
+      {
+        source: "/quality-engineering",
+        destination: "/quality-engineering/automation-testing-services",
+        permanent: true,
+      },
+      {
+        source: "/industries",
+        destination: "/industries/healthcare-ai-solutions",
         permanent: true,
       },
       {
@@ -266,6 +311,11 @@ const nextConfig: any = {
       {
         source: "/client",
         destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/contacts",
+        destination: "/contact",
         permanent: true,
       },
       {
